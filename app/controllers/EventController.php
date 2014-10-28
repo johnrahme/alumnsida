@@ -59,43 +59,58 @@ class EventController extends BaseController{
 
     }
     public function edit ($id){
-        return View::make('users.edit')
-            ->with('title', 'Edit user')
-            ->with('user',User::find($id));
+        return View::make('events.edit')
+            ->with('title', 'Edit event')
+            ->with('event',event::find($id));
     }
 
     public function update(){
         $id = Input::get('id');
 
-        $validation = User::validate(Input::all());
+        $validation = event::validate(Input::all());
 
         if($validation->fails()){
-            return Redirect::route('edit_user', $id)->withErrors($validation);
+            return Redirect::route('edit_event', $id)->withErrors($validation);
         }
         else{
-            $user  = User::find($id);
-            $user->name = Input::get('name');
-            $user->surname = Input::get('surname');
-            $user->email = Input::get('email');
-            $user->tel = Input::get('tel');
-            $user->startYear = Input::get('startYear');
-            $user->company = Input::get('company');
 
-            $user->save();
+            $event = event::find($id);
 
-            return Redirect::route('user', $id)
-                ->with('message', 'User update successfully');
+            $event->name = Input::get('name');
+            $event->dateTimeFrom = Input::get('dateTimeFrom');
+            $event->dateTimeTo = Input::get('dateTimeTo');
+            $event->description = Input::get('description');
+            $event->place = Input::get('place');
+            if(Input::has('publish')) {
+                $event->publish = 1;
+            }
+            else{
+                $event->publish = 0;
+            }
+
+            if(Input::hasFile('image')) {
+                if (Input::file('image')->isValid()) {
+                    $imgName = Input::file('image')->getClientOriginalName();
+                    $imgExtension = Input::file('image')->getClientOriginalExtension();
+                    Input::file('image')->move('img/events', $imgName.'.'.$imgExtension);
+                }
+            }
+
+            $event->save();
+
+            return Redirect::route('event', $id)
+                ->with('message', 'Event updated successfully');
         }
 
     }
     public function destroy(){
         $id = Input::get('id');
-        $user = User::find($id);
-        $name = $user->name;
-        $user->delete();
+        $event = event::find($id);
+        $name = $event->name;
+        $event->delete();
 
-        return Redirect::route('users')
-            ->with('message', htmlentities($name).'User was deleted successfully');
+        return Redirect::route('events')
+            ->with('message', 'The event '.htmlentities($name).' was deleted successfully');
 
 
     }
