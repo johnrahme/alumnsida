@@ -40,3 +40,10 @@ Route::get('event/{id}', array('as'=> 'event', 'uses'=> 'EventController@view'))
 
 Route::post('events/create', array('uses' =>'EventController@createEvent'));
 
+Route::get('events/{id}/edit', array('as'=>'edit_event', 'uses'=>'EventController@edit'));
+
+
+Route::put('events/update', array('uses'=>'EventController@update'));
+
+Route::delete('events/delete', array('uses'=>'EventController@destroy'));
+
