@@ -31,7 +31,7 @@ class Registrations extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('registrations');
+
 	}
 
 }

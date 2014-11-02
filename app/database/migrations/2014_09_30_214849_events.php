@@ -21,6 +21,9 @@ class Events extends Migration {
             $table->string('place');
             $table->string('pictureUrl');
             $table->boolean('publish');
+            $table->boolean('reg');
+            $table->integer('regnr');
+            $table->boolean('reserv');
             $table->timestamps();
         });
 	}
