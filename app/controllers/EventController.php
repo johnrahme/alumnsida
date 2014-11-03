@@ -82,10 +82,17 @@ class EventController extends BaseController{
 
     }
     public function edit ($id){
+        if(count(registration::where('EventId','=',$id)->get())<1){
+            $editExtra = true;
+        }
+        else{
+            $editExtra = false;
+        }
         return View::make('events.edit')
             ->with('title', 'Edit event')
             ->with('event',event::find($id))
-            ->with('extra', extraFormControl::where('eventId', '=',$id)->get());
+            ->with('extra', extraFormControl::where('eventId', '=',$id)->get())
+            ->with('editExtra', $editExtra);
     }
 
     public function update(){
@@ -136,18 +143,20 @@ class EventController extends BaseController{
             }
 
             $event->save();
-            $oldExtra = extraFormControl::where('eventId', '=',$id)->get();
-            foreach($oldExtra as $ex){
-                //Viktigt! Kolla om det finns anmälda innan detta utförs!
-                $ex->delete();
-            }
-            if(Input::has('extras')){
+            if(count(registration::where('eventId', '=', $id)->get())<1) {
 
-                foreach(Input::get('extras') as $key => $text){
-                    $extraFormControl = new extraFormControl;
-                    $extraFormControl->eventId = $event->id;
-                    $extraFormControl->title = $text;
-                    $extraFormControl->save();
+                $oldExtra = extraFormControl::where('eventId', '=', $id)->get();
+                foreach ($oldExtra as $ex) {
+                    $ex->delete();
+                }
+                if (Input::has('extras')) {
+
+                    foreach (Input::get('extras') as $key => $text) {
+                        $extraFormControl = new extraFormControl;
+                        $extraFormControl->eventId = $event->id;
+                        $extraFormControl->title = $text;
+                        $extraFormControl->save();
+                    }
                 }
             }
 
@@ -160,10 +169,18 @@ class EventController extends BaseController{
         $id = Input::get('id');
         $event = event::find($id);
         $extraFormControl = extraFormControl::where('eventId', '=',$id)->get();
+        $registrations = registration::where('eventId','=',$id)->get();
         $name = $event->name;
         //Viktigt! Ta även bort ExtraData
         foreach($extraFormControl as $ex) {
+            $extraData = extraData::where('extraFromControlId', '=', $ex->id)->get();
+            foreach($extraData as $exD) {
+                $exD->delete();
+            }
             $ex->delete();
+        }
+        foreach($registrations as $reg){
+            $reg->delete();
         }
         $event->delete();
 

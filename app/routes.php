@@ -47,3 +47,12 @@ Route::put('events/update', array('uses'=>'EventController@update'));
 
 Route::delete('events/delete', array('uses'=>'EventController@destroy'));
 
+//registrations
+Route::get('event/{id}/registrations', array('as'=>'registrations', 'uses'=>'RegistrationController@index'));
+
+Route::get('event/{id}/registrations/new', array('as'=>'new_registration', 'uses'=>'RegistrationController@newRegistration'));
+
+Route::post('events/registrations/create', array('uses' =>'RegistrationController@createRegistration'));
+
+Route::delete('registrations/delete', array('uses'=>'RegistrationController@destroy'));
+

@@ -14,10 +14,7 @@
 
     <span>
     {{link_to_route('events', 'Events')}}|
-    {{ link_to_route('edit_event', 'Edit', array($event->id)) }}|
-    {{ link_to_route('new_registration', 'Register', array($event->id)) }}
-
-    {{ link_to_route('registrations', 'Registrations', array($event->id)) }}
+    {{ link_to_route('edit_event', 'Edit', array($event->id)) }}
 
     {{ Form::open(array('url'=>'events/delete', 'method' =>'DELETE')) }}
     {{ Form::hidden('id', $event->id)}}

@@ -83,9 +83,17 @@
         @foreach($extra as $ex)
 
             @if($ex->title != "")
-                 <div><input type="text" value = {{$ex->title}} name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a></div>
+                @if($editExtra == false)
+                    <div><input type="text"  disabled value = {{$ex->title}} name="extras[]" id="extras[]"/></div>
+                @else
+                    <div><input type="text"  value = {{$ex->title}} name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a></div>
+                @endif
             @else
-                 <div><input type="text" value = "" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a></div>
+                @if($editExtra == false)
+                    <div><input type="text" value = "" disabled name="extras[]" id="extras[]"/></div>
+                @else
+                    <div><input type="text" value = "" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a></div>
+                @endif
             @endif
 
         @endforeach
@@ -104,6 +112,16 @@
 
 @section('scripts')
 
+<script>
+
+        @if($editExtra == false)
+            document.getElementById("addEx").disabled = true;
+        @endif
+
+
+</script>
+
+@if($editExtra == true)
 <script>
     $(document).ready(function(){
         $('#reg').change(function(){
@@ -135,4 +153,5 @@
         });
     });
 </script>
+@endif
 @stop

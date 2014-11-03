@@ -16,6 +16,8 @@ class ExtraData extends Migration {
             $table->increments('id');
             $table->integer('registrationsId')->unsigned();
             $table->foreign('registrationsId')->references('id')->on('registrations');
+
+            //felstavat, bör ändras
             $table->integer('extraFromControlId')->unsigned();
             $table->foreign('extraFromControlId')->references('id')->on('extraFormControl');
             $table->string('data');
