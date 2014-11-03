@@ -54,5 +54,8 @@
 {{ HTML::script('js/bootstrap.min.js') }}
 {{ HTML::script('js/bootstrap-datepicker.js') }}
 
+    <!-- Script -->
+    @yield('scripts')
+
 </body>
 </html>

@@ -35,6 +35,9 @@ class Events extends Migration {
 	 */
 	public function down()
 	{
+        Schema::drop('extraData');
+        Schema::drop('extraFormControl');
+        Schema::drop('registrations');
         Schema::drop('events');
 	}
 

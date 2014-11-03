@@ -36,11 +36,26 @@ class EventController extends BaseController{
         $event->dateTimeTo = Input::get('dateTimeTo');
         $event->description = Input::get('description');
         $event->place = Input::get('place');
+
         if(Input::has('publish')) {
             $event->publish = 1;
         }
         else{
             $event->publish = 0;
+        }
+        if(Input::has('reg')){
+            $event->reg = 1;
+            $event->regnr = Input::get('regnr');
+            if(Input::has('reserv')){
+                $event->reserv = 1;
+            }
+            else{
+                $event->reserv = 0;
+            }
+
+        }
+        else{
+            $event->reg = 0;
         }
 
         if(Input::hasFile('image')) {
@@ -50,8 +65,16 @@ class EventController extends BaseController{
                 Input::file('image')->move('img/events', $imgName.'.'.$imgExtension);
             }
         }
-
         $event->save();
+        if(Input::has('extras')){
+            foreach(Input::get('extras') as $key => $text){
+                $extraFormControl = new extraFormControl;
+                $extraFormControl->eventId = $event->id;
+                $extraFormControl->title = $text;
+                $extraFormControl->save();
+            }
+        }
+
 
 
         return Redirect::to('events')
@@ -61,7 +84,8 @@ class EventController extends BaseController{
     public function edit ($id){
         return View::make('events.edit')
             ->with('title', 'Edit event')
-            ->with('event',event::find($id));
+            ->with('event',event::find($id))
+            ->with('extra', extraFormControl::where('eventId', '=',$id)->get());
     }
 
     public function update(){
@@ -88,6 +112,21 @@ class EventController extends BaseController{
                 $event->publish = 0;
             }
 
+            if(Input::has('reg')){
+                $event->reg = 1;
+                $event->regnr = Input::get('regnr');
+                if(Input::has('reserv')){
+                    $event->reserv = 1;
+                }
+                else{
+                    $event->reserv = 0;
+                }
+
+            }
+            else{
+                $event->reg = 0;
+            }
+
             if(Input::hasFile('image')) {
                 if (Input::file('image')->isValid()) {
                     $imgName = Input::file('image')->getClientOriginalName();
@@ -97,6 +136,20 @@ class EventController extends BaseController{
             }
 
             $event->save();
+            $oldExtra = extraFormControl::where('eventId', '=',$id)->get();
+            foreach($oldExtra as $ex){
+                //Viktigt! Kolla om det finns anmälda innan detta utförs!
+                $ex->delete();
+            }
+            if(Input::has('extras')){
+
+                foreach(Input::get('extras') as $key => $text){
+                    $extraFormControl = new extraFormControl;
+                    $extraFormControl->eventId = $event->id;
+                    $extraFormControl->title = $text;
+                    $extraFormControl->save();
+                }
+            }
 
             return Redirect::route('event', $id)
                 ->with('message', 'Event updated successfully');
@@ -106,7 +159,12 @@ class EventController extends BaseController{
     public function destroy(){
         $id = Input::get('id');
         $event = event::find($id);
+        $extraFormControl = extraFormControl::where('eventId', '=',$id)->get();
         $name = $event->name;
+        //Viktigt! Ta även bort ExtraData
+        foreach($extraFormControl as $ex) {
+            $ex->delete();
+        }
         $event->delete();
 
         return Redirect::route('events')

@@ -15,7 +15,7 @@ class Registrations extends Migration {
         Schema::create('registrations', function($table){
             $table->increments('id');
             $table->integer('eventId')->unsigned();
-            $table->foreign('eventId')->references('id')->on('users');
+            $table->foreign('eventId')->references('id')->on('events');
             $table->string('name');
             $table->string('surname');
             $table->string('email');

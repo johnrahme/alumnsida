@@ -31,7 +31,6 @@ class Users extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('registrations');
 		Schema::drop('users');
 	}
 
