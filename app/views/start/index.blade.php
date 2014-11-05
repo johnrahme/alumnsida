@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class = "item" id = "slide2">
-            <img src="images/img2.png">
+            <img src="http://placehold.it//1200x500">
             <div class = "carousel-caption">
                 <h4>Website!
                 </h4>
