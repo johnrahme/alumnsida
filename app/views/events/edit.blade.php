@@ -112,10 +112,17 @@
 
 @section('scripts')
 
+{{HTML::script('js/datetimepickerconfig.js')}}
+
 <script>
+
+//Det går inte att ändra anmälan när det redan finns anmälda
 
         @if($editExtra == false)
             document.getElementById("addEx").disabled = true;
+            document.getElementById("reg").disabled = true;
+            document.getElementById("regnr").disabled = true;
+            document.getElementById("reserv").disabled = true;
         @endif
 
 

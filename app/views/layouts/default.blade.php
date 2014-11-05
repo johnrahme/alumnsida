@@ -8,7 +8,7 @@
     <!-- CSS are placed here -->
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/bootstrap-theme.css') }}
-    {{ HTML::style('css/datepicker.css') }}
+    {{ HTML::style('css/jquery.datetimepicker.css') }}
 
 </head>
 
@@ -52,7 +52,8 @@
 <!-- Scripts are placed here -->
 {{ HTML::script('js/jquery-1.11.1.min.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
-{{ HTML::script('js/bootstrap-datepicker.js') }}
+{{HTML::script('js/jquery.datetimepicker.js')}}
+
 
     <!-- Script -->
     @yield('scripts')

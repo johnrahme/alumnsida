@@ -109,6 +109,8 @@
 
 @section('scripts')
 
+{{HTML::script('js/datetimepickerconfig.js')}}
+
  <script>
      $(document).ready(function(){
          $('#reg').change(function(){
