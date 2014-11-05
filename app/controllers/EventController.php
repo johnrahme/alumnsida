@@ -62,7 +62,10 @@ class EventController extends BaseController{
             if (Input::file('image')->isValid()) {
                 $imgName = Input::file('image')->getClientOriginalName();
                 $imgExtension = Input::file('image')->getClientOriginalExtension();
-                Input::file('image')->move('img/events', $imgName.'.'.$imgExtension);
+                $saveName =microtime().'_'.$imgName;
+                Input::file('image')->move('img/events', $saveName);
+                $URL = 'img/events/'.$saveName;
+                $event->pictureUrl = $URL;
             }
         }
         $event->save();
@@ -132,14 +135,32 @@ class EventController extends BaseController{
             }
             else{
                 $event->reg = 0;
+                echo "<script>alert('händer')</script>";
             }
+
+
+            //Jobbar med bilden:
 
             if(Input::hasFile('image')) {
                 if (Input::file('image')->isValid()) {
+                    if($event->pictureUrl != ""){
+                        File::delete($event->pictureUrl);
+                    }
                     $imgName = Input::file('image')->getClientOriginalName();
                     $imgExtension = Input::file('image')->getClientOriginalExtension();
-                    Input::file('image')->move('img/events', $imgName.'.'.$imgExtension);
+                    $saveName =microtime().'_'.$imgName;
+                    Input::file('image')->move('img/events', $saveName);
+                    $URL = 'img/events/'.$saveName;
+                    $event->pictureUrl = $URL;
                 }
+            }
+            else{
+                if(Input::get('pictureChanged') == 1){
+                    File::delete($event->pictureUrl);
+                    $event->pictureUrl = "";
+                }
+
+
             }
 
             $event->save();

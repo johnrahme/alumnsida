@@ -51,7 +51,11 @@
 
 <p>
     {{Form::label('image', 'Bild')}} <br/>
-    {{ Form::file('image')}} <br/>
+    <div id = "oldPicture">{{Form::label('oldPictureL', 'The old Picture')}}<a href="#" id="remove_picture">X</a></div> <br/>
+    <div id = "newPicture">
+        {{ Form::file('image')}} <br/>
+    </div>
+
 </p>
 
 <p>
@@ -105,6 +109,8 @@
 </div>
 
 {{Form::hidden('id', $event->id)}}
+{{Form::hidden('pictureChanged', 0, array('id' => 'pictureChanged'))}}
+
 <p> {{Form::submit('Update event')}} </p>
 {{Form::close()}}
 
@@ -116,6 +122,30 @@
 
 <script>
 
+//Kollar om det finns en bild
+@if($event->pictureUrl != "")
+    $('#oldPicture').show();
+    $('#newPicture').hide();
+    $("label[for = 'oldPictureL']").text('{{$event->pictureUrl}}');
+
+@else
+    $('#oldPicture').hide();
+    $('#newPicture').show();
+@endif
+
+        $('#remove_picture').click(function(e){
+        e.preventDefault();
+        $('#oldPicture').hide();
+        $('#newPicture').show();
+        $('#pictureChanged').val(1);
+        });
+
+</script>
+
+
+<script>
+
+
 //Det går inte att ändra anmälan när det redan finns anmälda
 
         @if($editExtra == false)
@@ -126,10 +156,13 @@
         @endif
 
 
+
 </script>
 
 @if($editExtra == true)
 <script>
+
+//Lägger till registreringsfält
     $(document).ready(function(){
         $('#reg').change(function(){
             if(!this.checked){
@@ -161,4 +194,6 @@
     });
 </script>
 @endif
+
+
 @stop

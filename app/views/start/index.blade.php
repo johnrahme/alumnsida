@@ -13,7 +13,7 @@
     </ol>
     <div class = "carousel-inner">
         <div class = "item active" id = "slide1">
-            <img src="http://placehold.it//1200x500" alt="images/img2.png">
+            <img src="img/events/0.86546200 1415206937_Desert.jpg" alt="images/img2.png">
             <div class = "carousel-caption">
                 <h4>Bootstrap!
                 </h4>
