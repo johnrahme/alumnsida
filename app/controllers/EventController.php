@@ -189,6 +189,9 @@ class EventController extends BaseController{
     public function destroy(){
         $id = Input::get('id');
         $event = event::find($id);
+        if($event->pictureUrl != "") {
+            File::delete($event->pictureUrl);
+        }
         $extraFormControl = extraFormControl::where('eventId', '=',$id)->get();
         $registrations = registration::where('eventId','=',$id)->get();
         $name = $event->name;
