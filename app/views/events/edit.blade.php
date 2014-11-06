@@ -59,8 +59,12 @@
 </p>
 
 <p>
+    @if($editExtra == 1)
     {{Form::label('reg', 'Ska man kunna registrera sig till eventet?')}}  <br/>
     {{Form::checkbox('reg', 'Check', $event->reg)}} <br/>
+    @else
+    {{Form::hidden('reg', $event->reg)}}
+    @endif
 </p>
 
     @if($event->reg == 1)
@@ -77,8 +81,14 @@
 
     </p>
     <p>
+
+        @if($editExtra == true)
         {{Form::label('reserv', 'Kan man anmäla sig som reserv?')}}  <br/>
         {{Form::checkbox('reserv', 'Check', $event->reserv)}} <br/>
+
+        @else
+        {{Form::hidden('reserv', $event->reserv)}}
+        @endif
     </p>
     <p>
         {{Form::label('extra', 'Lägg till extra fält för anmälan')}}  <br/>
@@ -88,13 +98,13 @@
 
             @if($ex->title != "")
                 @if($editExtra == false)
-                    <div><input type="text"  disabled value = {{$ex->title}} name="extras[]" id="extras[]"/></div>
+                    <div><input type="text"  readonly value = {{$ex->title}} name="extras[]" id="extras[]"/></div>
                 @else
                     <div><input type="text"  value = {{$ex->title}} name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a></div>
                 @endif
             @else
                 @if($editExtra == false)
-                    <div><input type="text" value = "" disabled name="extras[]" id="extras[]"/></div>
+                    <div><input type="text" value = "" readonly name="extras[]" id="extras[]"/></div>
                 @else
                     <div><input type="text" value = "" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a></div>
                 @endif
@@ -150,9 +160,7 @@
 
         @if($editExtra == false)
             document.getElementById("addEx").disabled = true;
-            document.getElementById("reg").disabled = true;
-            document.getElementById("regnr").disabled = true;
-            document.getElementById("reserv").disabled = true;
+            document.getElementById("regnr").readOnly = true;
         @endif
 
 
