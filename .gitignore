@@ -1,6 +1,7 @@
 .idea/*
 /bootstrap/compiled.php
 /vendor
+/public/img/events
 composer.phar
 composer.lock
 .env.*.php
