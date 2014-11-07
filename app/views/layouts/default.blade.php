@@ -28,9 +28,10 @@
             <ul class = "nav navbar-nav navbar-right">
 
                 <li class = "active"> {{link_to('/','Start')}}</li>
-                <li> {{link_to_route('users','Användare')}}</a></li>
+                <li> {{link_to_route('users','Användare')}}</li>
                 <li> {{link_to_route('events','Events')}}</li>
                 <li> <a href = "#">Admin </a></li>
+                <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
             </ul>
         </div>
     </div>
@@ -38,6 +39,7 @@
 
 <!-- Container -->
 <div class="container">
+@include('contact.index')
 
     @if(Session::has('message'))
     <p style = "color: #008000;"> {{Session::get('message')}} </p>
@@ -53,6 +55,7 @@
 {{ HTML::script('js/jquery-1.11.1.min.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
 {{HTML::script('js/jquery.datetimepicker.js')}}
+{{HTML::script('js/checkmodal.js')}}
 
 
     <!-- Script -->

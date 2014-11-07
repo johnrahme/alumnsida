@@ -56,3 +56,11 @@ Route::post('events/registrations/create', array('uses' =>'RegistrationControlle
 
 Route::delete('registrations/delete', array('uses'=>'RegistrationController@destroy'));
 
+//contactPage
+
+Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));
+
+Route::post('contact/send', array('as' => 'send', 'uses' => 'ContactController@send'));
+
+Route::get('contact/sent', array('as' => 'sent', 'uses' => 'ContactController@sent'));
+
