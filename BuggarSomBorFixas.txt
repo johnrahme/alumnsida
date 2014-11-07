@@ -1,0 +1,1 @@
+1. De extra fält man lägger till i anmälan kan vara tomma, en validering av dessa bör läggas till

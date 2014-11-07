@@ -30,9 +30,9 @@
 				</div>
 
 				<div class = "form-group">
-					<label for = "contact-email" class = "col-lg-2" control-label>Text: </label>
+					<label for = "contact-text" class = "col-lg-2" control-label>Text: </label>
 						<div class = "col-lg-10">
-							<textarea class = "form-control" rows = "3" id = "contact-text" name = "contact-text"></textarea>
+							<textarea class = "form-control" rows = "7" id = "contact-text" name = "contact-text" style="resize:none"></textarea>
 
 						</div>
 
