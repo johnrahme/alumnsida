@@ -30,6 +30,7 @@
                 <p>
                     {{$picEvent->description}}
                 </p>
+                {{ link_to_route('event', 'Läs mer!', array($picEvent->id), array('class'=>'btn btn-primary', 'role' =>'button')) }}
             </div>
         </div>
         @endforeach
