@@ -16,15 +16,16 @@
 <!-- Navbar -->
 <div class = "navbar navbar-inverse navbar-static-top">
     <div class = "container">
-        <a href = "#" class = "navbar-brand"> FUTF:s alumnsida</a>
-        <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-            <span class = "icon-bar"> </span>
-            <span class = "icon-bar"> </span>
-            <span class = "icon-bar"> </span>
+        <div class = "navbar-header">
+            <a href = "#" class = "navbar-brand"> FUTF:s alumnsida</a>
+            <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                <span class = "icon-bar"> </span>
+                <span class = "icon-bar"> </span>
+                <span class = "icon-bar"> </span>
 
-        </button>
-
-        <div class = "collapse navbar-collapse navHeaderCollapse" >
+            </button>
+        </div>
+        <div class = "navbar-collapse collapse navHeaderCollapse" >
             <ul class = "nav navbar-nav navbar-right">
 
                 <li class = "active"> {{link_to('/','Start')}}</li>
