@@ -47,6 +47,8 @@ Route::put('events/update', array('uses'=>'EventController@update'));
 
 Route::delete('events/delete', array('uses'=>'EventController@destroy'));
 
+Route::get('event/{id}/map', array('as'=>'map','uses'=>'EventController@map'));
+
 //registrations
 Route::get('event/{id}/registrations', array('as'=>'registrations', 'uses'=>'RegistrationController@index'));
 

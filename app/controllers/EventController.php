@@ -186,6 +186,11 @@ class EventController extends BaseController{
         }
 
     }
+    public function map($id){
+        $event = event::find($id);
+        return View::make('events.map')
+            ->with('event', $event);
+    }
     public function destroy(){
         $id = Input::get('id');
         $event = event::find($id);
