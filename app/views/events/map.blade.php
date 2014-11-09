@@ -43,7 +43,7 @@ function initialize() {
               '</div>'+
               '<h1 id="firstHeading" class="firstHeading">{{$event->name}}</h1>'+
               '<div id="bodyContent">'+
-              '<p>{{$event->description}}'+ '</br> Plats: {{$event->place}} </p>'+
+              '<p>{{$event->place}}'+
               '</div>'+
               '</div>';
 
