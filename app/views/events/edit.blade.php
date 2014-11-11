@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1> Edit Eventet </h1>
+<h1> Edit Event </h1>
 
 @include('common.events_errors')
 {{Form::open(array('url'=> 'events/update','files'=>true, 'method' => 'put'))}}
