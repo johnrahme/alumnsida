@@ -46,6 +46,11 @@
     </div>
 </div>
 
+@if(Auth::check())
+
+Logged in as {{Auth::user()->username}}
+
+@endif
 <!-- Container -->
 <div class="container">
 @include('contact.index')
