@@ -27,12 +27,20 @@
         </div>
         <div class = "navbar-collapse collapse navHeaderCollapse" >
             <ul class = "nav navbar-nav navbar-right">
-
+                @if(Auth::check())
                 <li class = "active"> {{link_to('/','Start')}}</li>
                 <li> {{link_to_route('users','Användare')}}</li>
                 <li> {{link_to_route('events','Events')}}</li>
-                <li> <a href = "#">Admin </a></li>
+                <li> {{link_to_route('admin','Admin')}}</li>
+                <li> {{link_to_route('logout','Logout')}}</li>
                 <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
+                @else
+                <li class = "active"> {{link_to('/','Start')}}</li>
+                <li> {{link_to_route('events','Events')}}</li>
+                <li> {{link_to_route('admin','Admin')}}</li>
+                <li> {{link_to_route('login','Login')}}</li>
+                <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
+                @endif
             </ul>
         </div>
     </div>

@@ -15,7 +15,7 @@ Route::get('/', array('as'=>'start', 'uses'=>'HomeController@index'));
 
 //Users
 
-Route::get('users', array('as'=>'users', 'uses'=>'UserController@index'));
+Route::get('users', array('as'=>'users', 'uses'=>'UserController@index'))->before('auth');
 
 Route::get('users/new', array('as'=> 'new_user', 'uses'=> 'UserController@newuser'));
 
@@ -65,4 +65,21 @@ Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@inde
 Route::post('contact/send', array('as' => 'send', 'uses' => 'ContactController@send'));
 
 Route::get('contact/sent', array('as' => 'sent', 'uses' => 'ContactController@sent'));
+
+//admin
+
+Route::get('admin', array('as' => 'admin', 'uses' => 'AdminController@index'));
+
+Route::get('admin/new', array('as' => 'new_admin', 'uses' => 'AdminController@newadmin'));
+
+Route::post('admin/create', array('uses' => 'AdminController@createAdmin'));
+
+//sessions
+
+Route::get('login', array('as' =>'login', 'uses' => 'SessionsController@create'));
+
+Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destroy'));
+
+Route::resource('sessions', 'SessionsController', ['only' => ['store', 'index', 'create', 'destroy']]);
+
 

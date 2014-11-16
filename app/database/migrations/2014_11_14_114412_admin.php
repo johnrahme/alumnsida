@@ -12,7 +12,14 @@ class Admin extends Migration {
 	 */
 	public function up()
 	{
-		//
+        Schema::create('admin', function($table){
+            $table->increments('id');
+            $table->string('username');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
 	}
 
 	/**
@@ -22,7 +29,7 @@ class Admin extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('admin');
 	}
 
 }
