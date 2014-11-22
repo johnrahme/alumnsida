@@ -14,7 +14,7 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
      *
      * @var string
      */
-    protected $table = 'admin';
+    protected $table = 'admins';
 
     /**
      * The attributes excluded from the model's JSON form.
