@@ -46,13 +46,14 @@
     </div>
 </div>
 
+
+<!-- Container -->
+<div class="container">
 @if(Auth::check())
 
 Logged in as {{Auth::user()->username}}
 
 @endif
-<!-- Container -->
-<div class="container">
 @include('contact.index')
 
     @if(Session::has('message'))

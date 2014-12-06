@@ -5,32 +5,32 @@
 
 
     <ol class = "carousel-indicators">
-        <li class = "active" data-slide-to = "0" data-target = "#myCarousel"> </li>
         @foreach($eventsWithPictures as $key => $picEvent)
-        <li data-slide-to = "{{$key+1}}" data-target = "#myCarousel"></li>
+            @if($key == 0)
+            <li class = "active" data-slide-to = "0" data-target = "#myCarousel"> </li>
+            @else
+            <li data-slide-to = "{{$key}}" data-target = "#myCarousel"></li>
+            @endif
         @endforeach
     </ol>
     <div class = "carousel-inner">
-        <div class = "item active" id = "slide1">
-            <img src="http://placehold.it//1200x500" alt="images/img2.png">
-            <div class = "carousel-caption">
-                <h4>Bootstrap!
-                </h4>
-                <p>
-                    Learning carousel
-                </p>
-            </div>
-        </div>
         @foreach($eventsWithPictures as $key => $picEvent)
+        @if($key == 0)
+        <div class = "item active" id = "{{'slide'.$picEvent->id}}">
+        @else
         <div class = "item" id = "{{'slide'.$picEvent->id}}">
+        @endif
             <img src="{{$picEvent->pictureUrl}}">
             <div class = "carousel-caption">
                 <h4>{{$picEvent->name}}
                 </h4>
+                {{--<p>--}}
+                    {{--{{$picEvent->description}}--}}
+                {{--</p>--}}
                 <p>
-                    {{$picEvent->description}}
+                {{ link_to_route('event', 'Läs mer!', array($picEvent->id), array('class'=>'btn btn-primary btn-xs', 'role' =>'button')) }}
                 </p>
-                {{ link_to_route('event', 'Läs mer!', array($picEvent->id), array('class'=>'btn btn-primary', 'role' =>'button')) }}
+
             </div>
         </div>
         @endforeach
