@@ -17,7 +17,7 @@ class Events extends Migration {
             $table->string('name');
             $table->dateTime('dateTimeFrom');
             $table->dateTime('dateTimeTo');
-            $table->string('description');
+            $table->longText('description');
             $table->string('place');
             $table->string('pictureUrl');
             $table->boolean('publish');

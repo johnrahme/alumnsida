@@ -4,7 +4,7 @@
 
 <h1> {{{$event->name}}}</h1>
 
-<h1> {{{$event->description}}}</h1>
+<h2> {{$event->description}}</h2>
 
 <h1> {{{$event->dateTimeFrom}}}</h1>
 

@@ -1,5 +1,11 @@
 @extends('layouts.default')
 
+@section('styles')
+
+{{ HTML::style('plugins/summernote/css/summernote.css') }}
+{{ HTML::style('plugins/summernote/css/css/font-awesome.min.css') }}
+@stop
+
 @section('content')
 
 
@@ -7,7 +13,7 @@
 <h1> Add new Event </h1>
 
 @include('common.events_errors')
-{{Form::open(array('url'=> 'events/create','files'=>true))}}
+{{Form::open(array('url'=> 'events/create','files'=>true, 'id'=>'form1'))}}
 
 <p>
     {{Form::label('name', 'Namn')}} <br/>
@@ -33,7 +39,8 @@
 <p>
     {{Form::label('description', 'Beskrivning')}} <br/>
 
-    {{Form::textarea('description')}}
+    <div class = "summernote" id="col">{{Input::old('description')}}</div>
+    {{Form::hidden('description')}}
 </p>
 
 <p>
@@ -101,7 +108,7 @@
 </div>
 
 
-<p> {{Form::submit('Add event')}} </p>
+<p> <button id="save" class="btn btn-primary" onclick="save()" type="button">Add event</button> </p>
 {{Form::close()}}
 
 
@@ -142,4 +149,26 @@
          });
      });
  </script>
+
+ {{--Summernote--}}
+ {{HTML::script('plugins/summernote/js/summernote.min.js')}}
+
+  <script>
+  $(document).ready(function() {
+    $('.summernote').summernote({
+    width: 450,
+    height: 400,
+    minHeight: 400,
+    maxHeight: 400
+    });
+  });
+  </script>
+    <script>
+
+     $("#save").click(function(){
+         $("#description").val($('#col').code());
+         $("#form1").submit();
+     });
+
+    </script>
 @stop
