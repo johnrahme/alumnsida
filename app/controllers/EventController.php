@@ -8,14 +8,16 @@ class EventController extends BaseController{
         $events = event::orderBy('dateTimeFrom')->get();
         return View::make('events.index')
             ->with('title', 'Event')
-            ->with('events', $events);
+            ->with('events', $events)
+            ->with('currEvent', event::find(5));
 
     }
 
     public function view($id){
         return View::make('events.view')
             ->with('title', 'Event View Page')
-            ->with('event', event::find($id));
+            ->with('currEvent', event::find($id))
+            ->with('events',event::orderBy('dateTimeFrom')->get());
 
     }
     public function newevent(){

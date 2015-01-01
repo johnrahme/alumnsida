@@ -28,7 +28,7 @@
                     {{--{{$picEvent->description}}--}}
                 {{--</p>--}}
                 <p>
-                {{ link_to_route('event', 'Läs mer!', array($picEvent->id), array('class'=>'btn btn-primary btn-xs', 'role' =>'button')) }}
+                {{ link_to_route('event', 'Läs mer', array($picEvent->id), array('class'=>'btn btn-primary btn-xs', 'role' =>'button')) }}
                 </p>
 
             </div>

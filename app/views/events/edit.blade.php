@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.event')
 
 @section('styles')
 
@@ -6,132 +6,135 @@
 {{ HTML::style('plugins/summernote/css/css/font-awesome.min.css') }}
 @stop
 
-@section('content')
+@section('before')
 
-<h1> Edit Event </h1>
-
-@include('common.events_errors')
-{{Form::open(array('url'=> 'events/update','files'=>true, 'method' => 'put', 'id' => 'form1'))}}
-
-<p>
-    {{Form::label('name', 'Namn')}} <br/>
-
-    {{Form::text('name', $event->name)}}
-
-</p>
-<p>
-    {{Form::label('dateTimeFrom', 'Starttid')}} <br/>
-
-    {{Form::input('datepicker', 'dateTimeFrom', $event->dateTimeFrom)}}
-
-
-</p>
-
-<p>
-    {{Form::label('dateTimeTo', 'Sluttid')}} <br/>
-
-    {{Form::input('datetime', 'dateTimeTo', $event->dateTimeTo)}}
-
-
-</p>
-<p>
-    {{Form::label('description', 'Beskrivning')}} <br/>
-
-        {{Form::hidden('description')}}
-</p>
-<div class = "summernote" id="col">{{$event->description}}</div>
-
-<p>
-    {{Form::label('place', 'Plats')}} <br/>
-
-    {{Form::text('place', $event->place)}}
-
-</p>
-
-
-<p>
-    {{Form::label('publish', 'Online')}} <br/>
-
-    {{Form::checkbox('publish', 'Check', $event->publish)}}
-
-</p>
-
-<p>
-    {{Form::label('image', 'Bild')}} <br/>
-    <div id = "oldPicture">{{Form::label('oldPictureL', 'The old Picture')}}<a href="#" id="remove_picture">X</a></div> <br/>
-    <div id = "newPicture">
-        {{ Form::file('image')}} <br/>
-    </div>
-
-</p>
-
-<p>
-    @if($editExtra == 1)
-    {{Form::label('reg', 'Ska man kunna registrera sig till eventet?')}}  <br/>
-    {{Form::checkbox('reg', 'Check', $event->reg)}} <br/>
-    @else
-    {{Form::hidden('reg', $event->reg)}}
-    @endif
-</p>
-
-    @if($event->reg == 1)
-        <div id = "registrering">
-    @else
-        <div id = "registrering" style = "display: none;">
-    @endif
-
+    @include('common.events_errors')
+    {{Form::open(array('url'=> 'events/update','files'=>true, 'method' => 'put', 'id' => 'form1'))}}
+@stop
+@section('panelOne')
     <p>
-        {{Form::label('regnr', 'Antal som kan registrera sig')}} <br/>
+        {{Form::label('name', 'Namn')}} <br/>
 
-        {{Form::input('number', 'regnr', $event->regnr)}}
-
+        {{Form::text('name', $event->name)}}
 
     </p>
     <p>
+        {{Form::label('dateTimeFrom', 'Starttid')}} <br/>
 
-        @if($editExtra == true)
-        {{Form::label('reserv', 'Kan man anmäla sig som reserv?')}}  <br/>
-        {{Form::checkbox('reserv', 'Check', $event->reserv)}} <br/>
+        {{Form::input('datepicker', 'dateTimeFrom', $event->dateTimeFrom)}}
 
+
+    </p>
+
+    <p>
+        {{Form::label('dateTimeTo', 'Sluttid')}} <br/>
+
+        {{Form::input('datetime', 'dateTimeTo', $event->dateTimeTo)}}
+
+
+    </p>
+
+    <p>
+        {{Form::label('place', 'Plats')}} <br/>
+
+        {{Form::text('place', $event->place)}}
+
+    </p>
+@stop
+@section('panelTwo')
+    <p>
+        {{Form::label('description', 'Beskrivning')}} <br/>
+
+            {{Form::hidden('description')}}
+    </p>
+    <div class = "summernote" id="col">{{$event->description}}</div>
+
+@stop
+@section('panelThree')
+    <p>
+        @if($editExtra == 1)
+        {{Form::label('reg', 'Ska man kunna registrera sig till eventet?')}}  <br/>
+        {{Form::checkbox('reg', 'Check', $event->reg)}} <br/>
         @else
-        {{Form::hidden('reserv', $event->reserv)}}
+        {{Form::hidden('reg', $event->reg)}}
         @endif
     </p>
-    <p>
-        {{Form::label('extra', 'Lägg till extra fält för anmälan')}}  <br/>
-    <div id = "wrapper">
-        {{Form::button('Lägg till', array('id'=>'addEx'))}}
-        @foreach($extra as $ex)
 
-            @if($ex->title != "")
-                @if($editExtra == false)
-                    <div><input type="text"  readonly value = {{$ex->title}} name="extras[]" id="extras[]"/></div>
-                @else
-                    <div><input type="text"  value = {{$ex->title}} name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a></div>
-                @endif
+        @if($event->reg == 1)
+            <div id = "registrering">
+        @else
+            <div id = "registrering" style = "display: none;">
+        @endif
+
+        <p>
+            {{Form::label('regnr', 'Antal som kan registrera sig')}} <br/>
+
+            {{Form::input('number', 'regnr', $event->regnr)}}
+
+
+        </p>
+        <p>
+
+            @if($editExtra == true)
+            {{Form::label('reserv', 'Kan man anmäla sig som reserv?')}}  <br/>
+            {{Form::checkbox('reserv', 'Check', $event->reserv)}} <br/>
+
             @else
-                @if($editExtra == false)
-                    <div><input type="text" value = "" readonly name="extras[]" id="extras[]"/></div>
-                @else
-                    <div><input type="text" value = "" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a></div>
-                @endif
+            {{Form::hidden('reserv', $event->reserv)}}
             @endif
+        </p>
+        <p>
+            {{Form::label('extra', 'Lägg till extra fält för anmälan')}}
+        <div id = "wrapper">
+            {{Form::button('Lägg till', array('id'=>'addEx'))}}
+            <br>
+            <br>
+            @foreach($extra as $ex)
 
-        @endforeach
+                @if($ex->title != "")
+                    @if($editExtra == false)
+                        <div><input type="text"  readonly value = {{$ex->title}} name="extras[]" id="extras[]"/><br><br></div>
+                    @else
+                        <div><input type="text"  value = {{$ex->title}} name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a><br><br></div>
+                    @endif
+                @else
+                    @if($editExtra == false)
+                        <div><input type="text" value = "" readonly name="extras[]" id="extras[]"/><br><br></div>
+                    @else
+                        <div><input type="text" value = "" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a><br><br></div>
+                    @endif
+                @endif
+            @endforeach
 
+
+        </div>
+        </p>
 
     </div>
+@stop
+@section('panelFour')
+    <p>
+        {{Form::label('publish', 'Online')}} <br/>
+
+        {{Form::checkbox('publish', 'Check', $event->publish)}}
+
     </p>
 
-</div>
+    <p>
+        {{Form::label('image', 'Bild')}} <br/>
+        <div id = "oldPicture">{{Form::label('oldPictureL', 'The old Picture')}}<a href="#" id="remove_picture">X</a></div> <br/>
+        <div id = "newPicture">
+            {{ Form::file('image')}} <br/>
+        </div>
 
+    </p>
+@stop
+@section('after')
+    {{Form::hidden('id', $event->id)}}
+    {{Form::hidden('pictureChanged', 0, array('id' => 'pictureChanged'))}}
 
-{{Form::hidden('id', $event->id)}}
-{{Form::hidden('pictureChanged', 0, array('id' => 'pictureChanged'))}}
-
-<p> <button id="save" class="btn btn-primary" onclick="save()" type="button">Update event</button> </p>
-{{Form::close()}}
-
+    <p> <button id="save" class="btn btn-primary" onclick="save()" type="button">Update event</button> {{ link_to_route('event', 'Cancel', array($event->id), array('class'=>'btn btn-default')) }}</p>
+    {{Form::close()}}
 @stop
 
 @section('scripts')
@@ -199,7 +202,7 @@
                 var ex = "extra";
                 var fieldID = ex.concat(ex);
 
-                $("#wrapper").append('<div><input type="text" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a></div>'); //add input box
+                $("#wrapper").append('<div><input type="text" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a><br><br></div>'); //add input box
             }
         });
         $("#wrapper").on("click","#remove_field", function(e){ //user click on remove text
