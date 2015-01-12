@@ -13,7 +13,7 @@
 
 </head>
 
-<body style = "background-image: url('{{URL::asset('img/yellow_new.jpg');}}');background-repeat: no-repeat;background-attachment: fixed;">
+<body style = "background-image: url('{{URL::asset('img/yellow2.jpg');}}');background-repeat: no-repeat;background-attachment: fixed;">
 <!-- Navbar -->
 <div class = "navbar navbar-inverse navbar-static-top">
     <div class = "container">
