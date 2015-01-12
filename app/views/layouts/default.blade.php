@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body style = "background-image: url('{{URL::asset('img/yellow_new.jpg');}}');background-repeat: no-repeat;background-attachment: fixed;">
 <!-- Navbar -->
 <div class = "navbar navbar-inverse navbar-static-top">
     <div class = "container">
@@ -49,7 +49,7 @@
 
 
 <!-- Container -->
-<div class="container">
+<div class="container" style = "box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
 @if(Auth::check())
 
 Logged in as {{Auth::user()->username}}

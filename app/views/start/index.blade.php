@@ -36,3 +36,12 @@
 
 
 @stop
+@section('scripts')
+<script type='text/javascript'>
+    $(document).ready(function() {
+         $('.carousel').carousel({
+             interval: 5000
+         })
+    });
+</script>
+@stop

@@ -162,7 +162,10 @@
     width: 450,
     height: 400,
     minHeight: 400,
-    maxHeight: 400
+    maxHeight: 400,
+    onkeyup: function(e) {
+                $("#desc").html($('#col').code());
+             }
     });
   });
   </script>
@@ -174,4 +177,5 @@
      });
 
     </script>
+    {{HTML::script('js/eventPreview.js')}}
 @stop

@@ -15,13 +15,13 @@
     <p>
         {{Form::label('name', 'Namn')}} <br/>
 
-        {{Form::text('name', $event->name)}}
+        {{Form::text('name', $event->name, array('class'=>'form-control'))}}
 
     </p>
     <p>
         {{Form::label('dateTimeFrom', 'Starttid')}} <br/>
 
-        {{Form::input('datepicker', 'dateTimeFrom', $event->dateTimeFrom)}}
+        {{Form::input('datepicker', 'dateTimeFrom', $event->dateTimeFrom, array('class'=>'form-control'))}}
 
 
     </p>
@@ -29,7 +29,7 @@
     <p>
         {{Form::label('dateTimeTo', 'Sluttid')}} <br/>
 
-        {{Form::input('datetime', 'dateTimeTo', $event->dateTimeTo)}}
+        {{Form::input('datetime', 'dateTimeTo', $event->dateTimeTo, array('class'=>'form-control'))}}
 
 
     </p>
@@ -37,7 +37,7 @@
     <p>
         {{Form::label('place', 'Plats')}} <br/>
 
-        {{Form::text('place', $event->place)}}
+        {{Form::text('place', $event->place, array('class'=>'form-control'))}}
 
     </p>
 @stop
@@ -69,7 +69,7 @@
         <p>
             {{Form::label('regnr', 'Antal som kan registrera sig')}} <br/>
 
-            {{Form::input('number', 'regnr', $event->regnr)}}
+            {{Form::input('number', 'regnr', $event->regnr, array('class'=>'form-control'))}}
 
 
         </p>
@@ -86,7 +86,7 @@
         <p>
             {{Form::label('extra', 'Lägg till extra fält för anmälan')}}
         <div id = "wrapper">
-            {{Form::button('Lägg till', array('id'=>'addEx'))}}
+            {{Form::button('Lägg till', array('id'=>'addEx', 'class' => 'btn btn-default'))}}
             <br>
             <br>
             @foreach($extra as $ex)
@@ -223,7 +223,10 @@
     width: 450,
     height: 400,
     minHeight: 400,
-    maxHeight: 400
+    maxHeight: 400,
+    onkeyup: function(e) {
+            $("#desc").html($('#col').code());
+          }
     });
   });
   </script>
@@ -236,5 +239,5 @@
 
     </script>
 
-
+{{HTML::script('js/eventPreview.js')}}
 @stop
