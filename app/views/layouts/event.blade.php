@@ -73,20 +73,20 @@
                     </p>
                     <p>
                         <span class="glyphicon glyphicon-map-marker" style="font-size: 1.8em"></span>
-                        plats
+                        <a><d id = "location">plats</d></a>
                     </p>
                     <p>
                         <span class="glyphicon glyphicon-pencil" style="font-size: 1.8em"></span>
-                        anmälan
+                        <a>Anmälan</a>
                     </p>
 
                     <p>
                         <span class="glyphicon glyphicon-edit" style="font-size: 1.8em"></span>
-                        ändra
+                        <a>Ändra</a>
                     </p>
                     <p>
                         <span class="glyphicon glyphicon-eye-open" style="font-size: 1.8em"></span>
-                        Registreringar
+                        <a>Registreringar</a>
                     </p>
                     {{ Form::button('Ta bort', array('class'=>'btn btn-danger')) }}
 
