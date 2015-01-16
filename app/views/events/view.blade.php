@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
+@include('events.del')
 
 <div class = "row">
     <div class = "col-sm-8">
@@ -28,23 +29,24 @@
                     <span class="glyphicon glyphicon-map-marker" style="font-size: 1.8em"></span>
                     {{link_to_route('map', $currEvent->place, array($currEvent->id), array('target'=>'_blank'))}}
                 </p>
+                @if($currEvent->reg == 1)
                 <p>
                     <span class="glyphicon glyphicon-pencil" style="font-size: 1.8em"></span>
                     {{link_to_route('new_registration', 'Anmälan', array($currEvent->id))}}
                 </p>
+                @endif
                 @if(Auth::check())
                 <p>
                     <span class="glyphicon glyphicon-edit" style="font-size: 1.8em"></span>
                     {{ link_to_route('edit_event', 'Ändra', array($currEvent->id)) }}
                 </p>
-                <p>
-                    <span class="glyphicon glyphicon-eye-open" style="font-size: 1.8em"></span>
-                    {{ link_to_route('registrations', 'See anmälningar', array($currEvent->id)) }}
-                </p>
-                {{ Form::open(array('url'=>'events/delete', 'method' =>'DELETE')) }}
-                {{ Form::hidden('id', $currEvent->id)}}
-                {{ Form::submit('Ta bort', array('class'=>'btn btn-danger')) }}
-                {{ Form::close() }}
+                    @if($currEvent->reg == 1)
+                    <p>
+                        <span class="glyphicon glyphicon-eye-open" style="font-size: 1.8em"></span>
+                        {{ link_to_route('registrations', 'See anmälningar', array($currEvent->id)) }}
+                    </p>
+                    @endif
+                <a href = "#del" data-toggle = "modal" class = "btn btn-danger">Ta bort</a>
                 @endif
 
             </div>

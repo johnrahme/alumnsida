@@ -17,10 +17,11 @@ class RegistrationController extends BaseController
 
     public function newRegistration($id){
         $extraFields = extraFormControl::where('eventId','=',$id)->get();
+        $event = event::find($id);
         return View::make('registrations.new')
             ->with('title', 'New Registration')
             ->with('extraFields', $extraFields)
-            ->with('eventId', $id);
+            ->with('event', $event);
     }
 
     public function createRegistration(){

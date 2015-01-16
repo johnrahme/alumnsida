@@ -3,50 +3,60 @@
 @section('content')
 
 
+<div class = "row">
+    <div class = "col-sm-6">
+        <div class = "panel panel-default">
+            <div class = "panel-body" style = "padding-top: 0">
+                <div class = "page-header" style = "margin-top:0px">
+                <h2> Anmälan till {{$event->name}} </h2>
+                </div>
+                {{--@include('common.events_errors')--}}
+                {{Form::open(array('url'=> 'events/registrations/create'))}}
 
-<h1> Add new registration </h1>
+                <p>
+                    {{Form::label('name', 'Förnamn')}} <br/>
 
-{{--@include('common.events_errors')--}}
-{{Form::open(array('url'=> 'events/registrations/create'))}}
+                    {{Form::text('name', '',array('class' => 'form-control','placeholder' => 'Förnamn') )}}
 
-<p>
-    {{Form::label('name', 'Förnamn')}} <br/>
+                </p>
+                <p>
+                    {{Form::label('surname', 'Efternamn')}} <br/>
 
-    {{Form::text('name')}}
+                    {{Form::text('surname', '',array('class' => 'form-control','placeholder' => 'Efternamn') )}}
 
-</p>
-<p>
-    {{Form::label('surname', 'Efternamn')}} <br/>
+                </p>
 
-    {{Form::text('surname')}}
+                <p>
+                    {{Form::label('email', 'Email:')}} <br/>
 
-</p>
+                    {{Form::text('email', '',array('class' => 'form-control','placeholder' => 'email@example.com') )}}
+                </p>
 
-<p>
-    {{Form::label('email', 'Email:')}} <br/>
+                <p>
+                    {{Form::label('tel', 'Telefon')}} <br/>
 
-    {{Form::text('email', '',array('class' => 'form-control','placeholder' => 'email@example.com') )}}
-</p>
+                    {{Form::input('tel', 'tel', '',array('class' => 'form-control','placeholder' => 'Telefon') )}}
 
-<p>
-    {{Form::label('tel', 'Telefon')}} <br/>
+                </p>
 
-    {{Form::input('tel', 'tel')}}
-
-</p>
-
-@foreach($extraFields as $key => $ex)
-    <p>
-        {{Form::label('extras[]', $ex->title)}}<br/>
-        {{Form::text('extras[]')}}
-        {{Form::hidden('extrasId[]',$ex->id)}}
-    </p>
-@endforeach
+                @foreach($extraFields as $key => $ex)
+                    <p>
+                        {{Form::label('extras[]', $ex->title)}}<br/>
+                        {{Form::text('extras[]', '',array('class' => 'form-control') )}}
+                        {{Form::hidden('extrasId[]',$ex->id)}}
+                    </p>
+                @endforeach
 
 
-{{Form::hidden('eventId',$eventId)}}
+                {{Form::hidden('eventId',$event->id)}}
 
-<p> {{Form::submit('Register')}} </p>
-{{Form::close()}}
+                <p> {{Form::submit('Registrera', array('class'=>'btn btn-primary'))}} </p>
+                {{Form::close()}}
+
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @stop
