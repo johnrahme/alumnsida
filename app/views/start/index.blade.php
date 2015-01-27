@@ -24,7 +24,7 @@
                             <h4>{{$event->name}}</h4>
                             <small>{{date('Y-m-d', strtotime($event->dateTimeFrom))}} Kl. {{date('H:i', strtotime($event->dateTimeFrom))}}</small>
                         </div>
-                        <p>{{$event->description}}</p>
+                        <p>{{$event->place}}</p>
                     </a>
                     @endforeach
 
