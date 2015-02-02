@@ -74,6 +74,15 @@ Route::get('admin/new', array('as' => 'new_admin', 'uses' => 'AdminController@ne
 
 Route::post('admin/create', array('uses' => 'AdminController@createAdmin'));
 
+Route::get('admin/{id}', array('as'=> 'user_id', 'uses'=> 'AdminController@view'));
+
+Route::get('admin/{id}/edit', array('as'=>'edit_admin', 'uses'=>'AdminController@edit'));
+
+
+Route::put('admin/update', array('uses'=>'AdminController@update'));
+
+Route::delete('admin/delete', array('uses'=>'AdminController@destroy'));
+
 //sessions
 
 Route::get('login', array('as' =>'login', 'uses' => 'SessionsController@create'));
