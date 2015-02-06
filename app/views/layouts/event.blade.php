@@ -77,7 +77,7 @@
                     </p>
                     <p>
                         <span class="glyphicon glyphicon-pencil" style="font-size: 1.8em"></span>
-                        <a>Anmälan</a>
+                        <a><d id = "register">Anmälan</d></a>
                     </p>
 
                     <p>
