@@ -75,16 +75,16 @@
                         <span class="glyphicon glyphicon-map-marker" style="font-size: 1.8em"></span>
                         <a><d id = "location">plats</d></a>
                     </p>
-                    <p>
+                    <p id = "register">
                         <span class="glyphicon glyphicon-pencil" style="font-size: 1.8em"></span>
-                        <a><d id = "register">Anmälan</d></a>
+                        <a>Anmälan</a>
                     </p>
 
                     <p>
                         <span class="glyphicon glyphicon-edit" style="font-size: 1.8em"></span>
                         <a>Ändra</a>
                     </p>
-                    <p>
+                    <p id = "registrations">
                         <span class="glyphicon glyphicon-eye-open" style="font-size: 1.8em"></span>
                         <a>Registreringar</a>
                     </p>

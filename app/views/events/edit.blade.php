@@ -54,7 +54,7 @@
     <p>
         @if($editExtra == 1)
         {{Form::label('reg', 'Ska man kunna registrera sig till eventet?')}}  <br/>
-        {{Form::checkbox('reg', 'Check', $event->reg)}} <br/>
+        {{Form::checkbox('reg', 'Check', $event->reg, array('class' => 'check-box'))}} <br/>
         @else
         {{Form::hidden('reg', $event->reg)}}
         @endif
@@ -239,5 +239,5 @@
 
     </script>
 
-{{HTML::script('js/eventPreview.js')}}
+{{HTML::script('js/eventPreview2.js')}}
 @stop

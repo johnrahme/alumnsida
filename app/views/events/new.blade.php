@@ -54,7 +54,7 @@
         @section('panelThree')
         <p>
             {{Form::label('reg', 'Ska man kunna registrera sig till eventet?')}}  <br/>
-            {{Form::checkbox('reg')}} <br/>
+            {{Form::checkbox('reg', "",array('class' => 'check-box'))}} <br/>
         </p>
 
         @if(Input::old('reg'))
