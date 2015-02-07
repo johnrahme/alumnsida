@@ -54,7 +54,7 @@
         @section('panelThree')
         <p>
             {{Form::label('reg', 'Ska man kunna registrera sig till eventet?')}}  <br/>
-            {{Form::checkbox('reg', "",array('class' => 'check-box'))}} <br/>
+            {{Form::checkbox('reg','Check',0,array('class' => 'check-box'))}} <br/>
         </p>
 
         @if(Input::old('reg'))
@@ -177,5 +177,5 @@
      });
 
     </script>
-    {{HTML::script('js/eventPreview.js')}}
+    {{HTML::script('js/eventPreview2.js')}}
 @stop
