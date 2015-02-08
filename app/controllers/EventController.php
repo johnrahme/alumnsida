@@ -14,10 +14,34 @@ class EventController extends BaseController{
     }
 
     public function view($id){
+
+        $event = event::find($id);
+
+        $now = time();
+        $regFrom = strtotime($event->regFrom);
+        $regTo = strtotime($event->regTo);
+        $regOngoing = false;
+        $regEnded = false;
+        if($now<$regFrom){
+            $regOngoing = false;
+            $regEnded = false;
+        }
+        elseif($now>$regFrom&&$now<$regTo){
+            $regOngoing = true;
+            $regEnded = false;
+        }
+        else{
+            $regOngoing = false;
+            $regEnded = true;
+        }
+
+
         return View::make('events.view')
             ->with('title', 'Event View Page')
-            ->with('currEvent', event::find($id))
-            ->with('events',event::orderBy('dateTimeFrom')->get());
+            ->with('currEvent', $event)
+            ->with('events',event::orderBy('dateTimeFrom')->get())
+            ->with('regOngoing', $regOngoing)
+            ->with('regEnded', $regEnded);
 
     }
     public function newevent(){
@@ -54,6 +78,8 @@ class EventController extends BaseController{
             else{
                 $event->reserv = 0;
             }
+            $event->regFrom = Input::get('regFrom');
+            $event->regTo = Input::get('regTo');
 
         }
         else{
@@ -133,7 +159,8 @@ class EventController extends BaseController{
                 else{
                     $event->reserv = 0;
                 }
-
+                $event->regFrom = Input::get('regFrom');
+                $event->regTo = Input::get('regTo');
             }
             else{
                 $event->reg = 0;

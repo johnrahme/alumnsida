@@ -72,5 +72,4 @@ jQuery(function(){
     jQuery('#regTo').datetimepicker({
         format:'Y-m-d H:i'
     });
-    alert('test');
 });

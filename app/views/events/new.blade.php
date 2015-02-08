@@ -74,6 +74,22 @@
 
             </p>
             <p>
+                {{Form::label('regFrom', 'Registrering öppnar')}} <br/>
+
+                {{Form::input('datepicker', 'regFrom','', array('class'=>'form-control'))}}
+
+
+            </p>
+
+            <p>
+                {{Form::label('regTo', 'Registrering stänger')}} <br/>
+
+                {{Form::input('datetime', 'regTo','', array('class'=>'form-control'))}}
+
+
+            </p>
+
+            <p>
                 {{Form::label('reserv', 'Kan man anmäla sig som reserv?')}}  <br/>
                 {{Form::checkbox('reserv')}} <br/>
             </p>
@@ -119,7 +135,7 @@
 
 @section('scripts')
 
-{{HTML::script('js/datetimepickerconfig.js')}}
+{{HTML::script('js/datetimepickerconfig2.js')}}
 
  <script>
      $(document).ready(function(){
@@ -177,5 +193,5 @@
      });
 
     </script>
-    {{HTML::script('js/eventPreview2.js')}}
+    {{HTML::script('js/eventPreview.js')}}
 @stop

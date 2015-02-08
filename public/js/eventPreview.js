@@ -1,12 +1,14 @@
 var d = new Date($("#dateTimeFrom").val());
 var d2 = new Date($("#dateTimeTo").val());
 $("#header").text($('#name').val());
-$("#date").text(d.toLocaleDateString()+' Kl. '+ d.toLocaleTimeString());
+$("#date").text(d.toLocaleDateString()+' Kl. '+ d.toLocaleTimeString('se-SWE'));
 $("#desc").html($('#col').code());
-$("#date2").text(d.toLocaleDateString()+' Klokan. '+ d.toLocaleTimeString()+" - "+d2.toLocaleDateString()+' Kl. '+ d2.toLocaleTimeString());
+$("#date2").text(d.toLocaleDateString()+' Kl. '+ d.toLocaleTimeString('se-SWE')+" - "+d2.toLocaleDateString()+' Kl. '+ d2.toLocaleTimeString('se-SWE'));
 $("#location").text($('#place').val());
-if(!$("#reg").checked()){
-    $("#registraion").hide();
+
+if($("#reg").prop('checked')==false){
+    $("#register").hide();
+    $("#registrations").hide();
 }
 
 
@@ -15,7 +17,19 @@ $( ".form-control" )
         d = new Date($("#dateTimeFrom").val());
         var d2 = new Date($("#dateTimeTo").val());
         $("#header").text($("#name").val());
-        $("#date").text(d.toLocaleDateString()+' Kl. '+ d.toLocaleTimeString());
-        $("#date2").text(d.toLocaleDateString()+' Kl. '+ d.toLocaleTimeString()+" - "+d2.toLocaleDateString()+' Kl. '+ d2.toLocaleTimeString());
+        $("#date").text(d.toLocaleDateString()+' Kl. '+ d.toLocaleTimeString('se-SWE'));
+        $("#date2").text(d.toLocaleDateString()+' Kl. '+ d.toLocaleTimeString('se-SWE')+" - "+d2.toLocaleDateString()+' Kl. '+ d2.toLocaleTimeString('se-SWE'));
         $("#location").text($('#place').val());
+
+    });
+$(".check-box")
+    .change(function(){
+        if($("#reg").prop('checked')==false){
+            $("#register").hide();
+            $("#registrations").hide();
+        }
+        else{
+            $("#register").show();
+            $("#registrations").show();
+        }
     });

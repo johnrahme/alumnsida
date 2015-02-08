@@ -32,7 +32,14 @@
                 @if($currEvent->reg == 1)
                 <p>
                     <span class="glyphicon glyphicon-pencil" style="font-size: 1.8em"></span>
+                    @if($regOngoing==true)
                     {{link_to_route('new_registration', 'Anmälan', array($currEvent->id))}}
+                    @elseif($regEnded == true)
+                    Anmälan tyvärr stängd!
+                    @else
+                    Anmälan öppnar {{$currEvent->regFrom}}
+                    @endif
+
                 </p>
                 @endif
                 @if(Auth::check())

@@ -83,6 +83,22 @@
             {{Form::hidden('reserv', $event->reserv)}}
             @endif
         </p>
+            <p>
+                {{Form::label('regFrom', 'Registrering öppnar')}} <br/>
+
+                {{Form::input('datepicker', 'regFrom',$event->regFrom, array('class'=>'form-control'))}}
+
+
+            </p>
+
+            <p>
+                {{Form::label('regTo', 'Registrering stänger')}} <br/>
+
+                {{Form::input('datetime', 'regTo',$event->regTo, array('class'=>'form-control'))}}
+
+
+            </p>
+
         <p>
             {{Form::label('extra', 'Lägg till extra fält för anmälan')}}
         <div id = "wrapper">
@@ -139,7 +155,7 @@
 
 @section('scripts')
 
-{{HTML::script('js/datetimepickerconfig.js')}}
+{{HTML::script('js/datetimepickerconfig2.js')}}
 
 <script>
 
@@ -239,5 +255,5 @@
 
     </script>
 
-{{HTML::script('js/eventPreview2.js')}}
+{{HTML::script('js/eventPreview.js')}}
 @stop
