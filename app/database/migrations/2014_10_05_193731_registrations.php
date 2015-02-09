@@ -20,6 +20,7 @@ class Registrations extends Migration {
             $table->string('surname');
             $table->string('email');
             $table->string('tel');
+            $table->integer('res');
             $table->timestamps();
         });
 	}

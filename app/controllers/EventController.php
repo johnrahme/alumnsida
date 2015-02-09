@@ -20,8 +20,6 @@ class EventController extends BaseController{
         $now = time();
         $regFrom = strtotime($event->regFrom);
         $regTo = strtotime($event->regTo);
-        $regOngoing = false;
-        $regEnded = false;
         if($now<$regFrom){
             $regOngoing = false;
             $regEnded = false;
@@ -35,13 +33,15 @@ class EventController extends BaseController{
             $regEnded = true;
         }
 
+        $regCount = registration::where('eventId', '=', $id)->count();
 
         return View::make('events.view')
             ->with('title', 'Event View Page')
             ->with('currEvent', $event)
             ->with('events',event::orderBy('dateTimeFrom')->get())
             ->with('regOngoing', $regOngoing)
-            ->with('regEnded', $regEnded);
+            ->with('regEnded', $regEnded)
+            ->with('regCount', $regCount);
 
     }
     public function newevent(){

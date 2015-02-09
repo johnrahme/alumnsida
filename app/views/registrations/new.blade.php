@@ -10,6 +10,16 @@
                 <div class = "page-header" style = "margin-top:0px">
                 <h2> Anmälan till {{$event->name}} </h2>
                 </div>
+
+                @if($regCount>=$event->regnr)
+                    <p>
+                    Eventet är tyvärr fullt men du kan fortarande anmäla dig som reserv!
+                    </p>
+                @else
+                    <p>
+                    Det finns just nu {{$event->regnr-$regCount}} av {{$event->regnr}} platser kvar!
+                    </p>
+                @endif
                 {{--@include('common.events_errors')--}}
                 {{Form::open(array('url'=> 'events/registrations/create'))}}
 
