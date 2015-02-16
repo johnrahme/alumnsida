@@ -8,10 +8,12 @@ class RegistrationController extends BaseController
 
     public function index($id)
     { //Default name for starting function
+        $event = event::find($id);
         $registrations = registration::where('eventId','=',$id)->get();
         return View::make('registrations.index')
             ->with('title', 'Registrations')
-            ->with('registrations', $registrations);
+            ->with('registrations', $registrations)
+            ->with('event', $event);
 
     }
 

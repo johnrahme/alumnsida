@@ -32,7 +32,7 @@
                 </table>
             </div>
         </div>
-    </div>
+</div>
 
 <br>
 {{link_to_route('new_admin', 'Ny Admin','' , array('class'=>'btn btn-success'))}}
