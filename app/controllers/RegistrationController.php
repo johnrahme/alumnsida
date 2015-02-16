@@ -74,6 +74,54 @@ class RegistrationController extends BaseController
             ->with('message', 'Du är nu registrerad på eventet!. Alright!');
 
     }
+    public function download(){
+        $event = event::find(Input::get('eventId'));
+        $eventId = $event->id;
+
+        $typ = Input::get('format');
+        $filename = $event->name . "-". date("Y-m-d");
+
+        $data = registration::where('eventId', '=', $eventId)->get();
+        $data2 = extraformcontrol::where('eventId', '=', $eventId)->get();
+
+
+
+
+        $file = Excel::create($filename, function($excel) use($data,$data2) {
+
+            $excel->sheet('Sheet 1', function($sheet) use($data, $data2) {
+                $label = array(
+                    'ID', 'event Id', 'Förnamn', 'Efternamn','Email', 'Telefon','Reserv' ,'Skapad', 'Uppdaterad'
+                );
+                foreach($data2 as $exLabel){
+                    $labelValue = $exLabel->title;
+                    array_push($label, $labelValue);
+                }
+                $sheet->cells('A1:N1', function($cells){
+                   $cells->setFontWeight('bold');
+                });
+
+                $sheet->row(1, $label);
+                foreach($data as $key=>$element){
+                    $ex1 = extradata::select('data')->where('registrationsId','=', $element->id)->get();
+                    $array1 = $element->toArray();
+                    foreach($ex1 as $extra){
+                        $exValue = $extra->data;
+                        array_push($array1, $exValue);
+                    }
+                    $sheet->row($key+2, $array1);
+                };
+            });
+
+        });
+
+        if($typ == 'xls'){
+            $file->download('xlsx');
+        }
+        else {
+            $file->download('csv');
+        }
+    }
     public function destroy(){
         $id = Input::get('id');
         $registration = registration::find($id);

@@ -2,11 +2,27 @@
 
 @section('content')
 
-<h1> Registreringar till "{{$event->name}}" </h1>
-
-
 <div class = "row">
         <div class="col-md-12">
+            <div class = "page-header" style = "margin-top:0px">
+                <h3>Registreringar till "{{$event->name}}"</h3>
+            </div>
+
+            {{ Form::open(array('route'=>'registrations.download', 'method' =>'post')) }}
+            <div class = "form-group">
+                {{Form::hidden('eventId', $event->id)}}
+                {{Form::label('type', 'Format: ')}}
+                <label class="radio-inline">
+                <input type="radio" checked = "checked" name="format" id="format2" value="xls"> Excel-fil
+                </label>
+                <label class="radio-inline">
+                <input type="radio"  name="format" id="format1" value="csv"> CSV-fil
+                </label>
+
+                {{ Form::submit('Ladda ned', array('class'=>'btn btn-success btn-sm'))}}
+            </div>
+            {{ Form::close() }}
+
             <div class="table-responsive">
                 <table class = "table table-striped table-bordered">
                 <thead>

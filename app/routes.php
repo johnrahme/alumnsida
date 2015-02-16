@@ -58,6 +58,9 @@ Route::post('events/registrations/create', array('uses' =>'RegistrationControlle
 
 Route::delete('registrations/delete', array('uses'=>'RegistrationController@destroy'));
 
+Route::post('registrations/download', array('as'=>'registrations.download', 'uses'=>'RegistrationController@download'));
+
+
 //contactPage
 
 Route::get('contact', array('as' => 'contact', 'uses' => 'ContactController@index'));
