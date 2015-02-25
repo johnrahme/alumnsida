@@ -8,7 +8,7 @@
     @yield('before')
 
     <div class = "row">
-        <div class = "col-sm-6">
+        <div class = "col-md-6">
             <div class = "panel panel-default">
                 <div class = "panel-body" style = "padding-top: 0">
                     <div class = "page-header" style = "margin-top:0px">
@@ -53,7 +53,7 @@
                  </div>
             </div>
         </div>
-        <div class = "col-sm-6">
+        <div class = "col-md-6">
             <div class = "panel panel-default">
                 <div class = "panel-body" style = "padding-top: 0">
                     <div class = "page-header" style = "margin-top:0px">
