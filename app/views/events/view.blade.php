@@ -25,6 +25,7 @@
                         <span class="glyphicon glyphicon-time" style="font-size: 1.8em" ></span>
                         {{date('Y-m-d', strtotime($currEvent->dateTimeFrom))}} Kl. {{date('H:i', strtotime($currEvent->dateTimeFrom))}} - {{date('Y-m-d', strtotime($currEvent->dateTimeTo))}} Kl. {{date('H:i', strtotime($currEvent->dateTimeTo))}}
                 </p>
+
                 <p>
                     <span class="glyphicon glyphicon-map-marker" style="font-size: 1.8em"></span>
                     {{link_to_route('map', $currEvent->place, array($currEvent->id), array('target'=>'_blank'))}}
@@ -44,6 +45,7 @@
 
                 </p>
                 @endif
+
                 @if(Auth::check())
                 <p>
                     <span class="glyphicon glyphicon-edit" style="font-size: 1.8em"></span>
@@ -56,6 +58,34 @@
                     </p>
                     @endif
                 <a href = "#del" data-toggle = "modal" class = "btn btn-danger">Ta bort</a>
+                <a href="http://www.google.se" title="Lägg till i kalender" class="addthisevent">
+                    Lägg till i kalender
+                    <span class="_start">{{$currEvent->dateTimeFrom}}</span>
+                    <span class="_end">{{$currEvent->dateTimeTo}}</span>
+                    <span class="_zonecode">38</span>
+                    <span class="_summary">{{$currEvent->name}}</span>
+                    <span class="_description">{{$currEvent->description}}</span>
+                    <span class="_location">{{$currEvent->place}}</span>
+                    <span class="_organizer">FUTF</span>
+                    <span class="_organizer_email">alumnsida@futf.se</span>
+                    <span class="_all_day_event">false</span>
+                    <span class="_date_format">DD/MM/YYYY</span>
+                </a>
+                @else
+                <a href="http://www.google.se" title="Lägg till i kalender" class="addthisevent">
+                    Lägg till i kalender
+                    <span class="_start">{{$currEvent->dateTimeFrom}}</span>
+                    <span class="_end">{{$currEvent->dateTimeTo}}</span>
+                    <span class="_zonecode">38</span>
+                    <span class="_summary">{{$currEvent->name}}</span>
+                    <span class="_description">{{$currEvent->description}}</span>
+                    <span class="_location">{{$currEvent->place}}</span>
+                    <span class="_organizer">FUTF</span>
+                    <span class="_organizer_email">alumnsida@futf.se</span>
+                    <span class="_all_day_event">false</span>
+                    <span class="_date_format">DD/MM/YYYY</span>
+                </a>
+
                 @endif
 
             </div>

@@ -72,6 +72,7 @@ Logged in as {{Auth::user()->username}}
 {{ HTML::script('js/bootstrap.min.js') }}
 {{HTML::script('js/jquery.datetimepicker.js')}}
 {{HTML::script('js/checkmodal.js')}}
+{{HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 
 
     <!-- Script -->
