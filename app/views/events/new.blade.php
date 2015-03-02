@@ -193,4 +193,19 @@
 
     </script>
     {{HTML::script('js/eventPreview.js')}}
+
+<script>
+    $("#tab1").click(function(){
+        $("#activeTab").val('home');
+    });
+    $("#tab2").click(function(){
+        $("#activeTab").val('profile');
+    });
+     $("#tab3").click(function(){
+         $("#activeTab").val('messages');
+     });
+    $("#tab4").click(function(){
+        $("#activeTab").val('settings');
+    });
+</script>
 @stop

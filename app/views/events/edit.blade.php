@@ -47,7 +47,7 @@
 
             {{Form::hidden('description')}}
     </p>
-    <div class = "summernote" id="col">{{$event->description}}</div>
+    <div class = "summernote" id="col">@if(Input::old('description')){{Input::old('description')}}@else{{$event->description}}@endif</div>
 
 @stop
 @section('panelThree')
@@ -255,4 +255,20 @@
     </script>
 
 {{HTML::script('js/eventPreview.js')}}
+
+{{--Sätter rätt tab--}}
+<script>
+    $("#tab1").click(function(){
+        $("#activeTab").val('home');
+    });
+    $("#tab2").click(function(){
+        $("#activeTab").val('profile');
+    });
+     $("#tab3").click(function(){
+         $("#activeTab").val('messages');
+     });
+    $("#tab4").click(function(){
+        $("#activeTab").val('settings');
+    });
+</script>
 @stop

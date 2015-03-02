@@ -18,32 +18,32 @@
 
                           <!-- Nav tabs -->
                           <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Namn tid och plats</a></li>
-                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Beskrivning</a></li>
-                            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Registrering</a></li>
-                            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Övrigt</a></li>
+                            <li role="presentation" @if(Input::old('activeTab')&&Input::old('activeTab')!='home')@else class="active"@endif><a href="#home" id = "tab1" aria-controls="home" role="tab" data-toggle="tab">Namn tid och plats</a></li>
+                            <li role="presentation" @if(Input::old('activeTab')&&Input::old('activeTab')=='profile') class = "active" @endif><a href="#profile" id = "tab2" aria-controls="profile" role="tab" data-toggle="tab">Beskrivning</a></li>
+                            <li role="presentation" @if(Input::old('activeTab')&&Input::old('activeTab')=='messages') class = "active" @endif><a href="#messages" id = "tab3" aria-controls="messages" role="tab" data-toggle="tab">Registrering</a></li>
+                            <li role="presentation" @if(Input::old('activeTab')&&Input::old('activeTab')=='settings') class = "active" @endif><a href="#settings" id = "tab4" aria-controls="settings" role="tab" data-toggle="tab">Övrigt</a></li>
                           </ul>
 
                           <!-- Tab panes -->
                           <div class="tab-content">
                           {{--Namn tid och plats--}}
-                            <div role="tabpanel" class="tab-pane active" id="home">
+                            <div role="tabpanel" class="tab-pane @if(Input::old('activeTab')&&Input::old('activeTab')!='home')@else active @endif" id="home">
                             <br>
                             @yield('panelOne')
                             </div>
                             {{--Beskrivning--}}
-                            <div role="tabpanel" class="tab-pane" id="profile">
+                            <div role="tabpanel" class="tab-pane @if(Input::old('activeTab')&&Input::old('activeTab')=='profile') active @endif" id="profile">
                             <br>
                             @yield('panelTwo')
                             </div>
                             {{--Registrering--}}
-                            <div role="tabpanel" class="tab-pane" id="messages">
+                            <div role="tabpanel" class="tab-pane @if(Input::old('activeTab')&&Input::old('activeTab')=='messages') active @endif" id="messages">
                             <br>
                             @yield('panelThree')
 
                             </div>
                             {{--Övrigt--}}
-                            <div role="tabpanel" class="tab-pane" id="settings">
+                            <div role="tabpanel" class="tab-pane @if(Input::old('activeTab')&&Input::old('activeTab')=='settings') active @endif" id="settings">
                             <br>
                             @yield('panelFour')
                             </div>
@@ -90,7 +90,7 @@
                     </p>
                     {{ Form::button('Ta bort', array('class'=>'btn btn-danger')) }}
 
-
+                    {{Form::hidden('activeTab', 'home', array('id'=>'activeTab'))}}
                 </div>
             </div>
         </div>

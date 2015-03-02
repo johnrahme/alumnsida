@@ -50,7 +50,13 @@ class EventController extends BaseController{
     }
 
     public function createEvent(){
-        $validation = event::validate(Input::all());
+
+        if(Input::has('reg')){
+            $validation = event::validateReg(Input::all());
+        }
+        else {
+            $validation = event::validate(Input::all());
+        }
         if($validation->fails()){
             return Redirect::route('new_event')->withErrors($validation)->withInput();
         }
@@ -129,10 +135,15 @@ class EventController extends BaseController{
     public function update(){
         $id = Input::get('id');
 
-        $validation = event::validate(Input::all());
+        if(Input::has('reg')){
+            $validation = event::validateReg(Input::all());
+        }
+        else {
+            $validation = event::validate(Input::all());
+        }
 
         if($validation->fails()){
-            return Redirect::route('edit_event', $id)->withErrors($validation);
+            return Redirect::route('edit_event', $id)->withErrors($validation)->withInput();
         }
         else{
 
