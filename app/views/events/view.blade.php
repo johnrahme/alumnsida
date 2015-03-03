@@ -54,10 +54,11 @@
                         {{ link_to_route('edit_event', 'Ändra', array($currEvent->id)) }}
                     </p>
                     @endif
-                    @if($currEvent->reg == 1)
+
+                    @if($currEvent->reg == 1&&(Auth::user()->level==2||Auth::user()->email == $currEvent->createdBy))
                     <p>
                         <span class="glyphicon glyphicon-eye-open" style="font-size: 1.8em"></span>
-                        {{ link_to_route('registrations', 'See anmälningar', array($currEvent->id)) }}
+                        {{ link_to_route('registrations', 'Se anmälningar', array($currEvent->id)) }}
                     </p>
                     @endif
                 @if(Auth::user()->level==2||Auth::user()->email == $currEvent->createdBy)
