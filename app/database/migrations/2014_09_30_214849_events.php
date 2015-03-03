@@ -26,6 +26,7 @@ class Events extends Migration {
             $table->dateTime('regTo');
             $table->integer('regnr');
             $table->boolean('reserv');
+            $table->string('createdBy');
             $table->timestamps();
         });
 	}

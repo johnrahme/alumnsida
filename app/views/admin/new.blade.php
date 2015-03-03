@@ -24,7 +24,12 @@
         {{Form::password('password')}}
 
     </p>
-	
+
+	<p>
+            {{Form::label('level', 'Level')}}
+            {{Form::select('level', array('1' => '1', '2' => '2'), '1')}}
+    </p>
+
 	<p> {{Form::submit('Add Admin')}} </p>
 	{{Form::close()}}
 	

@@ -10,6 +10,7 @@
                 <tr>
                     <th data-sortable = "true">Användarnamn</th>
                     <th data-sortable = "true">Email</th>
+                    <th data-sortable = "true">Level</th>
                     <th data-sortable = "true">Ändra</th>
                     <th data-sortable = "true">Radera</th>
                 </tr>
@@ -19,6 +20,7 @@
                    <tr>
                     <td>{{$admin->username}} </td>
                     <td>{{$admin->email}}</td>
+                    <th> {{$admin->level}}</th>
                     <td>{{link_to_route('edit_admin','Ändra', $admin->id, array('class'=>'btn btn-primary btn-sm'))}}</td>
                     <td>
                         {{ Form::open(array('url'=>'admin/delete', 'method' =>'DELETE')) }}

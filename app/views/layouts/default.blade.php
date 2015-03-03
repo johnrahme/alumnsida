@@ -32,13 +32,14 @@
                 <li class = "active"> {{link_to('/','Start')}}</li>
                 <li> {{link_to_route('users','Användare')}}</li>
                 <li> {{link_to_route('events','Events')}}</li>
-                <li> {{link_to_route('admin','Admin')}}</li>
+                @if(Auth::check()&& Auth::user()->level == 2)
+                    <li> {{link_to_route('admin','Admin')}}</li>
+                @endif
                 <li> {{link_to_route('logout','Logout')}}</li>
                 <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                 @else
                 <li class = "active"> {{link_to('/','Start')}}</li>
                 <li> {{link_to_route('events','Events')}}</li>
-                <li> {{link_to_route('admin','Admin')}}</li>
                 <li> {{link_to_route('login','Login')}}</li>
                 <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                 @endif

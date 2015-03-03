@@ -25,6 +25,7 @@ class AdminController extends BaseController
         $admin->username = Input::get('username');
         $admin->email = Input::get('email');
         $admin->password = Hash::make(Input::get('password'));
+        $admin->level = Input::get('level');
         $admin->save();
 
         return Redirect::to('admin')
@@ -45,6 +46,7 @@ class AdminController extends BaseController
         $admin = admin::find($id);
         $admin->username = Input::get('username');
         $admin->email = Input::get('email');
+        $admin->level = Input::get('level');
         if(Input::get('password')!=''){
         $admin->password = Hash::make(Input::get('password'));
         }

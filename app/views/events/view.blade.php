@@ -8,7 +8,7 @@
         <div class = "panel panel-default">
             <div class = "panel-body" style = "padding-top: 0">
                 <div class = "page-header" style = "margin-top:0px">
-                    <h3>{{$currEvent->name}} <small>{{date('Y-m-d', strtotime($currEvent->dateTimeFrom))}} Kl. {{date('H:i', strtotime($currEvent->dateTimeFrom))}}</small></h3>
+                    <h3>{{$currEvent->name}} <small>{{date('Y-m-d', strtotime($currEvent->dateTimeFrom))}} Kl. {{date('H:i', strtotime($currEvent->dateTimeFrom))}} Skapad av: {{$currEvent->createdBy}}</small></h3>
 
                 </div>
                 @if($currEvent->pictureUrl != "")
@@ -47,17 +47,22 @@
                 @endif
 
                 @if(Auth::check())
-                <p>
-                    <span class="glyphicon glyphicon-edit" style="font-size: 1.8em"></span>
-                    {{ link_to_route('edit_event', 'Ändra', array($currEvent->id)) }}
-                </p>
+
+                    @if(Auth::user()->level==2||Auth::user()->email == $currEvent->createdBy)
+                    <p>
+                        <span class="glyphicon glyphicon-edit" style="font-size: 1.8em"></span>
+                        {{ link_to_route('edit_event', 'Ändra', array($currEvent->id)) }}
+                    </p>
+                    @endif
                     @if($currEvent->reg == 1)
                     <p>
                         <span class="glyphicon glyphicon-eye-open" style="font-size: 1.8em"></span>
                         {{ link_to_route('registrations', 'See anmälningar', array($currEvent->id)) }}
                     </p>
                     @endif
+                @if(Auth::user()->level==2||Auth::user()->email == $currEvent->createdBy)
                 <a href = "#del" data-toggle = "modal" class = "btn btn-danger">Ta bort</a>
+                @endif
                 <a href="http://www.google.se" title="Lägg till i kalender" class="addthisevent">
                     Lägg till i kalender
                     <span class="_start">{{$currEvent->dateTimeFrom}}</span>

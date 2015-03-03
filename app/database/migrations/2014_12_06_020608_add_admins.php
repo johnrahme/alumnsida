@@ -16,6 +16,7 @@ class AddAdmins extends Migration {
             'username' => 'Admin',
             'email' => 'admin@admin.se',
             'password' => Hash::make('password'),
+            'level' => 2,
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
         ));

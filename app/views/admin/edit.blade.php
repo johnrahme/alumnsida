@@ -25,6 +25,11 @@
 
     </p>
 
+    <p>
+        {{Form::label('level', 'Level')}}
+        {{Form::select('level', array('1' => '1', '2' => '2'), '1')}}
+    </p>
+
     {{Form::hidden('id',$admin->id)}}
 	
 	<p> {{Form::submit('Uppdatera')}} </p>
