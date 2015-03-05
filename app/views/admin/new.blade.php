@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-	<h1> Create new User</h1>
+	<h1> Skapa ny admin</h1>
 
     @include('common.users_errors')
 	{{Form::open(array('url'=> 'admin/create','files'=>true))}}

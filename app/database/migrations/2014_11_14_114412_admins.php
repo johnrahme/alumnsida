@@ -21,6 +21,9 @@ class Admins extends Migration {
             $table->rememberToken();
             $table->timestamps();
         });
+        Schema::table('events', function($table){
+            $table->foreign('createdBy')->references('id')->on('admins');
+        });
 	}
 
 	/**
@@ -30,6 +33,10 @@ class Admins extends Migration {
 	 */
 	public function down()
 	{
+        Schema::drop('extraData');
+        Schema::drop('extraFormControl');
+        Schema::drop('registrations');
+        Schema::drop('events');
 		Schema::drop('admins');
 	}
 

@@ -26,7 +26,7 @@ class Events extends Migration {
             $table->dateTime('regTo');
             $table->integer('regnr');
             $table->boolean('reserv');
-            $table->string('createdBy');
+            $table->integer('createdBy')->unsigned();
             $table->timestamps();
         });
 	}
@@ -38,10 +38,7 @@ class Events extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('extraData');
-        Schema::drop('extraFormControl');
-        Schema::drop('registrations');
-        Schema::drop('events');
+
 	}
 
 }

@@ -68,7 +68,7 @@ class EventController extends BaseController{
         $event->dateTimeTo = Input::get('dateTimeTo');
         $event->description = Input::get('description');
         $event->place = Input::get('place');
-        $event->createdBy = Auth::user()->email;
+        $event->createdBy = Auth::user()->id;
 
         if(Input::has('publish')) {
             $event->publish = 1;

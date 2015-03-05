@@ -29,7 +29,7 @@ class AddAdmins extends Migration {
      */
     public function down()
     {
-        DB::table('admins') -> where('username', '=', "Admin")-> delete();
+
     }
 
 }
