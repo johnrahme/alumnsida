@@ -16,8 +16,14 @@ class AdminController extends BaseController
     }
     public function newadmin()
     {
-        return View::make('admin.new')
-            ->with('title', 'New Admin');
+        if(Auth::check()) {
+            return View::make('admin.new')
+                ->with('title', 'New Admin');
+        }
+        else{
+            return View::make('admin.newReg')
+                ->with('title', 'New Admin');
+        }
     }
     public function createAdmin()
     {
@@ -32,13 +38,26 @@ class AdminController extends BaseController
             ->with('message', 'The admin was created successfully. Alright!');
     }
 
+    public function createAdminReg()
+    {
+        $admin = new admin;
+        $admin->username = Input::get('username');
+        $admin->email = Input::get('email');
+        $admin->password = Hash::make(Input::get('password'));
+        $admin->level = Input::get('level');
+        $admin->save();
+
+        return Redirect::to('login')
+            ->with('message', 'Du är nu registrerad och kan logga in!');
+    }
+
     public function view($id){
 
     }
     public function edit($id){
         $admin = admin::find($id);
         return View::make('admin.edit')
-            ->with('title', 'Ändra admin')
+            ->with('title', 'Ändra konto')
             ->with('admin', $admin);
     }
     public function update(){
@@ -51,9 +70,14 @@ class AdminController extends BaseController
         $admin->password = Hash::make(Input::get('password'));
         }
         $admin->save();
-
-        return Redirect::route('admin')
-            ->with('message', 'The admin was created successfully. Alright!');
+        if(Auth::check()&& Auth::user()->level == 2) {
+            return Redirect::route('admin')
+                ->with('message', 'The admin was created successfully. Alright!');
+        }
+        else{
+            return Redirect::route('start')
+                ->with('message', 'Ditt konto är nu uppdaterat!');
+        }
     }
     public function destroy(){
         $id = Input::get('id');

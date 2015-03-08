@@ -76,6 +76,8 @@ Route::get('admin', array('as' => 'admin', 'uses' => 'AdminController@index'));
 Route::get('admin/new', array('as' => 'new_admin', 'uses' => 'AdminController@newadmin'));
 
 Route::post('admin/create', array('uses' => 'AdminController@createAdmin'));
+//Skapar konto för ny användare
+Route::post('admin/create/reg', array('uses' => 'AdminController@createAdminReg'));
 
 Route::get('admin/{id}', array('as'=> 'user_id', 'uses'=> 'AdminController@view'));
 

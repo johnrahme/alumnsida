@@ -29,19 +29,26 @@
         <div class = "navbar-collapse collapse navHeaderCollapse" >
             <ul class = "nav navbar-nav navbar-right">
                 @if(Auth::check())
-                <li class = "active"> {{link_to('/','Start')}}</li>
-                <li> {{link_to_route('users','Användare')}}</li>
-                <li> {{link_to_route('events','Events')}}</li>
-                @if(Auth::check()&& Auth::user()->level == 2)
-                    <li> {{link_to_route('admin','Admin')}}</li>
-                @endif
-                <li> {{link_to_route('logout','Logout')}}</li>
-                <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
-                @else
-                <li class = "active"> {{link_to('/','Start')}}</li>
-                <li> {{link_to_route('events','Events')}}</li>
-                <li> {{link_to_route('login','Login')}}</li>
-                <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
+                    <li class = "active"> {{link_to('/','Start')}}</li>
+                    @if(Auth::check()&& Auth::user()->level == 2)
+                        <li> {{link_to_route('users','Användare')}}</li>
+                    @endif
+                    <li> {{link_to_route('events','Events')}}</li>
+                    @if(Auth::check()&& Auth::user()->level == 2)
+                        <li> {{link_to_route('admin','Admin')}}</li>
+                    @endif
+                    @if(Auth::check()&& Auth::user()->level == 1)
+                        <li> {{link_to_route('edit_admin','Ändra Konto', Auth::user()->id)}}</li>
+                    @endif
+                    <li> {{link_to_route('logout','Logout')}}</li>
+                    <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
+                 @else
+                    <li class = "active"> {{link_to('/','Start')}}</li>
+                    <li> {{link_to_route('events','Events')}}</li>
+                    <li>{{link_to_route('new_user', 'Registrering för nyhetsbrev')}}</li>
+                    <li>{{link_to_route('new_admin', 'Skapa konto')}}</li>
+                    <li> {{link_to_route('login','Login')}}</li>
+                    <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                 @endif
             </ul>
         </div>
