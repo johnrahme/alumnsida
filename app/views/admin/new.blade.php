@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
 @section('content')
-@include('common.users_errors')
 	<h1> Skapa ny admin</h1>
 
     @include('common.users_errors')
@@ -30,6 +29,9 @@
             {{Form::label('level', 'Level')}}
             {{Form::select('level', array('1' => '1', '2' => '2'), '1')}}
     </p>
+        <p>
+        {{Form::checkbox('agreement')}} Jag godkänner att andra alumner tar del av min information.
+        </p>
 
 	<p> {{Form::submit('Add Admin')}} </p>
 	{{Form::close()}}

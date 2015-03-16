@@ -51,31 +51,41 @@
 
 <!-- Container -->
 <div class="container" style = "box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
-@if(Auth::check())
 
-
-<p>
-    <div class="dropdown" align = "right">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-          Inloggad som {{Auth::user()->username}}
-          <span class="caret"></span>
-        </button>
-
-      <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('logout')}}">Logga ut</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('edit_admin', Auth::user()->id)}}">Ändra konto</a></li>
-      </ul>
+<div class = "row">
+    <div class = "col-md-9">
+        @if(Session::has('message'))
+            <div class="alert alert-success" role="alert">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              {{Session::get('message')}}
+            </div>
+        @endif
+        @if(Session::has('errorMessage'))
+        <div class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          {{Session::get('errorMessage')}}
+        </div>
+        @endif
     </div>
-</p>
+    @if(Auth::check())
+    <div class = "col-md-3" style = "padding-bottom: 10px">
+            <div class="dropdown" align = "right">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" >
+                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                  Inloggad som {{Auth::user()->username}}
+                  <span class="caret"></span>
+                </button>
 
-@endif
-@include('contact.index')
-
-    @if(Session::has('message'))
-    <p style = "color: #008000;"> {{Session::get('message')}} </p>
-
+              <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('logout')}}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logga ut</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('edit_admin', Auth::user()->id)}}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Ändra konto</a></li>
+              </ul>
+            </div>
+    </div>
     @endif
+</div>
+@include('contact.index')
 
     <!-- Content -->
     @yield('content')
@@ -88,6 +98,7 @@
 {{HTML::script('js/jquery.datetimepicker.js')}}
 {{HTML::script('js/checkmodal.js')}}
 {{HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
+
 
 
     <!-- Script -->

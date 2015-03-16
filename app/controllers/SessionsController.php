@@ -18,7 +18,7 @@ class SessionsController extends \BaseController {
 
         if($attempt) return Redirect::intended('/')->with('message', 'logged in!');
 
-        return Redirect::back()->with('message', 'Invalid Credentials')->withInput();
+        return Redirect::back()->with('errorMessage', 'Invalid Credentials')->withInput();
 
 	}
 
@@ -31,7 +31,7 @@ class SessionsController extends \BaseController {
 
         $admin = admin::where('email', '=', Input::get('email'))->first();
         if(is_null($admin)){
-            return Redirect::back()->with('message', 'Email existerar inte')->withInput();
+            return Redirect::back()->with('errorMessage', 'Email existerar inte')->withInput();
         }
 
         $recoverPassword = substr(md5(rand('99999','999999')), 0, 8);

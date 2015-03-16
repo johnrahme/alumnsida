@@ -62,7 +62,7 @@
     @if(Auth::check()&& Auth::user()->level == 2)
     <p>
         {{Form::label('level', 'Level')}}
-        {{Form::select('level', array('1' => '1', '2' => '2'), '1')}}
+        {{Form::select('level', array('1' => '1', '2' => '2'), $admin->level)}}
     </p>
     @else
         {{Form::hidden('level', 1)}}

@@ -22,7 +22,7 @@ class AdminController extends BaseController
     }
     public function newadmin()
     {
-        if(Auth::check()) {
+        if(Auth::check()&&Auth::user()->level == 2) {
             return View::make('admin.new')
                 ->with('title', 'New Admin');
         }
@@ -99,7 +99,7 @@ class AdminController extends BaseController
         $admin->save();
         if(Auth::check()&& Auth::user()->level == 2) {
             return Redirect::route('admin')
-                ->with('message', 'The admin was created successfully. Alright!');
+                ->with('message', 'Ditt konto är nu uppdaterat!');
         }
         else{
             return Redirect::route('start')
