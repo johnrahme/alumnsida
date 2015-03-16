@@ -96,6 +96,10 @@ Route::get('login', array('as' =>'login', 'uses' => 'SessionsController@create')
 
 Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destroy'));
 
+Route::get('forgot', array('as' =>'forgot', 'uses' => 'SessionsController@forgot'));
+
+Route::put('recover', array('as' =>'recover', 'uses' => 'SessionsController@recover'));
+
 Route::resource('sessions', 'SessionsController', ['only' => ['store', 'index', 'create', 'destroy']]);
 
 

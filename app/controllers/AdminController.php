@@ -33,6 +33,10 @@ class AdminController extends BaseController
     }
     public function createAdmin()
     {
+        $validation = admin::validate(Input::all());
+        if($validation->fails()){
+            return Redirect::route('new_admin')->withErrors($validation)->withInput();
+        }
         $admin = new admin;
         $admin->username = Input::get('username');
         $admin->email = Input::get('email');
@@ -46,6 +50,10 @@ class AdminController extends BaseController
 
     public function createAdminReg()
     {
+        $validation = admin::validate(Input::all());
+        if($validation->fails()){
+            return Redirect::route('new_admin')->withErrors($validation)->withInput();
+        }
         $admin = new admin;
         $admin->username = Input::get('username');
         $admin->email = Input::get('email');

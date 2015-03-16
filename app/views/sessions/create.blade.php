@@ -17,8 +17,10 @@
         {{Form::password('password')}}
 
     </p>
-	
+    {{link_to_route('forgot', 'Glömt lösenord')}}
+
 	<p> {{Form::submit('Login')}} </p>
 	{{Form::close()}}
-	
+
+
 @stop

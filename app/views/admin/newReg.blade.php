@@ -61,7 +61,9 @@
     </p>
 
     {{Form::hidden('level', 1)}}
-
+    <p>
+    {{Form::checkbox('agreement')}} Jag godkänner att andra alumner tar del av min information.
+    </p>
 	<p> {{Form::submit('Skapa konto')}} </p>
 	{{Form::close()}}
 	

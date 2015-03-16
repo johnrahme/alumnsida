@@ -24,8 +24,9 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
     protected $hidden = array('password', 'remember_token');
 
     public static $rules = array(
-        'name' => 'required|min:2',
-        'email' => 'required|min:10'
+        'email' => 'required|email|unique:admins',
+        'password' => 'required',
+        'username' => 'required'
     );
 
 
