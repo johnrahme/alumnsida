@@ -5,7 +5,42 @@
 
     @include('common.users_errors')
 	{{Form::open(array('url'=> 'admin/update','method'=>'put'))}}
+	Personuppgifter
+    <p>
+    		{{Form::label('name', 'Förnamn')}} <br/>
 
+    		{{Form::text('name', $admin->name)}}
+
+    	</p>
+        <p>
+            {{Form::label('surname', 'Efternamn')}} <br/>
+
+            {{Form::text('surname', $admin->surname)}}
+
+        </p>
+
+        <p>
+            {{Form::label('tel', 'Telefon')}} <br/>
+
+            {{Form::input('tel', 'tel', $admin->tel)}}
+
+        </p>
+
+        <p>
+            {{Form::label('startYear', 'Startår')}} <br/>
+
+            {{Form::input('number', 'startYear', $admin->startYear)}}
+
+        </p>
+
+        <p>
+            {{Form::label('company', 'Företag')}} <br/>
+
+            {{Form::text('company', $admin->company)}}
+
+        </p>
+
+        Till inloggninen
 		<p>
 		{{Form::label('username', 'Användarnamn')}} <br/>
 

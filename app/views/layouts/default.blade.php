@@ -34,18 +34,11 @@
                         <li> {{link_to_route('users','Användare')}}</li>
                     @endif
                     <li> {{link_to_route('events','Events')}}</li>
-                    @if(Auth::check()&& Auth::user()->level == 2)
-                        <li> {{link_to_route('admin','Admin')}}</li>
-                    @endif
-                    @if(Auth::check()&& Auth::user()->level == 1)
-                        <li> {{link_to_route('edit_admin','Ändra Konto', Auth::user()->id)}}</li>
-                    @endif
-                    <li> {{link_to_route('logout','Logout')}}</li>
+                    <li> {{link_to_route('admin','Alumner')}}</li>
                     <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                  @else
                     <li class = "active"> {{link_to('/','Start')}}</li>
                     <li> {{link_to_route('events','Events')}}</li>
-                    <li>{{link_to_route('new_user', 'Registrering för nyhetsbrev')}}</li>
                     <li>{{link_to_route('new_admin', 'Skapa konto')}}</li>
                     <li> {{link_to_route('login','Login')}}</li>
                     <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
@@ -60,7 +53,21 @@
 <div class="container" style = "box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
 @if(Auth::check())
 
-Logged in as {{Auth::user()->username}}
+
+<p>
+    <div class="dropdown" align = "right">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          Inloggad som {{Auth::user()->username}}
+          <span class="caret"></span>
+        </button>
+
+      <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('logout')}}">Logga ut</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('edit_admin', Auth::user()->id)}}">Ändra konto</a></li>
+      </ul>
+    </div>
+</p>
 
 @endif
 @include('contact.index')

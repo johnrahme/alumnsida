@@ -36,20 +36,5 @@
 @stop
 
 @section('scripts')
-
-<script>
-    (function ($) {
-
-        $('#search').keyup(function () {
-
-            var rex = new RegExp($(this).val(), 'i');
-            $('.searchable tr').hide();
-            $('.searchable tr').filter(function () {
-                return rex.test($(this).text());
-            }).show();
-
-        })
-
-    }(jQuery));
-</script>
+{{HTML::script('js/searchable.js')}}
 @stop

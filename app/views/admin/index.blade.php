@@ -1,7 +1,10 @@
 @extends('layouts.default')
 
 @section('content')
-
+<div class = "row">
+   <div class="col-md-4">{{Form::text('search', '', array('id' => 'search', 'placeholder' => 'Sök...','class' => 'form-control'))}}</div>
+</div>
+<br>
 <div class = "row">
         <div class="col-md-12">
             <div class="table-responsive">
@@ -39,4 +42,10 @@
 <br>
 {{link_to_route('new_admin', 'Ny Admin','' , array('class'=>'btn btn-success'))}}
 
+
+@stop
+
+@section('scripts')
+
+{{HTML::script('js/searchable.js')}}
 @stop

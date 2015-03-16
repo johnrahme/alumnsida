@@ -4,12 +4,27 @@
 class EventController extends BaseController{
     //public $layout = 'layouts.default';
     public $restful = true;
+
     public function index() { //Default name for starting function
-        $events = event::orderBy('dateTimeFrom')->get();
+
+        //Kollar vilken level av inlogg
+        if(Auth::check()&&Auth::user()->level == 2) {
+             $events = event::orderBy('dateTimeFrom')->get();
+        }
+        elseif(Auth::check()&& Auth::user()->level == 1){
+            $events = event::where('publish', '=', 1)
+                ->orWhere(function($query){
+                    $query->where('publish', '=', 0)
+                        ->where('createdBy', '=', Auth::user()->id);
+                })
+                ->orderBy('dateTimeFrom')->get();
+        }
+        else {
+            $events = event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
+        }
         return View::make('events.index')
             ->with('title', 'Event')
-            ->with('events', $events)
-            ->with('currEvent', event::find(5));
+            ->with('events', $events);
 
     }
 
@@ -32,13 +47,13 @@ class EventController extends BaseController{
             $regOngoing = false;
             $regEnded = true;
         }
-
         $regCount = registration::where('eventId', '=', $id)->count();
+        $onlineEvents = event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
 
         return View::make('events.view')
             ->with('title', 'Event View Page')
             ->with('currEvent', $event)
-            ->with('events',event::orderBy('dateTimeFrom')->get())
+            ->with('events',$onlineEvents)
             ->with('regOngoing', $regOngoing)
             ->with('regEnded', $regEnded)
             ->with('regCount', $regCount);

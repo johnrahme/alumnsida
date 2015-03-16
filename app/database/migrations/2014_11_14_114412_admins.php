@@ -18,6 +18,11 @@ class Admins extends Migration {
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('level');
+            $table->string('name');
+            $table->string('surname');
+            $table->string('tel');
+            $table->integer('startYear');
+            $table->string('company');
             $table->rememberToken();
             $table->timestamps();
         });

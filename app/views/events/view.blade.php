@@ -106,18 +106,21 @@
                 </div>
                 <div class = "list-group">
                     @foreach($events as $key => $event)
-                    @if($event->id == $currEvent->id)
-                    <a href = "{{route('event', array($event->id))}}" class = "list-group-item active">
-                    @else
-                    <a href = "{{route('event', array($event->id))}}" class = "list-group-item">
-                    @endif
+                    @if(time()<strtotime($event->dateTimeTo))
 
-                        <div class = "list-group-item-heading">
-                            <h4>{{$event->name}}</h4>
-                            <small>{{date('Y-m-d', strtotime($event->dateTimeFrom))}} Kl. {{date('H:i', strtotime($event->dateTimeFrom))}}</small>
-                        </div>
-                        <p>{{$event->place}}</p>
-                    </a>
+                        @if($event->id == $currEvent->id)
+                        <a href = "{{route('event', array($event->id))}}" class = "list-group-item active">
+                        @else
+                        <a href = "{{route('event', array($event->id))}}" class = "list-group-item">
+                        @endif
+
+                            <div class = "list-group-item-heading">
+                                <h4>{{$event->name}}</h4>
+                                <small>{{date('Y-m-d', strtotime($event->dateTimeFrom))}} Kl. {{date('H:i', strtotime($event->dateTimeFrom))}}</small>
+                            </div>
+                            <p>{{$event->place}}</p>
+                        </a>
+                    @endif
                     @endforeach
 
                 </div>

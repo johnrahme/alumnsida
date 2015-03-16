@@ -83,6 +83,8 @@ Route::get('admin/{id}', array('as'=> 'user_id', 'uses'=> 'AdminController@view'
 
 Route::get('admin/{id}/edit', array('as'=>'edit_admin', 'uses'=>'AdminController@edit'));
 
+Route::get('admin/{id}/view', array('as'=>'view_admin', 'uses'=>'AdminController@view'));
+
 
 Route::put('admin/update', array('uses'=>'AdminController@update'));
 
