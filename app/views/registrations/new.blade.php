@@ -20,24 +20,24 @@
                     Det finns just nu {{$event->regnr-$regCount}} av {{$event->regnr}} platser kvar!
                     </p>
                 @endif
-                {{--@include('common.events_errors')--}}
+                @include('common.users_errors')
                 {{Form::open(array('url'=> 'events/registrations/create'))}}
 
                 <p>
-                    {{Form::label('name', 'Förnamn')}} <br/>
+                    {{Form::label('name', 'Förnamn', array('class' => 'required'))}} <br/>
 
                     {{Form::text('name', '',array('class' => 'form-control','placeholder' => 'Förnamn') )}}
 
                 </p>
                 <p>
-                    {{Form::label('surname', 'Efternamn')}} <br/>
+                    {{Form::label('surname', 'Efternamn', array('class' => 'required'))}} <br/>
 
                     {{Form::text('surname', '',array('class' => 'form-control','placeholder' => 'Efternamn') )}}
 
                 </p>
 
                 <p>
-                    {{Form::label('email', 'Email:')}} <br/>
+                    {{Form::label('email', 'Email', array('class' => 'required'))}} <br/>
 
                     {{Form::text('email', '',array('class' => 'form-control','placeholder' => 'email@example.com') )}}
                 </p>

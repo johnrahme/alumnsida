@@ -13,7 +13,8 @@ class RegistrationController extends BaseController
         return View::make('registrations.index')
             ->with('title', 'Registrations')
             ->with('registrations', $registrations)
-            ->with('event', $event);
+            ->with('event', $event)
+            ->with('active', 'events');
 
     }
 
@@ -25,13 +26,14 @@ class RegistrationController extends BaseController
             ->with('title', 'New Registration')
             ->with('extraFields', $extraFields)
             ->with('event', $event)
-            ->with('regCount', $regCount);
+            ->with('regCount', $regCount)
+            ->with('active', 'events');
     }
 
     public function createRegistration(){
         $validation = registration::validate(Input::all());
         if($validation->fails()){
-            return Redirect::route('new_registration')->withErrors($validation)->withInput();
+            return Redirect::route('new_registration', array(Input::get('eventId')))->withErrors($validation)->withInput();
         }
         $eventId = Input::get('eventId');
         $event = event::find($eventId);
@@ -71,7 +73,7 @@ class RegistrationController extends BaseController
 
 
         return Redirect::route('event', array(Input::get('eventId')))
-            ->with('message', 'Du är nu registrerad på eventet!. Alright!');
+            ->with('message', 'Du är nu registrerad på eventet!');
 
     }
     public function download(){

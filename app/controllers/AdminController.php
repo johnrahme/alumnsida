@@ -12,23 +12,27 @@ class AdminController extends BaseController
         if(Auth::check()&& Auth::user()->level == 2) {
             return View::make('admin.index')
                 ->with('title', 'Admin')
-                ->with('admins', $admin);
+                ->with('admins', $admin)
+                ->with('active', 'admin');
         }
         else{
             return View::make('admin.downScaled.index')
                 ->with('title', 'Admin')
-                ->with('admins', $admin);
+                ->with('admins', $admin)
+                ->with('active', 'admin');
         }
     }
     public function newadmin()
     {
         if(Auth::check()&&Auth::user()->level == 2) {
             return View::make('admin.new')
-                ->with('title', 'New Admin');
+                ->with('title', 'New Admin')
+                ->with('active', 'admin');
         }
         else{
             return View::make('admin.newReg')
-                ->with('title', 'New Admin');
+                ->with('title', 'New Admin')
+                ->with('active', 'create');
         }
     }
     public function createAdmin()
@@ -45,7 +49,7 @@ class AdminController extends BaseController
         $admin->save();
 
         return Redirect::to('admin')
-            ->with('message', 'The admin was created successfully. Alright!');
+            ->with('message', 'Konto skapat!');
     }
 
     public function createAdminReg()
@@ -74,13 +78,15 @@ class AdminController extends BaseController
         $admin = admin::find($id);
         return View::make('admin.downScaled.view')
             ->with('title', 'Visa alumn')
-            ->with('admin', $admin);
+            ->with('admin', $admin)
+            ->with('active', 'admin');
     }
     public function edit($id){
         $admin = admin::find($id);
         return View::make('admin.edit')
             ->with('title', 'Ändra konto')
-            ->with('admin', $admin);
+            ->with('admin', $admin)
+            ->with('active', 'admin');
     }
     public function update(){
         $id = Input::get('id');

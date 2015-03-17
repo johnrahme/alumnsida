@@ -23,7 +23,9 @@ class Registration extends Eloquent implements UserInterface, RemindableInterfac
      */
 
     public static $rules = array(
-        //Sätt rules
+        'name'=>'required',
+        'surname' => 'required',
+        'email' => 'required|email'
     );
 
 

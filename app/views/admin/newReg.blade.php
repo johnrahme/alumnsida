@@ -53,19 +53,19 @@
                      <div class = "col-sm-6">
                  	<h3>Inloggningsuppgifter</h3>
                  	<p>
-                 		{{Form::label('username', 'Användarnamn')}} <br/>
+                 		{{Form::label('username', 'Användarnamn', array('class' => 'required'))}} <br/>
 
                  		{{Form::text('username','', array('class' => 'form-control'))}}
 
                  	</p>
                  	<p>
-                 		{{Form::label('email', 'Email:')}} <br/>
+                 		{{Form::label('email', 'Email', array('class' => 'required'))}} <br/>
 
                  		{{Form::text('email','', array('class' => 'form-control'))}}
                  	</p>
 
                      <p>
-                         {{Form::label('password', 'Lösenord')}} <br/>
+                         {{Form::label('password', 'Lösenord', array('class' => 'required'))}} <br/>
 
                          {{Form::password('password', array('class' => 'form-control'))}}
 

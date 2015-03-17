@@ -13,13 +13,13 @@
 @stop
 @section('panelOne')
     <p>
-        {{Form::label('name', 'Namn')}} <br/>
+        {{Form::label('name', 'Namn', array('class' => 'required'))}}<br/>
 
         {{Form::text('name', $event->name, array('class'=>'form-control'))}}
 
     </p>
     <p>
-        {{Form::label('dateTimeFrom', 'Starttid')}} <br/>
+        {{Form::label('dateTimeFrom', 'Starttid', array('class' => 'required'))}} <br/>
 
         {{Form::input('datepicker', 'dateTimeFrom', $event->dateTimeFrom, array('class'=>'form-control'))}}
 
@@ -27,7 +27,7 @@
     </p>
 
     <p>
-        {{Form::label('dateTimeTo', 'Sluttid')}} <br/>
+        {{Form::label('dateTimeTo', 'Sluttid', array('class' => 'required'))}} <br/>
 
         {{Form::input('datetime', 'dateTimeTo', $event->dateTimeTo, array('class'=>'form-control'))}}
 
@@ -35,7 +35,7 @@
     </p>
 
     <p>
-        {{Form::label('place', 'Plats')}} <br/>
+        {{Form::label('place', 'Plats', array('class' => 'required'))}} <br/>
 
         {{Form::text('place', $event->place, array('class'=>'form-control'))}}
 
@@ -43,7 +43,7 @@
 @stop
 @section('panelTwo')
     <p>
-        {{Form::label('description', 'Beskrivning')}} <br/>
+        {{Form::label('description', 'Beskrivning', array('class' => 'required'))}} <br/>
 
             {{Form::hidden('description')}}
     </p>
@@ -67,7 +67,7 @@
         @endif
 
         <p>
-            {{Form::label('regnr', 'Antal som kan registrera sig')}} <br/>
+            {{Form::label('regnr', 'Antal som kan registrera sig', array('class' => 'required'))}} <br/>
 
             {{Form::input('number', 'regnr', $event->regnr, array('class'=>'form-control'))}}
 
@@ -84,7 +84,7 @@
             @endif
         </p>
             <p>
-                {{Form::label('regFrom', 'Registrering öppnar')}} <br/>
+                {{Form::label('regFrom', 'Registrering öppnar', array('class' => 'required'))}} <br/>
 
                 {{Form::input('datepicker', 'regFrom',$event->regFrom, array('class'=>'form-control'))}}
 
@@ -92,7 +92,7 @@
             </p>
 
             <p>
-                {{Form::label('regTo', 'Registrering stänger')}} <br/>
+                {{Form::label('regTo', 'Registrering stänger', array('class' => 'required'))}} <br/>
 
                 {{Form::input('datetime', 'regTo',$event->regTo, array('class'=>'form-control'))}}
 

@@ -13,13 +13,13 @@
 @stop
 @section('panelOne')
         <p>
-            {{Form::label('name', 'Namn')}} <br/>
+            {{Form::label('name', 'Namn', array('class' => 'required'))}} <br/>
 
             {{Form::text('name', '', array('class'=>'form-control'))}}
 
         </p>
         <p>
-            {{Form::label('dateTimeFrom', 'Starttid')}} <br/>
+            {{Form::label('dateTimeFrom', 'Starttid', array('class' => 'required'))}} <br/>
 
             {{Form::input('datepicker', 'dateTimeFrom','', array('class'=>'form-control'))}}
 
@@ -27,14 +27,14 @@
         </p>
 
         <p>
-            {{Form::label('dateTimeTo', 'Sluttid')}} <br/>
+            {{Form::label('dateTimeTo', 'Sluttid', array('class' => 'required'))}} <br/>
 
             {{Form::input('datetime', 'dateTimeTo','', array('class'=>'form-control'))}}
 
 
         </p>
         <p>
-            {{Form::label('place', 'Plats')}} <br/>
+            {{Form::label('place', 'Plats', array('class' => 'required'))}} <br/>
 
             {{Form::text('place','', array('class'=>'form-control'))}}
 
@@ -44,7 +44,7 @@
     {{--Beskrivning--}}
 
         <p>
-            {{Form::label('description', 'Beskrivning')}} <br/>
+            {{Form::label('description', 'Beskrivning', array('class' => 'required'))}} <br/>
 
             <div class = "summernote" id="col">{{Input::old('description')}}</div>
             {{Form::hidden('description')}}
@@ -67,14 +67,14 @@
 
 
             <p>
-                {{Form::label('regnr', 'Antal som kan registrera sig')}} <br/>
+                {{Form::label('regnr', 'Antal som kan registrera sig', array('class' => 'required'))}} <br/>
 
                 {{Form::input('number', 'regnr','', array('class'=>'form-control'))}}
 
 
             </p>
             <p>
-                {{Form::label('regFrom', 'Registrering öppnar')}} <br/>
+                {{Form::label('regFrom', 'Registrering öppnar', array('class' => 'required'))}} <br/>
 
                 {{Form::input('datepicker', 'regFrom','', array('class'=>'form-control'))}}
 
@@ -82,7 +82,7 @@
             </p>
 
             <p>
-                {{Form::label('regTo', 'Registrering stänger')}} <br/>
+                {{Form::label('regTo', 'Registrering stänger', array('class' => 'required'))}} <br/>
 
                 {{Form::input('datetime', 'regTo','', array('class'=>'form-control'))}}
 

@@ -22,7 +22,8 @@ class HomeController extends BaseController {
         return View::make('start.index')
             ->with('title', 'FUTF-alumnsida')
             ->with('events', $onlineEvents)
-            ->with('eventsWithPictures', $eventsWithPictures);
+            ->with('eventsWithPictures', $eventsWithPictures)
+            ->with('active', 'start');
 	}
 
 }

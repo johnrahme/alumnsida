@@ -6,7 +6,8 @@ class SessionsController extends \BaseController {
 	public function create()
 	{
         return View::make('sessions.create')
-            ->with('title', 'Login');
+            ->with('title', 'Login')
+            ->with('active', 'login');
 	}
 
 
@@ -16,16 +17,17 @@ class SessionsController extends \BaseController {
 		$input = Input::all();
         $attempt = Auth::attempt(['email' => $input['email'], 'password'=>$input['password']]);
 
-        if($attempt) return Redirect::intended('/')->with('message', 'logged in!');
+        if($attempt) return Redirect::intended('/')->with('message', 'Inloggad!');
 
-        return Redirect::back()->with('errorMessage', 'Invalid Credentials')->withInput();
+        return Redirect::back()->with('errorMessage', 'Inloggningen misslyckades')->withInput();
 
 	}
 
     public function forgot(){
 
         return View::make('sessions.forgot')
-            ->with('title', 'Glömt lösenord');
+            ->with('title', 'Glömt lösenord')
+            ->with('active', 'login');
     }
     public function recover (){
 
@@ -53,7 +55,7 @@ class SessionsController extends \BaseController {
 	public function destroy()
 	{
 		Auth::logout();
-        return Redirect::route('start')->with('message', 'logged out!');
+        return Redirect::route('start')->with('message', 'Utloggad!');
 	}
 
 

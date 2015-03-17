@@ -24,7 +24,8 @@ class EventController extends BaseController{
         }
         return View::make('events.index')
             ->with('title', 'Event')
-            ->with('events', $events);
+            ->with('events', $events)
+            ->with('active', 'events');
 
     }
 
@@ -56,12 +57,14 @@ class EventController extends BaseController{
             ->with('events',$onlineEvents)
             ->with('regOngoing', $regOngoing)
             ->with('regEnded', $regEnded)
-            ->with('regCount', $regCount);
+            ->with('regCount', $regCount)
+            ->with('active', 'events');
 
     }
     public function newevent(){
         return View::make('events.new')
-            ->with('title', 'New Event');
+            ->with('title', 'New Event')
+            ->with('active', 'events');
     }
 
     public function createEvent(){
@@ -131,7 +134,7 @@ class EventController extends BaseController{
 
 
         return Redirect::to('events')
-            ->with('message', 'The event was created successfully. Alright!');
+            ->with('message', 'Eventet har nu skapats!');
 
     }
     public function edit ($id){
@@ -145,7 +148,8 @@ class EventController extends BaseController{
             ->with('title', 'Edit event')
             ->with('event',event::find($id))
             ->with('extra', extraFormControl::where('eventId', '=',$id)->get())
-            ->with('editExtra', $editExtra);
+            ->with('editExtra', $editExtra)
+            ->with('active', 'events');
     }
 
     public function update(){
@@ -238,7 +242,7 @@ class EventController extends BaseController{
             }
 
             return Redirect::route('event', $id)
-                ->with('message', 'Event updated successfully');
+                ->with('message', 'Eventet har uppdaterats!');
         }
 
     }
@@ -270,7 +274,7 @@ class EventController extends BaseController{
         $event->delete();
 
         return Redirect::route('events')
-            ->with('message', 'The event '.htmlentities($name).' was deleted successfully');
+            ->with('message', 'Eventet'.htmlentities($name).' har raderats');
 
 
     }

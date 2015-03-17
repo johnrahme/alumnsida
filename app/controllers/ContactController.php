@@ -8,7 +8,8 @@ class ContactController extends BaseController
     public function index()
     {
         return View::make('contact.index')
-            ->with('title', 'Kontakt');
+            ->with('title', 'Kontakt')
+            ->with('active', 'contactA');
     }
     public function send()
     {
@@ -17,7 +18,7 @@ class ContactController extends BaseController
         {
             $message->from(Input::get('contact-email'), Input::get('contact-name'));
 
-            $message->to('alumnevent@futf.se')->subject('Eventidé');
+            $message->to('it@futf.se')->subject('Eventidé');
 
         });
         return Redirect::to('contact/sent')
@@ -27,6 +28,7 @@ class ContactController extends BaseController
     {
 
         return View::make('contact.sent')
-            ->with('title', 'Skickat');
+            ->with('title', 'Skickat')
+            ->with('active', 'contactA');
     }
 }

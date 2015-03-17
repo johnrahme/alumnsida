@@ -6,7 +6,7 @@
         {{Form::open(array('url'=> 'contact/send', 'method' => 'post', 'class' => 'form-horizontal'))}}
              {{--Head--}}
             <div class = "modal-header">
-                <p>Kontakt</p>
+                <h3>Skicka gärna ett mail till oss i FUTF!</h3>
 
             </div>
             {{--Body--}}
@@ -41,8 +41,8 @@
             </div>
             {{--Footer--}}
             <div class = "modal-footer">
-                <a href = "#" data-dismiss = "modal" class = "btn">Close</a>
-                {{Form::submit('Send', array('class' => 'btn btn-primary'))}}
+                <a href = "#" data-dismiss = "modal" class = "btn btn-default">Stäng</a>
+                {{Form::submit('Skicka', array('class' => 'btn btn-success'))}}
 
             </div>
            {{Form::close()}}
