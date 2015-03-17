@@ -10,8 +10,10 @@
 			<p> Tanken med denna hemsida är att alumner som gått Teknisk Fysik i Uppsala på ett enkelt sätt ska kunna hålla kontakten på en samlad plattform. Har du idéer om något som kan ändras eller läggas till på hemsidan? Tveka inte att kontakta {{HTML::mailto('it@futf.se')}}, vi vill ha all feedback vi kan få.</p>
 			<p>Vill du testa skapa ett evenemang eller se andra alumner, kom igång direkt genom att</p>
 
-			{{link_to_route('new_admin', 'Skapa ett konto','', array('class' => 'btn btn-success'))}}
-
+			<p>{{link_to_route('new_admin', 'Skapa ett konto','', array('class' => 'btn btn-success'))}}
+			 eller
+			 <button class = "btn btn-primary" id = "loginButton" name = "loginButton">Logga in</button>
+             </p>
 		</div>
 
 
@@ -74,5 +76,11 @@
              interval: 5000
          })
     });
+</script>
+<script>
+$("#loginButton").click(function(){
+    $("#modalLogin").modal('show');
+});
+
 </script>
 @stop

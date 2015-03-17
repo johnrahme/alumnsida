@@ -15,7 +15,7 @@
                     <th data-sortable = "true">Startår</th>
                     <th data-sortable = "true">Företag</th>
                     <th data-sortable = "true">Email</th>
-                    <th data-sortable = "true">Visa</th>
+                    <th data-sortable = "true">Profil</th>
                 </tr>
                 </thead>
                 <tbody class = "searchable">

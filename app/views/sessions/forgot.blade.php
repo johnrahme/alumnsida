@@ -1,20 +1,26 @@
 @extends('layouts.default')
 
 @section('content')
-	<h1> Återställ lösenord</h1>
+<div class = "row">
+    <div class = "col-md-4">
+        <h2>Återställ lösenord</h2>
+         @include('common.users_errors')
+            Kom ihåg att ändra lösenordet så snart du loggat in.
 
-    @include('common.users_errors')
-    Kom ihåg att ändra lösenordet så snart du loggat in.
+        	{{Form::open(array('route'=> 'recover','method' => 'put'))}}
+        	<p>
+        		{{Form::label('email', 'Email:')}} <br/>
 
-	{{Form::open(array('route'=> 'recover','method' => 'put'))}}
-	<p>
-		{{Form::label('email', 'Email:')}} <br/>
-		
-		{{Form::text('email')}}
-	</p>
+        		{{Form::text('email', '', array('class'=> 'form-control'))}}
+        	</p>
 
-	<p> {{Form::submit('Skicka nytt lösenord')}} </p>
-	{{Form::close()}}
+        	<p> {{Form::submit('Skicka nytt lösenord', array('class' => 'btn btn-success'))}} </p>
+        	{{Form::close()}}
+
+    </div>
+</div>
+
+
 
 
 @stop

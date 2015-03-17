@@ -1,76 +1,91 @@
 @extends('layouts.default')
 
 @section('content')
-	<h1> Ändra Konto</h1>
+<div class = "row">
+    <div class = "col-md-12">
+        <div class = "panel panel-default">
+            <div class = "panel-body" style = "padding-top: 0">
+                 <div class = "page-header" style = "margin-top:0px">
+                    <h2>Ändra mitt konto</h2>
+                 </div>
+                 @include('common.users_errors')
+                 <div class = "col-sm-6">
+                 {{Form::open(array('url'=> 'admin/update','method'=>'put'))}}
+                 	<h3>Personuppgifter</h3>
+                     <p>
+                     		{{Form::label('name', 'Förnamn')}} <br/>
 
-    @include('common.users_errors')
-	{{Form::open(array('url'=> 'admin/update','method'=>'put'))}}
-	Personuppgifter
-    <p>
-    		{{Form::label('name', 'Förnamn')}} <br/>
+                     		{{Form::text('name', $admin->name, array('class' => 'form-control'))}}
 
-    		{{Form::text('name', $admin->name)}}
+                     	</p>
+                         <p>
+                             {{Form::label('surname', 'Efternamn')}} <br/>
 
-    	</p>
-        <p>
-            {{Form::label('surname', 'Efternamn')}} <br/>
+                             {{Form::text('surname', $admin->surname, array('class' => 'form-control'))}}
 
-            {{Form::text('surname', $admin->surname)}}
+                         </p>
 
-        </p>
+                         <p>
+                             {{Form::label('tel', 'Telefon')}} <br/>
 
-        <p>
-            {{Form::label('tel', 'Telefon')}} <br/>
+                             {{Form::input('tel', 'tel', $admin->tel, array('class' => 'form-control'))}}
 
-            {{Form::input('tel', 'tel', $admin->tel)}}
+                         </p>
 
-        </p>
+                         <p>
+                             {{Form::label('startYear', 'Startår')}} <br/>
 
-        <p>
-            {{Form::label('startYear', 'Startår')}} <br/>
+                             {{Form::input('number', 'startYear', $admin->startYear, array('class' => 'form-control'))}}
 
-            {{Form::input('number', 'startYear', $admin->startYear)}}
+                         </p>
 
-        </p>
+                         <p>
+                             {{Form::label('company', 'Företag')}} <br/>
 
-        <p>
-            {{Form::label('company', 'Företag')}} <br/>
+                             {{Form::text('company', $admin->company, array('class' => 'form-control'))}}
 
-            {{Form::text('company', $admin->company)}}
+                         </p>
 
-        </p>
+                 </div>
+                 <div class = "col-sm-6">
+                  <h3>Inloggningsuppgfiter</h3>
+                 		<p>
+                 		{{Form::label('username', 'Användarnamn')}} <br/>
 
-        Till inloggninen
-		<p>
-		{{Form::label('username', 'Användarnamn')}} <br/>
+                 		{{Form::text('username', $admin->username, array('class' => 'form-control'))}}
 
-		{{Form::text('username', $admin->username)}}
+                 	</p>
+                 	<p>
+                 		{{Form::label('email', 'Email:')}} <br/>
 
-	</p>
-	<p>
-		{{Form::label('email', 'Email:')}} <br/>
-		
-		{{Form::text('email',$admin->email)}}
-	</p>
+                 		{{Form::text('email',$admin->email, array('class' => 'form-control'))}}
+                 	</p>
 
-    <p>
-        {{Form::label('password', 'Nytt lösenord')}} <br/>
+                     <p>
+                         {{Form::label('password', 'Nytt lösenord')}} <br/>
 
-        {{Form::password('password', '')}}
+                         {{Form::password('password', array('class' => 'form-control'))}}
 
-    </p>
-    @if(Auth::check()&& Auth::user()->level == 2)
-    <p>
-        {{Form::label('level', 'Level')}}
-        {{Form::select('level', array('1' => '1', '2' => '2'), $admin->level)}}
-    </p>
-    @else
-        {{Form::hidden('level', 1)}}
-    @endif
-    {{Form::hidden('id',$admin->id)}}
-	
-	<p> {{Form::submit('Uppdatera')}} </p>
+                     </p>
+                     @if(Auth::check()&& Auth::user()->level == 2)
+                     <p>
+                         {{Form::label('level', 'Level')}}
+                         {{Form::select('level', array('1' => '1', '2' => '2'), $admin->level, array('class' => 'form-control'))}}
+                     </p>
+                     @else
+                         {{Form::hidden('level', 1)}}
+                     @endif
+                     {{Form::hidden('id',$admin->id)}}
 
-	{{Form::close()}}
+                 	<p> {{Form::submit('Uppdatera', array('class'=>'btn btn-success'))}} </p>
+
+                 	{{Form::close()}}
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 	
 @stop

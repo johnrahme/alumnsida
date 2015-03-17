@@ -1,6 +1,12 @@
 @extends('layouts.default')
 
 @section('content')
+<div class = "row">
+    <div class = "col-md-6">
+
+    </div>
+
+</div>
 	<h1> Login</h1>
 
     @include('common.users_errors')

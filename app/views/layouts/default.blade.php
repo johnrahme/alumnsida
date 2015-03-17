@@ -40,7 +40,8 @@
                     <li class = "active"> {{link_to('/','Start')}}</li>
                     <li> {{link_to_route('events','Events')}}</li>
                     <li>{{link_to_route('new_admin', 'Skapa konto')}}</li>
-                    <li> {{link_to_route('login','Login')}}</li>
+                    {{--<li> {{link_to_route('login','Login')}}</li>--}}
+                    <li> <a href = "#modalLogin" data-toggle = "modal">Login</a></li>
                     <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                 @endif
             </ul>
@@ -53,7 +54,7 @@
 <div class="container" style = "box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
 
 <div class = "row">
-    <div class = "col-md-9">
+    <div class = "@if(Auth::check()) col-md-9 @else col-md-12 @endif">
         @if(Session::has('message'))
             <div class="alert alert-success" role="alert">
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -86,6 +87,7 @@
     @endif
 </div>
 @include('contact.index')
+@include('sessions.modalLogin')
 
     <!-- Content -->
     @yield('content')

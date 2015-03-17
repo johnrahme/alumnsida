@@ -1,70 +1,86 @@
 @extends('layouts.default')
 
 @section('content')
-	<h1> Skapa nytt konto!</h1>
 
-    @include('common.users_errors')
-	{{Form::open(array('url'=> 'admin/create/reg','files'=>true))}}
+<div class = "row">
+    <div class = "col-md-12">
+        <div class = "panel panel-default">
+            <div class = "panel-body" style = "padding-top: 0">
+                 <div class = "page-header" style = "margin-top:0px">
+                    <h2>Skapa ett konto</h2>
+                 </div>
+                 @include('common.users_errors')
+                 Skapa ett konto nedan för att kunna lägga upp evenemang och se andra alumners profiler.
+                 <div class = "col-sm-6">
 
-    Personuppgifter
-		<p>
-		{{Form::label('name', 'Förnamn')}} <br/>
+                 	{{Form::open(array('url'=> 'admin/create/reg','files'=>true))}}
 
-		{{Form::text('name')}}
+                     <h3>Personuppgifter</h3>
+                    <p>
+                 		{{Form::label('name', 'Förnamn')}} <br/>
 
-	</p>
-    <p>
-        {{Form::label('surname', 'Efternamn')}} <br/>
+                 		{{Form::text('name','', array('class' => 'form-control'))}}
 
-        {{Form::text('surname')}}
+                 	</p>
+                     <p>
+                         {{Form::label('surname', 'Efternamn')}} <br/>
 
-    </p>
+                         {{Form::text('surname','', array('class' => 'form-control'))}}
 
-    <p>
-        {{Form::label('tel', 'Telefon')}} <br/>
+                     </p>
 
-        {{Form::input('tel', 'tel')}}
+                     <p>
+                         {{Form::label('tel', 'Telefon')}} <br/>
 
-    </p>
+                         {{Form::input('tel', 'tel','', array('class' => 'form-control'))}}
 
-    <p>
-        {{Form::label('startYear', 'Startår')}} <br/>
+                     </p>
 
-        {{Form::input('number', 'startYear')}}
+                     <p>
+                         {{Form::label('startYear', 'Startår')}} <br/>
 
-    </p>
+                         {{Form::input('number', 'startYear','', array('class' => 'form-control'))}}
 
-    <p>
-        {{Form::label('company', 'Företag')}} <br/>
+                     </p>
 
-        {{Form::text('company')}}
+                     <p>
+                         {{Form::label('company', 'Företag','', array('class' => 'form-control'))}} <br/>
 
-    </p>
-	Till Inloggningen
-	<p>
-		{{Form::label('username', 'Användarnamn')}} <br/>
+                         {{Form::text('company','', array('class' => 'form-control'))}}
 
-		{{Form::text('username')}}
+                     </p>
+                     </div>
+                     <div class = "col-sm-6">
+                 	<h3>Inloggningsuppgifter</h3>
+                 	<p>
+                 		{{Form::label('username', 'Användarnamn')}} <br/>
 
-	</p>
-	<p>
-		{{Form::label('email', 'Email:')}} <br/>
-		
-		{{Form::text('email')}}
-	</p>
+                 		{{Form::text('username','', array('class' => 'form-control'))}}
 
-    <p>
-        {{Form::label('password', 'Lösenord')}} <br/>
+                 	</p>
+                 	<p>
+                 		{{Form::label('email', 'Email:')}} <br/>
 
-        {{Form::password('password')}}
+                 		{{Form::text('email','', array('class' => 'form-control'))}}
+                 	</p>
 
-    </p>
+                     <p>
+                         {{Form::label('password', 'Lösenord')}} <br/>
 
-    {{Form::hidden('level', 1)}}
-    <p>
-    {{Form::checkbox('agreement')}} Jag godkänner att andra alumner tar del av min information.
-    </p>
-	<p> {{Form::submit('Skapa konto')}} </p>
-	{{Form::close()}}
-	
+                         {{Form::password('password', array('class' => 'form-control'))}}
+
+                     </p>
+
+                     {{Form::hidden('level', 1)}}
+                     <p>
+                     {{Form::checkbox('agreement')}} Jag godkänner att andra alumner tar del av min information.
+                     </p>
+                 	<p> {{Form::submit('Skapa konto', array('class' => 'btn btn-success'))}} </p>
+                 	{{Form::close()}}
+                 	</div>
+
+            </div>
+        </div>
+    </div>
+</div>
 @stop
