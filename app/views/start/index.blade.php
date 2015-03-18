@@ -16,16 +16,17 @@
              </p>
 		</div>
 
-
+@if(count($events)!=0)
 <div class = "row">
+    @if(count($eventsWithPictures)!=0)
     <div class = "col-sm-8">
-        <div class = "panel panel-default">
-            <div class = "panel-body">
+        <div class = "panel panel-default" >
+            <div class = "panel-body" >
                 @include('start.Extra.carousel2')
             </div>
         </div>
     </div>
-
+    @endif
     <div class = "col-sm-4">
         <div class = "panel panel-default">
             <div class = "panel-body" style = "padding-top: 0">
@@ -47,9 +48,8 @@
             </div>
         </div>
     </div>
-    </div>
 </div>
-
+@endif
 
 @stop
 @section('scripts')
