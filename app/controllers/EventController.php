@@ -9,10 +9,10 @@ class EventController extends BaseController{
 
         //Kollar vilken level av inlogg
         if(Auth::check()&&Auth::user()->level == 2) {
-             $events = event::orderBy('dateTimeFrom')->get();
+             $events = Event::orderBy('dateTimeFrom')->get();
         }
         elseif(Auth::check()&& Auth::user()->level == 1){
-            $events = event::where('publish', '=', 1)
+            $events = Event::where('publish', '=', 1)
                 ->orWhere(function($query){
                     $query->where('publish', '=', 0)
                         ->where('createdBy', '=', Auth::user()->id);
@@ -20,7 +20,7 @@ class EventController extends BaseController{
                 ->orderBy('dateTimeFrom')->get();
         }
         else {
-            $events = event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
+            $events = Event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
         }
         return View::make('events.index')
             ->with('title', 'Event')
@@ -31,7 +31,7 @@ class EventController extends BaseController{
 
     public function view($id){
 
-        $event = event::find($id);
+        $event = Event::find($id);
 
         $now = time();
         $regFrom = strtotime($event->regFrom);
@@ -48,8 +48,8 @@ class EventController extends BaseController{
             $regOngoing = false;
             $regEnded = true;
         }
-        $regCount = registration::where('eventId', '=', $id)->count();
-        $onlineEvents = event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
+        $regCount = Registration::where('eventId', '=', $id)->count();
+        $onlineEvents = Event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
 
         return View::make('events.view')
             ->with('title', 'Event View Page')
@@ -70,16 +70,16 @@ class EventController extends BaseController{
     public function createEvent(){
 
         if(Input::has('reg')){
-            $validation = event::validateReg(Input::all());
+            $validation = Event::validateReg(Input::all());
         }
         else {
-            $validation = event::validate(Input::all());
+            $validation = Event::validate(Input::all());
         }
         if($validation->fails()){
             return Redirect::route('new_event')->withErrors($validation)->withInput();
         }
 
-        $event = new event;
+        $event = new Event;
 
         $event->name = Input::get('name');
         $event->dateTimeFrom = Input::get('dateTimeFrom');
@@ -138,7 +138,7 @@ class EventController extends BaseController{
 
     }
     public function edit ($id){
-        if(count(registration::where('EventId','=',$id)->get())<1){
+        if(count(Registration::where('EventId','=',$id)->get())<1){
             $editExtra = true;
         }
         else{
@@ -146,7 +146,7 @@ class EventController extends BaseController{
         }
         return View::make('events.edit')
             ->with('title', 'Edit event')
-            ->with('event',event::find($id))
+            ->with('event',Event::find($id))
             ->with('extra', extraFormControl::where('eventId', '=',$id)->get())
             ->with('editExtra', $editExtra)
             ->with('active', 'events');
@@ -156,10 +156,10 @@ class EventController extends BaseController{
         $id = Input::get('id');
 
         if(Input::has('reg')){
-            $validation = event::validateReg(Input::all());
+            $validation = Event::validateReg(Input::all());
         }
         else {
-            $validation = event::validate(Input::all());
+            $validation = Event::validate(Input::all());
         }
 
         if($validation->fails()){
@@ -167,7 +167,7 @@ class EventController extends BaseController{
         }
         else{
 
-            $event = event::find($id);
+            $event = Event::find($id);
 
             $event->name = Input::get('name');
             $event->dateTimeFrom = Input::get('dateTimeFrom');
@@ -224,7 +224,7 @@ class EventController extends BaseController{
             }
 
             $event->save();
-            if(count(registration::where('eventId', '=', $id)->get())<1) {
+            if(count(Registration::where('eventId', '=', $id)->get())<1) {
 
                 $oldExtra = extraFormControl::where('eventId', '=', $id)->get();
                 foreach ($oldExtra as $ex) {
@@ -247,18 +247,18 @@ class EventController extends BaseController{
 
     }
     public function map($id){
-        $event = event::find($id);
+        $event = Event::find($id);
         return View::make('events.map')
             ->with('event', $event);
     }
     public function destroy(){
         $id = Input::get('id');
-        $event = event::find($id);
+        $event = Event::find($id);
         if($event->pictureUrl != "") {
             File::delete($event->pictureUrl);
         }
         $extraFormControl = extraFormControl::where('eventId', '=',$id)->get();
-        $registrations = registration::where('eventId','=',$id)->get();
+        $registrations = Registration::where('eventId','=',$id)->get();
         $name = $event->name;
         //Viktigt! Ta även bort ExtraData
         foreach($extraFormControl as $ex) {

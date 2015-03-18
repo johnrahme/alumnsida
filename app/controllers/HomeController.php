@@ -17,8 +17,8 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-        $onlineEvents = event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
-        $eventsWithPictures = event::where('publish', '=', 1)->where('pictureUrl', '!=', '')->orderBy('dateTimeFrom')->get();
+        $onlineEvents = Event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
+        $eventsWithPictures = Event::where('publish', '=', 1)->where('pictureUrl', '!=', '')->orderBy('dateTimeFrom')->get();
         return View::make('start.index')
             ->with('title', 'FUTF-alumnsida')
             ->with('events', $onlineEvents)

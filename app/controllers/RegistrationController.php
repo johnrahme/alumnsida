@@ -8,8 +8,8 @@ class RegistrationController extends BaseController
 
     public function index($id)
     { //Default name for starting function
-        $event = event::find($id);
-        $registrations = registration::where('eventId','=',$id)->get();
+        $event = Event::find($id);
+        $registrations = Registration::where('eventId','=',$id)->get();
         return View::make('registrations.index')
             ->with('title', 'Registrations')
             ->with('registrations', $registrations)
@@ -20,8 +20,8 @@ class RegistrationController extends BaseController
 
     public function newRegistration($id){
         $extraFields = extraFormControl::where('eventId','=',$id)->get();
-        $event = event::find($id);
-        $regCount = registration::where('eventId', '=', $id)->count();
+        $event = Event::find($id);
+        $regCount = Registration::where('eventId', '=', $id)->count();
         return View::make('registrations.new')
             ->with('title', 'New Registration')
             ->with('extraFields', $extraFields)
@@ -36,10 +36,10 @@ class RegistrationController extends BaseController
             return Redirect::route('new_registration', array(Input::get('eventId')))->withErrors($validation)->withInput();
         }
         $eventId = Input::get('eventId');
-        $event = event::find($eventId);
-        $regCount = registration::where('eventId', '=', $eventId)->count();
+        $event = Event::find($eventId);
+        $regCount = Registration::where('eventId', '=', $eventId)->count();
 
-        $registration = new registration;
+        $registration = new Registration;
         $registration->name = Input::get('name');
         $registration->surname = Input::get('surname');
         $registration->email = Input::get('email');
@@ -77,13 +77,13 @@ class RegistrationController extends BaseController
 
     }
     public function download(){
-        $event = event::find(Input::get('eventId'));
+        $event = Event::find(Input::get('eventId'));
         $eventId = $event->id;
 
         $typ = Input::get('format');
         $filename = $event->name . "-". date("Y-m-d");
 
-        $data = registration::where('eventId', '=', $eventId)->get();
+        $data = Registration::where('eventId', '=', $eventId)->get();
         $data2 = extraformcontrol::where('eventId', '=', $eventId)->get();
 
 
@@ -105,7 +105,7 @@ class RegistrationController extends BaseController
 
                 $sheet->row(1, $label);
                 foreach($data as $key=>$element){
-                    $ex1 = extradata::select('data')->where('registrationsId','=', $element->id)->get();
+                    $ex1 = Extradata::select('data')->where('registrationsId','=', $element->id)->get();
                     $array1 = $element->toArray();
                     foreach($ex1 as $extra){
                         $exValue = $extra->data;
@@ -126,7 +126,7 @@ class RegistrationController extends BaseController
     }
     public function destroy(){
         $id = Input::get('id');
-        $registration = registration::find($id);
+        $registration = Registration::find($id);
         $eventId = $registration->eventId;
         $name = $registration->name;
         $extraData = extraData::where('registrationsId','=', $id)->get();

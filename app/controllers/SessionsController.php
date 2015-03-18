@@ -31,7 +31,7 @@ class SessionsController extends \BaseController {
     }
     public function recover (){
 
-        $admin = admin::where('email', '=', Input::get('email'))->first();
+        $admin = Admin::where('email', '=', Input::get('email'))->first();
         if(is_null($admin)){
             return Redirect::back()->with('errorMessage', 'Email existerar inte')->withInput();
         }

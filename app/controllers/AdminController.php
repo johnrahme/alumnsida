@@ -37,11 +37,11 @@ class AdminController extends BaseController
     }
     public function createAdmin()
     {
-        $validation = admin::validate(Input::all());
+        $validation = Admin::validate(Input::all());
         if($validation->fails()){
             return Redirect::route('new_admin')->withErrors($validation)->withInput();
         }
-        $admin = new admin;
+        $admin = new Admin;
         $admin->username = Input::get('username');
         $admin->email = Input::get('email');
         $admin->password = Hash::make(Input::get('password'));
@@ -54,11 +54,11 @@ class AdminController extends BaseController
 
     public function createAdminReg()
     {
-        $validation = admin::validate(Input::all());
+        $validation = Admin::validate(Input::all());
         if($validation->fails()){
             return Redirect::route('new_admin')->withErrors($validation)->withInput();
         }
-        $admin = new admin;
+        $admin = new Admin;
         $admin->username = Input::get('username');
         $admin->email = Input::get('email');
         $admin->password = Hash::make(Input::get('password'));
@@ -75,14 +75,14 @@ class AdminController extends BaseController
     }
 
     public function view($id){
-        $admin = admin::find($id);
+        $admin = Admin::find($id);
         return View::make('admin.downScaled.view')
             ->with('title', 'Visa alumn')
             ->with('admin', $admin)
             ->with('active', 'admin');
     }
     public function edit($id){
-        $admin = admin::find($id);
+        $admin = Admin::find($id);
         return View::make('admin.edit')
             ->with('title', 'Ändra konto')
             ->with('admin', $admin)
@@ -90,7 +90,7 @@ class AdminController extends BaseController
     }
     public function update(){
         $id = Input::get('id');
-        $admin = admin::find($id);
+        $admin = Admin::find($id);
         $admin->username = Input::get('username');
         $admin->email = Input::get('email');
         $admin->level = Input::get('level');
@@ -114,15 +114,15 @@ class AdminController extends BaseController
     }
     public function destroy(){
         $id = Input::get('id');
-        $admin = admin::find($id);
-        $events = event::where('createdBy', '=', $id)->get();
+        $admin = Admin::find($id);
+        $events = Event::where('createdBy', '=', $id)->get();
         //Tar bort event kopplat till användaren
         foreach($events as $event){
             if($event->pictureUrl != "") {
                 File::delete($event->pictureUrl);
             }
             $extraFormControl = extraFormControl::where('eventId', '=',$id)->get();
-            $registrations = registration::where('eventId','=',$id)->get();
+            $registrations = Eegistration::where('eventId','=',$id)->get();
             $name = $event->name;
             //Viktigt! Ta även bort ExtraData
             foreach($extraFormControl as $ex) {

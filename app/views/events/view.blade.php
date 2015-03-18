@@ -8,7 +8,7 @@
         <div class = "panel panel-default">
             <div class = "panel-body" style = "padding-top: 0">
                 <div class = "page-header" style = "margin-top:0px">
-                    <h3>{{$currEvent->name}} <small>{{date('Y-m-d', strtotime($currEvent->dateTimeFrom))}} Kl. {{date('H:i', strtotime($currEvent->dateTimeFrom))}} Skapad av: {{link_to_route('view_admin',admin::find($currEvent->createdBy)->username,array('id'=>$currEvent->createdBy))}}</small></h3>
+                    <h3>{{$currEvent->name}} <small>{{date('Y-m-d', strtotime($currEvent->dateTimeFrom))}} Kl. {{date('H:i', strtotime($currEvent->dateTimeFrom))}} Skapad av: {{link_to_route('view_admin',Admin::find($currEvent->createdBy)->username,array('id'=>$currEvent->createdBy))}}</small></h3>
 
                 </div>
                 @if($currEvent->pictureUrl != "")
