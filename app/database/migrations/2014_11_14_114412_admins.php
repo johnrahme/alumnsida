@@ -38,8 +38,8 @@ class Admins extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('extraData');
-        Schema::drop('extraFormControl');
+        Schema::drop('extradatas');
+        Schema::drop('extraformcontrols');
         Schema::drop('registrations');
         Schema::drop('events');
 		Schema::drop('admins');

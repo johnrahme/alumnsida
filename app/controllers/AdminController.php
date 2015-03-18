@@ -121,12 +121,12 @@ class AdminController extends BaseController
             if($event->pictureUrl != "") {
                 File::delete($event->pictureUrl);
             }
-            $extraFormControl = extraFormControl::where('eventId', '=',$id)->get();
-            $registrations = Eegistration::where('eventId','=',$id)->get();
+            $extraFormControl = Extraformcontrol::where('eventId', '=',$id)->get();
+            $registrations = Registration::where('eventId','=',$id)->get();
             $name = $event->name;
             //Viktigt! Ta även bort ExtraData
             foreach($extraFormControl as $ex) {
-                $extraData = extraData::where('extraFromControlId', '=', $ex->id)->get();
+                $extraData = Extradata::where('extraFromControlId', '=', $ex->id)->get();
                 foreach($extraData as $exD) {
                     $exD->delete();
                 }

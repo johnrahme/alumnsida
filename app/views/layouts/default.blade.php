@@ -9,7 +9,7 @@
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/bootstrap-theme.css') }}
     {{ HTML::style('css/jquery.datetimepicker.css') }}
-    {{HTML::style('css/customBoot.css')}}
+    {{HTML::style('css/customBootTest.css')}}
     @yield('styles')
 
 </head>
@@ -53,7 +53,7 @@
 
 
     <!-- Container -->
-    <div class="container" style = "box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
+    <div id = "main" class="container clear-top" style = "box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
 
         <div class = "row">
             <div class = "@if(Auth::check()) col-md-9 @else col-md-12 @endif">
@@ -95,10 +95,8 @@
     @yield('content')
 
     </div>
-
-@include('layouts.defaultFooter')
-
 </div>
+@include('layouts.defaultFooter')
 <!-- Scripts are placed here -->
 {{ HTML::script('js/jquery-1.11.1.min.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}

@@ -19,7 +19,7 @@ class RegistrationController extends BaseController
     }
 
     public function newRegistration($id){
-        $extraFields = extraFormControl::where('eventId','=',$id)->get();
+        $extraFields = Extraformcontrol::where('eventId','=',$id)->get();
         $event = Event::find($id);
         $regCount = Registration::where('eventId', '=', $id)->count();
         return View::make('registrations.new')
@@ -31,7 +31,7 @@ class RegistrationController extends BaseController
     }
 
     public function createRegistration(){
-        $validation = registration::validate(Input::all());
+        $validation = Registration::validate(Input::all());
         if($validation->fails()){
             return Redirect::route('new_registration', array(Input::get('eventId')))->withErrors($validation)->withInput();
         }
@@ -61,7 +61,7 @@ class RegistrationController extends BaseController
 
             }*/
             foreach($extras as $key => $text){
-                $extraData = new extraData;
+                $extraData = new Extradata;
                 $extraData->registrationsId = $registration->id;
                 $extraData->extraFromControlId = $extrasId[$key];
                 $extraData->data = $text;
@@ -84,7 +84,7 @@ class RegistrationController extends BaseController
         $filename = $event->name . "-". date("Y-m-d");
 
         $data = Registration::where('eventId', '=', $eventId)->get();
-        $data2 = extraformcontrol::where('eventId', '=', $eventId)->get();
+        $data2 = Extraformcontrol::where('eventId', '=', $eventId)->get();
 
 
 
@@ -129,7 +129,7 @@ class RegistrationController extends BaseController
         $registration = Registration::find($id);
         $eventId = $registration->eventId;
         $name = $registration->name;
-        $extraData = extraData::where('registrationsId','=', $id)->get();
+        $extraData = Extradata::where('registrationsId','=', $id)->get();
         //Viktigt! Ta även bort ExtraData
         foreach($extraData as $ex) {
             $ex->delete();

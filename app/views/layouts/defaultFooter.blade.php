@@ -1,5 +1,5 @@
 
-<div class = "navbar navbar-inverse footer navbar-fixed-bottom">
+<footer class = "footer">
     <div class = "container">
         <div class = "row">
             <div class = "col-sm-2">
@@ -32,6 +32,5 @@
 
             </div>
         </div>
-
     </div>
-</div>
+</footer>

@@ -5,10 +5,10 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class ExtraData extends Eloquent implements UserInterface, RemindableInterface {
+class Extradata extends Eloquent implements UserInterface, RemindableInterface {
 
     use UserTrait, RemindableTrait;
 
-    protected $table = 'extradata';
+    protected $table = 'extradatas';
 
 }
