@@ -15,7 +15,7 @@ class AddAdmins extends Migration {
         DB::table('admins')->insert(array(
             'username' => 'Admin',
             'email' => 'admin@admin.se',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('admin'),
             'level' => 2,
             'created_at' => date('Y-m-d H:m:s'),
             'updated_at' => date('Y-m-d H:m:s')
