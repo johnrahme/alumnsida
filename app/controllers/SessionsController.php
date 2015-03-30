@@ -11,7 +11,6 @@ class SessionsController extends \BaseController {
 	}
 
 
-
 	public function store()
 	{
 		$input = Input::all();
@@ -22,6 +21,42 @@ class SessionsController extends \BaseController {
         return Redirect::back()->with('errorMessage', 'Inloggningen misslyckades')->withInput();
 
 	}
+    public function storeLinkedIn(){
+        //Data från linkedIn
+        $email = Input::get('linkedInEmail');
+        $name = Input::get('linkedInName');
+        $linkedInId = Input::get('linkedInId');
+        $surname = Input::get('linkedInSurname');
+        $headline = Input::get('linkedInHeadline');
+        $pictureUrl = Input::get('linkedInPictureUrl');
+
+        $adminOld = Admin::where('email','=',$email)->get();
+        $adminOldSave = Admin::where('email', '=', $email)->first();
+        $adminCurrentSave = Admin::where('linkedInId','=',$linkedInId)->first();
+        $unregistered = Admin::where('linkedInId', '=', $linkedInId)->get()->isEmpty();
+        if($unregistered&&$adminOld->isEmpty()){
+            $newAdmin = new Admin();
+            $admin = $newAdmin;
+            $admin->username = $name;
+            $admin->level = 1;
+        }
+        else if($unregistered &&!$adminOld->isEmpty()){
+            $admin = $adminOldSave;
+        }
+        else{
+            $admin = $adminCurrentSave;
+        }
+        $admin->name = $name;
+        $admin->linkedInId = $linkedInId;
+        $admin->email = $email;
+        $admin->surname = $surname;
+        $admin->company = $headline;
+        $admin->pictureUrl = $pictureUrl;
+        $admin->save();
+        Auth::login($admin);
+
+        return Redirect::route("start")->with('message','Inloggad!');
+    }
 
     public function forgot(){
 

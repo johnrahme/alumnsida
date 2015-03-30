@@ -1,4 +1,4 @@
-
+@include('sessions.linkedIn.loginForm')
 <div class = "modal fade" id = "modalLogin">
     <div class = "modal-dialog">
         <div class = "modal-content">
@@ -6,7 +6,7 @@
         	{{Form::open(array('route'=> 'sessions.store','files'=>true))}}
              {{--Head--}}
             <div class = "modal-header">
-                <h2>Login</h2>
+                <h2>Login <small>eller  <script type="in/Login"></script> </small></h2>
 
             </div>
             {{--Body--}}
@@ -29,13 +29,11 @@
 				</div>
 
 	             {{link_to_route('forgot', 'Glömt lösenord')}}
-
             </div>
             {{--Footer--}}
             <div class = "modal-footer">
                 <a href = "#" data-dismiss = "modal" class = "btn btn-default">Stäng</a>
                 {{Form::submit('Login', array('class' => 'btn btn-success'))}}
-
             </div>
            {{Form::close()}}
         </div>

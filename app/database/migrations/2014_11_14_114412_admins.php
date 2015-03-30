@@ -23,6 +23,8 @@ class Admins extends Migration {
             $table->string('tel');
             $table->integer('startYear');
             $table->string('company');
+            $table->string('linkedInId');
+            $table->string('pictureUrl');
             $table->rememberToken();
             $table->timestamps();
         });

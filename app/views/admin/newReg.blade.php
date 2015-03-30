@@ -7,7 +7,7 @@
         <div class = "panel panel-default">
             <div class = "panel-body" style = "padding-top: 0">
                  <div class = "page-header" style = "margin-top:0px">
-                    <h2>Skapa ett konto</h2>
+                    <h2>Skapa ett konto <small>eller </small><script type="in/Login"></script></h2>
                  </div>
                  @include('common.users_errors')
                  Skapa ett konto nedan för att kunna lägga upp evenemang och se andra alumners profiler.

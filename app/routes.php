@@ -102,4 +102,6 @@ Route::put('recover', array('as' =>'recover', 'uses' => 'SessionsController@reco
 
 Route::resource('sessions', 'SessionsController', ['only' => ['store', 'index', 'create', 'destroy']]);
 
+Route::post('storeLinkedIn', array('as'=>'storeLinkedIn', 'uses' => 'SessionsController@storeLinkedIn'));
+
 
