@@ -9,7 +9,7 @@
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/bootstrap-theme.css') }}
     {{ HTML::style('css/jquery.datetimepicker.css') }}
-    {{HTML::style('css/customBootTest.css')}}
+    {{ HTML::style('css/customBootTest.css')}}
 
     {{--LinkedIn--}}
     @include('sessions.linkedIn.linkedIn')
@@ -24,7 +24,7 @@
         <div class = "container">
             <div class = "navbar-header">
                 <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
-                <a href = "{{url('/')}}" class = "navbar-brand">FUTF:s alumnsida</a>
+                <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
                 <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
                 <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
                     <span class = "icon-bar"> </span>
@@ -38,15 +38,13 @@
                     @if(Auth::check())
                         <li id = "start"> {{link_to('/','Start')}}</li>
 
-                        <li id = "events"> {{link_to_route('events','Event')}}</li>
-                        <li id = "admin"> {{link_to_route('admin','Alumner')}}</li>
                         <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                      @else
                         <li id = "start"> {{link_to('/','Start')}}</li>
-                        <li id = "events"> {{link_to_route('events','Event')}}</li>
-                        <li id = "create">{{link_to_route('new_admin', 'Skapa konto')}}</li>
                         {{--<li> {{link_to_route('login','Login')}}</li>--}}
-                        <li id = "login"> <a href = "#modalLogin" data-toggle = "modal">Login</a></li>
+                        @if(isset($showLogin))
+                            <li id = "login"> <a href = "#modalLogin" data-toggle = "modal">Login</a></li>
+                        @endif
                         <li id = "contactA"> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                     @endif
                 </ul>
