@@ -74,7 +74,7 @@ Route::get('contact/sent', array('as' => 'sent', 'uses' => 'ContactController@se
 
 Route::get('admin', array('as' => 'admin', 'uses' => 'AdminController@index'));
 
-Route::get('admin/new', array('as' => 'new_admin', 'uses' => 'AdminController@newadmin'));
+Route::get('admin/new', array('as' => 'new_admin', 'uses' => 'AdminController@newadmin'))->before('auth');
 
 Route::post('admin/create', array('uses' => 'AdminController@createAdmin'));
 //Skapar konto för ny användare

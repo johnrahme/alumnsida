@@ -7,7 +7,7 @@
 		<h2>Hej!</h2>
 
 		<div>
-		    Här kommer ett nytt temporärt lösenord att logga in med på alumn.futf.se. Kom ihåg att byta ut det så snart som möjligt.
+		    Här kommer ett nytt temporärt lösenord att logga in med på futf.se. Kom ihåg att byta ut det så snart som möjligt.
 
 		    {{$recoverPassword}}
 		</div>

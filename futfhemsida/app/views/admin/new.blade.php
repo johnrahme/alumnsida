@@ -1,6 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
+
 	<h1> Skapa ny admin</h1>
 
     @include('common.users_errors')
