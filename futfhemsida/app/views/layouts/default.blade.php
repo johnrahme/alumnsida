@@ -9,7 +9,8 @@
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/bootstrap-theme.css') }}
     {{ HTML::style('css/jquery.datetimepicker.css') }}
-    {{ HTML::style('css/customBootTest.css')}}
+    {{ HTML::style('css/customBootTest.css') }}
+    {{ HTML::style('css/dropdown-menu.css') }}
 
     {{--LinkedIn--}}
     @include('sessions.linkedIn.linkedIn')
@@ -42,11 +43,26 @@
                         <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                      @else
 
-                     <li><a>Dropdown Menu</a>
-                     		<ul>
-                     			 <li id = "start"> {{link_to('/','Test')}}</li>
-                     		</ul>
-                     	</li>
+                     <div id='cssmenu'>
+                     <ul>
+                        <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
+                           <ul>
+                              <li class='has-sub'><a href='#'><span>Test 1</span></a>
+                                 <ul>
+                                    <li><a href='#'><span>Test1</span></a></li>
+                                    <li class='last'><a href='#'><span>Test2</span></a></li>
+                                 </ul>
+                              </li>
+                              <li class='has-sub'><a href='#'><span>Test 2</span></a>
+                                 <ul>
+                                    <li><a href='#'><span>Test1</span></a></li>
+                                    <li class='last'><a href='#'><span>Test2</span></a></li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                     </div>
 
                         <li id = "start"> {{link_to('/','Start')}}</li>
                         <li id = "events"> {{link_to_route('events','Event')}}</li>
