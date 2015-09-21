@@ -12,7 +12,7 @@
 */
 //startsida
 Route::get('/', array('as'=>'start', 'uses'=>'HomeController@index'));
-Route::get('futflogon', array('as' =>'adminStart', 'uses' => 'HomeController@adminIndex'));
+Route::get('futflogin', array('as' =>'adminStart', 'uses' => 'HomeController@adminIndex'));
 
 //Users
 
