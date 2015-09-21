@@ -37,7 +37,6 @@
                 <ul class = "nav navbar-nav navbar-right">
                     @if(Auth::check())
                         <li id = "start"> {{link_to('/','Start')}}</li>
-
                         <li id = "events"> {{link_to_route('events','Event')}}</li>
                         <li id = "admin"> {{link_to_route('admin','Alumner')}}</li>
                         <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
