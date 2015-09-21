@@ -12,6 +12,7 @@
 */
 //startsida
 Route::get('/', array('as'=>'start', 'uses'=>'HomeController@index'));
+
 Route::get('futflogin', array('as' =>'adminStart', 'uses' => 'HomeController@adminIndex'));
 
 //Users
@@ -51,6 +52,7 @@ Route::delete('events/delete', array('uses'=>'EventController@destroy'));
 Route::get('event/{id}/map', array('as'=>'map','uses'=>'EventController@map'));
 
 //registrations
+
 Route::get('event/{id}/registrations', array('as'=>'registrations', 'uses'=>'RegistrationController@index'));
 
 Route::get('event/{id}/registrations/new', array('as'=>'new_registration', 'uses'=>'RegistrationController@newRegistration'));
@@ -74,9 +76,17 @@ Route::get('contact/sent', array('as' => 'sent', 'uses' => 'ContactController@se
 
 Route::get('admin', array('as' => 'admin', 'uses' => 'AdminController@index'));
 
-Route::get('admin/new', array('as' => 'new_admin', 'uses' => 'AdminController@newadmin'))->before('auth');
-
+Route::group(array('before' => 'auth|hasAdminLevel'), function(){
+    Route::get('admin/new', array('as' => 'new_admin', 'uses' => 'AdminController@newadmin'));
+});
 Route::post('admin/create', array('uses' => 'AdminController@createAdmin'));
+    //function
+    Route::filter('hasAdminLevel', function() {
+        if(Auth::user()->level != '2') {
+            return Redirect::to('/');
+        }
+    });
+
 //Skapar konto för ny användare
 Route::post('admin/create/reg', array('uses' => 'AdminController@createAdminReg'));
 

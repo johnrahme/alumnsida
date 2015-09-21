@@ -31,7 +31,7 @@
             {{Form::select('level', array('1' => '1', '2' => '2'), '1')}}
     </p>
         <p>
-        {{Form::checkbox('agreement')}} Jag godkänner att andra alumner tar del av min information.
+        {{Form::checkbox('agreement')}} Jag godkänner att andra styrelsemedlemmar får ta del av min information.
         </p>
 
 	<p> {{Form::submit('Add Admin')}} </p>
