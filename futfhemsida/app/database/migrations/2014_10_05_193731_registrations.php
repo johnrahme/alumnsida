@@ -12,10 +12,10 @@ class Registrations extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('registrations', function($table){
+        Schema::create('f_registrations', function($table){
             $table->increments('id');
             $table->integer('eventId')->unsigned();
-            $table->foreign('eventId')->references('id')->on('events');
+            $table->foreign('eventId')->references('id')->on('f_events');
             $table->string('name');
             $table->string('surname');
             $table->string('email');

@@ -9,6 +9,6 @@ class Extradata extends Eloquent implements UserInterface, RemindableInterface {
 
     use UserTrait, RemindableTrait;
 
-    protected $table = 'extradatas';
+    protected $table = 'f_extradatas';
 
 }

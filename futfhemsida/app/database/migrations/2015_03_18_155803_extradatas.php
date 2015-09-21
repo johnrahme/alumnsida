@@ -12,14 +12,14 @@ class Extradatas extends Migration {
      */
     public function up()
     {
-        Schema::create('extradatas', function($table){
+        Schema::create('f_extradatas', function($table){
             $table->increments('id');
             $table->integer('registrationsId')->unsigned();
-            $table->foreign('registrationsId')->references('id')->on('registrations');
+            $table->foreign('registrationsId')->references('id')->on('f_registrations');
 
             //felstavat, bör ändras
             $table->integer('extraFromControlId')->unsigned();
-            $table->foreign('extraFromControlId')->references('id')->on('extraformcontrols');
+            $table->foreign('extraFromControlId')->references('id')->on('f_extraformcontrols');
             $table->string('data');
             $table->timestamps();
         });

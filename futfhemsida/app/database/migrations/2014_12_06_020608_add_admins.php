@@ -12,7 +12,7 @@ class AddAdmins extends Migration {
      */
     public function up()
     {
-        DB::table('admins')->insert(array(
+        DB::table('f_admins')->insert(array(
             'username' => 'Admin',
             'email' => 'admin@admin.se',
             'password' => Hash::make('admin'),

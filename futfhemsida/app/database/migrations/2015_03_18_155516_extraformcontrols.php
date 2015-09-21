@@ -12,10 +12,10 @@ class Extraformcontrols extends Migration {
      */
     public function up()
     {
-        Schema::create('extraformcontrols', function($table){
+        Schema::create('f_extraformcontrols', function($table){
             $table->increments('id');
             $table->integer('eventId')->unsigned();
-            $table->foreign('eventId')->references('id')->on('events');
+            $table->foreign('eventId')->references('id')->on('f_events');
             $table->string('title');
             $table->timestamps();
         });
