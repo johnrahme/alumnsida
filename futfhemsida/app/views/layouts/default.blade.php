@@ -23,9 +23,9 @@
     <div class = "navbar navbar-inverse navbar-static-top">
         <div class = "container">
             <div class = "navbar-header">
-                <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
-                <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
                 <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
+                <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
+                <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
                 <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
                     <span class = "icon-bar"> </span>
                     <span class = "icon-bar"> </span>
@@ -38,9 +38,16 @@
                     @if(Auth::check())
                         <li id = "start"> {{link_to('/','Start')}}</li>
                         <li id = "events"> {{link_to_route('events','Event')}}</li>
-                        <li id = "admin"> {{link_to_route('admin','Alumner')}}</li>
+                        <li id = "admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
                         <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                      @else
+
+                     <li><a>Dropdown Menu</a>
+                     		<ul>
+                     			 <li id = "start"> {{link_to('/','Test')}}</li>
+                     		</ul>
+                     	</li>
+
                         <li id = "start"> {{link_to('/','Start')}}</li>
                         <li id = "events"> {{link_to_route('events','Event')}}</li>
                         <li id = "create">{{link_to_route('new_admin', 'Skapa konto')}}</li>

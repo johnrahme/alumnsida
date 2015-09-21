@@ -10,7 +10,7 @@
                     <h2>Skapa ett konto <small>eller </small><script type="in/Login"></script></h2>
                  </div>
                  @include('common.users_errors')
-                 Skapa ett konto nedan för att kunna lägga upp evenemang och se andra alumners profiler.
+                 Om du är medlem i styrelsen kan du be it-ansvarig att skapa ett konto åt dig.
                  <div class = "col-sm-6">
 
                  	{{Form::open(array('url'=> 'admin/create/reg','files'=>true))}}
@@ -73,7 +73,7 @@
 
                      {{Form::hidden('level', 1)}}
                      <p>
-                     {{Form::checkbox('agreement')}} Jag godkänner att andra alumner tar del av min information.
+                     {{Form::checkbox('agreement')}} Jag godkänner att andra styrelsemedlemmar får ta del av min information.
                      </p>
                  	<p> {{Form::submit('Skapa konto', array('class' => 'btn btn-success'))}} </p>
                  	{{Form::close()}}
