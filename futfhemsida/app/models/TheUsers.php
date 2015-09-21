@@ -3,6 +3,6 @@
 
 class TheUsers extends Eloquent{
 
-	protected $table = 'users';
+	protected $table = 'f_users';
 
 }

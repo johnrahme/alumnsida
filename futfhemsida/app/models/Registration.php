@@ -14,7 +14,7 @@ class Registration extends Eloquent implements UserInterface, RemindableInterfac
      *
      * @var string
      */
-    protected $table = 'registrations';
+    protected $table = 'f_registrations';
 
     /**
      * The attributes excluded from the model's JSON form.

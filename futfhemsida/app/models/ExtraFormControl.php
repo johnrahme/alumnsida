@@ -9,6 +9,6 @@ class Extraformcontrol extends Eloquent implements UserInterface, RemindableInte
 
     use UserTrait, RemindableTrait;
 
-    protected $table = 'extraformcontrols';
+    protected $table = 'f_extraformcontrols';
 
 }

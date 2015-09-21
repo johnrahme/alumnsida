@@ -14,7 +14,7 @@ class Event extends Eloquent implements UserInterface, RemindableInterface {
      *
      * @var string
      */
-    protected $table = 'events';
+    protected $table = 'f_events';
 
     /**
      * The attributes excluded from the model's JSON form.
