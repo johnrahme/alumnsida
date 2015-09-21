@@ -25,5 +25,15 @@ class HomeController extends BaseController {
             ->with('eventsWithPictures', $eventsWithPictures)
             ->with('active', 'start');
 	}
+    public function adminIndex(){
+        $onlineEvents = Event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
+        $eventsWithPictures = Event::where('publish', '=', 1)->where('pictureUrl', '!=', '')->orderBy('dateTimeFrom')->get();
+        return View::make('start.index')
+            ->with('title', 'FUTF-alumnsida')
+            ->with('events', $onlineEvents)
+            ->with('eventsWithPictures', $eventsWithPictures)
+            ->with('showLogin', '1')
+            ->with('active', 'start');
+    }
 
 }

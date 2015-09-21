@@ -12,6 +12,7 @@
 */
 //startsida
 Route::get('/', array('as'=>'start', 'uses'=>'HomeController@index'));
+Route::get('futflogon', array('as' =>'adminStart', 'uses' => 'HomeController@adminIndex'));
 
 //Users
 
@@ -103,5 +104,7 @@ Route::put('recover', array('as' =>'recover', 'uses' => 'SessionsController@reco
 Route::resource('sessions', 'SessionsController', ['only' => ['store', 'index', 'create', 'destroy']]);
 
 Route::post('storeLinkedIn', array('as'=>'storeLinkedIn', 'uses' => 'SessionsController@storeLinkedIn'));
+
+
 
 
