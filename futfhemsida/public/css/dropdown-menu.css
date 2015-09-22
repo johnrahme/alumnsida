@@ -15,7 +15,7 @@
   -moz-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
   background: rgba(54, 54, 54, 0.0);
-  border-bottom: 2px solid #E6B800;
+  border-bottom: 2px solid rgba(250, 184, 15, 1.0); /*Färg för bottenlinje*/
   width: auto;
 }
 #cssmenu:after,
@@ -92,6 +92,10 @@
   -webkit-border-radius: 0 5px 0 0;
 }
 #cssmenu > ul > li.active > a,
+
+/*link_to färg fix*/
+a:active {color: #E6B800;}
+/*End link_to färg fix*/
 
 /*Menu, med hover*/
 

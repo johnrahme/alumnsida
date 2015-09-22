@@ -37,41 +37,60 @@
             <div class = "navbar-collapse collapse navHeaderCollapse" >
                 <ul class = "nav navbar-nav navbar-right">
                     @if(Auth::check())
-                        <li id = "start"> {{link_to('/','Start')}}</li>
-                        <li id = "events"> {{link_to_route('events','Event')}}</li>
-                        <li id = "admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
-                        <li> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
+                        <div id='cssmenu'>
+                            <ul>
+                                <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
+                                   <ul>
+                                      <li class='has-sub'><a href='#'><span>Test 1</span></a>
+                                         <ul>
+                                            <li><a href='#'><span>Test1</span></a></li>
+                                            <li class='last'><a href='#'><span>Test2</span></a></li>
+                                         </ul>
+                                      </li>
+                                      <li class='has-sub'><a href='#'><span>Test 2</span></a>
+                                         <ul>
+                                            <li><a href='#'><span>Test1</span></a></li>
+                                            <li class='last'><a href='#'><span>Test2</span></a></li>
+                                         </ul>
+                                      </li>
+                                   </ul>
+                                </li>
+                                <li class='has-sub last' id = "start"> {{link_to('/','Start')}}</li>
+                                <li class='has-sub last' id = "events"> {{link_to_route('events','Event')}}</li>
+                                <li class='has-sub last' id = "admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
+                                <li class='has-sub last'> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
+                            </ul>
+                        </div>
                      @else
 
                      <div id='cssmenu'>
-                     <ul>
-                        <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
-                           <ul>
-                              <li class='has-sub'><a href='#'><span>Test 1</span></a>
-                                 <ul>
-                                    <li><a href='#'><span>Test1</span></a></li>
-                                    <li class='last'><a href='#'><span>Test2</span></a></li>
-                                 </ul>
-                              </li>
-                              <li class='has-sub'><a href='#'><span>Test 2</span></a>
-                                 <ul>
-                                    <li><a href='#'><span>Test1</span></a></li>
-                                    <li class='last'><a href='#'><span>Test2</span></a></li>
-                                 </ul>
-                              </li>
-                           </ul>
-                        </li>
-                     </ul>
+                         <ul>
+                            <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
+                               <ul>
+                                  <li class='has-sub'><a href='#'><span>Test 1</span></a>
+                                     <ul>
+                                        <li><a href='#'><span>Test1</span></a></li>
+                                        <li class='last'><a href='#'><span>Test2</span></a></li>
+                                     </ul>
+                                  </li>
+                                  <li class='has-sub'><a href='#'><span>Test 2</span></a>
+                                     <ul>
+                                        <li><a href='#'><span>Test1</span></a></li>
+                                        <li class='last'><a href='#'><span>Test2</span></a></li>
+                                     </ul>
+                                  </li>
+                               </ul>
+                            </li>
+                            <li class='has-sub last' id = "start"> {{link_to('/','Start')}}</li>
+                            <li class='has-sub last' id = "events"> {{link_to_route('events','Event')}}</li>
+                            <li class='has-sub last' id = "create">{{link_to_route('new_admin', 'Skapa konto')}}</li>
+                            {{--<li> {{link_to_route('login','Login')}}</li>--}}
+                            @if(isset($showLogin))
+                                <li class='has-sub last' id = "login"> <a href = "#modalLogin" data-toggle = "modal">Login</a></li>
+                            @endif
+                            <li class='has-sub last' id = "contactA"> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
+                         </ul>
                      </div>
-
-                        <li id = "start"> {{link_to('/','Start')}}</li>
-                        <li id = "events"> {{link_to_route('events','Event')}}</li>
-                        <li id = "create">{{link_to_route('new_admin', 'Skapa konto')}}</li>
-                        {{--<li> {{link_to_route('login','Login')}}</li>--}}
-                        @if(isset($showLogin))
-                            <li id = "login"> <a href = "#modalLogin" data-toggle = "modal">Login</a></li>
-                        @endif
-                        <li id = "contactA"> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                     @endif
                 </ul>
             </div>
