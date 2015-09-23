@@ -10,7 +10,6 @@
     {{ HTML::style('css/bootstrap-theme.css') }}
     {{ HTML::style('css/jquery.datetimepicker.css') }}
     {{ HTML::style('css/customBootTest.css') }}
-    {{ HTML::style('css/dropdown-menu.css') }}
 
     {{--LinkedIn--}}
     @include('sessions.linkedIn.linkedIn')
