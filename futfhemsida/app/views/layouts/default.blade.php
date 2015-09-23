@@ -57,6 +57,13 @@
                                 <li class='has-sub last' id = "start"> {{link_to('/','Start')}}</li>
                                 <li class='has-sub last' id = "events"> {{link_to_route('events','Event')}}</li>
                                 <li class='has-sub last' id = "admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
+                                <li class='has-sub last' id = "menu"> {{link_to_route('menu.index','Menyer')}}</li>
+                                {{--Detta bör troligtvis göras snyggare--}}
+                                {{$menus = Menu::all();}}
+                                @foreach($menus as $menu){
+                                    <li class='has-sub last' id = '{{$menu->url}}'> {{link_to_route('menu.dyn',$menu->name, $menu->url)}}</li>
+                                }
+                                @endforeach
                                 <li class='has-sub last'> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
                             </ul>
                         </div>

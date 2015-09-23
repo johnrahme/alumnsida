@@ -116,5 +116,10 @@ Route::resource('sessions', 'SessionsController', ['only' => ['store', 'index', 
 Route::post('storeLinkedIn', array('as'=>'storeLinkedIn', 'uses' => 'SessionsController@storeLinkedIn'));
 
 
+//Dynamic menu
 
 
+Route::resource('menu', 'MenuController');
+
+
+Route::get('{page}', array('as' =>'menu.dyn', 'uses' => 'MenuController@dynUrl'));
