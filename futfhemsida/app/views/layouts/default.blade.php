@@ -37,7 +37,7 @@
                 <ul class = "nav navbar-nav navbar-right">
                     @if(Auth::check())
                         <div id='cssmenu'>
-                            <ul>
+                            <ul id = "sortable">
                                 <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
                                    <ul>
                                       <li class='has-sub'><a href='#'><span>Test 1</span></a>
@@ -156,6 +156,7 @@
 {{ HTML::script('js/bootstrap.min.js') }}
 {{HTML::script('js/jquery.datetimepicker.js')}}
 {{HTML::script('js/checkmodal.js')}}
+{{HTML::script('js/jquery-ui.js')}}
 {{HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 
 <script>
@@ -167,6 +168,12 @@ $(document).ready(function(){
 @endif
 </script>
 
+  <script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+  </script>
 
 
     <!-- Script -->

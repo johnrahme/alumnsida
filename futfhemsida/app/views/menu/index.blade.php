@@ -2,6 +2,14 @@
 
 @section('content')
 <div class = "row">
+    <div class="col-md-4">
+    <ul id="sortable" class = "nav navbar-nav navbar-right ">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+    </div>
+</div>
+<div class = "row">
    <div class="col-md-4">{{Form::text('search', '', array('id' => 'search', 'placeholder' => 'Sök...','class' => 'form-control'))}}</div>
 </div>
 <br>
@@ -42,6 +50,12 @@
 @stop
 
 @section('scripts')
+  <script>
+  $(function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  });
+  </script>
 
 {{HTML::script('js/searchable.js')}}
 @stop
