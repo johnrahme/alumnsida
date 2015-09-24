@@ -9,7 +9,7 @@ class MenuController extends \BaseController {
 	 */
     public function index()
     {
-        $menus = Menu::all();
+        $menus = Menu::orderBy('order')->get();
         return View::make('menu.index')
             ->with('title', 'Menu start!')
             ->with('active', 'menu')
@@ -25,6 +25,17 @@ class MenuController extends \BaseController {
             ->with('page', $pageDB)
             ->with('active',$pageDB->url);
     }
+    public function arrange(){
+        $order = Input::get('order');
+        $orderArr = json_decode($order);
+        foreach($orderArr as $key => $menu){
+            $currMenu = Menu::where('url', '=',$menu)->first();
+            $currMenu->order = $key;
+            $currMenu->save();
+        }
+        return Redirect::route('menu.index')
+            ->with('message', 'Meny uppdaterad!');
+    }
 	public function create()
 	{
         return View::make('menu.new')
@@ -39,10 +50,12 @@ class MenuController extends \BaseController {
 	 */
 	public function store()
 	{
+        $allMenus = Menu::all();
         $menu = new Menu;
         $menu->name = Input::get('name');
         $menu->url = Input::get('url');
         $menu->content = Input::get('content');
+        $menu->order = count($allMenus);
 
         $menu->save();
         return Redirect::route('menu.index')

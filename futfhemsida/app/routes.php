@@ -123,3 +123,4 @@ Route::resource('menu', 'MenuController');
 
 
 Route::get('{page}', array('as' =>'menu.dyn', 'uses' => 'MenuController@dynUrl'));
+Route::post('menu/arrange', array('as' =>'menu.arrange', 'uses' => 'MenuController@arrange'));

@@ -18,6 +18,7 @@ class Menus extends Migration {
             $table->string('name');
             $table->string('url');
             $table->longText('content');
+            $table->integer('order');
 			$table->timestamps();
 		});
 	}

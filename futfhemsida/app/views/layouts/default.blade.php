@@ -37,7 +37,7 @@
                 <ul class = "nav navbar-nav navbar-right">
                     @if(Auth::check())
                         <div id='cssmenu'>
-                            <ul id = "sortable">
+                            <ul>
                                 <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
                                    <ul>
                                       <li class='has-sub'><a href='#'><span>Test 1</span></a>
@@ -60,7 +60,7 @@
                                 <li class='has-sub last' id = "menu"> {{link_to_route('menu.index','Menyer')}}</li>
                                 {{--Detta bör troligtvis göras snyggare--}}
                                 <?php
-                                $menus = Menu::all();
+                                $menus = Menu::orderBy('order')->get();
                                 ?>
                                 @foreach($menus as $menu)
                                     <li class='has-sub last' id = '{{$menu->url}}'> {{link_to_route('menu.dyn',$menu->name, $menu->url)}}</li>
@@ -168,12 +168,7 @@ $(document).ready(function(){
 @endif
 </script>
 
-  <script>
-  $(function() {
-    $( "#sortable" ).sortable();
-    $( "#sortable" ).disableSelection();
-  });
-  </script>
+
 
 
     <!-- Script -->
