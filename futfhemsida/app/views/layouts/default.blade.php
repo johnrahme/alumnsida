@@ -33,11 +33,9 @@
 
                 </button>
             </div>
-            <div class = "navbar-collapse collapse navHeaderCollapse" >
+            <div class = "navbar-collapse collapse navHeaderCollapse" id ="cssmenu">
                 <ul class = "nav navbar-nav navbar-right">
                     @if(Auth::check())
-                        <div id='cssmenu'>
-                            <ul>
                                 <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
                                    <ul>
                                       <li class='has-sub'><a href='#'><span>Test 1</span></a>
@@ -54,6 +52,7 @@
                                       </li>
                                    </ul>
                                 </li>
+                                
                                 <li class='has-sub last' id = "start"> {{link_to('/','Start')}}</li>
                                 <li class='has-sub last' id = "events"> {{link_to_route('events','Event')}}</li>
                                 <li class='has-sub last' id = "admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
@@ -67,12 +66,8 @@
 
                                 @endforeach
                                 <li class='has-sub last'> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
-                            </ul>
-                        </div>
                      @else
 
-                     <div id='cssmenu'>
-                         <ul>
                             <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
                                <ul>
                                   <li class='has-sub'><a href='#'><span>Test 1</span></a>
@@ -97,8 +92,6 @@
                                 <li class='has-sub last' id = "login"> <a href = "#modalLogin" data-toggle = "modal">Login</a></li>
                             @endif
                             <li class='has-sub last' id = "contactA"> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
-                         </ul>
-                     </div>
                     @endif
                 </ul>
             </div>
