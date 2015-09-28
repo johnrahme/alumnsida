@@ -19,7 +19,7 @@
                             </ul>
             </div>
             <div class = "col-sm-8">
-                <div style="margin-left:75%; width:100%;">
+                <div style="text-align: right; width:100%;">
                     <h6> Skapad från <span class = "glyphicon glyphicon-heart"></span> av {{ link_to('/','the J-Quad Squad', array('class' => 'colourLink'))}}.</h6>
                     <p><h6>Copyright &copy; <?php echo date("Y"); ?> FUTF.</h6></p>
                 </div>

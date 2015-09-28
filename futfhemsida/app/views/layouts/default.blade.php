@@ -22,7 +22,7 @@
 <div id = "wrap">
     <div class = "navbar navbar-inverse navbar-static-top">
         <div class = "container">
-            <div class = "navbar-header">
+            <!--<div class = "navbar-header">
                 <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
                 <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
                 <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
@@ -32,13 +32,11 @@
                     <span class = "icon-bar"> </span>
 
                 </button>
-            </div>
-            <div class = "navbar-collapse collapse navHeaderCollapse" >
+            </div>-->
+            <div class = "navbar-collapse collapse navHeaderCollapse" id ="cssmenu">
                 <ul class = "nav navbar-nav navbar-right">
                     @if(Auth::check())
-                        <div id='cssmenu'>
-                            <ul>
-                                <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
+                                <li class='has-sub last'><a href='#'>DropdownTest</a>
                                    <ul>
                                       <li class='has-sub'><a href='#'><span>Test 1</span></a>
                                          <ul>
@@ -54,16 +52,32 @@
                                       </li>
                                    </ul>
                                 </li>
+                                
                                 <li class='has-sub last' id = "start"> {{link_to('/','Start')}}</li>
                                 <li class='has-sub last' id = "events"> {{link_to_route('events','Event')}}</li>
                                 <li class='has-sub last' id = "admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
+                                <li class='has-sub last' id = "menu"> {{link_to_route('menu.index','Menyer')}}</li>
+                                {{--Detta bör troligtvis göras snyggare--}}
+                                <?php
+                                $menus = Menu::orderBy('order')->get();
+                                ?>
+                                @foreach($menus as $menu)
+                                    <?php
+                                        $subMenusView = Submenu::where('menuId','=',$menu->id)->orderBy('order')->get();
+                                    ?>
+                                    <li class='has-sub last' id = '{{$menu->url}}'> {{link_to_route('menu.dyn',$menu->name, $menu->url)}}
+                                            <ul id = "menu{{$menu->id}}">
+                                                @foreach($subMenusView as $subMenu)
+                                                  <li class='has-sub' id = "{{$subMenu->id}}">{{link_to_route('menu.dyn',$subMenu->name, $subMenu->url)}}
+                                                  </li>
+                                                @endforeach
+                                           </ul>
+                                    </li>
+
+                                @endforeach
                                 <li class='has-sub last'> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
-                            </ul>
-                        </div>
                      @else
 
-                     <div id='cssmenu'>
-                         <ul>
                             <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
                                <ul>
                                   <li class='has-sub'><a href='#'><span>Test 1</span></a>
@@ -88,14 +102,11 @@
                                 <li class='has-sub last' id = "login"> <a href = "#modalLogin" data-toggle = "modal">Login</a></li>
                             @endif
                             <li class='has-sub last' id = "contactA"> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
-                         </ul>
-                     </div>
                     @endif
                 </ul>
             </div>
         </div>
     </div>
-
 
     <!-- Container -->
     <div id = "main" class="container clear-top" style = "box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
@@ -143,25 +154,22 @@
 </div>
 @include('layouts.defaultFooter')
 <!-- Scripts are placed here -->
-{{ HTML::script('js/jquery-1.11.1.min.js') }}
-{{ HTML::script('js/bootstrap.min.js') }}
-{{HTML::script('js/jquery.datetimepicker.js')}}
-{{HTML::script('js/checkmodal.js')}}
-{{HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
+    {{ HTML::script('js/jquery-1.11.1.min.js') }}
+    {{ HTML::script('js/bootstrap.min.js') }}
+    {{ HTML::script('js/jquery.datetimepicker.js')}}
+    {{ HTML::script('js/checkmodal.js')}}
+    {{ HTML::script('js/jquery-ui.js')}}
+    {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 
 <script>
-@if(isset($active))
-$(document).ready(function(){
-    var active = '#{{$active}}';
-    $(active).addClass("active");
-});
-@endif
+    @if(isset($active))
+    $(document).ready(function(){
+        var active = '#{{$active}}';
+        $(active).addClass("active");
+    });
+    @endif
 </script>
-
-
-
-    <!-- Script -->
+<!-- Script -->
     @yield('scripts')
-
 </body>
 </html>

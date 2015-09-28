@@ -434,7 +434,6 @@
   position: relative;
 }
 
-}
 /*Plats till höger om Menu*/
 
 #cssmenu {
@@ -616,8 +615,7 @@
 /*END Dropdown menu*/
 
 /*Link Color, bl.a. till länk till kodarna av sidan*/
-.colourLink {
-    color: #FFFFFF;
+.colourLink {color: #FFFFFF;}
 /*END Link Color*/
 
 /*END Template*/
