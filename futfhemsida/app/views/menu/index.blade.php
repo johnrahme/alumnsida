@@ -60,13 +60,16 @@
                         $submenusCurrent = Submenu::where('menuId', '=', $menu->id)->get();
 
                     ?>
-                    @if($submenusCurrent->isEmpty())
                     <td>
                         {{ Form::open(array('route'=>array('menu.destroy', $menu->id), 'method' =>'DELETE')) }}
+
+                    @if($submenusCurrent->isEmpty())
                         {{ Form::submit('Radera', array('class'=>'btn btn-danger btn-sm')) }}
-                        {{Form::close()}}
-                    </td>
+                    @else
+                        {{ Form::submit('Radera', array('class'=>'btn btn-danger btn-sm disabled')) }}
                     @endif
+                        {{Form::close()}}
+                        </td>
                   </tr>
                   @endforeach
 
