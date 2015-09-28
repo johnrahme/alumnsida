@@ -108,7 +108,6 @@
         </div>
     </div>
 
-
     <!-- Container -->
     <div id = "main" class="container clear-top" style = "box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
 
@@ -155,27 +154,22 @@
 </div>
 @include('layouts.defaultFooter')
 <!-- Scripts are placed here -->
-{{ HTML::script('js/jquery-1.11.1.min.js') }}
-{{ HTML::script('js/bootstrap.min.js') }}
-{{HTML::script('js/jquery.datetimepicker.js')}}
-{{HTML::script('js/checkmodal.js')}}
-{{HTML::script('js/jquery-ui.js')}}
-{{HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
+    {{ HTML::script('js/jquery-1.11.1.min.js') }}
+    {{ HTML::script('js/bootstrap.min.js') }}
+    {{ HTML::script('js/jquery.datetimepicker.js')}}
+    {{ HTML::script('js/checkmodal.js')}}
+    {{ HTML::script('js/jquery-ui.js')}}
+    {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 
 <script>
-@if(isset($active))
-$(document).ready(function(){
-    var active = '#{{$active}}';
-    $(active).addClass("active");
-});
-@endif
+    @if(isset($active))
+    $(document).ready(function(){
+        var active = '#{{$active}}';
+        $(active).addClass("active");
+    });
+    @endif
 </script>
-
-
-
-
-    <!-- Script -->
+<!-- Script -->
     @yield('scripts')
-
 </body>
 </html>
