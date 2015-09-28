@@ -123,4 +123,6 @@ Route::resource('menu', 'MenuController');
 
 
 Route::get('{page}', array('as' =>'menu.dyn', 'uses' => 'MenuController@dynUrl'));
+Route::get('{page}/{page2}', array('as' =>'menu.dyn', 'uses' => 'MenuController@dynUrl2'));
 Route::post('menu/arrange', array('as' =>'menu.arrange', 'uses' => 'MenuController@arrange'));
+Route::delete('menu/{id}/delete', array('as' =>'menu.destroySub', 'uses' => 'MenuController@destroySub'));

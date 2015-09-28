@@ -16,7 +16,17 @@
                             <div id='cssmenu'>
                                 <ul class = "sortable">
                                     @foreach ($menus as $menu)
-                                        <li class='has-sub last' id = "{{$menu->url}}"><a href='#'><span>{{$menu->name}}</span></a></li>
+                                    <?php
+                                        $subMenusView = Submenu::where('menuId','=',$menu->id)->orderBy('order')->get();
+                                    ?>
+                                        <li class='has-sub last' id = "{{$menu->id}}"><a href='#'><span>{{$menu->name}}</span></a>
+                                            <ul class = "sortable" id = "menu{{$menu->id}}">
+                                                @foreach($subMenusView as $subMenu)
+                                                  <li class='has-sub' id = "{{$subMenu->id}}"><a href='#'><span>{{$subMenu->name}}</span></a>
+                                                  </li>
+                                                @endforeach
+                                           </ul>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -35,6 +45,7 @@
                 <tr>
                     <th data-sortable = "true">Namn</th>
                     <th data-sortable = "true">Länk</th>
+                    <th data-sortable = "true">Föräldermeny</th>
                     <th data-sortable = "true">Delete</th>
                 </tr>
                 </thead>
@@ -43,9 +54,33 @@
                    <tr>
                     <td>{{$menu->name}} </td>
                     <td>{{$menu->url}}</td>
+                    <td>Ingen</td>
                     {{--<td>{{link_to_route('edit_admin','Ändra', $admin->id, array('class'=>'btn btn-primary btn-sm'))}}</td>--}}
+                    <?php
+                        $submenusCurrent = Submenu::where('menuId', '=', $menu->id)->get();
+
+                    ?>
+                    @if($submenusCurrent->isEmpty())
                     <td>
                         {{ Form::open(array('route'=>array('menu.destroy', $menu->id), 'method' =>'DELETE')) }}
+                        {{ Form::submit('Radera', array('class'=>'btn btn-danger btn-sm')) }}
+                        {{Form::close()}}
+                    </td>
+                    @endif
+                  </tr>
+                  @endforeach
+
+                  @foreach ($submenus as $submenu)
+                    <?php
+                        $menuFindName = Menu::find($submenu->menuId);
+                    ?>
+                   <tr>
+                    <td>{{$submenu->name}} </td>
+                    <td>{{$submenu->url}}</td>
+                    <td>{{$menuFindName->name}}</td>
+                    {{--<td>{{link_to_route('edit_admin','Ändra', $admin->id, array('class'=>'btn btn-primary btn-sm'))}}</td>--}}
+                    <td>
+                        {{ Form::open(array('route'=>array('menu.destroySub', $submenu->id), 'method' =>'DELETE')) }}
                         {{ Form::submit('Radera', array('class'=>'btn btn-danger btn-sm')) }}
                         {{Form::close()}}
                     </td>
@@ -62,6 +97,7 @@
 
 {{ Form::open(array('route'=>array('menu.arrange'), 'id' => 'sortForm'))}}
 {{Form::hidden('order','',array('id' => 'order'))}}
+{{Form::hidden('subId','',array('id' => 'subId'))}}
 {{Form::close()}}
 @stop
 
@@ -69,8 +105,10 @@
 <script>
   $(function() {
     $( ".sortable" ).sortable({opacity: 0.5, cursor: 'move', update: function(){
+        var subIdString = $(this).attr('id');
         var order = $(this).sortable("toArray");
         $("#order").val(JSON.stringify(order));
+        $("#subId").val(subIdString);
         $('#sortForm').submit();
 
     }});

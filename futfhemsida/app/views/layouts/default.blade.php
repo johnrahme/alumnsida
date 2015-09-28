@@ -36,7 +36,7 @@
             <div class = "navbar-collapse collapse navHeaderCollapse" id ="cssmenu">
                 <ul class = "nav navbar-nav navbar-right">
                     @if(Auth::check())
-                                <li class='has-sub last'><a href='#'><span>Dropdown Test</span></a>
+                                <li class='has-sub last'><a href='#'>DropdownTest</a>
                                    <ul>
                                       <li class='has-sub'><a href='#'><span>Test 1</span></a>
                                          <ul>
@@ -62,7 +62,17 @@
                                 $menus = Menu::orderBy('order')->get();
                                 ?>
                                 @foreach($menus as $menu)
-                                    <li class='has-sub last' id = '{{$menu->url}}'> {{link_to_route('menu.dyn',$menu->name, $menu->url)}}</li>
+                                    <?php
+                                        $subMenusView = Submenu::where('menuId','=',$menu->id)->orderBy('order')->get();
+                                    ?>
+                                    <li class='has-sub last' id = '{{$menu->name}}'> {{link_to_route('menu.dyn',$menu->name, $menu->url)}}
+                                            <ul id = "menu{{$menu->id}}">
+                                                @foreach($subMenusView as $subMenu)
+                                                  <li class='has-sub' id = "{{$subMenu->id}}">{{link_to_route('menu.dyn',$subMenu->name, $subMenu->url)}}
+                                                  </li>
+                                                @endforeach
+                                           </ul>
+                                    </li>
 
                                 @endforeach
                                 <li class='has-sub last'> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>

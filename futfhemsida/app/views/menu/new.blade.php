@@ -22,6 +22,16 @@ Create new menu slide!
 
                     {{Form::textarea('content', '',array('class' => 'form-control','placeholder' => 'Innehåll') )}}
                 </p>
+                 <p>
+                  {{Form::label('parent', 'Övermeny')}} <br/>
+                 <select class="form-control" id ="parent" name = "parent">
+                    <option value = "">Ingen</option>
+                   @foreach($menus as $menu)
+                        <option value="{{$menu->id}}">{{$menu->name}}</option>
+                   @endforeach
+                 </select>
+
+                 </p>
 
                 <p> {{Form::submit('Lägg till', array('class'=>'btn btn-primary'))}} </p>
                 {{Form::close()}}
