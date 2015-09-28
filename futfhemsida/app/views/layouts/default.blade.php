@@ -65,7 +65,7 @@
                                     <?php
                                         $subMenusView = Submenu::where('menuId','=',$menu->id)->orderBy('order')->get();
                                     ?>
-                                    <li class='has-sub last' id = '{{$menu->name}}'> {{link_to_route('menu.dyn',$menu->name, $menu->url)}}
+                                    <li class='has-sub last' id = '{{$menu->url}}'> {{link_to_route('menu.dyn',$menu->name, $menu->url)}}
                                             <ul id = "menu{{$menu->id}}">
                                                 @foreach($subMenusView as $subMenu)
                                                   <li class='has-sub' id = "{{$subMenu->id}}">{{link_to_route('menu.dyn',$subMenu->name, $subMenu->url)}}
