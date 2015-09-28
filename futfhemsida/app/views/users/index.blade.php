@@ -15,7 +15,7 @@
                 <tr>
                     <th data-sortable = "true">Namn</th>
                     <th data-sortable = "true">Email</th>
-                    <th data-sortable = "true">Telefon</th>
+                    <th data-sortable = "true">jkTelefon</th>
                     <th data-sortable = "true">Startår</th>
                 </tr>
                 </thead>

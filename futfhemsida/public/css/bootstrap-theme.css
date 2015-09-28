@@ -238,7 +238,7 @@
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-}
+}m
 .navbar-inverse .navbar-nav > .active > a {
   background-image: -webkit-linear-gradient(top, #222222 0%, #282828 100%);
   background-image: -o-linear-gradient(top, #222222 0%, #282828 100%);
