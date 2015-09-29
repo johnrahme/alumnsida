@@ -74,13 +74,23 @@ class AdminController extends BaseController
             ->with('message', 'Du är nu registrerad och kan logga in!');
     }
 
-    public function view($id){
+    public function view($id)
+    {
         $admin = Admin::find($id);
         return View::make('admin.downScaled.view')
             ->with('title', 'Visa alumn')
             ->with('admin', $admin)
             ->with('active', 'admin');
     }
+
+    /**
+    public function viewPublic($id)
+    {
+        $admin = Admin::find($id);
+        return
+    }
+    */
+
     public function edit($id){
         $admin = Admin::find($id);
         return View::make('admin.edit')
