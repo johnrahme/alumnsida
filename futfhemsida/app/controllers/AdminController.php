@@ -85,10 +85,10 @@ class AdminController extends BaseController
 
     public function viewAllAdminsPublic()
     {
-        $admin = Admin::all();
+        $admins = Admin::all();
         return View::make('admin.viewPublic')
             ->with('title', 'FUTFs Styrelse')
-            ->with('admin', $admin);
+            ->with('admins', $admins);
     }
 
     public function edit($id){

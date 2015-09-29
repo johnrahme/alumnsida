@@ -16,8 +16,8 @@
         <div class="table-responsive">
             <tbody>
               @foreach($admins as $key => $admin)
-              @if(count($events)%2 == 0) <!-- To make every other entry mirrored to the last one -->
-                <div class="col-md-4">
+              @if(count($key)%2 == 0) <!-- To make every other entry mirrored to the last one -->
+                <!--<div class="col-md-4">-->
                   <tr>
                     <img src="{{$admin->pictureUrl}}"/>
                   </tr>
@@ -25,21 +25,21 @@
                     <td>{{$admin->name}}</td>
                     <td>{{$admin->surname}}</td>
                   </tr>
-                </div>
-                <div class="col-md-8">
+                <!--</div>-->
+                <!--<div class="col-md-8">-->
                   <tr>
                     <td>{{$admin->description}}</td>
                     <td>{{$admin->email}}</td>
                   </tr>
-                </div>
+                <!--</div>-->
               @else
-                <div class="col-md-8">
+                <!--<div class="col-md-8">-->
                   <tr>
                     <td>{{$admin->description}}</td>
                     <td>{{$admin->email}}</td>
                   </tr>
-                </div>
-                <div class="col-md-4">
+                <!--</div>-->
+                <!--<div class="col-md-4">-->
                   <tr>
                     <img src="{{$admin->pictureUrl}}"/>
                   </tr>
@@ -47,7 +47,7 @@
                      <td>{{$admin->name}}</td>
                      <td>{{$admin->surname}}</td>
                   </tr>
-                </div>
+                <!--</div>-->
               @endif
               @endforeach
             </tbody>
