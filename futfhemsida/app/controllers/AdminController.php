@@ -78,18 +78,18 @@ class AdminController extends BaseController
     {
         $admin = Admin::find($id);
         return View::make('admin.downScaled.view')
-            ->with('title', 'Visa alumn')
+            ->with('title', 'Admins')
             ->with('admin', $admin)
             ->with('active', 'admin');
     }
 
-    /**
-    public function viewPublic($id)
+    public function viewAllAdminsPublic()
     {
-        $admin = Admin::find($id);
-        return
+        $admin = Admin::all();
+        return View::make('admin.viewPublic')
+            ->with('title', 'FUTFs Styrelse')
+            ->with('admin', $admin);
     }
-    */
 
     public function edit($id){
         $admin = Admin::find($id);

@@ -87,7 +87,7 @@ Route::post('admin/create', array('uses' => 'AdminController@createAdmin'));
         }
     });
 
-Route::get('admin.viewPublic', array('as' => 'public.admin', 'uses' => 'AdminController@viewPublic'));
+Route::get('styrelsen', array('as' => 'admin.viewPublic', 'uses' => 'AdminController@viewAllAdminsPublic'));
 
 //Skapar konto för ny användare
 Route::post('admin/create/reg', array('uses' => 'AdminController@createAdminReg'));
