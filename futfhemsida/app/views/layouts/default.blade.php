@@ -22,17 +22,17 @@
 <div id = "wrap">
     <div class = "navbar navbar-inverse navbar-static-top">
         <div class = "container">
-            <!--<div class = "navbar-header">
-                <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
+            <div class = "navbar-header">
+                {{--<a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
                 <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
-                <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
+                <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>--}}
                 <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
                     <span class = "icon-bar"> </span>
                     <span class = "icon-bar"> </span>
                     <span class = "icon-bar"> </span>
 
                 </button>
-            </div>-->
+            </div>
             <div class = "navbar-collapse collapse navHeaderCollapse" id ="cssmenu">
                 <ul class = "nav navbar-nav navbar-right">
                     @if(Auth::check())
