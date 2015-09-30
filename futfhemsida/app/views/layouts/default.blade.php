@@ -82,10 +82,10 @@
     @include('sessions.modalLogin')
 
     <div class = "row">
-    	<div class = "col-md-2">
+    	<div class = "col-sm-3">
 			@include('layouts.menuPanel')
     	</div>
-    	<div class = "col-md-10">
+    	<div class = "col-sm-9">
     	@yield('content')
     	</div>
     </div>
@@ -110,7 +110,21 @@
     });
     @endif
 </script>
+<script>
+
+$(window).on("resize", function () {
+  if($(window).width() <= 750) {
+	$("#testP").html($(window).width());
+    $(".dropdown-toggle").attr({
+      'data-toggle': 'dropdown'
+    });
+  } else {
+    $(".dropdown-toggle").removeAttr('data-toggle');
+  }
+});
+</script>
 <!-- Script -->
     @yield('scripts')
 </body>
+
 </html>
