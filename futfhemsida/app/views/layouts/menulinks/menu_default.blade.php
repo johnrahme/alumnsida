@@ -13,7 +13,7 @@
                                     ?>
                                     <li class = "dropdown" id = '{{$menu->url}}'>
                                     		@if(count($subMenusView)!= 0)
-                                             <a href= {{route('menu.dyn',$menu->url)}} class="dropdown-toggle" data-toggle="dropdown">{{$menu->name}} <span class="caret"></span></a>
+                                             <a href= "{{route('menu.dyn',$menu->url)}}" class="dropdown-toggle" data-toggle="dropdown">{{$menu->name}} <span class="caret"></span></a>
                                              <ul class="dropdown-menu">
      												@foreach($subMenusView as $subMenu)
                                                        <li id = "{{$subMenu->id}}">{{link_to_route('menu.dyn',$subMenu->name, $subMenu->url)}}
