@@ -43,7 +43,6 @@ class MenuController extends \BaseController {
         $pageDB = Menu::where('url', '=', $pageString)->first();
         $subPageDB = Submenu::where('url', '=', $pageString)->first();
         $menuActive = "";
-        var_dump($pageString);
         if(is_null($pageDB)&&is_null($subPageDB)){
             App::abort(404);
         }

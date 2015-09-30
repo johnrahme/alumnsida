@@ -15,8 +15,9 @@
 <body style = "background-image: url('{{URL::asset('img/yellow2.jpg');}}');background-repeat: no-repeat;background-attachment: fixed;">
 <!-- Navbar -->
 <div id = "wrap">
-    <div class = "navbar navbar-inverse navbar-static-top">
+
         <div class = "container">
+        <div class = "navbar navbar-inverse navbar-default">
             <div class = "navbar-header">
                 {{--<a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
                 <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
