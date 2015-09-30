@@ -100,6 +100,7 @@
     {{ HTML::script('js/jquery.datetimepicker.js')}}
     {{ HTML::script('js/checkmodal.js')}}
     {{ HTML::script('js/jquery-ui.js')}}
+    {{ HTML::script('js/sidebar.js')}}
     {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 
 <script>
