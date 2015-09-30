@@ -33,7 +33,7 @@
 
                 </button>
             </div>
-            <div class = "navbar-collapse collapse navHeaderCollapse" id ="cssmenu">
+            <div class = "navbar-collapse collapse navHeaderCollapse">
                 <ul class = "nav navbar-nav navbar-right">
                     @if(Auth::check())
                                 <li class='has-sub last'><a href='#'>DropdownTest</a>
