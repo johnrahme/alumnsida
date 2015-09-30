@@ -16167,7 +16167,7 @@ var tabs = $.widget( "ui.tabs", {
  */
 
 
-var tooltip = $.widget( "ui.tooltip", {
+var tooltip = $.widget( "ui.tooltip2", {
 	version: "1.11.4",
 	options: {
 		content: function() {
