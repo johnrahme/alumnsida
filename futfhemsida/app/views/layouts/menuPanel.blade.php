@@ -1,7 +1,7 @@
 
-<div class = "navbar navbar-inverse navbar-default">
-	<div class = "navbar-collapse">
-		<ul class="nav nav-stacked">
+<div class = "navbar navbar-default">
+	<div class = "">
+		<ul class="nav">
 		@include('layouts.menulinks.menu_default')
 		</ul>
 	</div>
