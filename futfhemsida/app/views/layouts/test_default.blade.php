@@ -29,43 +29,20 @@
                 </button>
             </div>
             <div class = "navbar-collapse collapse navHeaderCollapse">
-                <ul class = "nav navbar-nav navbar-right">
-                    @if(Auth::check())
-                                <li class='has-sub last' id = "start"> {{link_to('/','Start')}}</li>
-                                <li class='has-sub last' id = "events"> {{link_to_route('events','Event')}}</li>
-                                <li class='has-sub last' id = "admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
-                                <li class='has-sub last' id = "menu"> {{link_to_route('menu.index','Menyer')}}</li>
-                                {{--Detta bör troligtvis göras snyggare--}}
-                                <?php
-                                $menus = Menu::orderBy('order')->get();
-                                ?>
-                                @foreach($menus as $menu)
-                                    <?php
-                                        $subMenusView = Submenu::where('menuId','=',$menu->id)->orderBy('order')->get();
-                                    ?>
-                                    <li class='has-sub last' id = '{{$menu->url}}'> {{link_to_route('menu.dyn',$menu->name, $menu->url)}}
-                                            <ul id = "menu{{$menu->id}}">
-                                                @foreach($subMenusView as $subMenu)
-                                                  <li class='has-sub' id = "{{$subMenu->id}}">{{link_to_route('menu.dyn',$subMenu->name, $subMenu->url)}}
-                                                  </li>
-                                                @endforeach
-                                           </ul>
-                                    </li>
+                <ul class = "nav navbar-nav navbar-left">
+                    <li class = "dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Dropdown <span class="caret"></span></a>
+                                    <ul class="dropdown-menu pull-center">
+                                      <li><a href="#">Action</a></li>
+                                      <li><a href="#">Another action</a></li>
+                                      <li><a href="#">Something else here</a></li>
+                                      <li role="separator" class="divider"></li>
+                                      <li class="dropdown-header">Nav header</li>
+                                      <li><a href="#">Separated link</a></li>
+                                      <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                  </li>
 
-                                @endforeach
-                                <li class='has-sub last'> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
-                     @else
-
-
-                            <li class='has-sub last' id = "start"> {{link_to('/','Start')}}</li>
-                            <li class='has-sub last' id = "events"> {{link_to_route('events','Event')}}</li>
-                            <li class='has-sub last' id = "create">{{link_to_route('new_admin', 'Skapa konto')}}</li>
-                            {{--<li> {{link_to_route('login','Login')}}</li>--}}
-                            @if(isset($showLogin))
-                                <li class='has-sub last' id = "login"> <a href = "#modalLogin" data-toggle = "modal">Login</a></li>
-                            @endif
-                            <li class='has-sub last' id = "contactA"> <a href = "#contact" data-toggle = "modal">Kontakt</a></li>
-                    @endif
                 </ul>
             </div>
         </div>
