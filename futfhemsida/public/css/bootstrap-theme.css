@@ -612,6 +612,12 @@
   border-bottom: 0;
 }
 
+/*Hover vid stor skärm!*/
+@media (min-width: 50em) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
 /*END Dropdown menu*/
 
 /*Link Color, bl.a. till länk till kodarna av sidan*/
