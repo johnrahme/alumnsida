@@ -22,6 +22,7 @@ class MenuController extends \BaseController {
         $subPageDB = Submenu::where('url', '=', $page)->first();
         $returnPage = "";
         $menuActive = "";
+        $subActive = "";
         if(is_null($pageDB)&&is_null($subPageDB)){
             App::abort(404);
         }
@@ -31,18 +32,21 @@ class MenuController extends \BaseController {
         }
         if(!is_null($subPageDB)){
             $returnPage = $subPageDB;
+            $subActive = $subPageDB->url;
             $menuActive = Menu::find($subPageDB->menuId);
         }
         return View::make('menu.dyn')
             ->with('title', 'Menu start!')
             ->with('page', $returnPage)
-            ->with('active',$menuActive->url);
+            ->with('active',$menuActive->url)
+            ->with('subactive', $subActive);
     }
     public function dynUrl2($page,$page2){
         $pageString = $page.'/'.$page2;
         $pageDB = Menu::where('url', '=', $pageString)->first();
         $subPageDB = Submenu::where('url', '=', $pageString)->first();
         $menuActive = "";
+        $subActive = "";
         if(is_null($pageDB)&&is_null($subPageDB)){
             App::abort(404);
         }
@@ -52,12 +56,14 @@ class MenuController extends \BaseController {
         }
         if(!is_null($subPageDB)){
             $returnPage = $subPageDB;
+            $subActive = $subPageDB->url;
             $menuActive = Menu::find($returnPage->menuId);
         }
         return View::make('menu.dyn')
             ->with('title', 'Menu start!')
             ->with('page', $returnPage)
-            ->with('active',$menuActive->url);
+            ->with('active',$menuActive->url)
+            ->with('subactive', $subActive);
     }
     public function arrange(){
         $order = Input::get('order');
