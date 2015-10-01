@@ -613,9 +613,21 @@
 }
 
 /*Hover vid stor skärm!*/
-@media (min-width: 50em) {
+@media (min-width: 766px) {
     .dropdown:hover .dropdown-menu {
         display: block;
+    }
+}
+/*Centrerar navbar!*/
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
     }
 }
 /*END Dropdown menu*/

@@ -91,6 +91,7 @@ class MenuController extends \BaseController {
         $menus = Menu::all();
         return View::make('menu.new')
             ->with('title', 'Menu create!')
+            ->with('active', 'menu')
             ->with('menus', $menus);
 	}
 

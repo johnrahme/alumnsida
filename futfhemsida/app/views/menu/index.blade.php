@@ -8,28 +8,28 @@
 <br>
 {{--Lägga i ordning!--}}
 <div class = "row">
-    <div class="col-md-4">
+    <div class="col-md-12">
     Lägg Menyn i rätt ordning!
-        <div class = "navbar navbar-inverse navbar-static-top">
+        <div class = "navbar navbar-inverse navbar-default">
 
-                    <ul class = "nav navbar-nav navbar-left">
-                            <div id='cssmenu'>
-                                <ul class = "sortable">
+                    <ul class = "navbar-collapse">
+                                <ul class = "nav navbar-nav sortable">
                                     @foreach ($menus as $menu)
                                     <?php
                                         $subMenusView = Submenu::where('menuId','=',$menu->id)->orderBy('order')->get();
                                     ?>
-                                        <li class='has-sub last' id = "{{$menu->id}}"><a href='#'><span>{{$menu->name}}</span></a>
-                                            <ul class = "sortable" id = "menu{{$menu->id}}">
+                                        <li class = "dropdown" id = "{{$menu->id}}"><a href='#' class="dropdown-toggle">{{$menu->name}}<span @if(count($subMenusView)!=0)class="caret"@endif></span></a>
+                                            @if(count($subMenusView)!=0)
+                                            <ul class = "sortable dropdown-menu" id = "menu{{$menu->id}}">
                                                 @foreach($subMenusView as $subMenu)
-                                                  <li class='has-sub' id = "{{$subMenu->id}}"><a href='#'><span>{{$subMenu->name}}</span></a>
+                                                  <li id = "{{$subMenu->id}}"><a href='#'><span>{{$subMenu->name}}</span></a>
                                                   </li>
                                                 @endforeach
                                            </ul>
+                                           @endif
                                         </li>
                                     @endforeach
                                 </ul>
-                            </div>
                     </ul>
 
         </div>

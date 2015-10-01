@@ -35,7 +35,7 @@
                 </button>
             </div>
             <div class = "navbar-collapse collapse navHeaderCollapse" role="navigation">
-                <ul class = "nav navbar-nav navbar-left">
+                <ul class = "nav navbar-nav">
 					@include('layouts.menulinks.menu_default')
                 </ul>
             </div>
@@ -102,6 +102,7 @@
     {{ HTML::script('js/jquery-ui.js')}}
     {{ HTML::script('js/sidebar.js')}}
     {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
+    {{HTML::script('jquery.ui.touch-punch.min.js')}}
 
 <script>
     @if(isset($active))
@@ -112,7 +113,14 @@
     @endif
 </script>
 <script>
-
+if($(window).width() <= 750) {
+	$("#testP").html($(window).width());
+    $(".dropdown-toggle").attr({
+      'data-toggle': 'dropdown'
+    });
+  } else {
+    $(".dropdown-toggle").removeAttr('data-toggle');
+  }
 $(window).on("resize", function () {
   if($(window).width() <= 750) {
 	$("#testP").html($(window).width());
