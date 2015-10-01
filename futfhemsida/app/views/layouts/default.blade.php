@@ -102,7 +102,7 @@
     {{ HTML::script('js/jquery-ui.js')}}
     {{ HTML::script('js/sidebar.js')}}
     {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
-    {{HTML::script('jquery.ui.touch-punch.min.js')}}
+    {{HTML::script('js/jquery.ui.touch-punch.min.js')}}
 
 <script>
     @if(isset($active))
