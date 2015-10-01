@@ -2,23 +2,20 @@
 
 @section('content')
 
-<div class = "row">
-   <div class="col-md-4">{{Form::text('search', '', array('id' => 'search', 'placeholder' => 'Sök...','class' => 'form-control'))}}</div>
-</div>
-<br>
+
 {{--Lägga i ordning!--}}
-<div class = "row">
-    <div class="col-md-12">
-    Lägg Menyn i rätt ordning!
+
+   <h3>Lägg meny i rätt ordning!</h3>
         <div class = "navbar navbar-inverse navbar-default">
 
-                    <ul class = "navbar-collapse">
+                    <ul class = "navbar-collapse"  style="margin: 0px">
                                 <ul class = "nav navbar-nav sortable">
                                     @foreach ($menus as $menu)
                                     <?php
                                         $subMenusView = Submenu::where('menuId','=',$menu->id)->orderBy('order')->get();
                                     ?>
-                                        <li class = "dropdown" id = "{{$menu->id}}"><a href='#' class="dropdown-toggle">{{$menu->name}}<span @if(count($subMenusView)!=0)class="caret"@endif></span></a>
+                                        <li class = "dropdown" id = "{{$menu->id}}">
+                                            <a href='#' class="dropdown-toggle">{{$menu->name}}<span @if(count($subMenusView)!=0)class="caret"@endif></span></a>
                                             @if(count($subMenusView)!=0)
                                             <ul class = "sortable dropdown-menu" id = "menu{{$menu->id}}">
                                                 @foreach($subMenusView as $subMenu)
@@ -33,10 +30,11 @@
                     </ul>
 
         </div>
-    </div>
+<div class = "row">
+   <div class="col-md-4">{{Form::text('search', '', array('id' => 'search', 'placeholder' => 'Sök...','class' => 'form-control'))}}</div>
 </div>
-
 <br>
+
 <div class = "row">
         <div class="col-md-12">
             <div class="table-responsive">
