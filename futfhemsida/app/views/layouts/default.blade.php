@@ -34,7 +34,7 @@
 
                 </button>
             </div>
-            <div class = "navbar-collapse collapse navHeaderCollapse" role="navigation">
+            <div class = "navbar-collapse collapse navHeaderCollapse" id="dropdownCustom" role="navigation">
                 <ul class = "nav navbar-nav">
 					@include('layouts.menulinks.menu_default')
                 </ul>
