@@ -34,7 +34,7 @@
 
                 </button>
             </div>
-            <div class = "navbar-collapse collapse navHeaderCollapse" id="dropdownCustom" role="navigation">
+            <div class = "navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
                 <ul class = "nav navbar-nav">
 					@include('layouts.menulinks.menu_default')
                 </ul>
@@ -102,7 +102,7 @@
     {{ HTML::script('js/jquery-ui.js')}}
     {{ HTML::script('js/sidebar.js')}}
     {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
-    {{HTML::script('js/jquery.ui.touch-punch.min.js')}}
+    {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
 
 <script>
     @if(isset($active))
