@@ -4194,11 +4194,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-nav > li > a {
   color: #E6B800;
   text-transform: capitalize;
-  font-family: "Lucida Console", Monaco, monospace;
-  font-style: bold;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-style: normal;
   font-variant: small-caps;
-  font-weight: bold;
-  font-size: 18px;
+  font-weight: lighter;
+  font-size: 16px;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
