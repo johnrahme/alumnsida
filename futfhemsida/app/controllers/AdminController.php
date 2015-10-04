@@ -88,7 +88,8 @@ class AdminController extends BaseController
         $admins = Admin::all();
         return View::make('admin.viewPublic')
             ->with('title', 'FUTFs Styrelse')
-            ->with('admins', $admins);
+            ->with('admins', $admins)
+            ->with('active', 'admin');
     }
 
     public function edit($id){
