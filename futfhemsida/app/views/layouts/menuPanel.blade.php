@@ -12,7 +12,7 @@ if(!is_null($activeMenu)){
 
 <ol class="breadcrumb">
 
-  @if(is_null($subactive)||$subactive=="")
+  @if(!isset($subactive)||$subactive=="")
     <li class ="active">{{$activeMenu->name}}</li>
   @else
     <li>{{link_to($activeMenu->url, $activeMenu->name)}}</li>
