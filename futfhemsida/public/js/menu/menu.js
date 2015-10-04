@@ -7,7 +7,7 @@ $('#parent').change(function(){
 });
 
 function update(){
-    if($('#parent').val()!='none'){
+    if($('#parent').val()!=''){
         var id = $('#parent').children(":selected").attr("id");
         $('#url').val((id+'/'+$('#name').val()).toLocaleLowerCase());
     }

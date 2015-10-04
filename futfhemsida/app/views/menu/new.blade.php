@@ -13,7 +13,7 @@ Create new menu slide!
                 <p>
                   {{Form::label('parent', 'Övermeny')}} <br/>
                  <select class="form-control" id ="parent" name = "parent">
-                    <option value = "none">Ingen</option>
+                    <option value = "">Ingen</option>
                    @foreach($menus as $menu)
                         <option id="{{$menu->url}}" value="{{$menu->id}}">{{$menu->name}}</option>
                    @endforeach
