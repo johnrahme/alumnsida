@@ -36,7 +36,7 @@ class MenuController extends \BaseController {
             $menuActive = Menu::find($subPageDB->menuId);
         }
         return View::make('menu.dyn')
-            ->with('title', 'Menu start!')
+            ->with('title', $returnPage->name)
             ->with('page', $returnPage)
             ->with('active',$menuActive->url)
             ->with('subactive', $subActive);
@@ -60,7 +60,7 @@ class MenuController extends \BaseController {
             $menuActive = Menu::find($returnPage->menuId);
         }
         return View::make('menu.dyn')
-            ->with('title', 'Menu start!')
+            ->with('title', $returnPage->name)
             ->with('page', $returnPage)
             ->with('active',$menuActive->url)
             ->with('subactive', $subActive);
