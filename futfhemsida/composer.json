@@ -7,7 +7,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
         "maatwebsite/excel": "1.*",
-        "artdarek/oauth-4-laravel": "dev-master"
+        "artdarek/oauth-4-laravel": "dev-master",
+		"davejamesmiller/laravel-breadcrumbs": "2.*"
 	},
 	"autoload": {
 		"classmap": [

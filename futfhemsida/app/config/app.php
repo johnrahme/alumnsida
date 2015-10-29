@@ -123,6 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Maatwebsite\Excel\ExcelServiceProvider',
         'Artdarek\OAuth\OAuthServiceProvider',
+        'DaveJamesMiller\Breadcrumbs\ServiceProvider',
 
 	),
 
@@ -192,6 +193,7 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
         'Excel'             => 'Maatwebsite\Excel\Facades\Excel',
         'OAuth'             => 'Artdarek\OAuth\Facade\OAuth',
+        'Breadcrumbs'       => 'DaveJamesMiller\Breadcrumbs\Facade',
 
 	),
 

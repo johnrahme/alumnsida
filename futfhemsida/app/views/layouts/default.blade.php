@@ -1,3 +1,22 @@
+{{--Gör i sepparat php fil!! Eller gör på ett bättre sätt!!--}}
+<?php
+    $pageDB = Menu::where('url', '=', Request::path())->first();
+    $subPageDB = Submenu::where('url', '=', Request::path())->first();
+    $page = "";
+    $menuActive = "";
+    $subactive = "";
+        if(!is_null($pageDB)){
+            $page = $pageDB;
+            $menuActive = $pageDB;
+            $active = $menuActive->url;
+        }
+        if(!is_null($subPageDB)){
+            $page = $subPageDB;
+            $subactive = $subPageDB->url;
+            $menuActive = Menu::find($subPageDB->menuId);
+            $active = $menuActive->url;
+        }
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,6 +124,7 @@
     {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
 
 <script>
+
     @if(isset($active))
     $(document).ready(function(){
         var active = '#{{$active}}';

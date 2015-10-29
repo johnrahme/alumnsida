@@ -7,18 +7,29 @@ if(isset($subactive)){
 if(!is_null($activeMenu)){
 	$currentSubMenus = Submenu::where('menuId', '=', $activeMenu->id)->get();
 }
+
  ?>
+@if(!is_null($activeMenu)&&isset($activeSubMenu))
+
+    {{Breadcrumbs::renderIfExists('menu.dyn2', $activeMenu, $activeSubMenu)}}
+@elseif(!is_null($activeMenu)&&!isset($activeSubMenu))
+    {{Breadcrumbs::renderIfExists('menu.dyn1', $activeMenu)}}
+@else
+    {{Breadcrumbs::renderIfExists()}}
+@endif
+
+
 @if(!is_null($activeMenu))
 
-<ol class="breadcrumb">
-
+{{--Old breadcrumbs!--}}
+{{--<ol class="breadcrumb">
   @if(!isset($subactive)||$subactive=="")
     <li class ="active">{{$activeMenu->name}}</li>
   @else
     <li>{{link_to($activeMenu->url, $activeMenu->name)}}</li>
     <li class ="active">{{$activeSubMenu->name}}</li>
   @endif
-</ol>
+</ol>--}}
 
 <div class = "navbar navbar-default">
 	<div class="page-header" style="margin-top: 0px;margin-left: 10px">
