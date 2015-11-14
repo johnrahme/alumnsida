@@ -11,6 +11,20 @@
     </p>
 </div>
 
+<div class = "row">
+    @foreach($admins as $key => $admin)
+    <div class = "col-md-4">
+        <div class="panel panel-default">
+                <div class="panel-body" style="padding-top: 0">
+                   <div class="page-header" style="margin-top:0px">
+                        <h3>{{$admin->email}}</h3>
+                   </div>
+                   Yadayada!
+                </div>
+        </div>
+    </div>
+    @endforeach
+</div>
 <div class="row">
     <div class="col-md-12">
         <div class="table-responsive">

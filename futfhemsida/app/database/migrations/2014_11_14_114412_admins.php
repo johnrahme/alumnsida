@@ -14,17 +14,19 @@ class Admins extends Migration {
 	{
         Schema::create('f_admins', function($table){
             $table->increments('id');
-            $table->string('username');
+            $table->string('username');//Kanske tas bort?
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('level');
             $table->string('name');
             $table->string('surname');
             $table->string('tel');
-            $table->integer('startYear');
-            $table->string('company');
-            $table->string('linkedInId');
+            $table->integer('startYear');//Bör tas bort
+            $table->string('company');//Bör tas bort
+            $table->string('linkedInId');//Bör tas bort
             $table->string('pictureUrl');
+            $table->string('role');
+            $table->string('description');
             $table->rememberToken();
             $table->timestamps();
         });

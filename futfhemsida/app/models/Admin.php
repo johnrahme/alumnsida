@@ -27,7 +27,6 @@ class Admin extends Eloquent implements UserInterface, RemindableInterface {
         'email' => 'required|email|unique:f_admins',
         'password' => 'required',
         'username' => 'required',
-        'agreement' => 'required'
     );
 
 

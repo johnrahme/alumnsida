@@ -29,11 +29,6 @@ class AdminController extends BaseController
                 ->with('title', 'New Admin')
                 ->with('active', 'admin');
         }
-        else{
-            return View::make('admin.newReg')
-                ->with('title', 'New Admin')
-                ->with('active', 'create');
-        }
     }
     public function createAdmin()
     {
@@ -46,6 +41,11 @@ class AdminController extends BaseController
         $admin->email = Input::get('email');
         $admin->password = Hash::make(Input::get('password'));
         $admin->level = Input::get('level');
+        $admin->name = Input::get('name');
+        $admin->surname = Input::get('surname');
+        $admin->tel = Input::get('tel');
+        $admin->role = Input::get('role');
+        $admin->description = Input::get('description');
         $admin->save();
 
         return Redirect::to('admin')
