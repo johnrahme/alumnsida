@@ -29,6 +29,7 @@
     {{ HTML::style('css/bootstrap-theme.css') }}
     {{ HTML::style('css/jquery.datetimepicker.css') }}
     {{ HTML::style('css/customBootTest.css') }}
+    {{ HTML::style('jasny-bootstrap/css/jasny-bootstrap.css') }}
 
     {{--LinkedIn--}}
     @include('sessions.linkedIn.linkedIn')
@@ -122,6 +123,7 @@
     {{ HTML::script('js/dropdownFadeOut.js')}}
     {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
     {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
+    {{ HTML::script('jasny-bootstrap/js/jasny-bootstrap.js')}}
 
 <script>
 

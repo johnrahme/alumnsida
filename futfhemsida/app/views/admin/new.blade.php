@@ -36,8 +36,8 @@
 
                      </p>
                      <p>
-                        {{Form::label('role', 'Kontotyp')}} <br/>
-                        {{Form::select('role', array('styrelse' => 'Styrelsemedlem', 'it' => 'IT-support', 'extra' => 'Övrigt'), 'styrelse', array('class' => 'form-control'))}}
+                        {{Form::label('accounttype', 'Kontotyp')}} <br/>
+                        {{Form::select('accounttype', array('styrelse' => 'Styrelsemedlem', 'it' => 'IT-support', 'extra' => 'Övrigt'), 'styrelse', array('class' => 'form-control'))}}
                      </p>
                      <p>
                         {{Form::label('description', 'Beskrivning')}}
@@ -65,6 +65,13 @@
                          {{Form::password('password', array('class' => 'form-control'))}}
 
                      </p>
+
+                     <p>
+                        {{Form::label('post', 'Postnamn')}}
+
+                        {{Form::text('post', '',array('class' => 'form-control'))}}
+                     </p>
+
                      <p>
                         {{Form::label('level', 'Level')}} <br/>
                         {{Form::select('level', array(1 => '1', 2 => '2'), 1, array('class' => 'form-control'))}}

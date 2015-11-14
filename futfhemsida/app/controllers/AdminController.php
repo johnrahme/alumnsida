@@ -44,8 +44,9 @@ class AdminController extends BaseController
         $admin->name = Input::get('name');
         $admin->surname = Input::get('surname');
         $admin->tel = Input::get('tel');
-        $admin->role = Input::get('role');
+        $admin->accounttype = Input::get('accounttype');
         $admin->description = Input::get('description');
+        $admin->post = Input::get('post');
         $admin->save();
 
         return Redirect::to('admin')
@@ -108,8 +109,11 @@ class AdminController extends BaseController
         $admin->name = Input::get('name');
         $admin->surname = Input::get('surname');
         $admin->tel = Input::get('tel');
-        $admin->startYear = Input::get('startYear');
-        $admin->company = Input::get('company');
+        $admin->accounttype = Input::get('accounttype');
+        $admin->post = Input::get('post');
+        $admin->description = Input::get('description');
+        $admin->pictureUrl = Input::get('pictureUrl');
+
         if(Input::get('password')!=''){
         $admin->password = Hash::make(Input::get('password'));
         }

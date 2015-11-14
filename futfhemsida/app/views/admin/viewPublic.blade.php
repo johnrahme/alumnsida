@@ -17,9 +17,9 @@
         <div class="panel panel-default">
                 <div class="panel-body" style="padding-top: 0">
                    <div class="page-header" style="margin-top:0px">
-                        <h3>{{$admin->email}}</h3>
+                        <h3>{{$admin->post}}</h3>
                    </div>
-                   Yadayada!
+                   {{$admin->description}}
                 </div>
         </div>
     </div>

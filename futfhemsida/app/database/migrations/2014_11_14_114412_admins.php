@@ -25,8 +25,9 @@ class Admins extends Migration {
             $table->string('company');//Bör tas bort
             $table->string('linkedInId');//Bör tas bort
             $table->string('pictureUrl');
-            $table->string('role');
+            $table->string('accounttype');
             $table->string('description');
+            $table->string('post');
             $table->rememberToken();
             $table->timestamps();
         });
