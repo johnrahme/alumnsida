@@ -112,7 +112,20 @@ class AdminController extends BaseController
         $admin->accounttype = Input::get('accounttype');
         $admin->post = Input::get('post');
         $admin->description = Input::get('description');
-        $admin->pictureUrl = Input::get('pictureUrl');
+
+        if(Input::hasFile('image')) {
+            if (Input::file('image')->isValid()) {
+                if(strpos($admin->pictureUrl,'img') !== false){
+                    File::delete($admin->pictureUrl);
+                }
+                $imgName = Input::file('image')->getClientOriginalName();
+                $imgExtension = Input::file('image')->getClientOriginalExtension();
+                $saveName =microtime().'_'.$imgName;
+                Input::file('image')->move('img/admins', $saveName);
+                $URL = 'img/admins/'.$saveName;
+                $admin->pictureUrl = $URL;
+            }
+        }
 
         if(Input::get('password')!=''){
         $admin->password = Hash::make(Input::get('password'));

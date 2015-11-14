@@ -10,7 +10,7 @@
                  </div>
                  @include('common.users_errors')
                  <div class = "col-sm-6">
-                 {{Form::open(array('url'=> 'admin/update','method'=>'put'))}}
+                 {{Form::open(array('url'=> 'admin/update','files'=>true, 'method'=>'put'))}}
                  	<h3>Personuppgifter</h3>
                      <p>
                      		{{Form::label('name', 'Förnamn')}} <br/>
@@ -53,14 +53,20 @@
                          <p>
                              {{Form::label('image', 'Bild')}} <br/>
 
-                             {{Form::file('image', $admin->pictureUrl, array('class' => 'form-control'))}}
                          </p>
 
+                         @if(strpos($admin->pictureUrl,'img') !== FALSE)
+                         <div class="fileinput fileinput-exists" data-provides="fileinput">
+
+                         @else
                          <div class="fileinput fileinput-new" data-provides="fileinput">
+                         @endif
                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
                              <!--<img data-src="holder.js/100%x100%" alt="...">-->
                            </div>
-                           <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                           <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                                {{HTML::image($admin->pictureUrl)}}
+                           </div>
                            <div>
                              <span class="btn btn-default btn-file">
                              <span class="fileinput-new">Select image</span>
@@ -69,7 +75,6 @@
                              <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
                            </div>
                          </div>
-
 
                  </div>
                  <div class = "col-sm-6">
