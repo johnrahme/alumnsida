@@ -19,10 +19,12 @@
                    <div class="page-header" style="margin-top:0px">
                         <h3>{{$admin->post}}</h3>
                    </div>
+                   <img class="img-responsive" src="{{$admin->pictureUrl}}"/>
                    {{$admin->description}}
                 </div>
         </div>
     </div>
+    
     @endforeach
 </div>
 <div class="row">

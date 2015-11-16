@@ -84,13 +84,13 @@
             @if(Auth::check())
             <div class = "col-md-3" style = "padding-bottom: 10px">
                     <div class="dropdown" align = "right">
-                        <button class="btn btn-default dropdown-toggle" style = "margin-bottom: -2px" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" >
+                        <button class="btn btn-default" style = "margin-bottom: -2px" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true" >
                           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                           Inloggad som {{Auth::user()->username}}
                           <span class="caret"></span>
 
                         </button>
-                         <ul class="dropdown-menu dropdown-menu-right dropdown-fade" role="menu" aria-labelledby="dropdownMenu1">
+                         <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
                                                                           <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('logout')}}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logga ut</a></li>
                                                                           <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('edit_admin', Auth::user()->id)}}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Ändra konto</a></li>
                                                                         </ul>
