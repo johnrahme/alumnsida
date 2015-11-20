@@ -40,6 +40,23 @@
 <body style = "background-image: url('{{URL::asset('img/yellow2.jpg');}}');background-repeat: no-repeat;background-attachment: fixed;">
 <!-- Navbar -->
 <div id = "wrap">
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class = "row">
+			<div class = "col-sm-12">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a href = "{{url('/')}}" class = "navbar-brand">Föreningen Uppsala Tekniska Fysiker</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navbar-collapse collapse navHeaderCollapse">
+			<ul class="nav navbar-nav" role="navigation">
+				<li id = "futf"> {{link_to('/','Futf')}}</li> <!-- fixa en route för futf, detta för att futf resp. alumn inte ska vara aktiv. Men länka den till start, så inte topbar blir aktiv på nästa sida.-->
+				<li id = "alumn"> {{link_to('/','Alumn')}}</li> <!-- fixa en route för alumn-->
+			</ul>
+		</div>
+	</nav>
 
     <div class = "container clear-top" style = "padding:0px" role="main">
         <div class = "navbar navbar-inverse navbar-default">
