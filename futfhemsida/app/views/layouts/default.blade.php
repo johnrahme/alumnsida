@@ -29,6 +29,7 @@
     {{ HTML::style('css/bootstrap-theme.css') }}
     {{ HTML::style('css/jquery.datetimepicker.css') }}
     {{ HTML::style('css/customBootTest.css') }}
+    {{ HTML::style('css/navigationbar.css') }}
     {{ HTML::style('jasny-bootstrap/css/jasny-bootstrap.css') }}
 
     {{--LinkedIn--}}
@@ -40,23 +41,16 @@
 <body style = "background-image: url('{{URL::asset('img/yellow2.jpg');}}');background-repeat: no-repeat;background-attachment: fixed;">
 <!-- Navbar -->
 <div id = "wrap">
-	<nav class="navbar navbar-inverse navbar-static-top">
-		<div class = "row">
-			<div class = "col-sm-12">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<a href = "{{url('/')}}" class = "navbar-brand">Föreningen Uppsala Tekniska Fysiker</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="navbar-collapse collapse navHeaderCollapse">
-			<ul class="nav navbar-nav" role="navigation">
-				<li id = "futf"> {{link_to('/','Futf')}}</li> <!-- fixa en route för futf, detta för att futf resp. alumn inte ska vara aktiv. Men länka den till start, så inte topbar blir aktiv på nästa sida.-->
-				<li id = "alumn"> {{link_to('/','Alumn')}}</li> <!-- fixa en route för alumn-->
-			</ul>
-		</div>
-	</nav>
+	<div style="display:none" id="hideAndShow" role="main ">
+	<div class = "navbar navbar-inverse navbar-default navbar-static-top">
+		<div id='navigationbar' class="navigationbar">
+	        <ul role="navigation">
+	           <li id = "futf"> {{link_to('/','Futf')}}</li>
+	           <li id = "alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
+	        </ul>
+        </div>
+        </div>
+	</div>
 
     <div class = "container clear-top" style = "padding:0px" role="main">
         <div class = "navbar navbar-inverse navbar-default">
@@ -68,7 +62,6 @@
                     <span class = "icon-bar"> </span>
                     <span class = "icon-bar"> </span>
                     <span class = "icon-bar"> </span>
-
                 </button>
             </div>
             <div class = "navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
@@ -79,6 +72,7 @@
         </div>
     </div>
 
+	<button id="hideandshow" >Hemlis!!!!</button>
     <!-- Container -->
     <div id = "main" class="container clear-top" style = "box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
 
@@ -105,12 +99,11 @@
                           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                           Inloggad som {{Auth::user()->username}}
                           <span class="caret"></span>
-
                         </button>
-                         <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
-                                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('logout')}}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logga ut</a></li>
-                                                                          <li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('edit_admin', Auth::user()->id)}}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Ändra konto</a></li>
-                                                                        </ul>
+						<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('logout')}}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logga ut</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="{{route('edit_admin', Auth::user()->id)}}"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Ändra konto</a></li>
+						</ul>
                     </div>
             </div>
             @endif
@@ -138,6 +131,7 @@
     {{ HTML::script('js/checkmodal.js')}}
     {{ HTML::script('js/jquery-ui.js')}}
     {{ HTML::script('js/dropdownFadeOut.js')}}
+    {{ HTML::script('js/showHideButton.js')}}
     {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
     {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
     {{ HTML::script('jasny-bootstrap/js/jasny-bootstrap.js')}}

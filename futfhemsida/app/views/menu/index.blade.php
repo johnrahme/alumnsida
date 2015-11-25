@@ -17,7 +17,7 @@
                                         <li class = "dropdown" id = "{{$menu->id}}">
                                             <a href='#' class="dropdown-toggle">{{$menu->name}}<span @if(count($subMenusView)!=0)class="caret"@endif></span></a>
                                             @if(count($subMenusView)!=0)
-                                            <ul class = "sortable dropdown-menu" id = "menu{{$menu->id}}">
+                                            <ul class = "sortable dropdown-menu dropdown-fade" id = "menu{{$menu->id}}">
                                                 @foreach($subMenusView as $subMenu)
                                                   <li id = "{{$subMenu->id}}"><a href='#'><span>{{$subMenu->name}}</span></a>
                                                   </li>

@@ -11,11 +11,11 @@ if($(window).width()>=766){
         }
 
     }, function() {
-        $(this).find('.dropdown-fade').stop(true, true).fadeOut(500);
+        $(this).find('.dropdown-fade').stop(true, true).fadeOut(200);
         var id = $(this).attr('id');
         var dropB = $("[role='menu']");
         if(dropB.attr('aria-labelledby')==id){
-            dropB.stop(true, true).fadeOut(500);
+            dropB.stop(true, true).fadeOut(200);
         }
 
     });

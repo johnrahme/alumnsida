@@ -423,7 +423,7 @@
 
     /*Hover vid stor skärm!*/
         @media (min-width: 766px) {
-            .dropdown:hover .dropdown-menu {
+            .navbar-inverse:hover {
                 display: block;
             }
         }
