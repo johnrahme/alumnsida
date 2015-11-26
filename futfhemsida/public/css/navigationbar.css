@@ -29,6 +29,8 @@
     top: 14px;
     center: auto;
     margin-bottom: 0px;
+    margin-right: -4px;
+    margin-left: -4px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-bottom-left-radius: 3px;
