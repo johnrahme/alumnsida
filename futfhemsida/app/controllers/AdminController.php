@@ -86,7 +86,7 @@ class AdminController extends BaseController
 
     public function viewAllAdminsPublic()
     {
-        $admins = Admin::all();
+        $admins = Admin::where('accounttype', '=', 'styrelse')->get();
         return View::make('admin.viewPublic')
             ->with('title', 'FUTFs Styrelse')
             ->with('admins', $admins)
