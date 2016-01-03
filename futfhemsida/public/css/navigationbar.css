@@ -62,3 +62,26 @@
     .navigationbar  {
         text-align: center;
     }
+
+@media (min-width: 766px) {
+    .navigationbarbutton {
+        width:29px;
+        height:33px;
+        position: static;
+        cursor:pointer;
+        top: 0%;
+        left: 0%;
+        padding: 0;
+        border: none;
+        background: none;
+        background: url('arrow.png') no-repeat;
+        outline: none;
+    }
+}
+
+.navigationbarbutton:hover {
+    background-color:transparent;
+}
+.navigationbarbutton:active {
+    position:relative;
+}

@@ -51,7 +51,7 @@
         </div>
         </div>
 	</div>
-
+<button id="hideandshow" class="navigationbarbutton" ></button>
     <div class = "container clear-top" style = "padding:0px" role="main">
         <div class = "navbar navbar-inverse navbar-default">
             <div class = "navbar-header">
@@ -72,7 +72,7 @@
         </div>
     </div>
 
-	<button id="hideandshow" >Hemlis!!!!</button>
+	<a href="#" class="scrollToTop"></a>
     <!-- Container -->
     <div id = "main" class="container clear-top" style = "box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
 
@@ -132,6 +132,7 @@
     {{ HTML::script('js/jquery-ui.js')}}
     {{ HTML::script('js/dropdownFadeOut.js')}}
     {{ HTML::script('js/showHideButton.js')}}
+    {{ HTML::script('js/scrollToTop.js')}}
     {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
     {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
     {{ HTML::script('jasny-bootstrap/js/jasny-bootstrap.js')}}
