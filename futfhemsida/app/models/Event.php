@@ -5,16 +5,10 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Event extends Eloquent implements UserInterface, RemindableInterface {
+class Event extends Eloquent implements UserInterface, RemindableInterface
+{
 
     use UserTrait, RemindableTrait;
-
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'f_events';
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -42,12 +36,20 @@ class Event extends Eloquent implements UserInterface, RemindableInterface {
         'regFrom' => 'required',
         'regTo' => 'required'
     );
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'f_events';
 
-
-    public static function validate ($data){
+    public static function validate($data)
+    {
         return Validator::make($data, static::$rules);
     }
-    public static function validateReg($data){
+
+    public static function validateReg($data)
+    {
         return Validator::make($data, static::$rules2);
     }
 

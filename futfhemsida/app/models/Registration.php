@@ -5,16 +5,10 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Registration extends Eloquent implements UserInterface, RemindableInterface {
+class Registration extends Eloquent implements UserInterface, RemindableInterface
+{
 
     use UserTrait, RemindableTrait;
-
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
-    protected $table = 'f_registrations';
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -23,13 +17,19 @@ class Registration extends Eloquent implements UserInterface, RemindableInterfac
      */
 
     public static $rules = array(
-        'name'=>'required',
+        'name' => 'required',
         'surname' => 'required',
         'email' => 'required|email'
     );
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'f_registrations';
 
-
-    public static function validate ($data){
+    public static function validate($data)
+    {
         return Validator::make($data, static::$rules);
     }
 

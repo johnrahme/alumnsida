@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Capriola);
+
 #navigationbar,
 #navigationbar ul,
 #navigationbar ul li,
@@ -11,11 +12,13 @@
     font-weight: lighter;
     font-size: 16px;
 }
+
 #navigationbar {
     width: auto;
     height: 77px;
     padding-bottom: 4px;
 }
+
 #navigationbar ul li {
     display: inline-block;
     margin-right: 4px;
@@ -23,6 +26,7 @@
     border-top-right-radius: 3px;
     z-index: 5;
 }
+
 #navigationbar ul li a {
     padding: 12px 30px 13px 30px;
     position: relative;
@@ -39,6 +43,7 @@
     font-size: 16px;
     text-decoration: none;
 }
+
 #navigationbar ul li a:hover,
 #navigationbar ul li.active > a {
     color: #ffffff;
@@ -54,34 +59,35 @@
     background: linear-gradient(to bottom, #262626 0%, #070707 100%);
 }
 
-    .navbar-static-top {
-        border-radius: 0;
-        max-height: 50px;
-    }
+.navbar-static-top {
+    border-radius: 0;
+    max-height: 50px;
+}
 
-    .navigationbar  {
-        text-align: center;
-    }
+.navigationbar {
+    text-align: center;
+}
 
 @media (min-width: 766px) {
     .navigationbarbutton {
-        width:29px;
-        height:33px;
+        width: 29px;
+        height: 33px;
         position: static;
-        cursor:pointer;
+        cursor: pointer;
         top: 0%;
         left: 0%;
         padding: 0;
         border: none;
         background: none;
-        background: url('arrow.png') no-repeat;
+        background: url('../img/arrow.png') no-repeat;
         outline: none;
     }
 }
 
 .navigationbarbutton:hover {
-    background-color:transparent;
+    background-color: transparent;
 }
+
 .navigationbarbutton:active {
-    position:relative;
+    position: relative;
 }

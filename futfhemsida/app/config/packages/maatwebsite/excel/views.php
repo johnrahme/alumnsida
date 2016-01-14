@@ -18,7 +18,7 @@ return array(
         | Table headings
         |--------------------------------------------------------------------------
         */
-        'th'     => array(
+        'th' => array(
             'font' => array(
                 'bold' => true,
                 'size' => 12,
@@ -42,7 +42,7 @@ return array(
         | Bold tags
         |--------------------------------------------------------------------------
         */
-        'b'      => array(
+        'b' => array(
             'font' => array(
                 'bold' => true,
                 'size' => 12,
@@ -54,10 +54,10 @@ return array(
         | Italic tags
         |--------------------------------------------------------------------------
         */
-        'i'      => array(
+        'i' => array(
             'font' => array(
                 'italic' => true,
-                'size'   => 12,
+                'size' => 12,
             )
         ),
 
@@ -66,7 +66,7 @@ return array(
         | Heading 1
         |--------------------------------------------------------------------------
         */
-        'h1'     => array(
+        'h1' => array(
             'font' => array(
                 'bold' => true,
                 'size' => 24,
@@ -78,7 +78,7 @@ return array(
         | Heading 2
         |--------------------------------------------------------------------------
         */
-        'h2'     => array(
+        'h2' => array(
             'font' => array(
                 'bold' => true,
                 'size' => 18,
@@ -90,7 +90,7 @@ return array(
         | Heading 2
         |--------------------------------------------------------------------------
         */
-        'h3'     => array(
+        'h3' => array(
             'font' => array(
                 'bold' => true,
                 'size' => 13.5,
@@ -102,7 +102,7 @@ return array(
          | Heading 4
          |--------------------------------------------------------------------------
          */
-        'h4'     => array(
+        'h4' => array(
             'font' => array(
                 'bold' => true,
                 'size' => 12,
@@ -114,7 +114,7 @@ return array(
          | Heading 5
          |--------------------------------------------------------------------------
          */
-        'h5'     => array(
+        'h5' => array(
             'font' => array(
                 'bold' => true,
                 'size' => 10,
@@ -126,7 +126,7 @@ return array(
          | Heading 6
          |--------------------------------------------------------------------------
          */
-        'h6'     => array(
+        'h6' => array(
             'font' => array(
                 'bold' => true,
                 'size' => 7.5,
@@ -138,10 +138,10 @@ return array(
          | Hyperlinks
          |--------------------------------------------------------------------------
          */
-        'a'      => array(
+        'a' => array(
             'font' => array(
                 'underline' => true,
-                'color'     => array('argb' => 'FF0000FF'),
+                'color' => array('argb' => 'FF0000FF'),
             )
         ),
 
@@ -150,7 +150,7 @@ return array(
          | Horizontal rules
          |--------------------------------------------------------------------------
          */
-        'hr'     => array(
+        'hr' => array(
             'borders' => array(
                 'bottom' => array(
                     'style' => 'thin',

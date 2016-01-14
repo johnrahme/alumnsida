@@ -7,7 +7,7 @@ return array(
     | Enable/Disable cell caching
     |--------------------------------------------------------------------------
     */
-    'enable'   => true,
+    'enable' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ return array(
     | memory|gzip|serialized|igbinary|discISAM|apc|memcache|temp|wincache|sqlite|sqlite3
     |
     */
-    'driver'   => 'memory',
+    'driver' => 'memory',
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return array(
     'settings' => array(
 
         'memoryCacheSize' => '32MB',
-        'cacheTime'       => 600
+        'cacheTime' => 600
 
     ),
 
@@ -52,6 +52,6 @@ return array(
     |--------------------------------------------------------------------------
     */
 
-    'dir'      => storage_path('cache')
+    'dir' => storage_path('cache')
 
 );

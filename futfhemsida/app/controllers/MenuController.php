@@ -1,12 +1,13 @@
 <?php
 
-class MenuController extends \BaseController {
+class MenuController extends \BaseController
+{
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
     public function index()
     {
         $menus = Menu::orderBy('order')->get();
@@ -17,20 +18,22 @@ class MenuController extends \BaseController {
             ->with('menus', $menus)
             ->with('submenus', $submenus);
     }
-    public function dynUrl($page){
+
+    public function dynUrl($page)
+    {
         $pageDB = Menu::where('url', '=', $page)->first();
         $subPageDB = Submenu::where('url', '=', $page)->first();
         $returnPage = "";
         $menuActive = "";
         $subActive = "";
-        if(is_null($pageDB)&&is_null($subPageDB)){
+        if (is_null($pageDB) && is_null($subPageDB)) {
             App::abort(404);
         }
-        if(!is_null($pageDB)){
+        if (!is_null($pageDB)) {
             $returnPage = $pageDB;
             $menuActive = $pageDB;
         }
-        if(!is_null($subPageDB)){
+        if (!is_null($subPageDB)) {
             $returnPage = $subPageDB;
             $subActive = $subPageDB->url;
             $menuActive = Menu::find($subPageDB->menuId);
@@ -38,23 +41,25 @@ class MenuController extends \BaseController {
         return View::make('menu.dyn')
             ->with('title', $returnPage->name)
             ->with('page', $returnPage)
-            ->with('active',$menuActive->url)
+            ->with('active', $menuActive->url)
             ->with('subactive', $subActive);
     }
-    public function dynUrl2($page,$page2){
-        $pageString = $page.'/'.$page2;
+
+    public function dynUrl2($page, $page2)
+    {
+        $pageString = $page . '/' . $page2;
         $pageDB = Menu::where('url', '=', $pageString)->first();
         $subPageDB = Submenu::where('url', '=', $pageString)->first();
         $menuActive = "";
         $subActive = "";
-        if(is_null($pageDB)&&is_null($subPageDB)){
+        if (is_null($pageDB) && is_null($subPageDB)) {
             App::abort(404);
         }
-        if(!is_null($pageDB)){
+        if (!is_null($pageDB)) {
             $returnPage = $pageDB;
             $menuActive = $returnPage;
         }
-        if(!is_null($subPageDB)){
+        if (!is_null($subPageDB)) {
             $returnPage = $subPageDB;
             $subActive = $subPageDB->url;
             $menuActive = Menu::find($returnPage->menuId);
@@ -62,27 +67,27 @@ class MenuController extends \BaseController {
         return View::make('menu.dyn')
             ->with('title', $returnPage->name)
             ->with('page', $returnPage)
-            ->with('active',$menuActive->url)
+            ->with('active', $menuActive->url)
             ->with('subactive', $subActive);
     }
-    public function arrange(){
+
+    public function arrange()
+    {
         $order = Input::get('order');
         $subId = Input::get('subId');
         $orderArr = json_decode($order);
-        $menuId ="";
-        if(strpos($subId, 'menu')&&strpos($subId, 'submenu')){
+        $menuId = "";
+        if (strpos($subId, 'menu') && strpos($subId, 'submenu')) {
 
-        }
-        else if(strpos($subId, 'menu')!==false){
-            $menuId = str_replace("menu","",$subId);
+        } else if (strpos($subId, 'menu') !== false) {
+            $menuId = str_replace("menu", "", $subId);
 
             foreach ($orderArr as $key => $menu) {
                 $currMenu = Submenu::find($menu);
                 $currMenu->order = $key;
                 $currMenu->save();
             }
-        }
-        else if ($subId == "") {
+        } else if ($subId == "") {
             foreach ($orderArr as $key => $menu) {
                 $currMenu = Menu::find($menu);
                 $currMenu->order = $key;
@@ -92,25 +97,26 @@ class MenuController extends \BaseController {
         return Redirect::route('menu.index')
             ->with('message', $menuId);
     }
-	public function create()
-	{
+
+    public function create()
+    {
         $menus = Menu::all();
         return View::make('menu.new')
             ->with('title', 'Menu create!')
             ->with('active', 'menu')
             ->with('menus', $menus);
-	}
+    }
 
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
         $menuId = Input::get('parent');
-        if($menuId == ""){
+        if ($menuId == "") {
             $allMenus = Menu::all();
             $menu = new Menu;
             $menu->name = Input::get('name');
@@ -118,9 +124,8 @@ class MenuController extends \BaseController {
             $menu->content = Input::get('content');
             $menu->order = count($allMenus);
             $menu->save();
-        }
-        else{
-            $allSubMenus = Submenu::where('menuId','=',$menuId)->get();
+        } else {
+            $allSubMenus = Submenu::where('menuId', '=', $menuId)->get();
             $submenu = new Submenu;
             $submenu->menuId = $menuId;
             $submenu->name = Input::get('name');
@@ -132,58 +137,59 @@ class MenuController extends \BaseController {
 
         return Redirect::route('menu.index')
             ->with('message', $menuId);
-	}
+    }
 
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function update($id)
+    {
+        //
+    }
 
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
         $menu = Menu::find($id);
         $menu->delete();
         return Redirect::route('menu.index')
             ->with('message', 'Sida borttagen');
-	}
+    }
+
     public function destroySub($id)
     {
         $submenu = Submenu::find($id);

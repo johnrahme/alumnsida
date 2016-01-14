@@ -1,36 +1,36 @@
-<?php 
+<?php
 
-return array( 
-	
-	/*
-	|--------------------------------------------------------------------------
-	| oAuth Config
-	|--------------------------------------------------------------------------
-	*/
+return array(
 
-	/**
-	 * Storage
-	 */
-	'storage' => 'Session', 
+    /*
+    |--------------------------------------------------------------------------
+    | oAuth Config
+    |--------------------------------------------------------------------------
+    */
 
-	/**
-	 * Consumers
-	 */
-	'consumers' => array(
+    /**
+     * Storage
+     */
+    'storage' => 'Session',
 
-		/**
-		 * Facebook
-		 */
+    /**
+     * Consumers
+     */
+    'consumers' => array(
+
+        /**
+         * Facebook
+         */
         'Facebook' => array(
-            'client_id'     => '',
+            'client_id' => '',
             'client_secret' => '',
-            'scope'         => array(),
+            'scope' => array(),
         ),
         'Linkedin' => array(
-            'client_id'     => '77e3scl45rkt93',
+            'client_id' => '77e3scl45rkt93',
             'client_secret' => 'lDXC3mk8ThJOz2SI',
-            'redirectUri'   =>  url('loginLinkedIn'),
-            'scope' => array('r_basicprofile','r_emailaddress','r_contactinfo','rw_nus','r_network'),
+            'redirectUri' => url('loginLinkedIn'),
+            'scope' => array('r_basicprofile', 'r_emailaddress', 'r_contactinfo', 'rw_nus', 'r_network'),
         ),
 
     )

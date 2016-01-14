@@ -8,7 +8,7 @@ return array(
     |--------------------------------------------------------------------------
     */
 
-    'registered'    =>  array(
+    'registered' => array(
         'chunk' => 'Maatwebsite\Excel\Filters\ChunkReadFilter'
     ),
 
@@ -18,6 +18,6 @@ return array(
     |--------------------------------------------------------------------------
     */
 
-    'enabled'   =>  array()
+    'enabled' => array()
 
 );

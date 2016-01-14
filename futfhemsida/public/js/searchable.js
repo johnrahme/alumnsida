@@ -1,4 +1,3 @@
-
 (function ($) {
 
     $('#search').keyup(function () {
@@ -11,4 +10,4 @@
 
     })
 
-    }(jQuery));
+}(jQuery));

@@ -1,25 +1,25 @@
 <?php
 
 
-class EventController extends BaseController{
+class EventController extends BaseController
+{
     //public $layout = 'layouts.default';
     public $restful = true;
 
-    public function index() { //Default name for starting function
+    public function index()
+    { //Default name for starting function
 
         //Kollar vilken level av inlogg
-        if(Auth::check()&&Auth::user()->level == 2) {
-             $events = Event::orderBy('dateTimeFrom')->get();
-        }
-        elseif(Auth::check()&& Auth::user()->level == 1){
+        if (Auth::check() && Auth::user()->level == 2) {
+            $events = Event::orderBy('dateTimeFrom')->get();
+        } elseif (Auth::check() && Auth::user()->level == 1) {
             $events = Event::where('publish', '=', 1)
-                ->orWhere(function($query){
+                ->orWhere(function ($query) {
                     $query->where('publish', '=', 0)
                         ->where('createdBy', '=', Auth::user()->id);
                 })
                 ->orderBy('dateTimeFrom')->get();
-        }
-        else {
+        } else {
             $events = Event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
         }
         return View::make('events.index')
@@ -29,22 +29,21 @@ class EventController extends BaseController{
 
     }
 
-    public function view($id){
+    public function view($id)
+    {
 
         $event = Event::find($id);
 
         $now = time();
         $regFrom = strtotime($event->regFrom);
         $regTo = strtotime($event->regTo);
-        if($now<$regFrom){
+        if ($now < $regFrom) {
             $regOngoing = false;
             $regEnded = false;
-        }
-        elseif($now>$regFrom&&$now<$regTo){
+        } elseif ($now > $regFrom && $now < $regTo) {
             $regOngoing = true;
             $regEnded = false;
-        }
-        else{
+        } else {
             $regOngoing = false;
             $regEnded = true;
         }
@@ -54,28 +53,30 @@ class EventController extends BaseController{
         return View::make('events.view')
             ->with('title', 'Event View Page')
             ->with('currEvent', $event)
-            ->with('events',$onlineEvents)
+            ->with('events', $onlineEvents)
             ->with('regOngoing', $regOngoing)
             ->with('regEnded', $regEnded)
             ->with('regCount', $regCount)
             ->with('active', 'events');
 
     }
-    public function newevent(){
+
+    public function newevent()
+    {
         return View::make('events.new')
             ->with('title', 'New Event')
             ->with('active', 'events');
     }
 
-    public function createEvent(){
+    public function createEvent()
+    {
 
-        if(Input::has('reg')){
+        if (Input::has('reg')) {
             $validation = Event::validateReg(Input::all());
-        }
-        else {
+        } else {
             $validation = Event::validate(Input::all());
         }
-        if($validation->fails()){
+        if ($validation->fails()) {
             return Redirect::route('new_event')->withErrors($validation)->withInput();
         }
 
@@ -88,42 +89,39 @@ class EventController extends BaseController{
         $event->place = Input::get('place');
         $event->createdBy = Auth::user()->id;
 
-        if(Input::has('publish')) {
+        if (Input::has('publish')) {
             $event->publish = 1;
-        }
-        else{
+        } else {
             $event->publish = 0;
         }
-        if(Input::has('reg')){
+        if (Input::has('reg')) {
             $event->reg = 1;
             $event->regnr = Input::get('regnr');
-            if(Input::has('reserv')){
+            if (Input::has('reserv')) {
                 $event->reserv = 1;
-            }
-            else{
+            } else {
                 $event->reserv = 0;
             }
             $event->regFrom = Input::get('regFrom');
             $event->regTo = Input::get('regTo');
 
-        }
-        else{
+        } else {
             $event->reg = 0;
         }
 
-        if(Input::hasFile('image')) {
+        if (Input::hasFile('image')) {
             if (Input::file('image')->isValid()) {
                 $imgName = Input::file('image')->getClientOriginalName();
                 $imgExtension = Input::file('image')->getClientOriginalExtension();
-                $saveName =microtime().'_'.$imgName;
+                $saveName = microtime() . '_' . $imgName;
                 Input::file('image')->move('img/events', $saveName);
-                $URL = 'img/events/'.$saveName;
+                $URL = 'img/events/' . $saveName;
                 $event->pictureUrl = $URL;
             }
         }
         $event->save();
-        if(Input::has('extras')){
-            foreach(Input::get('extras') as $key => $text){
+        if (Input::has('extras')) {
+            foreach (Input::get('extras') as $key => $text) {
                 $extraFormControl = new Extraformcontrol;
                 $extraFormControl->eventId = $event->id;
                 $extraFormControl->title = $text;
@@ -132,40 +130,39 @@ class EventController extends BaseController{
         }
 
 
-
         return Redirect::to('events')
             ->with('message', 'Eventet har nu skapats!');
 
     }
-    public function edit ($id){
-        if(count(Registration::where('EventId','=',$id)->get())<1){
+
+    public function edit($id)
+    {
+        if (count(Registration::where('EventId', '=', $id)->get()) < 1) {
             $editExtra = true;
-        }
-        else{
+        } else {
             $editExtra = false;
         }
         return View::make('events.edit')
             ->with('title', 'Edit event')
-            ->with('event',Event::find($id))
-            ->with('extra', Extraformcontrol::where('eventId', '=',$id)->get())
+            ->with('event', Event::find($id))
+            ->with('extra', Extraformcontrol::where('eventId', '=', $id)->get())
             ->with('editExtra', $editExtra)
             ->with('active', 'events');
     }
 
-    public function update(){
+    public function update()
+    {
         $id = Input::get('id');
 
-        if(Input::has('reg')){
+        if (Input::has('reg')) {
             $validation = Event::validateReg(Input::all());
-        }
-        else {
+        } else {
             $validation = Event::validate(Input::all());
         }
 
-        if($validation->fails()){
+        if ($validation->fails()) {
             return Redirect::route('edit_event', $id)->withErrors($validation)->withInput();
-        }
-        else{
+        } else {
 
             $event = Event::find($id);
 
@@ -174,26 +171,23 @@ class EventController extends BaseController{
             $event->dateTimeTo = Input::get('dateTimeTo');
             $event->description = Input::get('description');
             $event->place = Input::get('place');
-            if(Input::has('publish')) {
+            if (Input::has('publish')) {
                 $event->publish = 1;
-            }
-            else{
+            } else {
                 $event->publish = 0;
             }
 
-            if(Input::has('reg')){
+            if (Input::has('reg')) {
                 $event->reg = 1;
                 $event->regnr = Input::get('regnr');
-                if(Input::has('reserv')){
+                if (Input::has('reserv')) {
                     $event->reserv = 1;
-                }
-                else{
+                } else {
                     $event->reserv = 0;
                 }
                 $event->regFrom = Input::get('regFrom');
                 $event->regTo = Input::get('regTo');
-            }
-            else{
+            } else {
                 $event->reg = 0;
                 echo "<script>alert('händer')</script>";
             }
@@ -201,21 +195,20 @@ class EventController extends BaseController{
 
             //Jobbar med bilden:
 
-            if(Input::hasFile('image')) {
+            if (Input::hasFile('image')) {
                 if (Input::file('image')->isValid()) {
-                    if($event->pictureUrl != ""){
+                    if ($event->pictureUrl != "") {
                         File::delete($event->pictureUrl);
                     }
                     $imgName = Input::file('image')->getClientOriginalName();
                     $imgExtension = Input::file('image')->getClientOriginalExtension();
-                    $saveName =microtime().'_'.$imgName;
+                    $saveName = microtime() . '_' . $imgName;
                     Input::file('image')->move('img/events', $saveName);
-                    $URL = 'img/events/'.$saveName;
+                    $URL = 'img/events/' . $saveName;
                     $event->pictureUrl = $URL;
                 }
-            }
-            else{
-                if(Input::get('pictureChanged') == 1){
+            } else {
+                if (Input::get('pictureChanged') == 1) {
                     File::delete($event->pictureUrl);
                     $event->pictureUrl = "";
                 }
@@ -224,7 +217,7 @@ class EventController extends BaseController{
             }
 
             $event->save();
-            if(count(Registration::where('eventId', '=', $id)->get())<1) {
+            if (count(Registration::where('eventId', '=', $id)->get()) < 1) {
 
                 $oldExtra = Extraformcontrol::where('eventId', '=', $id)->get();
                 foreach ($oldExtra as $ex) {
@@ -246,35 +239,39 @@ class EventController extends BaseController{
         }
 
     }
-    public function map($id){
+
+    public function map($id)
+    {
         $event = Event::find($id);
         return View::make('events.map')
             ->with('event', $event);
     }
-    public function destroy(){
+
+    public function destroy()
+    {
         $id = Input::get('id');
         $event = Event::find($id);
-        if($event->pictureUrl != "") {
+        if ($event->pictureUrl != "") {
             File::delete($event->pictureUrl);
         }
-        $extraFormControl = Extraformcontrol::where('eventId', '=',$id)->get();
-        $registrations = Registration::where('eventId','=',$id)->get();
+        $extraFormControl = Extraformcontrol::where('eventId', '=', $id)->get();
+        $registrations = Registration::where('eventId', '=', $id)->get();
         $name = $event->name;
         //Viktigt! Ta även bort ExtraData
-        foreach($extraFormControl as $ex) {
+        foreach ($extraFormControl as $ex) {
             $extraData = Extradata::where('extraFromControlId', '=', $ex->id)->get();
-            foreach($extraData as $exD) {
+            foreach ($extraData as $exD) {
                 $exD->delete();
             }
             $ex->delete();
         }
-        foreach($registrations as $reg){
+        foreach ($registrations as $reg) {
             $reg->delete();
         }
         $event->delete();
 
         return Redirect::route('events')
-            ->with('message', 'Eventet'.htmlentities($name).' har raderats');
+            ->with('message', 'Eventet' . htmlentities($name) . ' har raderats');
 
 
     }

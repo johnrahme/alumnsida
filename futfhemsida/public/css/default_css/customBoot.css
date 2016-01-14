@@ -1,7 +1,8 @@
 .required:after {
-    content:" *";
-    color:red;
+    content: " *";
+    color: red;
 }
+
 html, body {
     height: 100%;
 }
@@ -15,8 +16,8 @@ html, body {
 }
 
 #main {
-    overflow:auto;
-    padding-bottom:150px; /* this needs to be bigger than footer height*/
+    overflow: auto;
+    padding-bottom: 150px; /* this needs to be bigger than footer height*/
 }
 
 .footer, .push {
@@ -25,8 +26,7 @@ html, body {
     font-size: 11px;
 }
 
-
 ul.unstyled {
-    list-style:none;
+    list-style: none;
     padding: 0;
 }

@@ -2,9 +2,9 @@
  * Created by Jonathan on 2016-01-03.
  */
 
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $(window).scroll(function(){
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.scrollToTop').fadeIn();
         } else {
@@ -12,8 +12,8 @@ $(document).ready(function(){
         }
     });
 
-    $('.scrollToTop').click(function(){
-        $('html, body').animate({scrollTop : 0},800);
+    $('.scrollToTop').click(function () {
+        $('html, body').animate({scrollTop: 0}, 800);
         return false;
     });
 

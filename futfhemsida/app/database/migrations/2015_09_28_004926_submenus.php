@@ -3,17 +3,17 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Submenus extends Migration {
+class Submenus extends Migration
+{
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-        Schema::create('f_submenus', function(Blueprint $table)
-        {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('f_submenus', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('menuId')->unsigned();
             $table->foreign('menuId')->references('id')->on('f_menus');
@@ -25,14 +25,14 @@ class Submenus extends Migration {
         });
     }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
         Schema::drop('f_submenus');
-	}
+    }
 
 }

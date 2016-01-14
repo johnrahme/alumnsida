@@ -11,7 +11,7 @@ return array(
     | an array of columns ( array('A', 'B') )
     |
     */
-    'autosize'                    => true,
+    'autosize' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return array(
     | having the appropriate fonts installed.
     |
     */
-    'autosize-method'             => PHPExcel_Shared_Font::AUTOSIZE_METHOD_APPROX,
+    'autosize-method' => PHPExcel_Shared_Font::AUTOSIZE_METHOD_APPROX,
 
     /*
     |--------------------------------------------------------------------------
@@ -52,28 +52,28 @@ return array(
     | Auto set alignment on merged cells
     |--------------------------------------------------------------------------
     */
-    'merged_cell_alignment'       => 'left',
+    'merged_cell_alignment' => 'left',
 
     /*
     |--------------------------------------------------------------------------
     | Pre-calculate formulas during export
     |--------------------------------------------------------------------------
     */
-    'calculate'                   => false,
+    'calculate' => false,
 
     /*
     |--------------------------------------------------------------------------
     | Include Charts during export
     |--------------------------------------------------------------------------
     */
-    'includeCharts'               => false,
+    'includeCharts' => false,
 
     /*
     |--------------------------------------------------------------------------
     | Default sheet settings
     |--------------------------------------------------------------------------
     */
-    'sheets'                      => array(
+    'sheets' => array(
 
         /*
         |--------------------------------------------------------------------------
@@ -87,21 +87,21 @@ return array(
         |    Default order: array(top, right, bottom, left)
         |
         */
-        'page_margin'          => false,
+        'page_margin' => false,
 
         /*
         |--------------------------------------------------------------------------
         | Value in source array that stands for blank cell
         |--------------------------------------------------------------------------
         */
-        'nullValue'            => null,
+        'nullValue' => null,
 
         /*
         |--------------------------------------------------------------------------
         | Insert array starting from this cell address as the top left coordinate
         |--------------------------------------------------------------------------
         */
-        'startCell'            => 'A1',
+        'startCell' => 'A1',
 
         /*
         |--------------------------------------------------------------------------
@@ -117,7 +117,7 @@ return array(
     |--------------------------------------------------------------------------
     */
 
-    'store'                       => array(
+    'store' => array(
 
         /*
         |--------------------------------------------------------------------------
@@ -127,7 +127,7 @@ return array(
         | The path we want to save excel file to
         |
         */
-        'path'       => storage_path('exports'),
+        'path' => storage_path('exports'),
 
         /*
         |--------------------------------------------------------------------------
@@ -146,7 +146,7 @@ return array(
     | PDF Settings
     |--------------------------------------------------------------------------
     */
-    'pdf'                         => array(
+    'pdf' => array(
 
         /*
         |--------------------------------------------------------------------------
@@ -154,7 +154,7 @@ return array(
         |--------------------------------------------------------------------------
         | Supported: DomPDF, tcPDF, mPDF
         */
-        'driver'  => 'DomPDF',
+        'driver' => 'DomPDF',
 
         /*
         |--------------------------------------------------------------------------

@@ -3,7 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Extradatas extends Migration {
+class Extradatas extends Migration
+{
 
     /**
      * Run the migrations.
@@ -12,7 +13,7 @@ class Extradatas extends Migration {
      */
     public function up()
     {
-        Schema::create('f_extradatas', function($table){
+        Schema::create('f_extradatas', function ($table) {
             $table->increments('id');
             $table->integer('registrationsId')->unsigned();
             $table->foreign('registrationsId')->references('id')->on('f_registrations');

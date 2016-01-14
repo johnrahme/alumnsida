@@ -3,7 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Extraformcontrols extends Migration {
+class Extraformcontrols extends Migration
+{
 
     /**
      * Run the migrations.
@@ -12,7 +13,7 @@ class Extraformcontrols extends Migration {
      */
     public function up()
     {
-        Schema::create('f_extraformcontrols', function($table){
+        Schema::create('f_extraformcontrols', function ($table) {
             $table->increments('id');
             $table->integer('eventId')->unsigned();
             $table->foreign('eventId')->references('id')->on('f_events');

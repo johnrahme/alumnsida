@@ -1,8 +1,9 @@
 <?php
 
 
-class TheUsers extends Eloquent{
+class TheUsers extends Eloquent
+{
 
-	protected $table = 'f_users';
+    protected $table = 'f_users';
 
 }

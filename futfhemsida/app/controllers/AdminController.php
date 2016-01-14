@@ -9,31 +9,32 @@ class AdminController extends BaseController
     {
         $admin = Admin::all();
 
-        if(Auth::check()&& Auth::user()->level == 2) {
+        if (Auth::check() && Auth::user()->level == 2) {
             return View::make('admin.index')
                 ->with('title', 'Admin')
                 ->with('admins', $admin)
                 ->with('active', 'admin');
-        }
-        else{
+        } else {
             return View::make('admin.downScaled.index')
                 ->with('title', 'Admin')
                 ->with('admins', $admin)
                 ->with('active', 'admin');
         }
     }
+
     public function newadmin()
     {
-        if(Auth::check()&&Auth::user()->level == 2) {
+        if (Auth::check() && Auth::user()->level == 2) {
             return View::make('admin.new')
                 ->with('title', 'New Admin')
                 ->with('active', 'admin');
         }
     }
+
     public function createAdmin()
     {
         $validation = Admin::validate(Input::all());
-        if($validation->fails()){
+        if ($validation->fails()) {
             return Redirect::route('new_admin')->withErrors($validation)->withInput();
         }
         $admin = new Admin;
@@ -56,7 +57,7 @@ class AdminController extends BaseController
     public function createAdminReg()
     {
         $validation = Admin::validate(Input::all());
-        if($validation->fails()){
+        if ($validation->fails()) {
             return Redirect::route('new_admin')->withErrors($validation)->withInput();
         }
         $admin = new Admin;
@@ -93,14 +94,17 @@ class AdminController extends BaseController
             ->with('active', 'admin');
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $admin = Admin::find($id);
         return View::make('admin.edit')
             ->with('title', 'Ändra konto')
             ->with('admin', $admin)
             ->with('active', 'admin');
     }
-    public function update(){
+
+    public function update()
+    {
         $id = Input::get('id');
         $admin = Admin::find($id);
         $admin->username = Input::get('username');
@@ -113,60 +117,61 @@ class AdminController extends BaseController
         $admin->post = Input::get('post');
         $admin->description = Input::get('description');
 
-        if(Input::hasFile('image')) {
+        if (Input::hasFile('image')) {
             if (Input::file('image')->isValid()) {
-                if(strpos($admin->pictureUrl,'img') !== false){
+                if (strpos($admin->pictureUrl, 'img') !== false) {
                     File::delete($admin->pictureUrl);
                 }
                 $imgName = Input::file('image')->getClientOriginalName();
                 $imgExtension = Input::file('image')->getClientOriginalExtension();
-                $saveName =microtime().'_'.$imgName;
+                $saveName = microtime() . '_' . $imgName;
                 Input::file('image')->move('img/admins', $saveName);
-                $URL = 'img/admins/'.$saveName;
+                $URL = 'img/admins/' . $saveName;
                 $admin->pictureUrl = $URL;
             }
         }
 
-        if(Input::get('password')!=''){
-        $admin->password = Hash::make(Input::get('password'));
+        if (Input::get('password') != '') {
+            $admin->password = Hash::make(Input::get('password'));
         }
         $admin->save();
-        if(Auth::check()&& Auth::user()->level == 2) {
+        if (Auth::check() && Auth::user()->level == 2) {
             return Redirect::route('admin')
                 ->with('message', 'Ditt konto är nu uppdaterat!');
-        }
-        else{
+        } else {
             return Redirect::route('start')
                 ->with('message', 'Ditt konto är nu uppdaterat!');
         }
     }
-    public function destroy(){
+
+    public function destroy()
+    {
         $id = Input::get('id');
         $admin = Admin::find($id);
         $events = Event::where('createdBy', '=', $id)->get();
         //Tar bort event kopplat till användaren
-        foreach($events as $event){
-            if($event->pictureUrl != "") {
+        foreach ($events as $event) {
+            if ($event->pictureUrl != "") {
                 File::delete($event->pictureUrl);
             }
-            $extraFormControl = Extraformcontrol::where('eventId', '=',$id)->get();
-            $registrations = Registration::where('eventId','=',$id)->get();
+            $extraFormControl = Extraformcontrol::where('eventId', '=', $id)->get();
+            $registrations = Registration::where('eventId', '=', $id)->get();
             $name = $event->name;
             //Viktigt! Ta även bort ExtraData
-            foreach($extraFormControl as $ex) {
+            foreach ($extraFormControl as $ex) {
                 $extraData = Extradata::where('extraFromControlId', '=', $ex->id)->get();
-                foreach($extraData as $exD) {
+                foreach ($extraData as $exD) {
                     $exD->delete();
                 }
                 $ex->delete();
             }
-            foreach($registrations as $reg){
+            foreach ($registrations as $reg) {
                 $reg->delete();
             }
             $event->delete();
         }
         $admin->delete();
         return Redirect::route('admin')
-            ->with('message', 'The admin '.htmlentities($admin->username).' was deleted successfully');
+            ->with('message', 'The admin ' . htmlentities($admin->username) . ' was deleted successfully');
     }
 }
