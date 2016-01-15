@@ -1,3 +1,17 @@
+<style>
+    hr {
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+    }
+</style>
+
+
+
 @if(Auth::check())
     <li id="start"> {{link_to('/','Start')}}</li>
     <li id="events"> {{link_to_route('events','Event')}}</li>
@@ -29,6 +43,15 @@
     @endforeach
     <li><a href="#contact" data-toggle="modal">Kontakt</a></li>
 @else
+    <!-- only if window width is =< 766 px
+
+    <script language="javascript">
+        width = screen.width;
+    </script>
+
+    <li id="futf"> {{link_to('/','Futf')}}</li>
+    <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
+    <hr>-->
     <li id="start"> {{link_to('/','Start')}}</li>
     <li id="events"> {{link_to_route('events','Event')}}</li>
     <li id="create">{{link_to_route('new_admin', 'Skapa konto')}}</li>

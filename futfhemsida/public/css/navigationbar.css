@@ -74,6 +74,7 @@
         height: 33px;
         position: static;
         cursor: pointer;
+        position: relative;
         top: 0%;
         left: 0%;
         padding: 0;
@@ -84,10 +85,48 @@
     }
 }
 
+@media (min-width: 1300px) {
+    .navigationbarbutton {
+        width: 29px;
+        height: 33px;
+        position: static;
+        cursor: pointer;
+        position: relative;
+        top: 0%;
+        left: 50%;
+        padding: 0;
+        border: none;
+        background: none;
+        background: url('../img/arrow.png') no-repeat;
+        outline: none;
+    }
+}
+
+@media (max-width: 766px) {
+    .navigationbarbutton {
+        display: none;
+    }
+}
+
 .navigationbarbutton:hover {
     background-color: transparent;
 }
 
 .navigationbarbutton:active {
     position: relative;
+}
+
+.column-left {
+    float: left;
+    width: 2.5%;
+}
+
+.column-right {
+    float: right;
+    width: 2.5%;
+}
+
+.column-center {
+    display: inline-block;
+    width: 95%;
 }

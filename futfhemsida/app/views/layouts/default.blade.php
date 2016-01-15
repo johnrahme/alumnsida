@@ -41,37 +41,45 @@ if (!is_null($subPageDB)) {
 <body style="background-image: url('{{URL::asset('img/yellow2.jpg');}}');background-repeat: no-repeat;background-attachment: fixed;">
 <!-- Navbar -->
 <div id="wrap">
-    <div style="display:none" id="hideAndShow" role="main ">
-        <div class="navbar navbar-inverse navbar-default navbar-static-top">
-            <div id='navigationbar' class="navigationbar">
-                <ul role="navigation">
-                    <li id="futf"> {{link_to('/','Futf')}}</li>
-                    <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
-                </ul>
+    <div>
+        <!--if screen is bigger than or equal to 766 px-->
+        <div style="display:none" id="hideAndShow" role="main ">
+            <div class="navbar navbar-inverse navbar-default navbar-static-top">
+                <div id='navigationbar' class="navigationbar">
+                    <ul role="navigation">
+                        <li id="futf"> {{link_to('/','Futf')}}</li>
+                        <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="column-left">
+            <button id="hideandshow" class="navigationbarbutton" type="hideAndShowClick"></button>
+        </div>
+    </div>
+    <div class="column-center">
+        <div class="container clear-top" style="padding:0px" role="main">
+            <div class="navbar navbar-inverse navbar-default">
+                <div class="navbar-header">
+                    {{--<a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
+                    <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
+                    <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>--}}
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                        <span class="icon-bar"> </span>
+                        <span class="icon-bar"> </span>
+                        <span class="icon-bar"> </span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
+                    <ul class="nav navbar-nav">
+                        @include('layouts.menulinks.menu_default')
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <button id="hideandshow" class="navigationbarbutton"></button>
-    <div class="container clear-top" style="padding:0px" role="main">
-        <div class="navbar navbar-inverse navbar-default">
-            <div class="navbar-header">
-                {{--<a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
-                <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
-                <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>--}}
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-                    <span class="icon-bar"> </span>
-                    <span class="icon-bar"> </span>
-                    <span class="icon-bar"> </span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
-                <ul class="nav navbar-nav">
-                    @include('layouts.menulinks.menu_default')
-                </ul>
-            </div>
-        </div>
+    <div class="column-right">
     </div>
-
     <a href="#" class="scrollToTop"></a>
     <!-- Container -->
     <div id="main" class="container clear-top"
