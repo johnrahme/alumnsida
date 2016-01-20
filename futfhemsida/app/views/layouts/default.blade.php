@@ -72,7 +72,7 @@ if (!is_null($subPageDB)) {
                 <div class="navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
                     <ul class="nav navbar-nav">
                         <div id="screenSize" class="sizeShowHidenav navbar-nav">
-                            <li id="futf"> {{link_to('/','Futfs')}}</li>
+                            <li id="futf"> {{link_to('/','Futf')}}</li>
                             <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
                             <hr>
                         </div>
