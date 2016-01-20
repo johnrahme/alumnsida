@@ -42,7 +42,6 @@ if (!is_null($subPageDB)) {
 <!-- Navbar -->
 <div id="wrap">
     <div>
-        <!--if screen is bigger than or equal to 766 px-->
         <div style="display:none" id="hideAndShow" role="main ">
             <div class="navbar navbar-inverse navbar-default navbar-static-top">
                 <div id='navigationbar' class="navigationbar">
@@ -72,6 +71,11 @@ if (!is_null($subPageDB)) {
                 </div>
                 <div class="navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
                     <ul class="nav navbar-nav">
+                        <div id="screenSize" class="sizeShowHidenav navbar-nav">
+                            <li id="futf"> {{link_to('/','Futf')}}</li>
+                            <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
+                            <hr>
+                        </div>
                         @include('layouts.menulinks.menu_default')
                     </ul>
                 </div>
@@ -147,6 +151,7 @@ if (!is_null($subPageDB)) {
 {{ HTML::script('js/jquery-ui.js')}}
 {{ HTML::script('js/dropdownFadeOut.js')}}
 {{ HTML::script('js/showHideButton.js')}}
+{{ HTML::script('js/bootstrap-toolkit.min.js')}}
 {{ HTML::script('js/scrollToTop.js')}}
 {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
