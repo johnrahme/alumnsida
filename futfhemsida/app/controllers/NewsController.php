@@ -9,8 +9,8 @@ class NewsController extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('events.new')
-            ->with('title', 'New Event')
+        return View::make('news.index')
+            ->with('title', 'News')
             ->with('active', 'events');
 	}
 
@@ -22,7 +22,9 @@ class NewsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        return View::make('news.create')
+            ->with('title', 'Create News')
+            ->with('active', 'events');
 	}
 
 
@@ -33,7 +35,7 @@ class NewsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+
 	}
 
 
@@ -45,7 +47,9 @@ class NewsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+        return View::make('news.show')
+            ->with('title', 'Show News')
+            ->with('active', 'events');
 	}
 
 
@@ -57,7 +61,9 @@ class NewsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+        return View::make('news.edit')
+            ->with('title', 'Edit News')
+            ->with('active', 'events');
 	}
 
 

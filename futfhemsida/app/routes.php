@@ -15,6 +15,8 @@ Route::get('/', array('as' => 'start', 'uses' => 'HomeController@index'));
 
 Route::get('futflogin', array('as' => 'adminStart', 'uses' => 'HomeController@adminIndex'));
 
+
+
 //Users
 
 Route::get('users', array('as' => 'users', 'uses' => 'UserController@index'))->before('auth');
@@ -119,7 +121,23 @@ Route::post('storeLinkedIn', array('as' => 'storeLinkedIn', 'uses' => 'SessionsC
 
 
 
-//Dynamic menu
+//news
+Route::get('news', array('as' => 'news', 'uses' => 'NewsController@index'));
+
+Route::get('news/create', array('as' => 'news.new', 'uses' => 'NewsController@create'));
+
+Route::get('news/{id}', array('as' => 'news.show', 'uses' => 'NewsController@show'));
+
+Route::post('news/store', array('uses' => 'NewsController@store'));
+
+Route::get('news/{id}/edit', array('as' => 'news.edit', 'uses' => 'NewsController@edit'));
+
+
+Route::put('news/update', array('uses' => 'NewsController@update'));
+
+Route::delete('news/delete', array('uses' => 'NewsController@destroy'));
+
+//Dynamic menu, lägg sist!
 
 
 Route::resource('menu', 'MenuController');
@@ -131,18 +149,4 @@ Route::get('{page}/{page2}', array('as' => 'menu.dyn', 'uses' => 'MenuController
 Route::post('menu/arrange', array('as' => 'menu.arrange', 'uses' => 'MenuController@arrange'));
 Route::delete('menu/{id}/delete', array('as' => 'menu.destroySub', 'uses' => 'MenuController@destroySub'));
 
-//News
-Route::get('news', array('as' => 'news', 'uses' => 'NewsController@index'));
 
-Route::get('news/new', array('as' => 'news.new', 'uses' => 'NewsController@new'));
-
-Route::get('news/{id}', array('as' => 'news.show', 'uses' => 'NewsController@show'));
-
-Route::post('news/create', array('uses' => 'NewsController@create'));
-
-Route::get('news/{id}/edit', array('as' => 'news.edit', 'uses' => 'NewsController@edit'));
-
-
-Route::put('news/update', array('uses' => 'NewsController@update'));
-
-Route::delete('news/delete', array('uses' => 'NewsController@destroy'));
