@@ -22,6 +22,7 @@ class NewsController extends \BaseController {
 	 */
 	public function create()
 	{
+
         return View::make('news.create')
             ->with('title', 'Create News')
             ->with('active', 'events');
@@ -35,7 +36,19 @@ class NewsController extends \BaseController {
 	 */
 	public function store()
 	{
+        $validation = News::validate(Input::all());
 
+        if ($validation->fails()) {
+            return Redirect::route('news.create')->withErrors($validation)->withInput();
+        }
+        $news = new News;
+        $news->name = Input::get('name');
+        $news->content = Input::get('content');
+        $news->author = Input::get('author');
+        $news->save();
+
+        return Redirect::to('news')
+            ->with('message', 'Nyheten har nu skapats!');
 	}
 
 

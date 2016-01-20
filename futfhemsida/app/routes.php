@@ -124,7 +124,7 @@ Route::post('storeLinkedIn', array('as' => 'storeLinkedIn', 'uses' => 'SessionsC
 //news
 Route::get('news', array('as' => 'news', 'uses' => 'NewsController@index'));
 
-Route::get('news/create', array('as' => 'news.new', 'uses' => 'NewsController@create'));
+Route::get('news/create', array('as' => 'news.create', 'uses' => 'NewsController@create'));
 
 Route::get('news/{id}', array('as' => 'news.show', 'uses' => 'NewsController@show'));
 

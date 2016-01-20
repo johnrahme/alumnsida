@@ -18,7 +18,7 @@ class News extends Eloquent implements UserInterface, RemindableInterface
 
     public static $rules = array(
         'name' => 'required|min:2',
-        'description' => 'required|min:10',
+        'content' => 'required|min:10',
         'author' => 'required|min:2'
 
     );
