@@ -2,9 +2,11 @@
 <?php
 $pageDB = Menu::where('url', '=', Request::path())->first();
 $subPageDB = Submenu::where('url', '=', Request::path())->first();
+$subSubPageDB = Subsubmenu::where('url', '=', Request::path())->first();
 $page = "";
 $menuActive = "";
 $subactive = "";
+$subsubactive ="";
 if (!is_null($pageDB)) {
     $page = $pageDB;
     $menuActive = $pageDB;
@@ -14,6 +16,14 @@ if (!is_null($subPageDB)) {
     $page = $subPageDB;
     $subactive = $subPageDB->url;
     $menuActive = Menu::find($subPageDB->menuId);
+    $active = $menuActive->url;
+}
+if (!is_null($subSubPageDB)) {
+    $page = $subSubPageDB;
+    $subsubactive = $subSubPageDB->url;
+    $subactiveObj = Submenu::find($subSubPageDB->subMenuId);
+    $subactive = $subactiveObj->url;
+    $menuActive = Menu::find($subactiveObj->menuId);
     $active = $menuActive->url;
 }
 ?>

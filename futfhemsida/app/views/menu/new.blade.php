@@ -21,6 +21,14 @@
 
     </p>
     <p>
+            {{Form::label('grandparent', 'Övermeny 2')}} <br/>
+            <select class="form-control" id="grandparent" name="grandparent">
+                <option value="">Ingen</option>
+
+            </select>
+
+        </p>
+    <p>
         {{Form::label('url', 'Länk', array('class' => 'required'))}} <br/>
 
         {{Form::text('url', '',array('class' => 'form-control','placeholder' => 'länk') )}}
@@ -38,6 +46,35 @@
     {{Form::close()}}
 @stop
 @section('scripts')
+    <script>
+    updateGrandparent();
+    $('#parent').change(function () {
+        updateGrandparent();
+
+    });
+    function updateGrandparent(){
+    $('#grandparent').empty();
+                    $('#grandparent')
+                             .append($("<option></option>")
+                             .attr("value","")
+                             .text("Ingen"));
+           var currParentId = $('#parent').val();
+           var currentTest ="";
+           if(currParentId !== ""){
+              @foreach($submenus as $submenu)
+                currentTest = "{{$submenu->menuId}}";
+                if(currentTest == currParentId){
+                $('#grandparent')
+                      .append($("<option></option>")
+                      .attr("id","{{$submenu->url}}")
+                      .attr("value","{{$submenu->id}}")
+                      .text("{{$submenu->name}}"));
+
+                }
+              @endforeach
+           }
+    }
+    </script>
     {{ HTML::script('js/menu/menu.js')}}
 
 @stop

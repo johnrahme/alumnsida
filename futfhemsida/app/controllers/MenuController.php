@@ -12,11 +12,13 @@ class MenuController extends \BaseController
     {
         $menus = Menu::orderBy('order')->get();
         $submenus = Submenu::orderBy('order')->get();
+        $subsubmenus = Subsubmenu::orderBy('order')->get();
         return View::make('menu.index')
             ->with('title', 'Menu start!')
             ->with('active', 'menu')
             ->with('menus', $menus)
-            ->with('submenus', $submenus);
+            ->with('submenus', $submenus)
+            ->with('subsubmenus', $subsubmenus);
     }
 
     public function dynUrl($page)
@@ -71,13 +73,58 @@ class MenuController extends \BaseController
             ->with('subactive', $subActive);
     }
 
+    public function dynUrl3($page, $page2, $page3)
+    {
+        $pageString = $page . '/' . $page2 . '/' . $page3;
+        $pageDB = Menu::where('url', '=', $pageString)->first();
+        $subPageDB = Submenu::where('url', '=', $pageString)->first();
+        $subSubPageDB = Subsubmenu::where('url', '=', $pageString)->first();
+        $menuActive = "";
+        $subActive = "";
+        $subSubActive = "";
+        if (is_null($pageDB) && is_null($subPageDB) && is_null($subSubPageDB)) {
+            App::abort(404);
+        }
+        if (!is_null($pageDB)) {
+            $returnPage = $pageDB;
+            $menuActive = $returnPage;
+        }
+        if (!is_null($subPageDB)) {
+            $returnPage = $subPageDB;
+            $subActive = $subPageDB->url;
+            $menuActive = Menu::find($returnPage->menuId);
+        }
+        if (!is_null($subSubPageDB)) {
+            $returnPage = $subSubPageDB;
+            $subSubActive = $subSubPageDB->url;
+            $test = $returnPage->subMenuId;
+            $subMenuActive = Submenu::find($returnPage->subMenuId);
+            $menuActive = Menu::find($subMenuActive->menuId);
+        }
+        return View::make('menu.dyn')
+            ->with('title', $returnPage->name)
+            ->with('page', $returnPage)
+            ->with('active', $menuActive->url)
+            ->with('subactive', $subMenuActive->url)
+            ->with('subsubactive', $subSubActive);
+    }
+
     public function arrange()
     {
         $order = Input::get('order');
         $subId = Input::get('subId');
+        $subSubId = Input::get('subSubId');
         $orderArr = json_decode($order);
         $menuId = "";
-        if (strpos($subId, 'menu') && strpos($subId, 'submenu')) {
+
+        if (strpos($subId, 'submenu')!==false) {
+            $menuId = str_replace("submenu", "", $subId);
+
+            foreach ($orderArr as $key => $menu) {
+                $currMenu = Subsubmenu::find($menu);
+                $currMenu->order = $key;
+                $currMenu->save();
+            }
 
         } else if (strpos($subId, 'menu') !== false) {
             $menuId = str_replace("menu", "", $subId);
@@ -101,10 +148,12 @@ class MenuController extends \BaseController
     public function create()
     {
         $menus = Menu::all();
+        $submenus = Submenu::all();
         return View::make('menu.new')
             ->with('title', 'Menu create!')
             ->with('active', 'menu')
-            ->with('menus', $menus);
+            ->with('menus', $menus)
+            ->with('submenus', $submenus);
     }
 
 
@@ -116,6 +165,7 @@ class MenuController extends \BaseController
     public function store()
     {
         $menuId = Input::get('parent');
+        $subMenuId = Input::get('grandparent');
         if ($menuId == "") {
             $allMenus = Menu::all();
             $menu = new Menu;
@@ -124,7 +174,7 @@ class MenuController extends \BaseController
             $menu->content = Input::get('content');
             $menu->order = count($allMenus);
             $menu->save();
-        } else {
+        } else if($subMenuId == ""){
             $allSubMenus = Submenu::where('menuId', '=', $menuId)->get();
             $submenu = new Submenu;
             $submenu->menuId = $menuId;
@@ -133,6 +183,16 @@ class MenuController extends \BaseController
             $submenu->content = Input::get('content');
             $submenu->order = count($allSubMenus);
             $submenu->save();
+        }
+        else{
+            $allSubSubMenus = Subsubmenu::where('subMenuId', '=', $subMenuId)->get();
+            $subsubmenu = new Subsubmenu;
+            $subsubmenu->subMenuId = $menuId;
+            $subsubmenu->name = Input::get('name');
+            $subsubmenu->url = Input::get('url');
+            $subsubmenu->content = Input::get('content');
+            $subsubmenu->order = count($allSubSubMenus);
+            $subsubmenu->save();
         }
 
         return Redirect::route('menu.index')
@@ -194,6 +254,12 @@ class MenuController extends \BaseController
     {
         $submenu = Submenu::find($id);
         $submenu->delete();
+        return Redirect::route('menu.index')
+            ->with('message', 'Sida borttagen');
+    }
+    public function destroySubSub($id){
+        $subsubmenu = Subsubmenu::find($id);
+        $subsubmenu->delete();
         return Redirect::route('menu.index')
             ->with('message', 'Sida borttagen');
     }

@@ -145,8 +145,10 @@ Route::resource('menu', 'MenuController');
 
 Route::get('{page}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl'));
 Route::get('{page}/{page2}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl2'));
+Route::get('{page}/{page2}/{page3}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl3'));
 
 Route::post('menu/arrange', array('as' => 'menu.arrange', 'uses' => 'MenuController@arrange'));
 Route::delete('menu/{id}/delete', array('as' => 'menu.destroySub', 'uses' => 'MenuController@destroySub'));
+Route::delete('menu/{id}/delete', array('as' => 'menu.destroySubSub', 'uses' => 'MenuController@destroySubSub'));
 
 

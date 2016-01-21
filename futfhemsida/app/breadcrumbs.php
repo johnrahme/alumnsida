@@ -31,5 +31,11 @@ Breadcrumbs::register('menu.dyn2', function ($breadcrumbs, $page, $page2) {
     //$breadcrumbs->push($page[0]->name, route('menu.dyn', $page[0]->url));
 });
 
+Breadcrumbs::register('menu.dyn3', function ($breadcrumbs, $page, $page2, $page3) {
+    $breadcrumbs->parent('menu.dyn2', $page, $page2);
+    $breadcrumbs->push($page3->name, url($page3->url));
+    //$breadcrumbs->push($page[0]->name, route('menu.dyn', $page[0]->url));
+});
+
 
 
