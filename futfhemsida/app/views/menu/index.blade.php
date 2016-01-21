@@ -2,7 +2,29 @@
 
 @section('content')
 
+{{--Till test!--}}
 
+<div class="navbar navbar-inverse navbar-default">
+
+        <ul class="navbar-collapse" style="margin: 0px">
+            <ul class="nav navbar-nav sortable test1">
+            <li class="dropdown">
+                <a href = "#" class="dropdown-toggle" >test</a>
+                <ul class="sortable dropdown-menu dropdown-fade test1" id="test">
+                    <li>
+                        <a href = "#" class="test1" >testUnder</a>
+
+                        <ul class="sortable dropdown-menu dropdown-fade " id="test">
+                                         <li>
+                                          <a href = "#" class="test1" >testUnderUnder</a>
+                                         </li>
+                        </ul>
+                     </li>
+                </ul>
+            </li>
+            </ul>
+        </ul>
+</div>
     {{--Lägga i ordning!--}}
 
     <h3>Lägg meny i rätt ordning!</h3>
@@ -19,13 +41,15 @@
                                     @if(count($subMenusView)!=0)class="caret"@endif></span></a>
                         @if(count($subMenusView)!=0)
                             <ul class="sortable dropdown-menu dropdown-fade" id="menu{{$menu->id}}">
+                            {{--undermenyer--}}
                                 @foreach($subMenusView as $subMenu)
                                 <?php
                                 $subSubMenusView = Subsubmenu::where('subMenuId', '=', $subMenu->id)->orderBy('order')->get();
                                 ?>
-                                    <li id="{{$subMenu->id}}"class="dropdown-submenu"><a href='#'><span>{{$subMenu->name}}</span></a>
+                                    <li id="{{$subMenu->id}}"><a href='#'><span>{{$subMenu->name}}</span></a>
+                                    {{--Under undermenyer--}}
                                     @if(count($subSubMenusView)!=0)
-                                        <ul class="sortable dropdown-menu dropdown-fade" id="submenu{{$menu->id}}">
+                                        <ul class="sortable" id="submenu{{$menu->id}}">
                                             @foreach($subSubMenusView as $subSubMenu)
                                             <li id="{{$subSubMenu->id}}"><a href='#'><span>{{$subSubMenu->name}}</span></a>
                                             @endforeach
