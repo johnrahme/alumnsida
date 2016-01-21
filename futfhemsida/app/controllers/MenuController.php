@@ -187,7 +187,7 @@ class MenuController extends \BaseController
         else{
             $allSubSubMenus = Subsubmenu::where('subMenuId', '=', $subMenuId)->get();
             $subsubmenu = new Subsubmenu;
-            $subsubmenu->subMenuId = $menuId;
+            $subsubmenu->subMenuId = $subMenuId;
             $subsubmenu->name = Input::get('name');
             $subsubmenu->url = Input::get('url');
             $subsubmenu->content = Input::get('content');
