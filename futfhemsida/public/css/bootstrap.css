@@ -3895,6 +3895,7 @@ tbody.collapse.in {
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     line-height: 1.42857143;
+    text-transform: capitalize;
     color: #333333;
     white-space: nowrap;
 }

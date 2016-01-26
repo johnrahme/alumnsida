@@ -38,8 +38,8 @@ if (!is_null($activeMenu)) {
     </ol>--}}
     <div>
         <div class="toggleMenu contentsidemenupanel sidemenupanel">
-            <div class="" style="margin-top: 0px;margin-left: 10px">
-                <h3>{{$activeMenu->name}}</h3>
+            <div class="" style="margin-top: 5px;margin-bottom: 5px;margin-left: 10px;font-size:17px;">
+                {{$activeMenu->name}}
             </div>
             <div class="">
                 <ul class="sidemenupanel">
