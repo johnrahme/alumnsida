@@ -1,13 +1,19 @@
-#cssmenu ul,
-#cssmenu li,
-#cssmenu span,
-#cssmenu a {
+#subsubmenus ul,
+#subsubmenus li,
+#subsubmenus span,
+#subsubmenus a {
     margin: 0;
     padding: 0;
     position: relative;
+    text-transform: capitalize;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: lighter;
+    font-size: 16px;
 }
 
-#cssmenu {
+#subsubmenus {
     line-height: 1;
     border-radius: 5px 5px 0 0;
     -moz-border-radius: 5px 5px 0 0;
@@ -22,21 +28,25 @@
     width: auto;
 }
 
-#cssmenu:after,
-#cssmenu ul:after {
+#subsubmenus:after,
+#subsubmenus ul:after {
     content: '';
     display: block;
     clear: both;
 }
 
-#cssmenu a {
-    background: #141414;
-    background: -moz-linear-gradient(top, #333333 0%, #141414 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #141414));
-    background: -webkit-linear-gradient(top, #333333 0%, #141414 100%);
-    background: -o-linear-gradient(top, #333333 0%, #141414 100%);
-    background: -ms-linear-gradient(top, #333333 0%, #141414 100%);
-    background: linear-gradient(to bottom, #333333 0%, #141414 100%);
+#subsubmenus a {
+    color: #ffffff;
+    box-shadow: inset 0 0 3px #000000;
+    -moz-box-shadow: inset 0 0 3px #000000;
+    -webkit-box-shadow: inset 0 0 3px #000000;
+    background: #070707;
+    background: -moz-linear-gradient(top, #262626 0%, #070707 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #262626), color-stop(100%, #070707));
+    background: -webkit-linear-gradient(top, #262626 0%, #070707 100%);
+    background: -o-linear-gradient(top, #262626 0%, #070707 100%);
+    background: -ms-linear-gradient(top, #262626 0%, #070707 100%);
+    background: linear-gradient(to bottom, #262626 0%, #070707 100%);
     display: block;
     font-family: Helvetica, Arial, Verdana, sans-serif;
     padding: 19px 20px;
@@ -45,45 +55,45 @@
     font-style: normal;
     font-variant: small-caps;
     font-weight: lighter;
-    font-size: 16px;
+    font-size: 14px;
 }
 
-#cssmenu ul {
+#subsubmenus ul {
     list-style: none;
 }
 
-#cssmenu > ul > li {
+#subsubmenus > ul > li {
     display: inline-block;
     float: left;
     margin: 0;
 }
 
-#cssmenu.align-center {
+#subsubmenus.align-center {
     text-align: center;
 }
 
-#cssmenu.align-center > ul > li {
+#subsubmenus.align-center > ul > li {
     float: none;
 }
 
-#cssmenu.align-center ul ul {
+#subsubmenus.align-center ul ul {
     text-align: left;
 }
 
-#cssmenu.align-right > ul {
+#subsubmenus.align-right > ul {
     float: right;
 }
 
-#cssmenu.align-right ul ul {
+#subsubmenus.align-right ul ul {
     text-align: right;
 }
 
-#cssmenu > ul > li > a {
-    color: #E6B800;
+#subsubmenus > ul > li > a {
+    color: #000;
     font-size: 16px;
 }
 
-#cssmenu > ul > li:hover:after {
+#subsubmenus > ul > li:hover:after {
     content: '';
     display: block;
     width: 0;
@@ -97,27 +107,27 @@
     margin-left: -10px;
 }
 
-#cssmenu > ul > li:first-child > a {
+#subsubmenus > ul > li:first-child > a {
     border-radius: 5px 0 0 0;
     -moz-border-radius: 5px 0 0 0;
     -webkit-border-radius: 5px 0 0 0;
 }
 
-#cssmenu.align-right > ul > li:first-child > a,
-#cssmenu.align-center > ul > li:first-child > a {
+#subsubmenus.align-right > ul > li:first-child > a,
+#subsubmenus.align-center > ul > li:first-child > a {
     border-radius: 0;
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
 }
 
-#cssmenu.align-right > ul > li:last-child > a {
+#subsubmenus.align-right > ul > li:last-child > a {
     border-radius: 0 5px 0 0;
     -moz-border-radius: 0 5px 0 0;
     -webkit-border-radius: 0 5px 0 0;
 }
 
-#cssmenu > ul > li.active > a,
-#cssmenu > ul > li:hover > a {
+#subsubmenus > ul > li.active > a,
+#subsubmenus > ul > li:hover > a {
     color: #ffffff;
     box-shadow: inset 0 0 3px #000000;
     -moz-box-shadow: inset 0 0 3px #000000;
@@ -131,15 +141,15 @@
     background: linear-gradient(to bottom, #262626 0%, #070707 100%);
 }
 
-#cssmenu .has-sub {
+#subsubmenus .has-sub {
     z-index: 1;
 }
 
-#cssmenu .has-sub:hover > ul {
+#subsubmenus .has-sub:hover > ul {
     display: block;
 }
 
-#cssmenu .has-sub ul {
+#subsubmenus .has-sub ul {
     display: none;
     position: absolute;
     width: 200px;
@@ -147,63 +157,66 @@
     left: 0;
 }
 
-#cssmenu.align-right .has-sub ul {
+#subsubmenus.align-right .has-sub ul {
     left: auto;
     right: 0;
 }
 
-#cssmenu .has-sub ul li {
+#subsubmenus .has-sub ul li {
     *margin-bottom: -1px;
 }
 
-#cssmenu .has-sub ul li a {
-    background: #E6B800;
-    font-size: 11px;
-    filter: none;
+#subsubmenus .has-sub ul li a {
+    background: rgba(230, 184, 0, 0.80);
     display: block;
-    line-height: 120%;
-    padding: 10px;
-    color: #ffffff;
+    padding: 3px 20px;
+    clear: both;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
 }
 
-#cssmenu .has-sub ul li:hover a {
-    background: #CD9F00;
+#subsubmenus .has-sub ul li:hover a {
+    text-decoration: none;
+    background-color: #CD9F00;
 }
 
-#cssmenu ul ul li:hover > a {
-    color: #ffffff;
+#subsubmenus ul ul li:hover > a {
+    color: rgba(255, 255, 255, 1.0);
 }
 
-#cssmenu .has-sub .has-sub:hover > ul {
+#subsubmenus .has-sub .has-sub:hover > ul {
     display: block;
 }
 
-#cssmenu .has-sub .has-sub ul {
+#subsubmenus .has-sub .has-sub ul {
     display: none;
     position: absolute;
     left: 100%;
     top: 0;
 }
 
-#cssmenu.align-right .has-sub .has-sub ul,
-#cssmenu.align-right ul ul ul {
+#subsubmenus.align-right .has-sub .has-sub ul,
+#subsubmenus.align-right ul ul ul {
     left: auto;
     right: 100%;
 }
 
-#cssmenu .has-sub .has-sub ul li a {
+#subsubmenus .has-sub .has-sub ul li a {
     background: #CD9F00;
 }
 
-#cssmenu .has-sub .has-sub ul li a:hover {
+#subsubmenus .has-sub .has-sub ul li a:hover {
     background: #BF9100;
 }
 
-#cssmenu ul ul li.last > a,
-#cssmenu ul ul li:last-child > a,
-#cssmenu ul ul ul li.last > a,
-#cssmenu ul ul ul li:last-child > a,
-#cssmenu .has-sub ul li:last-child > a,
-#cssmenu .has-sub ul li.last > a {
+#subsubmenus ul ul li.last > a,
+#subsubmenus ul ul li:last-child > a,
+#subsubmenus ul ul ul li.last > a,
+#subsubmenus ul ul ul li:last-child > a,
+#subsubmenus .has-sub ul li:last-child > a,
+#subsubmenus .has-sub ul li.last > a {
     border-bottom: 0;
 }

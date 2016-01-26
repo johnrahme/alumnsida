@@ -36,15 +36,16 @@ if (!is_null($activeMenu)) {
         <li class ="active">{{$activeSubMenu->name}}</li>
       @endif
     </ol>--}}
-
-    <div class="navbar navbar-default">
-        <div class="page-header" style="margin-top: 0px;margin-left: 10px">
-            <h3>{{$activeMenu->name}}</h3>
-        </div>
-        <div class="">
-            <ul class="nav">
-                @include('layouts.menulinks.menu_sidebar')
-            </ul>
+    <div>
+        <div class="toggleMenu contentsidemenupanel sidemenupanel">
+            <div class="" style="margin-top: 0px;margin-left: 10px">
+                <h3>{{$activeMenu->name}}</h3>
+            </div>
+            <div class="">
+                <ul class="sidemenupanel">
+                    @include('layouts.menulinks.menu_sidebar')
+                </ul>
+            </div>
         </div>
     </div>
 @endif

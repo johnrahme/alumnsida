@@ -41,6 +41,7 @@ if (!is_null($subSubPageDB)) {
     {{ HTML::style('css/customBootTest.css') }}
     {{ HTML::style('css/navigationbar.css') }}
     {{ HTML::style('css/subsubmenus.css') }}
+    {{ HTML::style('css/sidemenupanel.css') }}
     {{ HTML::style('jasny-bootstrap/css/jasny-bootstrap.css') }}
 
     {{--LinkedIn--}}
@@ -164,6 +165,7 @@ if (!is_null($subSubPageDB)) {
 {{ HTML::script('js/showHideButton.js')}}
 {{ HTML::script('js/bootstrap-toolkit.min.js')}}
 {{ HTML::script('js/scrollToTop.js')}}
+{{ HTML::script('js/sidemenupanel.js')}}
 {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
 {{ HTML::script('jasny-bootstrap/js/jasny-bootstrap.js')}}

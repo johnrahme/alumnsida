@@ -2,55 +2,34 @@
 
 @section('content')
 
-    {{--Till test!--}}
-
-    <div id="cssmenu">
-        <ul>
-            <li class='sortable active has-sub'><a href='#'><span>Test</span></a>
-                <ul>
-                    <li class='sortable has-sub'><a href='#'><span>Test 1</span></a>
-                        <ul>
-                            <li><a href='#'><span>Sub Test 1</span></a></li>
-                            <li class='sortable last'><a href='#'><span>Sub Test 2</span></a></li>
-                        </ul>
-                    </li>
-                    <li class='sortable has-sub'><a href='#'><span>Test 2</span></a>
-                        <ul>
-                            <li><a href='#'><span>Sub Test 1</span></a></li>
-                            <li class='sortable last'><a href='#'><span>Sub Test 2</span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
     {{--Lägga i ordning!--}}
 
     <h3>Lägg meny i rätt ordning!</h3>
-    <div class="navbar navbar-inverse navbar-default">
+    <div id="subsubmenus">
 
-        <ul class="navbar-collapse" style="margin: 0px">
-            <ul class="nav navbar-nav sortable">
+        <ul>
+            <ul class="sortable">
                 @foreach ($menus as $menu)
                     <?php
                     $subMenusView = Submenu::where('menuId', '=', $menu->id)->orderBy('order')->get();
                     ?>
-                    <li class="dropdown" id="{{$menu->id}}">
+                    <li class="active has-sub" id="{{$menu->id}}">
                         <a href='#' class="dropdown-toggle">{{$menu->name}}<span
                                     @if(count($subMenusView)!=0)class="caret"@endif></span></a>
                         @if(count($subMenusView)!=0)
-                            <ul class="sortable dropdown-menu dropdown-fade" id="menu{{$menu->id}}">
+                            <ul class="sortable" id="menu{{$menu->id}}">
                                 {{--undermenyer--}}
                                 @foreach($subMenusView as $subMenu)
                                     <?php
                                     $subSubMenusView = Subsubmenu::where('subMenuId', '=', $subMenu->id)->orderBy('order')->get();
                                     ?>
-                                    <li id="{{$subMenu->id}}"><a href='#'><span>{{$subMenu->name}}</span></a>
+                                    <li class='has-sub' id="{{$subMenu->id}}"><a
+                                                href='#'><span>{{$subMenu->name}}</span></a>
                                         {{--Under undermenyer--}}
                                         @if(count($subSubMenusView)!=0)
                                             <ul class="sortable" id="submenu{{$menu->id}}">
                                                 @foreach($subSubMenusView as $subSubMenu)
-                                                    <li id="{{$subSubMenu->id}}"><a
+                                                    <li class='last' id="{{$subSubMenu->id}}"><a
                                                                 href='#'><span>{{$subSubMenu->name}}</span></a>
                                                 @endforeach
                                             </ul>
