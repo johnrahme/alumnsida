@@ -23,59 +23,7 @@ class MenuController extends \BaseController
 
     public function dynUrl($page)
     {
-        $pageDB = Menu::where('url', '=', $page)->first();
-        $subPageDB = Submenu::where('url', '=', $page)->first();
-        $returnPage = "";
-        $menuActive = "";
-        $subActive = "";
-        if (is_null($pageDB) && is_null($subPageDB)) {
-            App::abort(404);
-        }
-        if (!is_null($pageDB)) {
-            $returnPage = $pageDB;
-            $menuActive = $pageDB;
-        }
-        if (!is_null($subPageDB)) {
-            $returnPage = $subPageDB;
-            $subActive = $subPageDB->url;
-            $menuActive = Menu::find($subPageDB->menuId);
-        }
-        return View::make('menu.dyn')
-            ->with('title', $returnPage->name)
-            ->with('page', $returnPage)
-            ->with('active', $menuActive->url)
-            ->with('subactive', $subActive);
-    }
-
-    public function dynUrl2($page, $page2)
-    {
-        $pageString = $page . '/' . $page2;
-        $pageDB = Menu::where('url', '=', $pageString)->first();
-        $subPageDB = Submenu::where('url', '=', $pageString)->first();
-        $menuActive = "";
-        $subActive = "";
-        if (is_null($pageDB) && is_null($subPageDB)) {
-            App::abort(404);
-        }
-        if (!is_null($pageDB)) {
-            $returnPage = $pageDB;
-            $menuActive = $returnPage;
-        }
-        if (!is_null($subPageDB)) {
-            $returnPage = $subPageDB;
-            $subActive = $subPageDB->url;
-            $menuActive = Menu::find($returnPage->menuId);
-        }
-        return View::make('menu.dyn')
-            ->with('title', $returnPage->name)
-            ->with('page', $returnPage)
-            ->with('active', $menuActive->url)
-            ->with('subactive', $subActive);
-    }
-
-    public function dynUrl3($page, $page2, $page3)
-    {
-        $pageString = $page . '/' . $page2 . '/' . $page3;
+        $pageString = $page;
         $pageDB = Menu::where('url', '=', $pageString)->first();
         $subPageDB = Submenu::where('url', '=', $pageString)->first();
         $subSubPageDB = Subsubmenu::where('url', '=', $pageString)->first();
@@ -83,7 +31,9 @@ class MenuController extends \BaseController
         $subActive = "";
         $subSubActive = "";
         if (is_null($pageDB) && is_null($subPageDB) && is_null($subSubPageDB)) {
+
             App::abort(404);
+
         }
         if (!is_null($pageDB)) {
             $returnPage = $pageDB;
@@ -98,14 +48,93 @@ class MenuController extends \BaseController
             $returnPage = $subSubPageDB;
             $subSubActive = $subSubPageDB->url;
             $test = $returnPage->subMenuId;
-            $subMenuActive = Submenu::find($returnPage->subMenuId);
-            $menuActive = Menu::find($subMenuActive->menuId);
+            $subActiveObj = Submenu::find($returnPage->subMenuId);
+            $subActive = $subActiveObj->url;
+            $menuActive = Menu::find($subActiveObj->menuId);
         }
         return View::make('menu.dyn')
             ->with('title', $returnPage->name)
             ->with('page', $returnPage)
             ->with('active', $menuActive->url)
-            ->with('subactive', $subMenuActive->url)
+            ->with('subactive', $subActive)
+            ->with('subsubactive', $subSubActive);
+    }
+
+    public function dynUrl2($page, $page2)
+    {
+        $pageString = $page . '/' . $page2;
+        $pageDB = Menu::where('url', '=', $pageString)->first();
+        $subPageDB = Submenu::where('url', '=', $pageString)->first();
+        $subSubPageDB = Subsubmenu::where('url', '=', $pageString)->first();
+        $menuActive = "";
+        $subActive = "";
+        $subSubActive = "";
+        if (is_null($pageDB) && is_null($subPageDB) && is_null($subSubPageDB)) {
+
+            App::abort(404);
+
+        }
+        if (!is_null($pageDB)) {
+            $returnPage = $pageDB;
+            $menuActive = $returnPage;
+        }
+        if (!is_null($subPageDB)) {
+            $returnPage = $subPageDB;
+            $subActive = $subPageDB->url;
+            $menuActive = Menu::find($returnPage->menuId);
+        }
+        if (!is_null($subSubPageDB)) {
+            $returnPage = $subSubPageDB;
+            $subSubActive = $subSubPageDB->url;
+            $test = $returnPage->subMenuId;
+            $subActiveObj = Submenu::find($returnPage->subMenuId);
+            $subActive = $subActiveObj->url;
+            $menuActive = Menu::find($subActiveObj->menuId);
+        }
+        return View::make('menu.dyn')
+            ->with('title', $returnPage->name)
+            ->with('page', $returnPage)
+            ->with('active', $menuActive->url)
+            ->with('subactive', $subActive)
+            ->with('subsubactive', $subSubActive);
+    }
+
+    public function dynUrl3($page, $page2, $page3)
+    {
+        $pageString = $page . '/' . $page2 . '/' . $page3;
+        $pageDB = Menu::where('url', '=', $pageString)->first();
+        $subPageDB = Submenu::where('url', '=', $pageString)->first();
+        $subSubPageDB = Subsubmenu::where('url', '=', $pageString)->first();
+        $menuActive = "";
+        $subActive = "";
+        $subSubActive = "";
+        if (is_null($pageDB) && is_null($subPageDB) && is_null($subSubPageDB)) {
+
+            App::abort(404);
+
+        }
+        if (!is_null($pageDB)) {
+            $returnPage = $pageDB;
+            $menuActive = $returnPage;
+        }
+        if (!is_null($subPageDB)) {
+            $returnPage = $subPageDB;
+            $subActive = $subPageDB->url;
+            $menuActive = Menu::find($returnPage->menuId);
+        }
+        if (!is_null($subSubPageDB)) {
+            $returnPage = $subSubPageDB;
+            $subSubActive = $subSubPageDB->url;
+            $test = $returnPage->subMenuId;
+            $subActiveObj = Submenu::find($returnPage->subMenuId);
+            $subActive = $subActiveObj->url;
+            $menuActive = Menu::find($subActiveObj->menuId);
+        }
+        return View::make('menu.dyn')
+            ->with('title', $returnPage->name)
+            ->with('page', $returnPage)
+            ->with('active', $menuActive->url)
+            ->with('subactive', $subActive)
             ->with('subsubactive', $subSubActive);
     }
 

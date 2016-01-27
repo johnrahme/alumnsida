@@ -149,6 +149,6 @@ Route::get('{page}/{page2}/{page3}', array('as' => 'menu.dyn', 'uses' => 'MenuCo
 
 Route::post('menu/arrange', array('as' => 'menu.arrange', 'uses' => 'MenuController@arrange'));
 Route::delete('menu/{id}/delete', array('as' => 'menu.destroySub', 'uses' => 'MenuController@destroySub'));
-Route::delete('menu/{id}/delete', array('as' => 'menu.destroySubSub', 'uses' => 'MenuController@destroySubSub'));
+Route::delete('menu/{id}/delete2', array('as' => 'menu.destroySubSub', 'uses' => 'MenuController@destroySubSub'));
 
 
