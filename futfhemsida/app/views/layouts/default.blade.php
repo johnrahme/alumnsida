@@ -42,7 +42,6 @@ if (!is_null($subSubPageDB)) {
     {{ HTML::style('css/navigationbar.css') }}
     {{ HTML::style('css/subsubmenus.css') }}
     {{ HTML::style('css/sidemenupanel.css') }}
-    {{ HTML::style('css/scrollbar.css') }}
     {{ HTML::style('jasny-bootstrap/css/jasny-bootstrap.css') }}
 
     {{--LinkedIn--}}
