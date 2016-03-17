@@ -8,7 +8,7 @@ a {text-decoration: none; }
 }
 .toggleMenu {
     display: block;
-    padding: 20px 20px;
+    padding: 10px 20px;
     clear: both;
     font-family: "Arial Black", Gadget, sans-serif;
     font-weight: bold;
@@ -36,6 +36,7 @@ a {text-decoration: none; }
     background: -o-linear-gradient(top, #262626 0%, #070707 100%);
     background: -ms-linear-gradient(top, #262626 0%, #070707 100%);
     background: linear-gradient(to bottom, #262626 0%, #070707 100%);
+    border-radius: 10%;
 }
 .sidemenupanel:before,
 .sidemenupanel:after {
@@ -47,6 +48,7 @@ a {text-decoration: none; }
 }
 .sidemenupanel ul {
     background: #E6B800;
+    border-radius: 7.5%;
     list-style: none;
     width: 9em;
 }
@@ -76,7 +78,8 @@ a {text-decoration: none; }
 }
 .sidemenupanel > li {
     float: left;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 25%;
 }
 .sidemenupanel > li > a {
     display: block;
@@ -101,11 +104,12 @@ a {text-decoration: none; }
 }
 .sidemenupanel li li a {
     display: block;
-    background: rgb(210, 164, 0);
+    background: rgba(210, 164, 0, 0.75);
     left: 10%;
     position: relative;
     z-index:100;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 15% 15% 15% 15%;
 }
 
 @media screen and (min-width: 0px) {

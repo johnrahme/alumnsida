@@ -6,7 +6,7 @@ $subSubPageDB = Subsubmenu::where('url', '=', Request::path())->first();
 $page = "";
 $menuActive = "";
 $subactive = "";
-$subsubactive ="";
+$subsubactive = "";
 if (!is_null($pageDB)) {
     $page = $pageDB;
     $menuActive = $pageDB;
@@ -42,6 +42,7 @@ if (!is_null($subSubPageDB)) {
     {{ HTML::style('css/navigationbar.css') }}
     {{ HTML::style('css/subsubmenus.css') }}
     {{ HTML::style('css/sidemenupanel.css') }}
+    {{ HTML::style('css/scrollbar.css') }}
     {{ HTML::style('jasny-bootstrap/css/jasny-bootstrap.css') }}
 
     {{--LinkedIn--}}

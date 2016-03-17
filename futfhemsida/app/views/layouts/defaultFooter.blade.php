@@ -1,4 +1,4 @@
-<footer class="footer">
+<div class="navbar navbar-inverse navbar-default navbar-fixed-bottom footer">
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
@@ -36,4 +36,4 @@
             </div>
         </div>
     </div>
-</footer>
+</div>

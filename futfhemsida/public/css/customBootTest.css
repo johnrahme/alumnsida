@@ -16,7 +16,7 @@ html, body {
 }
 
 #main {
-    overflow: auto;
+    overflow: visible;
     padding-bottom: 150px; /* this needs to be bigger than footer height*/
 }
 
