@@ -49,8 +49,8 @@ if (!is_null($subSubPageDB)) {
     @yield('styles')
 
 </head>
-
-<body style="background-image: url('{{URL::asset('img/yellow2.jpg');}}');background-repeat: no-repeat;background-attachment: fixed;">
+@include('layouts.defaultBackground')
+<body>
 <!-- Navbar -->
 <div id="wrap">
     <div>
@@ -99,7 +99,7 @@ if (!is_null($subSubPageDB)) {
     <a href="#" class="scrollToTop"></a>
     <!-- Container -->
     <div id="main" class="container clear-top"
-         style="box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px">
+         style="box-shadow: 0px 0px 5px 2px #888888; background-color: #fff; padding: 18px;">
 
         <div class="row">
             <div class="@if(Auth::check()) col-md-9 @else col-md-12 @endif">
