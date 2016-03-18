@@ -14,8 +14,6 @@
         margin: 0;
     }
 
-
-
     a {
         transition: color 0.4s ease-out;
         text-decoration: none;
@@ -25,8 +23,6 @@
     a:hover {
         color: #E6B800;
     }
-
-
 
     .overlay {
         pointer-events: none;
@@ -3537,12 +3533,12 @@
             count: 1,
             xPos: 0,
             yPos: 100,
-            zOffset: 250,
+            zOffset: 225,
             ambient: '#880066',
             diffuse: '#E6B800',
             pickedup: true,
             proxy: false,
-            currIndex:-1
+            currIndex: -1
         };
 
         //------------------------------
@@ -3890,12 +3886,15 @@
 
         function onMouseMove(event) {
             if (LIGHT.pickedup) {
-                LIGHT.xPos = event.x - renderer.width / 2;
-                LIGHT.yPos = renderer.height / 2 - event.y;
-                LIGHT.proxy.setPosition(LIGHT.xPos, LIGHT.yPos, LIGHT.proxy.position[2]);
+                $(document).mousemove(function (event) {
+                    LIGHT.xPos = event.pageX - renderer.width / 2;
+                    LIGHT.yPos = renderer.height / 2 - event.pageY;
+                    LIGHT.proxy.setPosition(LIGHT.xPos, LIGHT.yPos, LIGHT.proxy.position[2]);
+                });
             }
         }
 
+        window.onload = onMouseMove;
         // Let there be light!
         initialise();
 

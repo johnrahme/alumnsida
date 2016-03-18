@@ -38,8 +38,9 @@ if (!is_null($subSubPageDB)) {
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/bootstrap-theme.css') }}
     {{ HTML::style('css/jquery.datetimepicker.css') }}
-    {{ HTML::style('css/customBootTest.css') }}
+    {{ HTML::style('css/custom.css') }}
     {{ HTML::style('css/navigationbar.css') }}
+    {{ HTML::style('css/scrollbar.css') }}
     {{ HTML::style('css/subsubmenus.css') }}
     {{ HTML::style('css/sidemenupanel.css') }}
     {{ HTML::style('jasny-bootstrap/css/jasny-bootstrap.css') }}
@@ -48,11 +49,11 @@ if (!is_null($subSubPageDB)) {
     @include('sessions.linkedIn.linkedIn')
     @yield('styles')
 
+    @include('layouts.defaultBackground')
 </head>
-@include('layouts.defaultBackground')
 <body>
 <!-- Navbar -->
-<div id="wrap">
+<div id="wrapping">
     <div>
         <div style="display:none" id="hideAndShow" role="main ">
             <div class="navbar navbar-inverse navbar-default navbar-static-top">

@@ -1,4 +1,4 @@
-<footer class="footer">
+<div class="footer">
     <div class="container">
         <div id="largeElement" class="row">
             <div class="col-sm-4">
@@ -12,11 +12,7 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                <div style="text-align: center; width:100%; margin-top: -12px ">
-                    <h6><br> Skapad från <span class="glyphicon glyphicon-heart"></span>
-                        av {{ link_to('/','the J-Quad Squad', array('class' => 'colourLink'))}}.</h6>
-
-                    <p><h6>Copyright &copy; {{date("Y")}} FUTF.</h6></p>
+                <div style="text-align: center; width:100%; margin-top: 0px ">
                     <SCRIPT LANGUAGE="JavaScript"
                             TYPE="text/javascript">
                         var date = new Date();
@@ -33,7 +29,7 @@
                             s = checkTime(s);
                             document.getElementById('time').innerHTML =
                                     h + ":" + m + ":" + s;
-                            var t = setTimeout(startTime, 500);
+                            var t = setTimeout(startTime, 999);
                         }
                         function checkTime(i) {
                             if (i < 10) {
@@ -43,10 +39,12 @@
                             return i;
                         }
                     </SCRIPT>
-
                     <body onload="startTime()">
-                    <div style="padding: 2px" id="time"></div>
+                    <div id="time"></div>
                     </body>
+                    <h6 style="margin-top: -8px"><br> Skapad från <span class="glyphicon glyphicon-heart"></span>
+                        av {{ link_to('/','the J-Quad Squad', array('class' => 'colourLink'))}}.</h6>
+                    <p><h6>Copyright &copy; {{date("Y")}} FUTF.</h6></p>
                 </div>
             </div>
             <div class="col-sm-4">
@@ -87,7 +85,7 @@
                 </div>
             </div>
             <div class="col-sm-4">
-                <div style="text-align: center; width:100%; margin-top: -12px ">
+                <div style="text-align: center; width:100%">
                     <h6><br> Skapad från <span class="glyphicon glyphicon-heart"></span>
                         av {{ link_to('/','the J-Quad Squad', array('class' => 'colourLink'))}}.</h6>
 
@@ -126,26 +124,4 @@
         </div>
     </div>
     </div>
-    <style>
-        @media (max-width: 768px) {
-            #largeElement {
-                display: none;
-            }
-
-            #smallElement {
-                display: block;
-            }
-        }
-
-        @media (min-width: 768px) {
-            #largeElement {
-                display: block;
-            }
-
-            #smallElement {
-                display: none;
-            }
-        }
-        }
-    </style>
-</footer>
+</div>

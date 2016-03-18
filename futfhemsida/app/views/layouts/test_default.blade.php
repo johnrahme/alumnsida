@@ -9,7 +9,7 @@
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/bootstrap-theme.css') }}
     {{ HTML::style('css/jquery.datetimepicker.css') }}
-    {{ HTML::style('css/customBootTest.css') }}
+    {{ HTML::style('custom.css') }}
 </head>
 
 <body style="background-image: url('{{URL::asset('img/yellow2.jpg');}}');background-repeat: no-repeat;background-attachment: fixed;">
