@@ -16,7 +16,7 @@ html, body {
 }
 
 #main {
-    padding-bottom: 15px; /* this needs to be bigger than footer height*/
+    padding-bottom: 150px; /* this needs to be bigger than footer height*/
 }
 
 @media (max-width: 768px) {
@@ -36,7 +36,7 @@ html, body {
         right: 0;
         bottom: 0;
         left: 0;
-        padding: -10rem;
+        padding: 1rem;
         margin-bottom: 0px;
         background: #333;
         color: #eee;
