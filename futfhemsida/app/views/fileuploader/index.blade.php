@@ -1,28 +1,12 @@
 @extends('layouts.default')
 
 @section('content')
-    <style>
-    .wrapper {
-        width: 700px;
-        margin: auto;
-    }
-</style>
-</head>
-<body>
-    <div class="wrapper">
-        <div id="dropzone">
             {{ Form::open(array('url' => 'upload', 'class'=>'dropzone', 'id'=>'my-dropzone')) }}
-                    <!-- Single file upload
-        <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
-        -->
-            <!-- Multiple file upload-->
-            <div class="fallback">
-                <input name="file" type="file" multiple />
+            <div class="dz-message">
+                <h4>Dra filer hit för att ladda upp.</h4>
+                <span>Eller tryck för att välja fil.</span>
             </div>
-
             {{ Form::close() }}
-        </div>
-    </div>
 @stop
 
 @section('scripts')
