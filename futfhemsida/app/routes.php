@@ -137,8 +137,23 @@ Route::put('news/update', array('uses' => 'NewsController@update'));
 
 Route::delete('news/delete', array('uses' => 'NewsController@destroy'));
 
-//Dynamic menu, lägg sist!
 
+//fileuploader
+
+Route::get('files', array('as' => 'fileuploader', 'uses' => 'FileController@index'));
+/*Hjälp med att placera i FileController
+ * Att fixa: om flera filer heter samma sak, öka filnamnet som filnamn1, filnamn2 osv..
+ * */
+Route::post('/upload', function () {
+    $file = Input::file('file');
+    if($file) {
+        $destinationPath = public_path() . '/uploads/';
+        $filename = $file->getClientOriginalName();
+        return Input::file('file')->move($destinationPath, $filename);
+    }
+});
+
+//Dynamic menu, lägg sist!
 
 Route::resource('menu', 'MenuController');
 

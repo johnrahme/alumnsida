@@ -43,6 +43,8 @@ if (!is_null($subSubPageDB)) {
     {{ HTML::style('css/scrollbar.css') }}
     {{ HTML::style('css/subsubmenus.css') }}
     {{ HTML::style('css/sidemenupanel.css') }}
+    {{ HTML::style('css/dropzone.css') }}
+    {{ HTML::style('css/dropzone1.css') }}
     {{ HTML::style('jasny-bootstrap/css/jasny-bootstrap.css') }}
 
     {{--LinkedIn--}}
@@ -168,6 +170,7 @@ if (!is_null($subSubPageDB)) {
 {{ HTML::script('js/sidemenupanel.js')}}
 {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
+{{ HTML::script('js/dropzone.js')}} <!-- drag'n drop upload -->
 {{ HTML::script('jasny-bootstrap/js/jasny-bootstrap.js')}}
 
 <script>
