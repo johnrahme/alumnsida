@@ -10,16 +10,16 @@
 
     <div class="container">
         <p>
-            <a href="<?php echo url('files/notes', $parameters = array(), $secure = null); ?>" class="btn btn-info btn-lg">
+            <a href="<?php echo url('files/notes', $parameters = array(), $secure = null); ?>" class="btn btn-warning btn-lg">
                 <span class="glyphicon glyphicon-folder-open"></span> Anteckningar
             </a>
-            <a href="<?php echo url('files/document', $parameters = array(), $secure = null); ?>" class="btn btn-info btn-lg">
+            <a href="<?php echo url('files/document', $parameters = array(), $secure = null); ?>" class="btn btn-warning btn-lg">
                 <span class="glyphicon glyphicon-folder-open"></span> Dokument
             </a>
-            <a href="<?php echo url('files/img', $parameters = array(), $secure = null); ?>" class="btn btn-info btn-lg">
+            <a href="<?php echo url('files/img', $parameters = array(), $secure = null); ?>" class="btn btn-warning btn-lg">
                 <span class="glyphicon glyphicon-folder-open"></span> Bilder
             </a>
-            <a href="<?php echo url('files/other', $parameters = array(), $secure = null); ?>" class="btn btn-info btn-lg">
+            <a href="<?php echo url('files/other', $parameters = array(), $secure = null); ?>" class="btn btn-warning btn-lg">
                 <span class="glyphicon glyphicon-folder-open"></span> Övrigt
             </a>
         </php>
