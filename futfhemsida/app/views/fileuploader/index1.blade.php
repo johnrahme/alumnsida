@@ -2,32 +2,12 @@
 
 @section('content')
 
-        <!DOCTYPE html>
-<html lang="sv">
-<body>
-<div class="container">
-    <h2>Välj mapp</h2>
-
-    <div class="container">
-        <p>
-            <a href="<?php echo url('files/notes', $parameters = array(), $secure = null); ?>" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-folder-open"></span> Anteckningar
-            </a>
-            <a href="<?php echo url('files/document', $parameters = array(), $secure = null); ?>" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-folder-open"></span> Dokument
-            </a>
-            <a href="<?php echo url('files/img', $parameters = array(), $secure = null); ?>" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-folder-open"></span> Bilder
-            </a>
-            <a href="<?php echo url('files/other', $parameters = array(), $secure = null); ?>" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-folder-open"></span> Övrigt
-            </a>
-        </php>
-    </div>
+{{ Form::open(array('url' => 'upload1', 'class'=>'dropzone', 'id'=>'my-dropzone')) }}
+<div class="dz-message">
+    <h4>Dra filer hit för att ladda upp.</h4>
+    <span>Eller tryck för att välja fil.</span>
 </div>
-
-</body>
-</html>
+{{ Form::close() }}
 
 @stop
 

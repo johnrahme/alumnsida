@@ -141,13 +141,41 @@ Route::delete('news/delete', array('uses' => 'NewsController@destroy'));
 //fileuploader
 
 Route::get('files', array('as' => 'fileuploader', 'uses' => 'FileController@index'));
+Route::get('files/notes', array('as' => 'fileuploader1', 'uses' => 'FileController@index1'));
+Route::get('files/document', array('as' => 'fileuploader2', 'uses' => 'FileController@index2'));
+Route::get('files/img', array('as' => 'fileuploader3', 'uses' => 'FileController@index3'));
+Route::get('files/other', array('as' => 'fileuploader4', 'uses' => 'FileController@index4'));
 /*Hjälp med att placera i FileController
  * Att fixa: om flera filer heter samma sak, öka filnamnet som filnamn1, filnamn2 osv..
  * */
-Route::post('/upload', function () {
+Route::post('/upload1', function () {
     $file = Input::file('file');
     if($file) {
-        $destinationPath = public_path() . '/uploads/';
+        $destinationPath = public_path() . '/uploads/notes';
+        $filename = $file->getClientOriginalName();
+        return Input::file('file')->move($destinationPath, $filename);
+    }
+});
+Route::post('/upload2', function () {
+    $file = Input::file('file');
+    if($file) {
+        $destinationPath = public_path() . '/uploads/document';
+        $filename = $file->getClientOriginalName();
+        return Input::file('file')->move($destinationPath, $filename);
+    }
+});
+Route::post('/upload3', function () {
+    $file = Input::file('file');
+    if($file) {
+        $destinationPath = public_path() . '/uploads/img';
+        $filename = $file->getClientOriginalName();
+        return Input::file('file')->move($destinationPath, $filename);
+    }
+});
+Route::post('/upload4', function () {
+    $file = Input::file('file');
+    if($file) {
+        $destinationPath = public_path() . '/uploads/other';
         $filename = $file->getClientOriginalName();
         return Input::file('file')->move($destinationPath, $filename);
     }

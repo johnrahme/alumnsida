@@ -3533,7 +3533,7 @@
             count: 1,
             xPos: 0,
             yPos: 100,
-            zOffset: 225,
+            zOffset: 650,
             ambient: '#880066',
             diffuse: '#E6B800',
             pickedup: true,
