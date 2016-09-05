@@ -3,7 +3,9 @@
     <li id="events"> {{link_to_route('events','Event')}}</li>
     <li id="admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
     <li id="menu"> {{link_to_route('menu.index','Menyer')}}</li>
+    <li id="tower_defense"> {{link_to_route('tower_defense','Tower Defense')}}</li>
     <li id="fileuploader"> {{link_to_route('fileuploader','Filer')}}</li>
+
     {{--Detta bör troligtvis göras snyggare--}}
     <?php
     $menus = Menu::orderBy('order')->get();
@@ -29,8 +31,8 @@
 
     @endforeach
     <li><a href="#contact" data-toggle="modal">Kontakt</a></li>
-    @else
-            <!-- only if window width is =< 766 px
+@else
+    <!-- only if window width is =< 766 px
 
     <script language="javascript">
         width = screen.width;

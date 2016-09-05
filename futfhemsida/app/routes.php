@@ -138,6 +138,10 @@ Route::put('news/update', array('uses' => 'NewsController@update'));
 Route::delete('news/delete', array('uses' => 'NewsController@destroy'));
 
 
+//tower_defense
+
+Route::get('tower_defense', array('as' => 'tower_defense', 'uses' => 'TowerDefenseController@index'));
+
 //fileuploader
 
 Route::get('files', array('as' => 'fileuploader', 'uses' => 'FileController@index'));
