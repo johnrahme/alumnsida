@@ -19,6 +19,8 @@ html, body {
     padding-bottom: 150px; /* this needs to be bigger than footer height*/
 }
 
+
+
 @media (max-width: 768px) {
     .footer{
         background: #333;
@@ -32,6 +34,7 @@ html, body {
     .footer {
         position: relative;
         width: 100%;
+        /*margin-top: -108.355px; */ /* negative value of footer height */
         z-index: 1;
         right: 0;
         bottom: 0;
