@@ -8,16 +8,22 @@ html, body {
     overflow: visible;
 }
 
-#wrapping {
-    box-sizing: border-box;
-    min-height: 100%;
-    padding: 0 0 100px;
-    position: relative
+@media (max-width: 768px) {
+    #wrapping {
+        box-sizing: border-box;
+        min-height: 100%;
+        padding: 0 0 250px;
+        position: relative;
+    }
+}
 
-    /*min-height: 100%;
-    height: auto !important;
-    margin: 0 auto -4em;
-    padding-bottom: 60px;*/
+@media (min-width: 768px) {
+    #wrapping {
+        box-sizing: border-box;
+        min-height: 100%;
+        padding: 0 0 100px;
+        position: relative;
+    }
 }
 
 #main {
@@ -31,10 +37,10 @@ html, body {
 @media (max-width: 768px) {
     .footer{
         bottom: 0;
-        /*height: 250px;*/
         left: 0;
         position: absolute;
         width: 100%;
+
 
         background: #333;
         color: #eee;
