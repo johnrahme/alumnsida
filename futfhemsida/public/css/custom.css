@@ -106,19 +106,19 @@ ul.unstyled {
 }
 
 ::-webkit-scrollbar {
-    height: 5px !important;
+    height: .4% !important;
     overflow: visible !important;
-    width: 5px !important;
+    width: .4% !important;
 }
 
 ::-webkit-scrollbar-thumb {
     background: -webkit-linear-gradient(left, rgb(123, 123, 123) 0%, rgb(153, 153, 153) 100%) !important;
     background-clip: padding-box !important;
-    border: 1.5px solid transparent !important;
+    border: 0.025em solid transparent !important;
     border-image: initial !important;
     min-height: 28px !important;
     padding: 100px 0px 0px !important;
-    border-radius: 50px;
+    border-radius: 18%;
 }
 
 ::-webkit-scrollbar-thumb:hover {
