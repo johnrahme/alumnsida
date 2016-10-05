@@ -80,7 +80,7 @@
                             <span class="_description">{{$currEvent->description}}</span>
                             <span class="_location">{{$currEvent->place}}</span>
                             <span class="_organizer">FUTF</span>
-                            <span class="_organizer_email">alumnsida@futf.se</span>
+                            <span class="_organizer_email">it@futf.se</span>
                             <span class="_all_day_event">false</span>
                             <span class="_date_format">DD/MM/YYYY</span>
                         </a>
@@ -94,7 +94,7 @@
                             <span class="_description">{{$currEvent->description}}</span>
                             <span class="_location">{{$currEvent->place}}</span>
                             <span class="_organizer">FUTF</span>
-                            <span class="_organizer_email">alumnsida@futf.se</span>
+                            <span class="_organizer_email">it@futf.se</span>
                             <span class="_all_day_event">false</span>
                             <span class="_date_format">DD/MM/YYYY</span>
                         </a>

@@ -63,6 +63,7 @@ if (!is_null($subSubPageDB)) {
                     <ul role="navigation">
                         <li id="futf"> {{link_to('/','Futf')}}</li>
                         <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
+                        <li id="nyhetsbrev"> {{link_to('http://nyhetsbrev.futf.se/','Nyhetsbrev')}}</li>
                     </ul>
                 </div>
             </div>
