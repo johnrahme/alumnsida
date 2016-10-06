@@ -68,8 +68,8 @@ if (!is_null($subSubPageDB)) {
                 </div>
             </div>
         </div>
-        <div class="column-left">
-            <button id="hideandshow" class="navigationbarbutton" type="hideAndShowClick"></button>
+        <div class="box">
+            <span style="float:left;"><a href="#" id="toggle1"><img src="http://i67.tinypic.com/15ias5i.jpg" height="33" width="29" id="bg" style="margin-top:0px; margin-left: 10px"/></a></span>
         </div>
     </div>
     <div class="column-center">
@@ -87,7 +87,7 @@ if (!is_null($subSubPageDB)) {
                 </div>
                 <div class="navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
                     <ul class="nav navbar-nav">
-                        <!--<div id="screenSize" class="sizeShowHidenav navbar-nav">
+                    <!--<div id="screenSize" class="sizeShowHidenav navbar-nav">
                             <li id="futf"> {{link_to('/','Futf')}}</li>
                             <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
                             <hr>
@@ -102,6 +102,7 @@ if (!is_null($subSubPageDB)) {
     </div>
     <a href="#" class="scrollToTop"></a>
     <!-- Container -->
+
     <div id="main" class="container clear-top conatinerScreen">
 
         <div class="row">
@@ -158,7 +159,7 @@ if (!is_null($subSubPageDB)) {
     </div>
     @include('layouts.defaultFooter')
 </div>
-        <!-- Scripts are placed here -->
+<!-- Scripts are placed here -->
 {{ HTML::script('js/jquery-1.11.1.min.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
 {{ HTML::script('js/jquery.datetimepicker.js')}}
@@ -178,9 +179,9 @@ if (!is_null($subSubPageDB)) {
 
     @if(isset($active))
     $(document).ready(function () {
-                var active = '#{{$active}}';
-                $(active).addClass("active");
-            });
+        var active = '#{{$active}}';
+        $(active).addClass("active");
+    });
     @endif
 </script>
 <script>
