@@ -532,6 +532,7 @@
 /*END Custom Dropdown*/
 
 /*Scroll to top*/
+
 @media (min-width: 766px) {
     .scrollToTop {
         display: none;
@@ -539,7 +540,7 @@
         height: 33px;
         cursor: pointer;
         position: fixed;
-        bottom: 1%;
+        bottom: calc(100px + 1%);
         right: 1%;
         padding: 0;
         border: none;
