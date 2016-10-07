@@ -69,7 +69,7 @@ if (!is_null($subSubPageDB)) {
             </div>
         </div>
         <div class="box">
-            <span style="float:left;"><a href="#" id="toggle1"><img src="http://i67.tinypic.com/15ias5i.jpg" height="33" width="29" id="bg" style="margin-top:0px; margin-left: 10px"/></a></span>
+            <span class="navigationbarbutton" style="float:left;"><a href="#" id="toggle1"><img src="http://i67.tinypic.com/15ias5i.jpg" height="33" width="29" id="bg" style="margin-top:0px; margin-left: 10px"/></a></span>
         </div>
     </div>
     <div class="column-center">
