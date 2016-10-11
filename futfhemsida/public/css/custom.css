@@ -144,3 +144,19 @@ ul.unstyled {
 ::-webkit-scrollbar-corner {
     background: transparent !important;
 }
+
+@media (min-width: 768px) {
+    .tupplogoR {
+        background-image: url('../img/TuppStorR.png');
+        background-repeat: no-repeat;
+        background-size: 40px;
+        background-position: left;
+    }
+
+    .tupplogo {
+        background-image: url('../img/TuppStor.png');
+        background-repeat: no-repeat;
+        background-size: 40px;
+        background-position: right;
+    }
+}

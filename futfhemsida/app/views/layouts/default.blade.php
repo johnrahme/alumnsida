@@ -69,7 +69,7 @@ if (!is_null($subSubPageDB)) {
             </div>
         </div>
         <div class="box">
-            <span class="navigationbarbutton" style="float:left;"><a href="#" id="toggle1"><img src="http://i67.tinypic.com/15ias5i.jpg" height="33" width="29" id="bg" style="margin-top:0px; margin-left: 10px"/></a></span>
+            <span class="navigationbarbutton" style="float:left;"><a href="#" id="toggle1"><img src="img/arrow.png" height="33" width="29" id="bg" style="margin-top:0px; margin-left: 10px"/></a></span>
         </div>
     </div>
     <div class="column-center">
@@ -86,14 +86,18 @@ if (!is_null($subSubPageDB)) {
                     </button>
                 </div>
                 <div class="navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
-                    <ul class="nav navbar-nav">
-                    <!--<div id="screenSize" class="sizeShowHidenav navbar-nav">
-                            <li id="futf"> {{link_to('/','Futf')}}</li>
-                            <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
-                            <hr>
-                        </div>-->
-                        @include('layouts.menulinks.menu_default')
-                    </ul>
+                    <div onclick="location.href='{{url('/')}}'" class="tupplogoR img-responsive">
+                        <div onclick="location.href='{{url('/')}}'" class="tupplogo img-responsive">
+                            <ul class="nav navbar-nav">
+                                <!--<div id="screenSize" class="sizeShowHidenav navbar-nav">
+                                    <li id="futf"> {{link_to('/','Futf')}}</li>
+                                   <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
+                                    <hr>
+                                </div>-->
+                                @include('layouts.menulinks.menu_default')
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
