@@ -51,11 +51,11 @@ if (!is_null($subSubPageDB)) {
     @include('sessions.linkedIn.linkedIn')
     @yield('styles')
 
-    @include('layouts.defaultBackground')
 </head>
 <body>
 <!-- Navbar -->
 <div id="wrapping">
+    @include('layouts.defaultBackground')
     <div>
         <div style="display:none" id="hideAndShow" role="main ">
             <div class="navbar navbar-inverse navbar-default navbar-static-top">

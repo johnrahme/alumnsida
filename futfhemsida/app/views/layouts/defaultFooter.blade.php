@@ -16,9 +16,8 @@
             <div class="col-sm-4">
                 <div style="text-align: center; width:100%; margin-top: 5px ">
 
-                    <body>
-                    <span id="date_time"></span>
-                    <script type="text/javascript">window.onload = date_time('date_time');</script>
+                    <body onload="startTime()">
+                    <span id="date_timer"></span>
                     </body>
 
                     <h6 style="margin-top: -8px"><br> Skapad från <span class="glyphicon glyphicon-heart"></span>
