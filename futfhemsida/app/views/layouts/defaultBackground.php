@@ -15,7 +15,7 @@
     }
 
     a {
-        transition: color 0.4s ease-out;
+        transition: color 0.2s ease-out;
         text-decoration: none;
         color: #3e7aac;
     }
@@ -3518,6 +3518,7 @@
         //------------------------------
         // Mesh Properties
         //------------------------------
+        // TODO: Fixa detta innan beta släpps
         var MESH = {
             width: 1.2,
             height: 1.2,
