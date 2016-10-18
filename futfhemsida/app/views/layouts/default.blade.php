@@ -55,18 +55,18 @@ if (!is_null($subSubPageDB)) {
 <body>
 <!-- Navbar -->
 <div id="wrapping">
-    @include('layouts.defaultBackground')
+    @include('layouts.defaultBackground') <!-- The triangular moving background-->
     <div>
         <div style="display:none" id="hideAndShow" role="main ">
             <div class="navbar navbar-inverse navbar-default navbar-static-top">
-                <div onclick="location.href='{{url('/login')}}'" class="hidden_login img-responsive">
-                    <div id='navigationbar' class="navigationbar">
-                        <ul role="navigation">
-                            <li id="futf"> {{link_to('/','Futf')}}</li>
-                            <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
-                            <li id="nyhetsbrev"> {{link_to('http://nyhetsbrev.futf.se/','Nyhetsbrev')}}</li>
-                        </ul>
-                    </div>
+            <div onclick="location.href='{{url('/login')}}'" class="navbar-brand" style="width: 20px; height: 5px; top: 0px; left: 99%; position:relative; z-index: 10000;"></div>
+                <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
+                <div id='navigationbar' class="navigationbar">
+                    <ul role="navigation">
+                        <li id="futf"> {{link_to('/','Futf')}}</li>
+                        <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
+                        <li id="nyhetsbrev"> {{link_to('http://nyhetsbrev.futf.se/','Nyhetsbrev')}}</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -109,10 +109,10 @@ if (!is_null($subSubPageDB)) {
     <div class="column-right">
     </div>
     <a href="#" class="scrollToTop"></a>
-    <!-- Container -->
+
+<!-- Container -->
 
     <div id="main" class="container clear-top conatinerScreen">
-
         <div class="row">
             <div class="@if(Auth::check()) col-md-9 @else col-md-12 @endif">
                 @if(Session::has('message'))
@@ -155,15 +155,19 @@ if (!is_null($subSubPageDB)) {
         @include('sessions.modalLogin')
 
         <div class="row">
+
             <div class="col-sm-3">
                 @include('layouts.menuPanel')
+                <div style="padding-top: 20px">
+                    <div class="panel panel-default">
+                        <h4 style="text-align: center; ">Sammarbetspartners</h4>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-9">
                 @yield('content')
             </div>
         </div>
-
-
     </div>
     @include('layouts.defaultFooter')
 </div>
