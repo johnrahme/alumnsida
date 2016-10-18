@@ -114,6 +114,9 @@
     position: relative;
 }
 
+.navigation {
+}
+
 .column-left {
     float: left;
     width: 2.5%;

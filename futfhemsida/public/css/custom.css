@@ -165,10 +165,6 @@ ul.unstyled {
     }
 }
 
-.hidden_login {
-
-}
-
 @media (min-width: 768px) {
     @media (max-width: 829px) {
         .navbar {
