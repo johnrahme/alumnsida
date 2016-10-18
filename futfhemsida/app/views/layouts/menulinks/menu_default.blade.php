@@ -43,7 +43,7 @@
     <hr>-->
     <li id="start"> {{link_to('/','Start')}}</li>
     <li id="events"> {{link_to_route('events','Event')}}</li>
-    <li id="create">{{link_to_route('new_admin', 'Skapa konto')}}</li>
+    {{--<li id="create">{{link_to_route('new_admin', 'Skapa konto')}}</li>--}}
     {{--<li> {{link_to_route('login','Login')}}</li>--}}
     @if(isset($showLogin))
         <li id="login"><a href="#modalLogin" data-toggle="modal">Login</a></li>
