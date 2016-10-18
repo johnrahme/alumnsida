@@ -30,17 +30,12 @@ html, body {
     padding-bottom: 150px; /* this needs to be bigger than footer height*/
 }
 
-
-
-
-
 @media (max-width: 768px) {
-    .footer{
+    .footer {
         bottom: 0;
         left: 0;
         position: absolute;
         width: 100%;
-
 
         background: #333;
         color: #eee;
@@ -60,10 +55,10 @@ html, body {
         color: #eee;
         text-align: center;
 
-    /*.footer {
-        position: absolute;
-        width: 100%;
-        /*margin-top: -15%;*/  /* negative value of footer height */
+        /*.footer {
+            position: absolute;
+            width: 100%;
+            /*margin-top: -15%;*/ /* negative value of footer height */
         /*z-index: 1;
         right: 0;
         bottom: 0;
@@ -79,8 +74,8 @@ ul.unstyled {
 }
 
 .conatinerScreen {
-    box-shadow: 0px 0px 10px 2px rgba(136,136,136,0.99);
-    background-color: rgba(255,255,255,1.0);
+    box-shadow: 0px 0px 10px 2px rgba(136, 136, 136, 0.99);
+    background-color: rgba(255, 255, 255, 1.0);
     padding: 18px;
     margin-bottom: 50px;
 }
@@ -122,12 +117,12 @@ ul.unstyled {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: -webkit-linear-gradient(left, rgba(58,58,58,.9) 0%,rgba(120,120,120,.9) 100%) !important;
+    background: -webkit-linear-gradient(left, rgba(58, 58, 58, .9) 0%, rgba(120, 120, 120, .9) 100%) !important;
     background-clip: padding-box !important;
 }
 
 ::-webkit-scrollbar-thumb:window-inactive {
-    background: -webkit-linear-gradient(left, rgba(58,58,58,1) 0%,rgba(80,80,80,1) 100%) !important;
+    background: -webkit-linear-gradient(left, rgba(58, 58, 58, 1) 0%, rgba(80, 80, 80, 1) 100%) !important;
     background-clip: padding-box !important;
 }
 
@@ -137,8 +132,8 @@ ul.unstyled {
 }
 
 ::-webkit-scrollbar-track {
-    background: -webkit-linear-gradient(left, rgba(228,228,228,.7) 0%,rgba(240,240,240,.7) 100%) !important;
-    box-shadow: inset 1px 0px 5px -2px rgba(0,0,0,0.3);
+    background: -webkit-linear-gradient(left, rgba(228, 228, 228, .7) 0%, rgba(240, 240, 240, .7) 100%) !important;
+    box-shadow: inset 1px 0px 5px -2px rgba(0, 0, 0, 0.3);
 }
 
 ::-webkit-scrollbar-corner {
@@ -159,4 +154,20 @@ ul.unstyled {
         background-size: 40px;
         background-position: right;
     }
+}
+
+@media (max-width: 767px) {
+    .tupplogoR_small {
+        background-image: url('../img/TuppStorR.png');
+        background-repeat: no-repeat;
+        background-size: 40px;
+        background-position: left;
+    }
+}
+
+.hidden_login {
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: right top;
 }

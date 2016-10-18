@@ -59,12 +59,14 @@ if (!is_null($subSubPageDB)) {
     <div>
         <div style="display:none" id="hideAndShow" role="main ">
             <div class="navbar navbar-inverse navbar-default navbar-static-top">
-                <div id='navigationbar' class="navigationbar">
-                    <ul role="navigation">
-                        <li id="futf"> {{link_to('/','Futf')}}</li>
-                        <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
-                        <li id="nyhetsbrev"> {{link_to('http://nyhetsbrev.futf.se/','Nyhetsbrev')}}</li>
-                    </ul>
+                <div onclick="location.href='{{url('/login')}}'" class="hidden_login img-responsive">
+                    <div id='navigationbar' class="navigationbar">
+                        <ul role="navigation">
+                            <li id="futf"> {{link_to('/','Futf')}}</li>
+                            <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
+                            <li id="nyhetsbrev"> {{link_to('http://nyhetsbrev.futf.se/','Nyhetsbrev')}}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,15 +77,17 @@ if (!is_null($subSubPageDB)) {
     <div class="column-center">
         <div class="container clear-top" style="padding:0px" role="main">
             <div class="navbar navbar-inverse navbar-default">
-                <div class="navbar-header">
-                    {{--<a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
-                    <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
-                    <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>--}}
-                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-                        <span class="icon-bar"> </span>
-                        <span class="icon-bar"> </span>
-                        <span class="icon-bar"> </span>
-                    </button>
+                <div onclick="location.href='{{url('/')}}'" class="tupplogoR_small img-responsive">
+                    <div class="navbar-header">
+                        {{--<a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
+                        <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
+                        <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>--}}
+                        <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                            <span class="icon-bar"> </span>
+                            <span class="icon-bar"> </span>
+                            <span class="icon-bar"> </span>
+                        </button>
+                    </div>
                 </div>
                 <div class="navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
                     <div onclick="location.href='{{url('/')}}'" class="tupplogoR img-responsive">
