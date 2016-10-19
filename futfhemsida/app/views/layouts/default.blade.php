@@ -158,7 +158,7 @@ if (!is_null($subSubPageDB)) {
 
             <div class="col-sm-3">
                 @include('layouts.menuPanel')
-                <div style="padding-top: 20px">
+                <div id="id_företag" style="padding-top: 20px; display:none;">
                     <div class="panel panel-default">
                         <h4 style="text-align: center; ">Sammarbetspartners</h4>
                     </div>
@@ -184,6 +184,7 @@ if (!is_null($subSubPageDB)) {
 {{ HTML::script('js/sidemenupanel.js')}}
 {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
+{{ HTML::script('js/sammarbetspartners.js')}}
 {{ HTML::script('js/dropzone.js')}} <!-- drag'n drop upload -->
 {{ HTML::script('jasny-bootstrap/js/jasny-bootstrap.js')}}
 
