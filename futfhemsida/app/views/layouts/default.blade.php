@@ -161,6 +161,11 @@ if (!is_null($subSubPageDB)) {
                 <div id="id_företag" style="padding-top: 20px; display:none;">
                     <div class="panel panel-default">
                         <h4 style="text-align: center; ">Sammarbetspartners</h4>
+                        <div>
+                            <p>För närvarande finns inga sammarbetspartners.</p>  // Gör klart detta :)
+                            <div @if(Auth::check()) id="dynamicCompany" @else @endif>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

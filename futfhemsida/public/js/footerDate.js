@@ -8,16 +8,15 @@ function startTime() {
     d = date.getDate();
     day = date.getDay();
     days = new Array('Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag');
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
     h = checkTime(h);
     m = checkTime(m);
     s = checkTime(s);
     document.getElementById('date_timer').innerHTML =
         days[day] + 'en den ' + d + ' ' + months[month] + ' <br> ' + h + ':' + m + ':' + s;
-    var t = setTimeout(startTime, 500);
+    setTimeout(startTime, 500);
 }
 function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10

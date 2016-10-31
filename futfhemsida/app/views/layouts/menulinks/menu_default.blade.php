@@ -4,7 +4,8 @@
     <li id="admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
     <li id="menu"> {{link_to_route('menu.index','Menyer')}}</li>
     <li id="tower_defense"> {{link_to_route('tower_defense','Tower Defense')}}</li>
-    <li id="fileuploader"> {{link_to_route('fileuploader','Filer')}}</li>
+    <li id="snake"> {{link_to_route('snake','Snake')}}</li>
+    <li id="ownCloud"> {{link_to_route('ownCloud','Filer')}}</li>
 
     {{--Detta bör troligtvis göras snyggare--}}
     <?php
