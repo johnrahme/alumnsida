@@ -247,6 +247,13 @@ class EventController extends BaseController
             ->with('event', $event);
     }
 
+	public function imgstore(){
+		
+		$image = $_FILES['image'];
+		$name = Input::file('image')->getClientOriginalName();
+		$temp = $image['tmp_name'];
+		echo $name;
+	}
     public function destroy()
     {
         $id = Input::get('id');

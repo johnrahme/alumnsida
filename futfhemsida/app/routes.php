@@ -53,6 +53,8 @@ Route::delete('events/delete', array('uses' => 'EventController@destroy'));
 
 Route::get('event/{id}/map', array('as' => 'map', 'uses' => 'EventController@map'));
 
+Route::post('events/imgstore', array('as' => 'imgstore', 'uses' => 'EventController@imgstore'));
+
 //registrations
 
 Route::get('event/{id}/registrations', array('as' => 'registrations', 'uses' => 'RegistrationController@index'));

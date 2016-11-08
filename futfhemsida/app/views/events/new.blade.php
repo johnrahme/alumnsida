@@ -182,21 +182,37 @@
                 {{HTML::script('plugins/summernote/js/summernote.min.js')}}
 
                 <script>
-                    $(document).ready(function () {
-                        $('.summernote').summernote({
-                            height: 400,
+					$(document).ready(function () {
+						$('.summernote').summernote({
+							height: 400,
                             minHeight: 400,
                             maxHeight: 400,
-                            onkeyup: function (e) {
-                                $("#desc").html($('#col').code());
-                            }
-                        });
-                    });
+							callbacks: {
+								onImageUpload: function (image) {
+									sendFile(image[0]);
+								},
+								onKeyup: function (e) {
+									
+									$("#desc").html($('#col').summernote('code'));
+								}
+							}
+
+						});
+						function sendFile(image) {
+							var data = new FormData();
+							data.append("image", image);
+							imagesURL = "http://space-facts.com/wp-content/uploads/magellanic-clouds.png";
+							var imgNode = $('<img>').attr('src',imagesURL);
+							$('.summernote').summernote('insertNode', imgNode[0]);  // insert native dom 
+							//$('#summernote').summernote("insertImage", "test/sd.jpg");
+						}
+					});
                 </script>
+				
                 <script>
 
                     $("#save").click(function () {
-                        $("#description").val($('#col').code());
+                        $("#description").val($('#col').summernote('code'));
                         $("#form1").submit();
                     });
 
