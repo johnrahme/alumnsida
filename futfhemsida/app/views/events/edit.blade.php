@@ -253,7 +253,9 @@
                             maxHeight: 400,
 							callbacks: {
 								onImageUpload: function (image) {
+									//alert(JSON.stringify(image));
 									
+									sendFile(image[0]);
 								},
 								onKeyup: function (e) {
 									
