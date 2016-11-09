@@ -248,11 +248,13 @@ class EventController extends BaseController
     }
 
 	public function imgstore(){
-		
-		$image = $_FILES['image'];
-		$name = Input::file('image')->getClientOriginalName();
-		$temp = $image['tmp_name'];
-		echo $name;
+
+        $imgName = Input::file('image')->getClientOriginalName();
+        //$imgExtension = Input::file('image')->getClientOriginalExtension();
+        $saveName = microtime() . '_' . $imgName;
+        Input::file('image')->move('img/owncloud', $saveName);
+        $URL = URL::to('/').'/img/owncloud/' . $saveName;
+		echo $URL;
 	}
     public function destroy()
     {

@@ -3,7 +3,7 @@
 @section('styles')
 
     {{ HTML::style('plugins/summernote/css/summernote.css') }}
-    {{ HTML::style('plugins/summernote/css/css/font-awesome.min.css') }}
+    {{--{{ HTML::style('plugins/summernote/css/css/font-awesome.min.css') }}--}}
 @stop
 
 @section('before')
@@ -276,18 +276,14 @@
 								contentType: false,
 								processData: false,
 								success: function(url) {
+								    var imgNode = $('<img>').attr('src',url);
+                                    $('.summernote').summernote('insertNode', imgNode[0]);  // insert native dom
 									alert(url);
 								},
 								error: function(e){
 									alert(e.responseText);
 								}
 							});
-							
-							imagesURL = "http://space-facts.com/wp-content/uploads/magellanic-clouds.png";
-							var imgNode = $('<img>').attr('src',imagesURL);
-							
-							$('.summernote').summernote('insertNode', imgNode[0]);  // insert native dom 
-							//$('#summernote').summernote("insertImage", "test/sd.jpg");
 						}
 					});
                 </script>
