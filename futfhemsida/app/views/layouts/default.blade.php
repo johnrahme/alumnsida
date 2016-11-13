@@ -202,7 +202,7 @@ if (!is_null($subSubPageDB)) {
     });
     @endif
 </script>
-<script>
+{{--<script>
     if ($(window).width() <= 750) {
         $("#testP").html($(window).width());
         $(".dropdown-toggle").attr({
@@ -221,7 +221,7 @@ if (!is_null($subSubPageDB)) {
             $(".dropdown-toggle").removeAttr('data-toggle');
         }
     });
-</script>
+</script>--}}
 <!-- Script -->
 @yield('scripts')
 </body>

@@ -168,81 +168,81 @@
 
             @section('scripts')
 
-                {{HTML::script('js/datetimepickerconfig2.js')}}
+                    {{-- {{HTML::script('js/datetimepickerconfig2.js')}}--}}
 
-                <script>
+                     <script>
 
-                    //Kollar om det finns en bild
-                    @if($event->pictureUrl != "")
-                        $('#oldPicture').show();
-                    $('#newPicture').hide();
-                    $("label[for = 'oldPictureL']").text('{{$event->pictureUrl}}');
+                         //Kollar om det finns en bild
+                         @if($event->pictureUrl != "")
+                             $('#oldPicture').show();
+                         $('#newPicture').hide();
+                         $("label[for = 'oldPictureL']").text('{{$event->pictureUrl}}');
 
-                    @else
-                        $('#oldPicture').hide();
-                    $('#newPicture').show();
-                    @endif
+                         @else
+                             $('#oldPicture').hide();
+                         $('#newPicture').show();
+                         @endif
 
-                            $('#remove_picture').click(function (e) {
-                                e.preventDefault();
-                                $('#oldPicture').hide();
-                                $('#newPicture').show();
-                                $('#pictureChanged').val(1);
-                            });
+                                 $('#remove_picture').click(function (e) {
+                                     e.preventDefault();
+                                     $('#oldPicture').hide();
+                                     $('#newPicture').show();
+                                     $('#pictureChanged').val(1);
+                                 });
 
-                </script>
-
-
-                <script>
+                     </script>
 
 
-                    //Det går inte att ändra anmälan när det redan finns anmälda
-
-                    @if($editExtra == false)
-                        document.getElementById("addEx").disabled = true;
-                    document.getElementById("regnr").readOnly = true;
-                    @endif
+                     <script>
 
 
-                </script>
+                         //Det går inte att ändra anmälan när det redan finns anmälda
 
-                @if($editExtra == true)
-                    <script>
+                         @if($editExtra == false)
+                             document.getElementById("addEx").disabled = true;
+                         document.getElementById("regnr").readOnly = true;
+                         @endif
 
-                        //Lägger till registreringsfält
-                        $(document).ready(function () {
-                            $('#reg').change(function () {
-                                if (!this.checked) {
-                                    $('#registrering').hide();
-                                }
-                                else {
-                                    $('#registrering').show();
-                                }
-                            });
-                            //Extra fält:
-                            var max_fields = 5;
 
-                            var x = {{$extra->count()}};
-                            $('#addEx').click(function (e) {
-                                e.preventDefault();
-                                if (x < max_fields) {
-                                    x++;
-                                    var ex = "extra";
-                                    var fieldID = ex.concat(ex);
+                     </script>
 
-                                    $("#wrapper").append('<div><input type="text" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a><br><br></div>'); //add input box
-                                }
-                            });
-                            $("#wrapper").on("click", "#remove_field", function (e) { //user click on remove text
-                                e.preventDefault();
-                                $(this).parent('div').remove();
-                                x--;
-                            });
-                        });
-                    </script>
+                     @if($editExtra == true)
+                         <script>
 
-                @endif
-                {{--Summernote--}}
+                             //Lägger till registreringsfält
+                             $(document).ready(function () {
+                                 $('#reg').change(function () {
+                                     if (!this.checked) {
+                                         $('#registrering').hide();
+                                     }
+                                     else {
+                                         $('#registrering').show();
+                                     }
+                                 });
+                                 //Extra fält:
+                                 var max_fields = 5;
+
+                                 var x = {{$extra->count()}};
+                                 $('#addEx').click(function (e) {
+                                     e.preventDefault();
+                                     if (x < max_fields) {
+                                         x++;
+                                         var ex = "extra";
+                                         var fieldID = ex.concat(ex);
+
+                                         $("#wrapper").append('<div><input type="text" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a><br><br></div>'); //add input box
+                                     }
+                                 });
+                                 $("#wrapper").on("click", "#remove_field", function (e) { //user click on remove text
+                                     e.preventDefault();
+                                     $(this).parent('div').remove();
+                                     x--;
+                                 });
+                             });
+                         </script>
+
+                     @endif
+                     {{--Summernote--}}
                 {{HTML::script('plugins/summernote/js/summernote.min.js')}}
 
                  <script>
@@ -250,7 +250,7 @@
 						$('.summernote').summernote({
 							height: 400,
                             minHeight: 400,
-                            maxHeight: 400,
+                            //maxHeight: 400,
 							callbacks: {
 								onImageUpload: function (image) {
 									//alert(JSON.stringify(image));
