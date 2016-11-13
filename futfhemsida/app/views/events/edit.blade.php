@@ -168,7 +168,7 @@
 
             @section('scripts')
 
-                    {{-- {{HTML::script('js/datetimepickerconfig2.js')}}--}}
+                    {{HTML::script('js/datetimepickerconfig2.js')}}
 
                      <script>
 
