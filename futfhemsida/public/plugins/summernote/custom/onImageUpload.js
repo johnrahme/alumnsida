@@ -23,7 +23,7 @@ function onImageUpload(folder,url) {
         var data = new FormData();
         data.append("image", image);
         data.append("test", "test");
-        alert(url);
+        //alert(url);
         $.ajax({
             method: "POST",
             data: data,
@@ -34,7 +34,7 @@ function onImageUpload(folder,url) {
             success: function (url) {
                 var imgNode = $('<img>').attr('src', url);
                 $('.summernote').summernote('insertNode', imgNode[0]);  // insert native dom
-                alert(url);
+                //alert(url);
             },
             error: function (e) {
                 alert(e.responseText);
