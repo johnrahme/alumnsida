@@ -252,8 +252,9 @@ class EventController extends BaseController
         $imgName = Input::file('image')->getClientOriginalName();
         //$imgExtension = Input::file('image')->getClientOriginalExtension();
         $saveName = microtime() . '_' . $imgName;
-        Input::file('image')->move('img/owncloud', $saveName);
-        $URL = URL::to('/').'/img/owncloud/' . $saveName;
+        $folder = Input::get('folder');
+        Input::file('image')->move($folder, $saveName);
+        $URL = URL::to('/')."/".$folder ."/" . $saveName;
 		echo $URL;
 	}
     public function destroy()

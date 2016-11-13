@@ -22,7 +22,7 @@ function onImageUpload(folder,url) {
     function sendFile(image) {
         var data = new FormData();
         data.append("image", image);
-        data.append("test", "test");
+        data.append("folder", folder);
         //alert(url);
         $.ajax({
             method: "POST",
