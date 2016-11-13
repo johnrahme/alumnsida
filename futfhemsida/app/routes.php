@@ -141,7 +141,7 @@ Route::delete('news/delete', array('uses' => 'NewsController@destroy'));
 
 
 // Files
-Route::get('ownCloud', array('as' => 'ownCloud', 'uses' => 'OwnCloudController@index'));
+Route::get('files', array('as' => 'ownCloud', 'uses' => 'OwnCloudController@index'));
 
 //Games
 

@@ -60,7 +60,7 @@ if (!is_null($subSubPageDB)) {
         <div style="display:none" id="hideAndShow" role="main ">
             <div class="navbar navbar-inverse navbar-default navbar-static-top">
             <div onclick="location.href='{{url('/login')}}'" class="navbar-brand" style="width: 20px; height: 5px; top: 0px; left: 99%; position:relative; z-index: 10000;"></div>
-                <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
+                <a href = "{{url('/')}}" class = "navbar-brand">Föreningen Uppsala Tekniska Fysiker</a>
                 <div id='navigationbar' class="navigationbar">
                     <ul role="navigation">
                         <li id="futf"> {{link_to('/','Futf')}}</li>
@@ -77,7 +77,7 @@ if (!is_null($subSubPageDB)) {
     <div class="column-center">
         <div class="container clear-top" style="padding:0px" role="main">
             <div class="navbar navbar-inverse navbar-default">
-                <div onclick="location.href='{{url('/')}}'" class="tupplogoR_small img-responsive">
+                <!--<div onclick="location.href='{{url('/')}}'" class="tupplogoR_small img-responsive">-->
                     <div class="navbar-header">
                         {{--<a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
                         <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
@@ -88,10 +88,10 @@ if (!is_null($subSubPageDB)) {
                             <span class="icon-bar"> </span>
                         </button>
                     </div>
-                </div>
+                <!--</div>-->
                 <div class="navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
-                    <div onclick="location.href='{{url('/')}}'" class="tupplogoR img-responsive">
-                        <div onclick="location.href='{{url('/')}}'" class="tupplogo img-responsive">
+                    <!--<div onclick="location.href='{{url('/')}}'" class="tupplogoR img-responsive">
+                        <div onclick="location.href='{{url('/')}}'" class="tupplogo img-responsive">-->
                             <ul class="nav navbar-nav">
                                 <!--<div id="screenSize" class="sizeShowHidenav navbar-nav">
                                     <li id="futf"> {{link_to('/','Futf')}}</li>
@@ -100,8 +100,8 @@ if (!is_null($subSubPageDB)) {
                                 </div>-->
                                 @include('layouts.menulinks.menu_default')
                             </ul>
-                        </div>
-                    </div>
+                     <!--   </div>
+                    </div>-->
                 </div>
             </div>
         </div>
