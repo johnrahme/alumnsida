@@ -180,33 +180,11 @@
 
                 {{--Summernote--}}
                 {{HTML::script('plugins/summernote/js/summernote.min.js')}}
+                {{HTML::script('plugins/summernote/custom/onImageUpload.js')}}
+                 <script>
+                    {{--When uploading an image save it in the folder event--}}
 
-                <script>
-					$(document).ready(function () {
-						$('.summernote').summernote({
-							height: 400,
-                            minHeight: 400,
-                            maxHeight: 400,
-							callbacks: {
-								onImageUpload: function (image) {
-									sendFile(image[0]);
-								},
-								onKeyup: function (e) {
-									
-									$("#desc").html($('#col').summernote('code'));
-								}
-							}
-
-						});
-						function sendFile(image) {
-							var data = new FormData();
-							data.append("image", image);
-							imagesURL = "http://space-facts.com/wp-content/uploads/magellanic-clouds.png";
-							var imgNode = $('<img>').attr('src',imagesURL);
-							$('.summernote').summernote('insertNode', imgNode[0]);  // insert native dom 
-							//$('#summernote').summernote("insertImage", "test/sd.jpg");
-						}
-					});
+                 onImageUpload(event,"{{url('events/imgstore')}}");
                 </script>
 				
                 <script>
