@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-Edid för news
+Edit för news
 
 @stop
 
