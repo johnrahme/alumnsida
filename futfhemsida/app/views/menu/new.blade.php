@@ -57,7 +57,7 @@
       <script>
        {{--When uploading an image save it in the folder event--}}
 
-      onImageUpload("owncloud/styrelsen/files/menus","{{url('events/imgstore')}}");
+      onImageUpload("owncloud/styrelsen/files/images/menus","{{url('events/imgstore')}}");
       </script>
        <script>
 
