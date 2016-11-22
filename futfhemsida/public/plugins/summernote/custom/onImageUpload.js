@@ -1,4 +1,5 @@
 function onImageUpload(folder,url) {
+
     $(document).ready(function () {
         $('.summernote').summernote({
             height: 400,

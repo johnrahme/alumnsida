@@ -1,8 +1,13 @@
 @extends('layouts.default')
+@section('styles')
+
+    {{ HTML::style('plugins/summernote/css/summernote.css') }}
+    {{ HTML::style('plugins/summernote/css/css/font-awesome.min.css') }}
+@stop
 @section('content')
     Create new menu slide!
 
-    {{Form::open(array('route'=> 'menu.store'))}}
+    {{Form::open(array('route'=> 'menu.store','files'=>true, 'id'=>'form1'))}}
 
     <p>
         {{Form::label('name', 'Namn', array('class' => 'required'))}} <br/>
@@ -35,16 +40,34 @@
     </p>
 
     <p>
-        {{Form::label('content', 'Innehåll', array('class' => 'required'))}} <br/>
+            {{Form::label('content', 'Innehåll', array('class' => 'required'))}} <br/>
 
-        {{Form::textarea('content', '',array('class' => 'form-control','placeholder' => 'Innehåll') )}}
+        <div class="summernote" id="col">{{Input::old('content')}}</div>
+        {{Form::hidden('content')}}
     </p>
 
 
-    <p> {{Form::submit('Lägg till', array('class'=>'btn btn-primary'))}} </p>
+    <button id="save" class="btn btn-primary" onclick="save()" type="button">Lägg till</button>
     {{Form::close()}}
 @stop
 @section('scripts')
+
+      {{HTML::script('plugins/summernote/js/summernote.min.js')}}
+      {{HTML::script('plugins/summernote/custom/onImageUpload.js')}}
+      <script>
+       {{--When uploading an image save it in the folder event--}}
+
+      onImageUpload("owncloud/styrelsen/files/menus","{{url('events/imgstore')}}");
+      </script>
+       <script>
+
+                    $("#save").click(function () {
+                        $("#content").val($('#col').summernote('code'));
+                        $("#form1").submit();
+                    });
+
+        </script>
+
     <script>
         updateGrandparent();
         $('#parent').change(function () {
