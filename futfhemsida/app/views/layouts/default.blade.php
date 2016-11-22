@@ -68,14 +68,14 @@ if (!is_null($subSubPageDB)) {
                         <li id="nyhetsbrev"> {{link_to('http://nyhetsbrev.futf.se/','Nyhetsbrev')}}</li>
                     </ul>
                 </div>
-            </div>
+            </div>+
         </div>
         <div class="box">
             <span class="navigationbarbutton" style="float:left;"><a href="#" id="toggle1"><img src="img/arrow.png" height="33" width="29" id="bg" style="margin-top:0px; margin-left: 10px"/></a></span>
         </div>
     </div>
     <div class="column-center">
-        <div class="container clear-top" style="padding:0px" role="main">
+        <div class="container clear-top" style="padding:0px; left: calc(2.5% - 29px);" role="main">
             <div class="navbar navbar-inverse navbar-default">
                 <!--<div onclick="location.href='{{url('/')}}'" class="tupplogoR_small img-responsive">-->
                     <div class="navbar-header">

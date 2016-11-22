@@ -17,7 +17,7 @@ if (url === '/futf/futfhemsida/public/') {
 
 
 
-
+/*
 
 
 var removeDate;
@@ -78,3 +78,5 @@ $(function () {
 function imageIsLoaded(e) {
     $('#imageUpload').attr('src', e.target.result);
 };
+
+*/
