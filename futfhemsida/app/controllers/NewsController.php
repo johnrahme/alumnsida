@@ -9,8 +9,10 @@ class NewsController extends \BaseController {
 	 */
 	public function index()
 	{
+        $news = News::all();
         return View::make('news.index')
             ->with('title', 'News')
+            ->with('news', $news)
             ->with('active', 'events');
 	}
 
@@ -45,6 +47,26 @@ class NewsController extends \BaseController {
         $news->name = Input::get('name');
         $news->content = Input::get('content');
         $news->author = Input::get('author');
+        $news->order = Input::get('order');
+        $news->abstract = Input::get('abstract');
+        if (Input::hasFile('image')) {
+            if (Input::file('image')->isValid()) {
+                $imgName = Input::file('image')->getClientOriginalName();
+                $imgExtension = Input::file('image')->getClientOriginalExtension();
+                $saveName = microtime() . '_' . $imgName;
+                Input::file('image')->move('owncloud/styrelsen/files/images/news/', $saveName);
+                $URL = 'owncloud/styrelsen/files/images/news/' . $saveName;
+                $news->url = $URL;
+            }
+            else{
+                $news->url = "empty";
+            }
+        }
+        else{
+            $news->url = "empty";
+        }
+
+
         $news->save();
 
         return Redirect::to('news')
@@ -60,8 +82,13 @@ class NewsController extends \BaseController {
 	 */
 	public function show($id)
 	{
+        $news = News::find($id);
+
+
+
         return View::make('news.show')
             ->with('title', 'Show News')
+            ->with('news', $news)
             ->with('active', 'events');
 	}
 
@@ -76,6 +103,7 @@ class NewsController extends \BaseController {
 	{
         return View::make('news.edit')
             ->with('title', 'Edit News')
+            ->with('news', News::find($id))
             ->with('active', 'events');
 	}
 
@@ -86,9 +114,40 @@ class NewsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
-		//
+        $id = Input::get('id');
+        $validation = News::validate(Input::all());
+
+        if ($validation->fails()) {
+            return Redirect::route('news.edit', $id)->withErrors($validation)->withInput();
+        }
+        $news = News::find($id);
+        $news->name = Input::get('name');
+        $news->content = Input::get('content');
+        $news->author = Input::get('author');
+        $news->order = Input::get('order');
+        $news->abstract = Input::get('abstract');
+        //Remove the old image if there is one
+        //Remove the old image if there is one
+        if (Input::hasFile('image')) {
+            if (Input::file('image')->isValid()) {
+                $imgName = Input::file('image')->getClientOriginalName();
+                $imgExtension = Input::file('image')->getClientOriginalExtension();
+                $saveName = microtime() . '_' . $imgName;
+                Input::file('image')->move('owncloud/styrelsen/files/images/news/', $saveName);
+                $URL = 'owncloud/styrelsen/files/images/news/' . $saveName;
+                $news->url = $URL;
+            }
+        }
+
+
+
+
+        $news->save();
+
+        return Redirect::to('news')
+            ->with('message', Input::hasFile('image'));
 	}
 
 
@@ -98,9 +157,14 @@ class NewsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		//
+        $id = Input::get('id');
+        $news = News::find($id);
+        $news->delete();
+
+        return Redirect::route('news')
+            ->with('message', 'The news was deleted successfully');
 	}
 
 

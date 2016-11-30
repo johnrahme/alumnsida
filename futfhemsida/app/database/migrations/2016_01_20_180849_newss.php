@@ -16,6 +16,7 @@ class Newss extends Migration {
             $table->increments('id');
             $table->string('name');
             $table->string('url');
+            $table->longText('abstract');
             $table->longText('content');
             $table->integer('order');
             $table->string('author');
