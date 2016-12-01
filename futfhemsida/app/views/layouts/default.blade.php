@@ -75,9 +75,9 @@ if (!is_null($subSubPageDB)) {
     </div>
     <div class="column-center">
         <div class="container clear-top" style="padding:0px; left: calc(2.5% - 29px);" role="main">
-            <div>
+            <div class="navbar navbar-inverse navbar-default">
                 <!--<div onclick="location.href='{{url('/')}}'" class="tupplogoR_small img-responsive">-->
- <!--                   <div class="navbar-header">
+                    <div class="navbar-header">
                         {{--<a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
                         <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
                         <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>--}}
@@ -87,19 +87,21 @@ if (!is_null($subSubPageDB)) {
                             <span class="icon-bar"> </span>
                         </button>
                     </div>
--->
                 <!--</div>-->
-                <!--<div class="dropdownArrow" role="navigation">-->
+                <div class="navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
                     <!--<div onclick="location.href='{{url('/')}}'" class="tupplogoR img-responsive">
                         <div onclick="location.href='{{url('/')}}'" class="tupplogo img-responsive">-->
-                           <!-- <ul>
+                            <ul class="nav navbar-nav">
+                                <!--<div id="screenSize" class="sizeShowHidenav navbar-nav">
+                                    <li id="futf"> {{link_to('/','Futf')}}</li>
+                                   <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
+                                    <hr>
+                                </div>-->
                                 @include('layouts.menulinks.menu_default')
-                            </ul>-->
-
-
+                            </ul>
                      <!--   </div>
                     </div>-->
-                <!--</div>-->
+                </div>
             </div>
         </div>
     </div>
