@@ -247,11 +247,64 @@ class MenuController extends \BaseController
      * @param  int $id
      * @return Response
      */
-    public function edit($id)
+    public function edit($id,$type)
     {
-        //
+        $menus = Menu::all();
+        $submenus = Submenu::all();
+        return View::make('menu.edit')
+            ->with('title', 'Edit menu!')
+            ->with('active', 'menu')
+            ->with('menus', $menus)
+            ->with('submenus', $submenus);
+
     }
 
+    public function change($type,$id)
+    {
+        $currMenu = "";
+        $firstName = "";
+        $secondName = "";
+        $bottom = false;
+        if($type == 0){
+            $currMenu = Menu::find($id);
+            $emptyCheck = Submenu::where('menuId','=',$id)->get();
+
+            if($emptyCheck->isEmpty()){
+                $bottom = true;
+            }
+        }
+        else if ($type == 1){
+            $currMenu = Submenu::find($id);
+            $first = Menu::find($currMenu->menuId);
+            $firstName = $first->name;
+
+            $emptyCheck = Subsubmenu::where('subMenuId','=',$id)->get();
+            if($emptyCheck->isEmpty()){
+                $bottom = true;
+            }
+        }
+        else if($type == 2){
+            $currMenu = Subsubmenu::find($id);
+            $second = Submenu::find($currMenu->subMenuId);
+            $first = Menu::find($second->menuId);
+            $firstName = $first->name;
+            $secondName = $second->name;
+            $bottom = true;
+        }
+        $menus = Menu::all();
+        $submenus = Submenu::all();
+        return View::make('menu.edit')
+            ->with('title', 'Edit menu!')
+            ->with('active', 'menu')
+            ->with('currMenu', $currMenu)
+            ->with('menus', $menus)
+            ->with('submenus', $submenus)
+            ->with('firstName', $firstName)
+            ->with('secondName', $secondName)
+            ->with('type', $type)
+            ->with('bottom', $bottom);
+
+    }
 
     /**
      * Update the specified resource in storage.
@@ -259,9 +312,85 @@ class MenuController extends \BaseController
      * @param  int $id
      * @return Response
      */
-    public function update($id)
+    public function update()
     {
-        //
+        $type = Input::get('type');
+        $id = Input::get('id');
+        $menuId = Input::get('parent');
+        $subMenuId = Input::get('grandparent');
+        if ($menuId == "") {
+            $allMenus = Menu::all();
+            $menu =  new Menu;
+            if($type == 0){
+                $menu = Menu::find($id);
+            }
+            else if($type == 1){
+                $del = Submenu::find($id);
+                $del->delete();
+                $menu = new Menu;
+            }
+            else if($type == 2){
+                $del = Subsubmenu::find($id);
+                $del->delete();
+                $menu = new Menu;
+            }
+
+            $menu->name = Input::get('name');
+            $menu->url = Input::get('url');
+            $menu->content = Input::get('content');
+            $menu->order = count($allMenus);
+            $menu->save();
+        } else if($subMenuId == ""){
+            $allSubMenus = Submenu::where('menuId', '=', $menuId)->get();
+            $submenu = "";
+            if($type == 0){
+                $del = Menu::find($id);
+                $del->delete();
+                $submenu = new Submenu;
+            }
+            else if($type == 1){
+                $submenu = Submenu::find($id);
+            }
+            else if($type == 2){
+                $del = Subsubmenu::find($id);
+                $del->delete();
+                $submenu = new Submenu;
+            }
+            $submenu->menuId = $menuId;
+            $submenu->name = Input::get('name');
+            $submenu->url = Input::get('url');
+            $submenu->content = Input::get('content');
+            $submenu->order = count($allSubMenus);
+            $submenu->save();
+        }
+        else{
+            $allSubSubMenus = Subsubmenu::where('subMenuId', '=', $subMenuId)->get();
+            $subsubmenu = "";
+            if($type == 0){
+                $del = Menu::find($id);
+                $del->delete();
+                $subsubmenu = new Subsubmenu;
+            }
+            else if($type == 1){
+                $del = Submenu::find($id);
+                $del->delete();
+                $subsubmenu = new Subsubmenu;
+            }
+            else if($type == 2){
+                $subsubmenu = Subsubmenu::find($id);
+
+            }
+
+            $subsubmenu->subMenuId = $subMenuId;
+            $subsubmenu->name = Input::get('name');
+            $subsubmenu->url = Input::get('url');
+            $subsubmenu->content = Input::get('content');
+            $subsubmenu->order = count($allSubSubMenus);
+            $subsubmenu->save();
+        }
+
+        return Redirect::route('menu.index')
+            ->with('message', $menuId);
     }
 
 

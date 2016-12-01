@@ -59,6 +59,7 @@
                         <th data-sortable="true">Länk</th>
                         <th data-sortable="true">Föräldermeny 1</th>
                         <th data-sortable="true">Föräldermeny 2</th>
+                        <th data-sortable="true">Ändra</th>
                         <th data-sortable="true">Delete</th>
                     </tr>
                     </thead>
@@ -75,6 +76,7 @@
                             $submenusCurrent = Submenu::where('menuId', '=', $menu->id)->get();
 
                             ?>
+                            <td>{{link_to_route('menu.change','Ändra', [0, $menu->id], array('class'=>'btn btn-primary btn-sm'))}}</td>
                             <td>
                                 {{ Form::open(array('route'=>array('menu.destroy', $menu->id), 'method' =>'DELETE')) }}
 
@@ -98,7 +100,7 @@
                             <td>{{$submenu->url}}</td>
                             <td>{{$menuFindName->name}}</td>
                             <td>Ingen</td>
-                            {{--<td>{{link_to_route('edit_admin','Ändra', $admin->id, array('class'=>'btn btn-primary btn-sm'))}}</td>--}}
+                            <td>{{link_to_route('menu.change','Ändra', [1, $submenu->id], array('class'=>'btn btn-primary btn-sm'))}}</td>
                             <td>
 
                                 {{ Form::open(array('route'=>array('menu.destroySub', $submenu->id), 'method' =>'DELETE')) }}
@@ -122,7 +124,7 @@
                             <td>{{$subsubmenu->url}}</td>
                             <td>{{$menuFindName->name}}</td>
                             <td>{{$subMenuFindName->name}}</td>
-                            {{--<td>{{link_to_route('edit_admin','Ändra', $admin->id, array('class'=>'btn btn-primary btn-sm'))}}</td>--}}
+                            <td>{{link_to_route('menu.change','Ändra', [2, $subsubmenu->id], array('class'=>'btn btn-primary btn-sm'))}}</td>
                             <td>
 
                                 {{ Form::open(array('route'=>array('menu.destroySubSub', $subsubmenu->id), 'method' =>'DELETE')) }}
