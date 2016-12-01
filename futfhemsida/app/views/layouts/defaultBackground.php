@@ -3522,7 +3522,7 @@
         var MESH = {
             width: 1.2,
             height: 1.2,
-            slices: 150,
+            slices: 75,
             ambient: '#000000',
             diffuse: '#E6B800'
         };
@@ -3533,7 +3533,7 @@
         var LIGHT = {
             count: 1,
             xPos: 0,
-            yPos: 100,
+            yPos: 0,
             zOffset: 650,
             ambient: '#880066',
             diffuse: '#E6B800',
