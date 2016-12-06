@@ -43,13 +43,12 @@ if (!is_null($subSubPageDB)) {
     {{ HTML::style('css/scrollbar.css') }}
     {{ HTML::style('css/subsubmenus.css') }}
     {{ HTML::style('css/sidemenupanel.css') }}
-    {{ HTML::style('css/dropdownmenu.css') }}
+    {{ HTML::style('css/dropdownMenu.css') }}
     {{ HTML::style('jasny-bootstrap/css/jasny-bootstrap.css') }}
 
     {{--LinkedIn--}}
     @include('sessions.linkedIn.linkedIn')
     @yield('styles')
-
 </head>
 <body>
 <!-- Navbar -->
@@ -69,49 +68,23 @@ if (!is_null($subSubPageDB)) {
                 </div>
             </div>
         </div>
-        <div class="box">
-            <span class="navigationbarbutton" style="float:left;"><a href="#" id="toggle1"><img src="img/arrow.png" height="33" width="29" id="bg" style="margin-top:0px; margin-left: 10px"/></a></span>
-        </div>
     </div>
-    <div class="column-center">
-        <div class="container clear-top" style="padding:0px; left: calc(2.5% - 29px);" role="main">
-            <div class="navbar navbar-inverse navbar-default">
-                <!--<div onclick="location.href='{{url('/')}}'" class="tupplogoR_small img-responsive">-->
-                    <div class="navbar-header">
-                        {{--<a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStorR.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>
-                        <a href = "{{url('/')}}" class = "navbar-brand">Föreingen Uppsala Tekniska Fysiker</a>
-                        <a href = "{{url('/')}}" class = "navbar-brand">{{ HTML::image(URL::asset('img/TuppStor.png'),'banner', array('class'=>'img-responsive', 'style'=>'height: 187%')) }}</a>--}}
-                        <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-                            <span class="icon-bar"> </span>
-                            <span class="icon-bar"> </span>
-                            <span class="icon-bar"> </span>
-                        </button>
-                    </div>
-                <!--</div>-->
-                <div class="navbar-collapse collapse navHeaderCollapse dropdownArrow" role="navigation">
-                    <!--<div onclick="location.href='{{url('/')}}'" class="tupplogoR img-responsive">
-                        <div onclick="location.href='{{url('/')}}'" class="tupplogo img-responsive">-->
-                            <ul class="nav navbar-nav">
-                                <!--<div id="screenSize" class="sizeShowHidenav navbar-nav">
-                                    <li id="futf"> {{link_to('/','Futf')}}</li>
-                                   <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
-                                    <hr>
-                                </div>-->
-                                @include('layouts.menulinks.menu_default')
-                            </ul>
-                     <!--   </div>
-                    </div>-->
-                </div>
-            </div>
-        </div>
+    <div class="box">
+        <span class="navigationbarbutton"><a id="toggle1"><img src="img/arrow.png" height="33" width="29" id="bg"/></a></span>
     </div>
-    <div class="column-right">
+
+    <div id="dropdownMenu" style="width: 100%; z-index: 1000">
+        <ul>
+            <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu dropdownMenu-logo"></a>
+            <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu dropdownMenu-brand">FUTF</a>
+            @include('layouts.menulinks.menu_default')
+        </ul>
     </div>
     <a href="#" class="scrollToTop"></a>
 
 <!-- Container -->
 
-    <div id="main" class="container clear-top conatinerScreen">
+    <div id="main" class="container clear-top conatinerScreen" style="margin-top: calc(98px + 50px); width: 98%">
         <div class="row">
             <div class="@if(Auth::check()) col-md-9 @else col-md-12 @endif">
                 @if(Session::has('message'))
@@ -177,6 +150,7 @@ if (!is_null($subSubPageDB)) {
 </div>
 <!-- Scripts are placed here -->
 {{ HTML::script('js/jquery-1.11.1.min.js') }}
+{{ HTML::script('js/jquery-1.8.3.min.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
 {{ HTML::script('js/jquery.datetimepicker.js')}}
 {{ HTML::script('js/checkmodal.js')}}
@@ -189,7 +163,7 @@ if (!is_null($subSubPageDB)) {
 {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
 {{ HTML::script('js/sammarbetspartners.js')}}
-{{ HTML::script('js/dropzone.js')}} <!-- drag'n drop upload -->
+{{ HTML::script('js/dropdownMenu.js')}} <!-- drag'n drop upload -->
 {{ HTML::script('jasny-bootstrap/js/jasny-bootstrap.js')}}
 
 <script>
@@ -200,6 +174,13 @@ if (!is_null($subSubPageDB)) {
         $(active).addClass("active");
     });
     @endif
+</script>
+
+<script type="text/javascript">
+    $("#dropdownMenu").dropdownMenus({
+        title: "", /*Som ska visas ihopdragen meny vid liten skärm*/
+        format: "multitoggle" /*Typ av dropdownmenu vid liten skärm*/
+    });
 </script>
 {{--<script>
     if ($(window).width() <= 750) {

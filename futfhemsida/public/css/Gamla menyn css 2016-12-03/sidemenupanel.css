@@ -1,0 +1,135 @@
+body, nav, ul, li, a  {margin: 0; padding: 0;}
+body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+a {text-decoration: none; }
+    .contentsidemenupanel {
+    width: 90%;
+    max-width: 900px;
+    margin: 10px auto;
+}
+.toggleMenu {
+    display: block;
+    padding: 10px 20px;
+    clear: both;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-weight: bold;
+    line-height: 1.42857143;
+    color: #333333;
+    font-size: 14px;
+    white-space: nowrap;
+}
+.sidemenupanel {
+    list-style: none;
+    *zoom: 1;
+    color: #E6B800;
+    text-transform: capitalize;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-style: normal;
+    font-variant: small-caps;
+    color: #E6B800;
+    box-shadow: inset 0 0 3px #000000;
+    -moz-box-shadow: inset 0 0 3px #000000;
+    -webkit-box-shadow: inset 0 0 3px #000000;
+    background: #070707;
+    background: -moz-linear-gradient(top, #262626 0%, #070707 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #262626), color-stop(100%, #070707));
+    background: -webkit-linear-gradient(top, #262626 0%, #070707 100%);
+    background: -o-linear-gradient(top, #262626 0%, #070707 100%);
+    background: -ms-linear-gradient(top, #262626 0%, #070707 100%);
+    background: linear-gradient(to bottom, #262626 0%, #070707 100%);
+    border-radius: 10%;
+}
+.sidemenupanel:before,
+.sidemenupanel:after {
+    content: " ";
+    display: table;
+}
+.sidemenupanel:after {
+    clear: both;
+}
+.sidemenupanel ul {
+    background: #E6B800;
+    border-radius: 7.5%;
+    list-style: none;
+    width: 9em;
+}
+.sidemenupanel > li > a:hover,
+.sidemenupanel > li > a:focus {
+    text-decoration: none;
+    color: #ffffff;
+}
+.sidemenupanel > li li > a:hover,
+.sidemenupanel > li li > a:focus {
+    text-decoration: none;
+    color: #ffffff;
+}
+.sidemenupanel a {
+    display: block;
+    text-transform: capitalize;
+    padding: 3px 20px;
+    clear: both;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+}
+.sidemenupanel li {
+    position: relative;
+}
+.sidemenupanel > li {
+    float: left;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 25%;
+}
+.sidemenupanel > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+}
+.sidemenupanel li  ul {
+    position: absolute;
+    left: -9999px;
+}
+.sidemenupanel > li.hover > ul {
+    left: 0;
+}
+.sidemenupanel li li.hover ul {
+    left: 100%;
+    top: 0;
+}
+.sidemenupanel li li a {
+    display: block;
+    background: rgba(210, 164, 0, 0.75);
+    left: 10%;
+    position: relative;
+    z-index:100;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 15% 15% 15% 15%;
+}
+
+@media screen and (min-width: 0px) {
+    .active {
+        display: block;
+    }
+    .sidemenupanel > li {
+        float: none;
+    }
+    .sidemenupanel ul {
+        display: block;
+        width: 100%;
+    }
+    .sidemenupanel ul ul {
+        display: block;
+        width: 84%;
+
+    }
+    .sidemenupanel > li.hover > ul , .sidemenupanel li li.hover ul {
+        position: static;
+    }
+
+}

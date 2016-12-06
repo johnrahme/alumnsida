@@ -74,8 +74,8 @@
         height: 33px;
         cursor: pointer;
         position: relative;
-        top: 0;
-        left: 30px;
+        top: 0%;
+        left: 0%;
         padding: 0;
         border: none;
         background: none;
@@ -90,7 +90,7 @@
         height: 33px;
         cursor: pointer;
         position: relative;
-        top: 98px;
+        top: 0%;
         left: 0%;
         padding: 0;
         border: none;

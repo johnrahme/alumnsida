@@ -16,11 +16,10 @@
         <?php
         $subMenusView = Submenu::where('menuId', '=', $menu->id)->orderBy('order')->get();
         ?>
-        <li class="dropdown" id='{{$menu->url}}'>
+        <li id='{{$menu->url}}'>
             @if(count($subMenusView)!= 0)
-                <a href="{{route('menu.dyn',$menu->url)}}" class="dropdown-toggle">{{$menu->name}} <span
-                            class="caret"></span></a>
-                <ul class="dropdown-menu dropdown-fade">
+                <a href="{{route('menu.dyn',$menu->url)}}" class="testa_mig">{{$menu->name}}</a>
+                <ul class="dropdown-fade">
                     @foreach($subMenusView as $subMenu)
                         <li id="{{$subMenu->id}}">{{link_to_route('menu.dyn',$subMenu->name, $subMenu->url)}}
                         </li>
@@ -34,15 +33,9 @@
     @endforeach
     <li><a href="#contact" data-toggle="modal">Kontakt</a></li>
 @else
-    <!-- only if window width is =< 766 px
 
-    <script language="javascript">
-        width = screen.width;
-    </script>
-
-    <li id="futf"> {{link_to('/','Futf')}}</li>
-    <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
-    <hr>-->
+    {{--<li id="futf"> {{link_to('/','Futf')}}</li>
+    <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>--}}
     <li id="start"> {{link_to('/','Start')}}</li>
     <li id="events"> {{link_to_route('events','Event')}}</li>
     {{--<li id="create">{{link_to_route('new_admin', 'Skapa konto')}}</li>--}}
