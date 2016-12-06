@@ -150,13 +150,14 @@ Route::get('tower_defense', array('as' => 'tower_defense', 'uses' => 'TowerDefen
 //snake
 Route::get('snake', array('as' => 'snake', 'uses' => 'SnakeController@index'));
 
-
+//creators
+Route::get('creators', array('as' => 'creators', 'uses' => 'CreatorsController@index'));
 
 //Dynamic menu, lägg sist!
 
 Route::resource('menu', 'MenuController');
 
-Route::get('menu/{type}/{id}/change', array('as' => 'menu.change', 'uses' => 'MenuController@change'));
+
 Route::get('{page}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl'));
 Route::get('{page}/{page2}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl2'));
 Route::get('{page}/{page2}/{page3}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl3'));
@@ -164,6 +165,5 @@ Route::get('{page}/{page2}/{page3}', array('as' => 'menu.dyn', 'uses' => 'MenuCo
 Route::post('menu/arrange', array('as' => 'menu.arrange', 'uses' => 'MenuController@arrange'));
 Route::delete('menu/{id}/delete', array('as' => 'menu.destroySub', 'uses' => 'MenuController@destroySub'));
 Route::delete('menu/{id}/delete2', array('as' => 'menu.destroySubSub', 'uses' => 'MenuController@destroySubSub'));
-
 
 
