@@ -5,7 +5,7 @@
     {{ HTML::style('plugins/summernote/css/css/font-awesome.min.css') }}
 @stop
 @section('content')
-    Edit new menu slide!
+    @include('common.news_errors')
 
     {{Form::open(array('route'=> 'menu.update','files'=>true,'id'=>'form1','method'=>'put'))}}
 

@@ -18,24 +18,8 @@ class CreatorsController extends BaseController
 
     public function index()
     {
-        $onlineEvents = Event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
-        $eventsWithPictures = Event::where('publish', '=', 1)->where('pictureUrl', '!=', '')->orderBy('dateTimeFrom')->get();
-        return View::make('creators.index')
+        return View::make('layouts.creators')
             ->with('title', 'Best of the Best')
-            ->with('events', $onlineEvents)
-            ->with('eventsWithPictures', $eventsWithPictures)
-            ->with('active', 'creators');
-    }
-
-    public function adminIndex()
-    {
-        $onlineEvents = Event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
-        $eventsWithPictures = Event::where('publish', '=', 1)->where('pictureUrl', '!=', '')->orderBy('dateTimeFrom')->get();
-        return View::make('creators.index')
-            ->with('title', 'Best of the Best')
-            ->with('events', $onlineEvents)
-            ->with('eventsWithPictures', $eventsWithPictures)
-            ->with('showLogin', '1')
             ->with('active', 'creators');
     }
 
