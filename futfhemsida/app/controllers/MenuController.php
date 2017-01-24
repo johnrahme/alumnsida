@@ -193,6 +193,11 @@ class MenuController extends \BaseController
      */
     public function store()
     {
+        $validation = Menu::validate(Input::all());
+
+        if ($validation->fails()) {
+            return Redirect::route('menu.create')->withErrors($validation)->withInput();
+        }
         $menuId = Input::get('parent');
         $subMenuId = Input::get('grandparent');
         if ($menuId == "") {
@@ -314,8 +319,13 @@ class MenuController extends \BaseController
      */
     public function update()
     {
-        $type = Input::get('type');
         $id = Input::get('id');
+        $validation = Menu::validate(Input::all());
+
+        if ($validation->fails()) {
+            return Redirect::route('menu.edit', $id)->withErrors($validation)->withInput();
+        }
+        $type = Input::get('type');
         $menuId = Input::get('parent');
         $subMenuId = Input::get('grandparent');
         if ($menuId == "") {

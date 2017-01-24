@@ -17,7 +17,9 @@ class Menu extends Eloquent implements UserInterface, RemindableInterface
      */
 
     public static $rules = array(
-        'name' => 'required'
+        'name' => 'required|min:2',
+        'url' => 'required',
+        'content' => 'required|min:20'
     );
     /**
      * The database table used by the model.
