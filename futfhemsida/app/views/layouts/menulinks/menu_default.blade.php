@@ -3,7 +3,7 @@
     <li id="events"> {{link_to_route('events','Event')}}</li>
     <li id="admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
     <li id="menu"> {{link_to_route('menu.index','Menyer')}}</li>
-    <li id="menu"> {{link_to_route('news','News')}}</li>
+    <li id="news"> {{link_to_route('news','News')}}</li>
     <li id="tower_defense"> {{link_to_route('tower_defense','Tower Defense')}}</li>
     <li id="snake"> {{link_to_route('snake','Snake')}}</li>
     <li id="ownCloud"> {{link_to_route('ownCloud','Filer')}}</li>

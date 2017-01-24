@@ -157,6 +157,8 @@ Route::get('creators', array('as' => 'creators', 'uses' => 'CreatorsController@i
 
 Route::resource('menu', 'MenuController');
 
+Route::get('menu/{type}/{id}/change', array('as' => 'menu.change', 'uses' => 'MenuController@change'));
+
 
 Route::get('{page}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl'));
 Route::get('{page}/{page2}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl2'));

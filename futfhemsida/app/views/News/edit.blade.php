@@ -7,7 +7,7 @@
 
 @section('content')
 
-    @include('common.events_errors')
+    @include('common.news_errors')
     {{Form::open(array('url'=> 'news/update','files'=>true, 'id'=>'form1', 'method'=>'put'))}}
     <p>
         {{Form::label('name', 'Titel', array('class' => 'required'))}} <br/>
