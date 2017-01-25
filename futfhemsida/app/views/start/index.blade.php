@@ -1,69 +1,54 @@
 @extends('layouts.default')
 
 @section('styles')
+
+
     <link rel="stylesheet" href="css/plugins/flexslider.css" type="text/css">
 @stop
+
 @section('content')
+    {{--Jumbotron--}}
     <div class="jumbotron text-center">
         <h2> Välkommen till betaversionen av FUTF:s nya hemsida!</h2>
 
         <p> Hör gärna av er med idéer till {{HTML::mailto('it@futf.se')}}, vi vill ha all feedback vi kan få.</p>
     </div>
+
     <div class="row">
         <div class="col-sm-8">
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-header">
-                            <a data-toggle="collapse" href="#collapse1">
-                                LOREM IPSUM #1</a>
-                        </h4>
-                    </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </div>
-                    </div>
-                </div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-header">
-                            <a data-toggle="collapse" href="#collapse2">
-                                LOREM IPSUM #2</a>
-                        </h4>
-                    </div>
-                    <div id="collapse2" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
-                        </div>
-                    </div>
-                </div>
+            {{--"News" Accordion--}}
 
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-header">
-                            <a data-toggle="collapse" href="#collapse3">
-                                LOREM IPSUM #3</a>
-                        </h4>
-                    </div>
-                    <div id="collapse3" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                            commodo consequat.
+            {{--@if(count($news)!=0)--}}
+            {{--<div class="panel-group" id="accordion">--}}
+                @foreach($news as $currNews)
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-header">
+                                <a data-toggle="collapse" href="#{{$currNews->id}}">
+                                    <h4>{{$currNews->name}}</h4>
+                                </a>
+                            </h4>
                         </div>
+                        @if($currNews->id == 1)
+                            <div id="{{$currNews->id}}" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    {{$currNews->abstract}}
+                                </div>
+                            </div>
+                        @else
+                        <div id="{{$currNews->id}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                {{$currNews->abstract}}
+                            </div>
+                        </div>
+                        @endif
                     </div>
-                </div>
-            </div>
+                @endforeach
+            {{--</div>--}}
+            {{--@endif--}}
 
+            {{--Event Carousel--}}
             <div>
                 @if(count($eventsWithPictures)!=0)
                     <div class="panel panel-default">
@@ -74,7 +59,9 @@
                 @endif
             </div>
         </div>
+
         <div class="col-sm-4">
+            {{--Event Panel--}}
             @if(count($events)!=0)
                 <div class="panel panel-default">
                     <div class="panel-body" style="padding-top: 0">
@@ -95,11 +82,11 @@
                         </div>
                     </div>
                 </div>
+            @endif
         </div>
     </div>
-    @endif
-
 @stop
+
 @section('scripts')
     {{ HTML::script('js/carousel2/jquery.flexslider.js') }}
     {{--Carousel 2--}}
@@ -107,13 +94,13 @@
 
         $(window).load(function () {
             $('.flexslider')
-                    .flexslider({
-                        animation: "slide",
-                        useCSS: false,
-                        animationLoop: false,
-                        smoothHeight: true
+                .flexslider({
+                    animation: "slide",
+                    useCSS: false,
+                    animationLoop: false,
+                    smoothHeight: true
 
-                    });
+                });
         });
     </script>
 
