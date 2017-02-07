@@ -4,7 +4,9 @@
 
     <h1>{{$news->name}}</h1>
     <!--url har värdet 'empty' om det inte finns någon bild-->
-    {{HTML::image($news->url, '', array('class' => 'img-responsive'))}}
+    @if($news->url != 'empty')
+        {{HTML::image($news->url, '', array('class' => 'img-responsive'))}}
+    @endif
     <p><i>{{$news->abstract}}</i> </p>
     <p>{{$news->content}}</p>
     <p>Order: {{$news->order}}</p>

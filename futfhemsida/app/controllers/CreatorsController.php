@@ -18,7 +18,7 @@ class CreatorsController extends BaseController
 
     public function index()
     {
-        return View::make('layouts.creators')
+        return View::make('creators.index')
             ->with('title', 'Best of the Best')
             ->with('active', 'creators');
     }
