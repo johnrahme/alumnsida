@@ -18,7 +18,7 @@ class SamarbetspartnersController extends BaseController
 
     public function index()
     {
-        return View::make('layouts.samarbetspartners')
+        return View::make('index')
             ->with('title', 'Samarbetspartners')
             ->with('active', 'samarbetspartners');
     }
