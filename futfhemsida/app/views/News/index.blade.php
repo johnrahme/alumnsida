@@ -1,17 +1,20 @@
 @extends('layouts.default')
 
 @section('content')
-Alla views
+    <style>
+            table tr:nth-child(odd){
+                background-color: #dddddd;
+            }
+    </style>
 
-    @foreach($news as $currNews)
-        <li>
-            <p>
-                <h2>{{link_to_route('news.show',$currNews->name,$currNews->id)}}</h2>
-            </p>
-
-        </li>
-    @endforeach
-
+    <table style="width: 100%">
+        @foreach($news as $currNews)
+            <tr>
+                <th>{{link_to_route('news.show',$currNews->name,$currNews->id)}}</th>
+                <th>{{$currNews->author}}</th>
+            </tr>
+        @endforeach
+    </table>
 @stop
 
 @section('scripts')

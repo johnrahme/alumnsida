@@ -19,33 +19,35 @@
 
             {{--"News" Accordion--}}
 
-            {{--@if(count($news)!=0)--}}
-            {{--<div class="panel-group" id="accordion">--}}
-                @foreach($news as $currNews)
+            @if(count($news)!=0)
+                @foreach($news as $key => $currNews)
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-header">
-                                <a data-toggle="collapse" href="#{{$currNews->id}}">
-                                    <h4>{{$currNews->name}}</h4>
+                                <a data-toggle="collapse" href="#{{$currNews->id}}" style="display: inline-block">
+                                    {{$currNews->name}}
+                                    <div style="float: right">
+                                        <a href="news/{{$currNews->id}}">Läs mer</a>
+                                    </div>
                                 </a>
                             </h4>
                         </div>
-                        @if($currNews->id == 1)
+                        @if ($currNews->id == 1)
                             <div id="{{$currNews->id}}" class="panel-collapse collapse in">
                                 <div class="panel-body">
                                     {{$currNews->abstract}}
                                 </div>
                             </div>
                         @else
-                        <div id="{{$currNews->id}}" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                {{$currNews->abstract}}
+                            <div id="{{$currNews->id}}" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    {{$currNews->abstract}}
+                                </div>
                             </div>
-                        </div>
                         @endif
                     </div>
                 @endforeach
-            {{--</div>--}}
+            @endif
             {{--@endif--}}
 
             {{--Event Carousel--}}
