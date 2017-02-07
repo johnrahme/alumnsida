@@ -153,6 +153,9 @@ Route::get('snake', array('as' => 'snake', 'uses' => 'SnakeController@index'));
 //creators
 Route::get('creators', array('as' => 'creators', 'uses' => 'CreatorsController@index'));
 
+//Samarbetspartners
+Route::get('samarbetspartners', array('as' => 'samarbetspartners', 'uses' => 'SamarbetspartnersController@index'));
+
 //Dynamic menu, lägg sist!
 
 Route::resource('menu', 'MenuController');
