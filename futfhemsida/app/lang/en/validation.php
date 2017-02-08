@@ -86,8 +86,8 @@ return array(
 
     'custom' => array(
         'email' => array(
-            'required' => 'Du måste fylla i mail',
-            'email' => 'Det måste vara en email'
+            'required' => 'The email field is required.',
+            'email' => 'You need to enter a valid email address.'
 
         ),
     ),

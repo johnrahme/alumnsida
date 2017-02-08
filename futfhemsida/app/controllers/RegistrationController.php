@@ -34,9 +34,17 @@ class RegistrationController extends BaseController
     public function createRegistration()
     {
         $validation = Registration::validate(Input::all());
-        if ($validation->fails()) {
-            return Redirect::route('new_registration', array(Input::get('eventId')))->withErrors($validation)->withInput();
+        $validationExtras = Registration::validateExtras(Input::all());
+        if (Input::has('extras')) {
+            if ($validation->fails() || $validationExtras->fails()) {
+               return Redirect::route('new_registration', array(Input::get('eventId')))->withErrors($validationExtras)->withInput();
+            }
+        } else {
+            if ($validation->fails()) {
+                return Redirect::route('new_registration', array(Input::get('eventId')))->withErrors($validation)->withInput();
+            }
         }
+
         $eventId = Input::get('eventId');
         $event = Event::find($eventId);
         $regCount = Registration::where('eventId', '=', $eventId)->count();

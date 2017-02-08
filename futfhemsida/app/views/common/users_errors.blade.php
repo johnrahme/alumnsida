@@ -6,6 +6,7 @@
         {{$errors->first('agreement', '<li style = "color: red;">:message</li>')}}
         {{$errors->first('surname', '<li style = "color: red;">:message</li>')}}
         {{$errors->first('name', '<li style = "color: red;">:message</li>')}}
+        {{$errors->first('data', '<li style = "color: red;">:message</li>')}}
     </ul>
 
 @endif

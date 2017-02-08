@@ -51,7 +51,7 @@
             {{--@endif--}}
 
             {{--Event Carousel--}}
-            <div>
+            <div style="margin-top: 1%">
                 @if(count($eventsWithPictures)!=0)
                     <div class="panel panel-default">
                         <div class="panel-body">

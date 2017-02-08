@@ -52,9 +52,9 @@
 
                     @foreach($extraFields as $key => $ex)
                         <p>
-                            {{Form::label('extras[]', $ex->title)}}<br/>
-                            {{Form::text('extras[]', '',array('class' => 'form-control') )}}
-                            {{Form::hidden('extrasId[]',$ex->id)}}
+                            {{Form::label('extras', $ex->title)}}<br/>  {{-- Ska det stå extras[]? --}}
+                            {{Form::text('extras', '',array('class' => 'form-control') )}} {{-- Ska det stå extras[]? --}}
+                            {{Form::hidden('extrasId',$ex->id)}} {{-- Ska det stå extrasId[]? --}}
                         </p>
                     @endforeach
 
