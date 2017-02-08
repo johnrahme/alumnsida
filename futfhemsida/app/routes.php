@@ -156,6 +156,9 @@ Route::get('creators', array('as' => 'creators', 'uses' => 'CreatorsController@i
 //Samarbetspartners
 Route::get('samarbetspartners', array('as' => 'samarbetspartners', 'uses' => 'SamarbetspartnersController@index'));
 
+// 404 Errors
+Route::get('404', array('as' => '404', 'uses' => 'ErrorController@missing'));
+
 //Dynamic menu, lägg sist!
 
 Route::resource('menu', 'MenuController');
