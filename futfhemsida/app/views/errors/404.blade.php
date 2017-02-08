@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <img src="img/404_error_page.png" height="100%" width="100%"/>
+    <img src="img/404_error_page_large.png" height="100%" width="100%"/>
 
 @stop
 
