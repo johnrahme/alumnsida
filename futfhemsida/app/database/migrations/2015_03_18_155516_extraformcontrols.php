@@ -18,6 +18,7 @@ class Extraformcontrols extends Migration
             $table->integer('eventId')->unsigned();
             $table->foreign('eventId')->references('id')->on('f_events');
             $table->string('title');
+            $table->boolean('required');
             $table->timestamps();
         });
     }

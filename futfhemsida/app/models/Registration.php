@@ -4,6 +4,7 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Illuminate\Support\Facades\Input;
 
 class Registration extends Eloquent implements UserInterface, RemindableInterface
 {
@@ -20,14 +21,31 @@ class Registration extends Eloquent implements UserInterface, RemindableInterfac
         'name' => 'required',
         'surname' => 'required',
         'email' => 'required|email',
-        'data' => 'required' //Bör flyttas till $rules2 om det ska vara korrekt då allt fungerar. Data ligger här för att alla extrafält ska vara obligatoriska tills vidare. :)
+
     );
 
-    public static $rules2 = array(
+    public static function getExtraRules(){
+        $rules2 = [ 'name' => 'required',
+                    'surname' => 'required',
+                     'email' => 'required|email',];
+
+
+        foreach (Input::get('extras') as $key => $value){
+            $extraFieldFromDb = Extraformcontrol::find(Input::get('extrasId.'.$key));
+            if(1){ // $extraFieldFromDb->required == true
+                $rules2['extras.'.$key] = 'required';
+            }
+
+        }
+
+    return $rules2;
+    }
+/*    public static $rules2 = array(
     'name' => 'required',
     'surname' => 'required',
-    'email' => 'required|email'
-);
+    'email' => 'required|email',
+    'extras' => 'required|min:10' //Bör flyttas till $rules2 om det ska vara korrekt då allt fungerar. Data ligger här för att alla extrafält ska vara obligatoriska tills vidare. :)
+);*/
 
     /**
      * The database table used by the model.
@@ -43,7 +61,7 @@ class Registration extends Eloquent implements UserInterface, RemindableInterfac
 
     public static function validateExtras($data)
     {
-        return Validator::make($data, static::$rules2);
+        return Validator::make($data, static::getExtraRules());
     }
 
 }

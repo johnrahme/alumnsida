@@ -6,7 +6,16 @@
         {{$errors->first('email', '<li style = "color: red;">:message</li>')}}
         {{$errors->first('username', '<li style = "color: red;">:message</li>')}}
         {{$errors->first('agreement', '<li style = "color: red;">:message</li>')}}
-        {{$errors->first('data', '<li style = "color: red;">:message</li>')}}
+        <?php
+
+        if(isset($extraFields)){
+
+            foreach ($extraFields as $key => $ex){
+                echo $errors->first('extras.'.$key, '<li style = "color: red;">The '.$ex->title.' field is required.</li>');
+            }
+        }
+        ?>
+
     </ul>
 
 @endif

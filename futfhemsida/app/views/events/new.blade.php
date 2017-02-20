@@ -157,7 +157,7 @@
                             }
                         });
                         //Extra fält:
-                        var max_fields = 5;
+                        var max_fields = 10;
 
                         var x = {{count(Input::old('extras'))}};
                         $('#addEx').click(function (e) {
