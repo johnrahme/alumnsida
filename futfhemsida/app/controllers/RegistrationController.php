@@ -23,6 +23,7 @@ class RegistrationController extends BaseController
         $extraFields = Extraformcontrol::where('eventId', '=', $id)->get();
         $event = Event::find($id);
         $regCount = Registration::where('eventId', '=', $id)->count();
+
         return View::make('registrations.new')
             ->with('title', 'New Registration')
             ->with('extraFields', $extraFields)
@@ -33,11 +34,14 @@ class RegistrationController extends BaseController
 
     public function createRegistration()
     {
+
         $validation = Registration::validate(Input::all());
         $validationExtras = Registration::validateExtras(Input::all());
         if (Input::has('extras')) {
-            if ($validation->fails() || $validationExtras->fails()) {
-               return Redirect::route('new_registration', array(Input::get('eventId')))->withErrors($validationExtras)->withInput();
+            if ($validationExtras->fails()) {
+
+               return Redirect::route('new_registration', array(Input::get('eventId')))->withErrors($validationExtras);
+
             }
         } else {
             if ($validation->fails()) {
@@ -65,10 +69,7 @@ class RegistrationController extends BaseController
         if (Input::has('extras')) {
             $extras = Input::get('extras');
             $extrasId = Input::get('extrasId');
-            /*
-            for($i = 0; $i < count($extras); $i++){
 
-            }*/
             foreach ($extras as $key => $text) {
                 $extraData = new Extradata;
                 $extraData->registrationsId = $registration->id;

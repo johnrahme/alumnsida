@@ -120,8 +120,10 @@ class EventController extends BaseController
             }
         }
         $event->save();
+
         if (Input::has('extras')) {
             foreach (Input::get('extras') as $key => $text) {
+                // Lägg till data för required fält I databasen
                 $extraFormControl = new Extraformcontrol;
                 $extraFormControl->eventId = $event->id;
                 $extraFormControl->title = $text;
@@ -226,6 +228,7 @@ class EventController extends BaseController
                 if (Input::has('extras')) {
 
                     foreach (Input::get('extras') as $key => $text) {
+                        // Lägg till data för required fält I databasen
                         $extraFormControl = new Extraformcontrol;
                         $extraFormControl->eventId = $event->id;
                         $extraFormControl->title = $text;

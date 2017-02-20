@@ -51,13 +51,13 @@ App::error(function (Exception $exception, $code) {
 });
 
 // 404 Error
-App::error(function(Exception $exception, $code) {
+/*App::error(function(Exception $exception, $code) {
     if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
         Log::error('NotFoundHttpException Route: ' . Request::url() );
     }
     Log::error($exception);
     return App::make("ErrorController")->callAction("missing", ['code'=>$code]);
-});
+});*/
 
 /*
 |--------------------------------------------------------------------------
