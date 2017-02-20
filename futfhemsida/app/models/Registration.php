@@ -40,12 +40,6 @@ class Registration extends Eloquent implements UserInterface, RemindableInterfac
 
     return $rules2;
     }
-/*    public static $rules2 = array(
-    'name' => 'required',
-    'surname' => 'required',
-    'email' => 'required|email',
-    'extras' => 'required|min:10' //Bör flyttas till $rules2 om det ska vara korrekt då allt fungerar. Data ligger här för att alla extrafält ska vara obligatoriska tills vidare. :)
-);*/
 
     /**
      * The database table used by the model.
