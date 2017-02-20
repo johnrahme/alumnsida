@@ -120,12 +120,21 @@ class EventController extends BaseController
             }
         }
         $event->save();
-
+        $message = "";
         if (Input::has('extras')) {
+            $required = Input::get('required');
             foreach (Input::get('extras') as $key => $text) {
                 // Lägg till data för required fält I databasen
+                $message = $message.$required[$key];
                 $extraFormControl = new Extraformcontrol;
                 $extraFormControl->eventId = $event->id;
+                if($required[$key] == 'true'){
+                    $extraFormControl->required = 1;
+                }
+                else{
+                    $extraFormControl->required = 0;
+                }
+
                 $extraFormControl->title = $text;
                 $extraFormControl->save();
             }
@@ -133,7 +142,7 @@ class EventController extends BaseController
 
 
         return Redirect::to('events')
-            ->with('message', 'Eventet har nu skapats!');
+            ->with('message', $message);
 
     }
 

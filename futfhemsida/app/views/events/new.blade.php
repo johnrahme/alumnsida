@@ -167,7 +167,7 @@
                                 var ex = "extra";
                                 var fieldID = ex.concat(ex);
 
-                                $("#wrapper").append('<div><input type="text" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a><br><br></div>'); //add input box
+                                $("#wrapper").append('<div><input type="text" name="extras[]" id="extras[]"/><a href="#" id="remove_field">X</a><select name = "required[]"><option value = "false">Inte obligatorisk</option><option value = "true">Obligatorisk</option></select><br><br></div>'); //add input box
                             }
                         });
                         $("#wrapper").on("click", "#remove_field", function (e) { //user click on remove text
