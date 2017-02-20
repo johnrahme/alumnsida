@@ -19,13 +19,11 @@
 
             {{--"News" Accordion--}}
             @if(count($news)!=0)
-                <div class="panel-group" id="accordion">
                 @foreach($news as$key => $currNews)
-
-                    <div class="panel panel-default">
+                    <div class="panel panel-default" style="word-wrap: break-word">
                         <div class="panel-heading">
                             <h4 class="panel-header">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#news{{$currNews->id}}" style="display: inline-block">
+                                <a data-toggle="collapse" href="#news{{$currNews->id}}" style="display: inline-block">
                                     {{$currNews->name}}
                                     <div style="float: right">
                                         <a href="news/{{$currNews->id}}">Läs mer</a>
@@ -48,7 +46,6 @@
                         @endif
                     </div>
                 @endforeach
-                    </div>
             @endif
             {{--@endif--}}
 

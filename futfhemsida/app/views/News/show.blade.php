@@ -7,10 +7,12 @@
     @if($news->url != 'empty')
         {{HTML::image($news->url, '', array('class' => 'img-responsive'))}}
     @endif
-    <p><i>{{$news->abstract}}</i> </p>
-    <p>{{$news->content}}</p>
-    <p>Order: {{$news->order}}</p>
-    <p><i>Författare: {{$news->author}}</i> </p>
+    <div style="word-wrap: break-word">
+        <p><i>{{$news->abstract}}</i> </p>
+        <p>{{$news->content}}</p>
+        <p>Order: {{$news->order}}</p>
+        <p><i>Författare: {{$news->author}}</i> </p>
+    </div>
 
     <td>
         {{ Form::open(array('url'=>'news/delete', 'method' =>'DELETE')) }}
