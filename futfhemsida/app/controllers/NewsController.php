@@ -9,11 +9,11 @@ class NewsController extends \BaseController {
 	 */
 	public function index()
 	{
-        $news = News::all();
+        $news = News::orderBy('created_at', 'desc')->get();
         return View::make('news.index')
             ->with('title', 'News')
             ->with('news', $news)
-            ->with('active', 'events');
+            ->with('active', 'news');
 	}
 
 
@@ -27,7 +27,7 @@ class NewsController extends \BaseController {
 
         return View::make('news.create')
             ->with('title', 'Create News')
-            ->with('active', 'events');
+            ->with('active', 'news');
 	}
 
 
@@ -84,12 +84,10 @@ class NewsController extends \BaseController {
 	{
         $news = News::find($id);
 
-
-
         return View::make('news.show')
             ->with('title', 'Show News')
             ->with('news', $news)
-            ->with('active', 'events');
+            ->with('active', 'news');
 	}
 
 
@@ -104,7 +102,7 @@ class NewsController extends \BaseController {
         return View::make('news.edit')
             ->with('title', 'Edit News')
             ->with('news', News::find($id))
-            ->with('active', 'events');
+            ->with('active', 'news');
 	}
 
 

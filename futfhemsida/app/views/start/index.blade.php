@@ -18,13 +18,14 @@
         <div class="col-sm-8">
 
             {{--"News" Accordion--}}
-
             @if(count($news)!=0)
-                @foreach($news as $key => $currNews)
+                <div class="panel-group" id="accordion">
+                @foreach($news as$key => $currNews)
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-header">
-                                <a data-toggle="collapse" href="#{{$currNews->id}}" style="display: inline-block">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#news{{$currNews->id}}" style="display: inline-block">
                                     {{$currNews->name}}
                                     <div style="float: right">
                                         <a href="news/{{$currNews->id}}">Läs mer</a>
@@ -32,14 +33,14 @@
                                 </a>
                             </h4>
                         </div>
-                        @if ($currNews->id == 1)
-                            <div id="{{$currNews->id}}" class="panel-collapse collapse in">
+                        @if ($key == 0 )
+                            <div id="news{{$currNews->id}}" class="panel-collapse collapse in">
                                 <div class="panel-body">
                                     {{$currNews->abstract}}
                                 </div>
                             </div>
                         @else
-                            <div id="{{$currNews->id}}" class="panel-collapse collapse">
+                            <div id="news{{$currNews->id}}" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     {{$currNews->abstract}}
                                 </div>
@@ -47,6 +48,7 @@
                         @endif
                     </div>
                 @endforeach
+                    </div>
             @endif
             {{--@endif--}}
 

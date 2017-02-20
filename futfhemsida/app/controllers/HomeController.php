@@ -20,7 +20,7 @@ class HomeController extends BaseController
     {
         $onlineEvents = Event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
         $eventsWithPictures = Event::where('publish', '=', 1)->where('pictureUrl', '!=', '')->orderBy('dateTimeFrom')->get();
-        $news = News::all();
+        $news = News::orderBy('created_at', 'desc')->get();
         return View::make('start.index')
             ->with('title', 'FUTF-alumnsida')
             ->with('events', $onlineEvents)
@@ -33,7 +33,7 @@ class HomeController extends BaseController
     {
         $onlineEvents = Event::where('publish', '=', 1)->orderBy('dateTimeFrom')->get();
         $eventsWithPictures = Event::where('publish', '=', 1)->where('pictureUrl', '!=', '')->orderBy('dateTimeFrom')->get();
-        $news = News::all();
+        $news = News::orderBy('created_at', 'desc')->get();
         return View::make('start.index')
             ->with('title', 'FUTF-alumnsida')
             ->with('events', $onlineEvents)

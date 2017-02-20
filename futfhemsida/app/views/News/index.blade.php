@@ -8,7 +8,7 @@
     </style>
 
     <table style="width: 100%">
-        @foreach($news as $currNews)
+        @foreach($news as$key => $currNews)
             <tr>
                 <th>{{link_to_route('news.show',$currNews->name,$currNews->id)}}</th>
                 <th>{{$currNews->author}}</th>
