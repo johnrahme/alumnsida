@@ -16,7 +16,7 @@
             <div class="col-sm-4">
                 <div style="text-align: center; width:100%; margin-top: 5px ">
 
-                    <body onload="startTime()">
+                    <body onmousemove="startTime()">
                     <span id="date_timer"></span>
                     </body>
 

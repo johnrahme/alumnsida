@@ -15,13 +15,13 @@
     }
 
     a {
-        transition: color 0.2s ease-out;
+        transition: color 0.1s ease-out;
         text-decoration: none;
         color: #3e7aac;
     }
 
     a:hover {
-        color: #E6B800;
+        color: #F1B424;
     }
 
     .overlay {
@@ -3524,7 +3524,7 @@
             height: 1.2,
             slices: 75,
             ambient: '#000000',
-            diffuse: '#E6B800'
+            diffuse: '#F1B424'
         };
 
         //------------------------------
@@ -3536,7 +3536,7 @@
             yPos: 0,
             zOffset: 650,
             ambient: '#880066',
-            diffuse: '#E6B800',
+            diffuse: '#F1B424',
             pickedup: true,
             proxy: false,
             currIndex: -1
@@ -3649,7 +3649,7 @@
             createMesh();
             addLight();
             addEventListeners();
-            addControls();
+
             resize(containerTriangle.offsetWidth, containerTriangle.offsetHeight);
             animate();
         }
@@ -3896,6 +3896,7 @@
         }
 
         window.onload = onMouseMove;
+
         // Let there be light!
         initialise();
 
