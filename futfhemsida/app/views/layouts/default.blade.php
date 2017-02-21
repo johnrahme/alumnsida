@@ -69,9 +69,10 @@ if (!is_null($subSubPageDB)) {
             </div>
         </div>
     </div>
-    <div class="box">
+        {{--Removes the dropdown arrow for the old navigation bar--}}
+    {{--<div class="box">
         <span class="navigationbarbutton"><a id="toggle1"><img src="img/arrow.png" height="33" width="29" id="bg"/></a></span>
-    </div>
+    </div>--}}
 
     <div id="dropdownMenu" style="width: 100%; z-index: 1000">
         <ul>
@@ -84,7 +85,7 @@ if (!is_null($subSubPageDB)) {
 
 <!-- Container -->
 
-    <div id="main" class="container clear-top conatinerScreen" style="margin-top: calc(98px + 50px); width: 98%">
+    <div id="main" class="container clear-top conatinerScreen" style="margin-top: calc(98px + 50px); width: 100%; background-color: rgba(255,255,255,.5)">
         <div class="row">
             <div class="@if(Auth::check()) col-md-9 @else col-md-12 @endif">
                 @if(Session::has('message'))
