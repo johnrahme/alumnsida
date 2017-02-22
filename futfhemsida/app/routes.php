@@ -139,6 +139,22 @@ Route::put('news/update', array('uses' => 'NewsController@update'));
 
 Route::delete('news/delete', array('uses' => 'NewsController@destroy'));
 
+//samarbetspartners
+Route::get('samarbetspartners', array('as' => 'samarbetspartners', 'uses' => 'SamarbetspartnersController@index'));
+
+Route::get('samarbetspartners/create', array('as' => 'samarbetspartners.create', 'uses' => 'SamarbetspartnersController@create'));
+
+Route::get('samarbetspartners/{id}', array('as' => 'samarbetspartners.show', 'uses' => 'SamarbetspartnersController@show'));
+
+Route::post('samarbetspartners/store', array('uses' => 'SamarbetspartnersController@store'));
+
+Route::get('samarbetspartners/{id}/edit', array('as' => 'samarbetspartners.edit', 'uses' => 'SamarbetspartnersController@edit'));
+
+
+Route::put('samarbetspartners/update', array('uses' => 'SamarbetspartnersController@update'));
+
+Route::delete('samarbetspartners/delete', array('uses' => 'SamarbetspartnersController@destroy'));
+
 
 // Files
 Route::get('files', array('as' => 'ownCloud', 'uses' => 'OwnCloudController@index'));

@@ -1,15 +1,23 @@
 @extends('layouts.default')
 
-@section('styles')
-    {{--{{ HTML::style('css/owncloud.css') }}--}}
-@stop
-
 @section('content')
+    <style>
+        table tr:nth-child(odd){
+            background-color: #dddddd;
+        }
+    </style>
 
-<h3>Content</h3>
-
+    <table style="width: 100%">
+        @foreach($sp as$key => $currSp)
+            <tr>
+                <th>{{link_to_route('samarbetspartners.show',$currSp->name,$currSp->id)}}</th>
+                <th>{{$currSp->created_at}}</th>
+                <th @if($currSp->url != 'empty')style="width: 200px; height: 200px"@endif>@if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif</th>
+            </tr>
+        @endforeach
+    </table>
 @stop
 
 @section('scripts')
-{{--    {{ HTML::script('js/snake/snake.js') }}--}}
+
 @stop

@@ -135,7 +135,14 @@ if (!is_null($subSubPageDB)) {
                     <div class="panel panel-default">
                         <h4 style="text-align: center; ">Sammarbetspartners</h4>
                         <div>
-                            <p>För närvarande finns inga sammarbetspartners.</p>  // Gör klart detta :)
+                            <table style="width: 100%">
+                                <?php $sp = Samarbetspartners::orderBy('created_at', 'desc')->get(); ?>
+                                @foreach($sp as$key => $currSp)
+                                    <tr>
+                                        <th @if($currSp->url != 'empty')style="width: 200px; height: 200px"@endif>@if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif</th>
+                                    </tr>
+                                @endforeach
+                            </table>
                             <div @if(Auth::check()) id="dynamicCompany" @else @endif>
                             </div>
                         </div>
