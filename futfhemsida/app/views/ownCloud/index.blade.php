@@ -5,6 +5,9 @@
 @stop
 
 @section('content')
+    @if(Auth::check()) <a href="beta.futf.se/owncloud/index.php">Till inloggningen av OwnCloud.</a>
+    @else
+    @endif
 
     <div class="futf-documents-wrapper panel panel-default">
         <iframe class="futf-documents"
