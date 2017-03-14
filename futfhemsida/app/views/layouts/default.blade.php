@@ -44,6 +44,7 @@ if (!is_null($subSubPageDB)) {
     {{ HTML::style('css/subsubmenus.css') }}
     {{ HTML::style('css/sidemenupanel.css') }}
     {{ HTML::style('css/dropdownMenu.css') }}
+    {{ HTML::style('css/footer.css') }}
     {{ HTML::style('jasny-bootstrap/css/jasny-bootstrap.css') }}
 
     {{--LinkedIn--}}
@@ -76,8 +77,7 @@ if (!is_null($subSubPageDB)) {
 
     <div id="dropdownMenu" style="width: 100%; z-index: 1000">
         <ul>
-            <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu dropdownMenu-logo"></a>
-            <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu dropdownMenu-brand">FUTF</a>
+
             @include('layouts.menulinks.menu_default')
         </ul>
     </div>
@@ -85,7 +85,7 @@ if (!is_null($subSubPageDB)) {
 
 <!-- Container -->
 
-    <div id="main" class="container clear-top conatinerScreen" style="margin-top: calc(98px + 50px); width: 100%; background-color: rgba(255,255,255,.5)">
+    <div id="main" class="container clear-top conatinerScreen" style="margin-top: calc(98px + 50px); width: 100%; background-color: rgba(255,255,255,.75)">
         <div class="row">
             <div class="@if(Auth::check()) col-md-9 @else col-md-12 @endif">
                 @if(Session::has('message'))
@@ -158,7 +158,6 @@ if (!is_null($subSubPageDB)) {
 </div>
 <!-- Scripts are placed here -->
 {{ HTML::script('js/jquery-1.11.1.min.js') }}
-{{ HTML::script('js/jquery-1.8.3.min.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
 {{ HTML::script('js/jquery.datetimepicker.js')}}
 {{ HTML::script('js/checkmodal.js')}}
