@@ -140,15 +140,15 @@ Route::put('news/update', array('uses' => 'NewsController@update'));
 Route::delete('news/delete', array('uses' => 'NewsController@destroy'));
 
 //samarbetspartners
-Route::get('sp', array('as' => 'samarbetspartners', 'uses' => 'SamarbetspartnersController@index'));
+Route::get('samarbetspartners', array('as' => 'samarbetspartners', 'uses' => 'SamarbetspartnersController@index'));
 
-Route::get('sp/create', array('as' => 'samarbetspartners.create', 'uses' => 'SamarbetspartnersController@create'));
+Route::get('samarbetspartners/create', array('as' => 'samarbetspartners.create', 'uses' => 'SamarbetspartnersController@create'));
 
-Route::get('sp/{id}', array('as' => 'samarbetspartners.show', 'uses' => 'SamarbetspartnersController@show'));
+Route::get('samarbetspartners/{id}', array('as' => 'samarbetspartners.show', 'uses' => 'SamarbetspartnersController@show'));
 
-Route::post('sp/store', array('uses' => 'SamarbetspartnersController@store'));
+Route::post('samarbetspartners/store', array('uses' => 'SamarbetspartnersController@store'));
 
-Route::get('sp/{id}/edit', array('as' => 'samarbetspartners.edit', 'uses' => 'SamarbetspartnersController@edit'));
+Route::get('samarbetspartners/{id}/edit', array('as' => 'samarbetspartners.edit', 'uses' => 'SamarbetspartnersController@edit'));
 
 
 Route::put('sp/update', array('uses' => 'SamarbetspartnersController@update'));

@@ -8,7 +8,7 @@
     </style>
 
     <table style="width: 100%">
-        @foreach($sp as$key => $currSp)
+        @foreach($samarbetspartners as$key => $currSp)
             <tr>
                 <th>{{link_to_route('samarbetspartners.show',$currSp->name,$currSp->id)}}</th>
                 <th>{{$currSp->created_at}}</th>

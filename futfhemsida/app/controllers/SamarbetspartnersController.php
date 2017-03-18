@@ -9,11 +9,11 @@ class SamarbetspartnersController extends \BaseController {
      */
     public function index()
     {
-        $sp = Samarbetspartners::orderBy('created_at', 'desc')->get();
+        $samarbetspartners = Samarbetspartners::orderBy('created_at', 'desc')->get();
         return View::make('samarbetspartners.index')
             ->with('title', 'Samarbetspartners')
-            ->with('sp', $sp)
-            ->with('active', 'sp');
+            ->with('samarbetspartners', $samarbetspartners)
+            ->with('active', 'samarbetspartners');
     }
 
 
@@ -26,8 +26,8 @@ class SamarbetspartnersController extends \BaseController {
     {
 
         return View::make('samarbetspartners.create')
-            ->with('title', 'Add business partner')
-            ->with('active', 'sp');
+            ->with('title', 'Add cooperation partner')
+            ->with('active', 'samarbetspartners');
     }
 
 
@@ -43,11 +43,11 @@ class SamarbetspartnersController extends \BaseController {
         if ($validation->fails()) {
             return Redirect::route('samarbetspartners.create')->withErrors($validation)->withInput();
         }
-        $sp = new Samarbetspartners;
-        $sp->name = Input::get('name');
-        $sp->content = Input::get('content');
-        $sp->order = Input::get('order');
-        $sp->abstract = Input::get('abstract');
+        $samarbetspartners = new Samarbetspartners;
+        $samarbetspartners->name = Input::get('name');
+        $samarbetspartners->content = Input::get('content');
+        $samarbetspartners->order = Input::get('order');
+        $samarbetspartners->abstract = Input::get('abstract');
         if (Input::hasFile('image')) {
             if (Input::file('image')->isValid()) {
                 $imgName = Input::file('image')->getClientOriginalName();
@@ -55,20 +55,20 @@ class SamarbetspartnersController extends \BaseController {
                 $saveName = microtime() . '_' . $imgName;
                 Input::file('image')->move('owncloud/styrelsen/files/images/samarbetspartners/', $saveName);
                 $URL = 'owncloud/styrelsen/files/images/samarbetspartners/' . $saveName;
-                $sp->url = $URL;
+                $samarbetspartners->url = $URL;
             }
             else{
-                $sp->url = "empty";
+                $samarbetspartners->url = "empty";
             }
         }
         else{
-            $sp->url = "empty";
+            $samarbetspartners->url = "empty";
         }
 
 
-        $sp->save();
+        $samarbetspartners->save();
 
-        return Redirect::to('sp')
+        return Redirect::to('samarbetspartners')
             ->with('message', 'Samarbetspartnern har lagts till');
     }
 
@@ -81,12 +81,12 @@ class SamarbetspartnersController extends \BaseController {
      */
     public function show($id)
     {
-        $sp = Samarbetspartners::find($id);
+        $samarbetspartners = Samarbetspartners::find($id);
 
         return View::make('samarbetspartners.show')
             ->with('title', 'Visa samarbetspartners')
-            ->with('sp', $sp)
-            ->with('active', 'sp');
+            ->with('samarbetspartners', $samarbetspartners)
+            ->with('active', 'samarbetspartners');
     }
 
 
@@ -100,8 +100,8 @@ class SamarbetspartnersController extends \BaseController {
     {
         return View::make('samarbetspartners.edit')
             ->with('title', 'Edit business relation')
-            ->with('sp', Samarbetspartners::find($id))
-            ->with('active', 'sp');
+            ->with('samarbetspartners', Samarbetspartners::find($id))
+            ->with('active', 'samarbetspartners');
     }
 
 
@@ -119,12 +119,11 @@ class SamarbetspartnersController extends \BaseController {
         if ($validation->fails()) {
             return Redirect::route('news.edit', $id)->withErrors($validation)->withInput();
         }
-        $sp = Samarbetspartners::find($id);
-        $sp->name = Input::get('name');
-        $sp->content = Input::get('content');
-        $sp->order = Input::get('order');
-        $sp->abstract = Input::get('abstract');
-        //Remove the old image if there is one
+        $samarbetspartners = Samarbetspartners::find($id);
+        $samarbetspartners->name = Input::get('name');
+        $samarbetspartners->content = Input::get('content');
+        $samarbetspartners->order = Input::get('order');
+        $samarbetspartners->abstract = Input::get('abstract');
         //Remove the old image if there is one
         if (Input::hasFile('image')) {
             if (Input::file('image')->isValid()) {
@@ -133,16 +132,16 @@ class SamarbetspartnersController extends \BaseController {
                 $saveName = microtime() . '_' . $imgName;
                 Input::file('image')->move('owncloud/styrelsen/files/images/samarbetspartners/', $saveName);
                 $URL = 'owncloud/styrelsen/files/images/samarbetspartners/' . $saveName;
-                $sp->url = $URL;
+                $samarbetspartners->url = $URL;
             }
         }
 
 
 
 
-        $sp->save();
+        $samarbetspartners->save();
 
-        return Redirect::to('sp')
+        return Redirect::to('samarbetspartners')
             ->with('message', Input::hasFile('image'));
     }
 
@@ -156,10 +155,10 @@ class SamarbetspartnersController extends \BaseController {
     public function destroy()
     {
         $id = Input::get('id');
-        $sp = Samarbetspartners::find($id);
-        $sp->delete();
+        $samarbetspartners = Samarbetspartners::find($id);
+        $samarbetspartners->delete();
 
-        return Redirect::route('sp')
+        return Redirect::route('samarbetspartners')
             ->with('message', 'Business partner removed');
     }
 

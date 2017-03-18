@@ -8,7 +8,7 @@
 @section('content')
 
  @include('common.samarbetspartners_errors')
-{{Form::open(array('url'=> 'sp/store','files'=>true, 'id'=>'form1'))}}
+{{Form::open(array('url'=> 'samarbetspartners/store','files'=>true, 'id'=>'form1'))}}
     <p>
         {{Form::label('name', 'Företagsnamn', array('class' => 'required'))}} <br/>
 
@@ -62,7 +62,7 @@
 
  <!------------------------IMAGE END-------------------------->
 
-    <button id="save" class="btn btn-primary" onclick="save()" type="button">Skapa nyhet
+    <button id="save" class="btn btn-primary" onclick="save()" type="button">Skapa samarbetspartners
     {{Form::close()}}
 @stop
 
