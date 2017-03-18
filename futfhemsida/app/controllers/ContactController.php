@@ -14,11 +14,11 @@ class ContactController extends BaseController
 
     public function send()
     {
-        $validation = Contact::validate(Input::all());
-
-        if ($validation->fails()) {
-            return Redirect::route('contact')->withErrors($validation)->withInput();
-        }
+//        $validation = Contact::validate(Input::all());
+//
+//        if ($validation->fails()) {
+//            return Redirect::route('contact')->withErrors($validation)->withInput();
+//        }
         $data = array('name' => Input::get('contact-name'), 'email' => Input::get('contact-email'), 'text' => Input::get('contact-text'));
         Mail::send('emails.contact.contact', $data, function ($message) {
             $message->from(Input::get('contact-email'), Input::get('contact-name'));
