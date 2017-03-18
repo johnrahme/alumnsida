@@ -11,28 +11,28 @@
             <div class="modal-body">
                 <div class="form-group">
 
-                    <label for="contact-name" class="col-lg-2" control-label>Name:</label>
+                    <label for="contact-name" class="col-lg-2 required" control-label>Name:</label>
 
                     <div class="col-lg-10">
                         <input type="text" class="form-control" id="contact-name" name="contact-name"
-                               placeholder="Full name" value="">
+                               placeholder="Namn" value="">
 
                     </div>
 
                 </div>
                 <div class="form-group">
-                    <label for="contact-email" class="col-lg-2" control-label>Email:</label>
+                    <label for="contact-email" class="col-lg-2 required" control-label>Email:</label>
 
                     <div class="col-lg-10">
                         <input type="email" class="form-control" id="contact-email" name="contact-email"
-                               placeholder="u@example.com">
+                               placeholder="futf@example.se">
 
                     </div>
 
                 </div>
 
                 <div class="form-group">
-                    <label for="contact-text" class="col-lg-2" control-label>Text: </label>
+                    <label for="contact-text" class="col-lg-2 required" control-label>Text:  </label>
 
                     <div class="col-lg-10">
                         <textarea class="form-control" rows="7" id="contact-text" name="contact-text"

@@ -2,6 +2,7 @@
     <ul>
         {{$errors->first('name', '<li style = "color: red;">:message </li>')}}
         {{$errors->first('email', '<li style = "color: red;">:message</li>')}}
+        {{$errors->first('text', '<li style = "color: red;">:message</li>')}}
     </ul>
 
 @endif
