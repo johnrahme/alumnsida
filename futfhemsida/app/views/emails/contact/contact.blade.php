@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-<h2>Idé om event!</h2>
+<h2>Kontaktformulär</h2>
 
 <div>
     {{$text}}
