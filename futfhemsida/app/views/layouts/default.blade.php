@@ -81,7 +81,7 @@ if (!is_null($subSubPageDB)) {
             @include('layouts.menulinks.menu_default')
         </ul>
     </div>
-    <a href="#" class="scrollToTop"></a>
+    <a style="z-index: 10000;" href="#" class="scrollToTop"></a>
 
 <!-- Container -->
 
