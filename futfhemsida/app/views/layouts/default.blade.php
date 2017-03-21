@@ -133,11 +133,11 @@ if (!is_null($subSubPageDB)) {
                 @include('layouts.menuPanel')
                 <div id="id_företag" style="padding-top: 20px; display:none;">
                     <div class="panel panel-default">
-                        <h4 style="text-align: center; ">Sammarbetspartners</h4>
+                        <h4 style="text-align: center; ">Samarbetspartners</h4>
                         <div>
                             <table style="width: 100%">
-                                <?php $sp = Samarbetspartners::orderBy('created_at', 'desc')->get(); ?>
-                                @foreach($sp as$key => $currSp)
+                                <?php $samarbetspartners = Samarbetspartners::orderBy('created_at', 'desc')->get(); ?>
+                                @foreach($samarbetspartners as$key => $currSp)
                                     <tr>
                                         <th @if($currSp->url != 'empty')style="width: 200px; height: 200px"@endif>@if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif</th>
                                     </tr>
@@ -158,6 +158,7 @@ if (!is_null($subSubPageDB)) {
 </div>
 <!-- Scripts are placed here -->
 {{ HTML::script('js/jquery-1.11.1.min.js') }}
+{{--{{ HTML::script('js/jquery-1.8.3.min.js') }}--}}
 {{ HTML::script('js/bootstrap.min.js') }}
 {{ HTML::script('js/jquery.datetimepicker.js')}}
 {{ HTML::script('js/checkmodal.js')}}

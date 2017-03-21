@@ -4,10 +4,11 @@
     <meta charset="utf-8">
 </head>
 <body>
-<h2>Kontaktformulär</h2>
-
+<h3>Kontaktformulär</h3>
+<h4>Texten nedan är skickad av <i>{{$name}}</i> via kontaktformuläret på futf.se.</h4>
+<br>
 <div>
-    {{$text}}
+    <i>{{$text}}</i>
 </div>
 </body>
 </html>

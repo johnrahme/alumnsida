@@ -77,7 +77,7 @@
             <script>
                 {{--When uploading an image save it in the folder event--}}
 
-             onImageUpload("owncloud/styrelsen/files/images/samarbetspartners","{{url('events/imgstore')}}");
+             onImageUpload("filesOwncloud/styrelsen/files/images/samarbetspartners","{{url('events/imgstore')}}");
             </script>
 
             <script>

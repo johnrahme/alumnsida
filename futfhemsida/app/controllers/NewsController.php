@@ -54,8 +54,8 @@ class NewsController extends \BaseController {
                 $imgName = Input::file('image')->getClientOriginalName();
                 $imgExtension = Input::file('image')->getClientOriginalExtension();
                 $saveName = microtime() . '_' . $imgName;
-                Input::file('image')->move('owncloud/styrelsen/files/images/news/', $saveName);
-                $URL = 'owncloud/styrelsen/files/images/news/' . $saveName;
+                Input::file('image')->move('filesOwncloud/styrelsen/files/images/news/', $saveName);
+                $URL = 'filesOwncloud/styrelsen/files/images/news/' . $saveName;
                 $news->url = $URL;
             }
             else{
@@ -133,8 +133,8 @@ class NewsController extends \BaseController {
                 $imgName = Input::file('image')->getClientOriginalName();
                 $imgExtension = Input::file('image')->getClientOriginalExtension();
                 $saveName = microtime() . '_' . $imgName;
-                Input::file('image')->move('owncloud/styrelsen/files/images/news/', $saveName);
-                $URL = 'owncloud/styrelsen/files/images/news/' . $saveName;
+                Input::file('image')->move('filesOwncloud/styrelsen/files/images/news/', $saveName);
+                $URL = 'filesOwncloud/styrelsen/files/images/news/' . $saveName;
                 $news->url = $URL;
             }
         }

@@ -53,8 +53,8 @@ class SamarbetspartnersController extends \BaseController {
                 $imgName = Input::file('image')->getClientOriginalName();
                 $imgExtension = Input::file('image')->getClientOriginalExtension();
                 $saveName = microtime() . '_' . $imgName;
-                Input::file('image')->move('owncloud/styrelsen/files/images/samarbetspartners/', $saveName);
-                $URL = 'owncloud/styrelsen/files/images/samarbetspartners/' . $saveName;
+                Input::file('image')->move('filesOwncloud/styrelsen/files/images/samarbetspartners/', $saveName);
+                $URL = 'filesOwncloud/styrelsen/files/images/samarbetspartners/' . $saveName;
                 $samarbetspartners->url = $URL;
             }
             else{
@@ -130,8 +130,8 @@ class SamarbetspartnersController extends \BaseController {
                 $imgName = Input::file('image')->getClientOriginalName();
                 $imgExtension = Input::file('image')->getClientOriginalExtension();
                 $saveName = microtime() . '_' . $imgName;
-                Input::file('image')->move('owncloud/styrelsen/files/images/samarbetspartners/', $saveName);
-                $URL = 'owncloud/styrelsen/files/images/samarbetspartners/' . $saveName;
+                Input::file('image')->move('filesOwncloud/styrelsen/files/images/samarbetspartners/', $saveName);
+                $URL = 'filesOwncloud/styrelsen/files/images/samarbetspartners/' . $saveName;
                 $samarbetspartners->url = $URL;
             }
         }
