@@ -6,7 +6,7 @@
             title: "Menu",
             format: "dropdown",
             breakpoint: 768,
-            sticky: true
+            sticky: false
         }, options);
 
         return this.each(function () {
