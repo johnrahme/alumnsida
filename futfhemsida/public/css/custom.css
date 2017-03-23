@@ -1,3 +1,17 @@
+@media (min-width: 768px) {
+    .containerCustom {
+        top: 148px; /* 98 px from menu, and 50 px padding*/
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .containerCustom {
+        top: 84px; /* 34 px from menu, and 50 px padding*/
+        width: 100%;
+    }
+}
+
 .required:after {
     content: " *";
     color: red;
@@ -7,8 +21,6 @@ html, body {
     height: 100%;
     overflow: visible;
 }
-
-
 
 @media (max-width: 768px) {
     #wrapping {
@@ -22,57 +34,15 @@ html, body {
 @media (min-width: 768px) {
     #wrapping {
         box-sizing: border-box;
-        min-height: 100%;
+        min-height: calc(100% - 250px);
         padding: 0 0 100px;
         position: relative;
     }
 }
 
 #main {
-    padding-bottom: 150px; /* this needs to be bigger than footer height*/
-}
-
-@media (max-width: 768px) {
-    .footer {
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        width: 100%;
-
-        background: #333;
-        color: #eee;
-        font-size: 11px;
-    }
-}
-
-@media (min-width: 768px) {
-    .footer {
-        bottom: 0;
-        height: 100px;
-        left: 0;
-        position: absolute;
-        width: 100%;
-
-        background: #333;
-        color: #eee;
-        text-align: center;
-
-        /*.footer {
-            position: absolute;
-            width: 100%;
-            /*margin-top: -15%;*/ /* negative value of footer height */
-        /*z-index: 1;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        padding: 1rem;
-        */
-    }
-}
-
-ul.unstyled {
-    list-style: none;
-    padding: 0;
+    overflow: auto;
+    padding-bottom: 100px;
 }
 
 .conatinerScreen {
@@ -190,6 +160,7 @@ ul.unstyled {
         }
     }
 }
+
 /*Scroll to top*/
 @media (min-width: 766px) {
     .scrollToTop {
@@ -206,6 +177,7 @@ ul.unstyled {
         background: url('../img/uparrow.png') no-repeat;
     }
 }
+
 /*END Scroll to top*/
 
 /*Arrow on hover*/
@@ -223,10 +195,12 @@ ul.unstyled {
     border-bottom-color: rgba(230, 184, 0, 0.80);
     margin-left: -10px;
 }
+
 /*END Arrow on hover*/
 
 /*Link Color, bl.a. till länk till kodarna av sidan*/
 .colourLink {
     color: #FFFFFF;
 }
+
 /*END Link Color*/

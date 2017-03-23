@@ -81,11 +81,11 @@ if (!is_null($subSubPageDB)) {
             @include('layouts.menulinks.menu_default')
         </ul>
     </div>
-    <a style="z-index: 10000;" href="#" class="scrollToTop"></a>
+    <a style="z-index: 10000" href="#" class="scrollToTop"></a>
 
 <!-- Container -->
 
-    <div id="main" class="container clear-top conatinerScreen" style="margin-top: calc(98px + 50px); width: 100%; background-color: rgba(255,255,255,.75)">
+    <div id="main" class="container clear-top conatinerScreen containerCustom" style="background-color: rgba(255, 255, 255, .75);">
         <div class="row">
             <div class="@if(Auth::check()) col-md-9 @else col-md-12 @endif">
                 @if(Session::has('message'))
@@ -154,8 +154,9 @@ if (!is_null($subSubPageDB)) {
             </div>
         </div>
     </div>
-    @include('layouts.defaultFooter')
 </div>
+@include('layouts.defaultFooter')
+
 <!-- Scripts are placed here -->
 {{ HTML::script('js/jquery-1.11.1.min.js') }}
 {{--{{ HTML::script('js/jquery-1.8.3.min.js') }}--}}
