@@ -151,9 +151,9 @@ Route::post('samarbetspartners/store', array('uses' => 'SamarbetspartnersControl
 Route::get('samarbetspartners/{id}/edit', array('as' => 'samarbetspartners.edit', 'uses' => 'SamarbetspartnersController@edit'));
 
 
-Route::put('sp/update', array('uses' => 'SamarbetspartnersController@update'));
+Route::put('samarbetspartners/update', array('uses' => 'SamarbetspartnersController@update'));
 
-Route::delete('sp/delete', array('uses' => 'SamarbetspartnersController@destroy'));
+Route::delete('samarbetspartners/delete', array('uses' => 'SamarbetspartnersController@destroy'));
 
 
 // Files

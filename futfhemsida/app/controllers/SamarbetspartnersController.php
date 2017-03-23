@@ -99,7 +99,7 @@ class SamarbetspartnersController extends \BaseController {
     public function edit($id)
     {
         return View::make('samarbetspartners.edit')
-            ->with('title', 'Edit business relation')
+            ->with('title', 'Edit cooperation partner')
             ->with('samarbetspartners', Samarbetspartners::find($id))
             ->with('active', 'samarbetspartners');
     }
@@ -159,7 +159,7 @@ class SamarbetspartnersController extends \BaseController {
         $samarbetspartners->delete();
 
         return Redirect::route('samarbetspartners')
-            ->with('message', 'Business partner removed');
+            ->with('message', 'Cooperation partner removed');
     }
 
 
