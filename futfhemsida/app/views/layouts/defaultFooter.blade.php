@@ -1,6 +1,8 @@
 {{ HTML::script('js/footerDate.js')}}
 
 <div class="pre-footer">
+    <div class="pre-footer-logo">
+    </div>
     <div class="backgroundFooter footer">
         <div class="container" style="padding-top: 50px">
             <div id="largeElement" class="row">
