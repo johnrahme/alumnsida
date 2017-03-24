@@ -20,23 +20,12 @@ a {text-decoration: none; }
 .sidemenupanel {
     list-style: none;
     *zoom: 1;
-    color: #E6B800;
+    color: #F1B424;
     text-transform: capitalize;
     font-family: "Arial Black", Gadget, sans-serif;
     font-style: normal;
     font-variant: small-caps;
-    color: #E6B800;
-    box-shadow: inset 0 0 3px #000000;
-    -moz-box-shadow: inset 0 0 3px #000000;
-    -webkit-box-shadow: inset 0 0 3px #000000;
-    background: #070707;
-    background: -moz-linear-gradient(top, #262626 0%, #070707 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #262626), color-stop(100%, #070707));
-    background: -webkit-linear-gradient(top, #262626 0%, #070707 100%);
-    background: -o-linear-gradient(top, #262626 0%, #070707 100%);
-    background: -ms-linear-gradient(top, #262626 0%, #070707 100%);
-    background: linear-gradient(to bottom, #262626 0%, #070707 100%);
-    border-radius: 10%;
+    color: #F1B424;
 }
 .sidemenupanel:before,
 .sidemenupanel:after {
@@ -47,20 +36,19 @@ a {text-decoration: none; }
     clear: both;
 }
 .sidemenupanel ul {
-    background: #E6B800;
-    border-radius: 7.5%;
+    background-color: rgba(46, 47, 51, 0.65);
     list-style: none;
     width: 9em;
 }
 .sidemenupanel > li > a:hover,
 .sidemenupanel > li > a:focus {
     text-decoration: none;
-    color: #ffffff;
+    color: #9BF0E1;
 }
 .sidemenupanel > li li > a:hover,
 .sidemenupanel > li li > a:focus {
     text-decoration: none;
-    color: #ffffff;
+    color: #9BF0E1;
 }
 .sidemenupanel a {
     display: block;
@@ -78,8 +66,6 @@ a {text-decoration: none; }
 }
 .sidemenupanel > li {
     float: left;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 25%;
 }
 .sidemenupanel > li > a {
     display: block;
@@ -88,7 +74,7 @@ a {text-decoration: none; }
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     line-height: 1.42857143;
-    color: #333333;
+    color: #eeeeee;
     white-space: nowrap;
 }
 .sidemenupanel li  ul {
@@ -104,12 +90,11 @@ a {text-decoration: none; }
 }
 .sidemenupanel li li a {
     display: block;
-    background: rgba(210, 164, 0, 0.75);
+    background-color: rgba(46, 47, 51, .35);
     left: 10%;
     position: relative;
     z-index:100;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 15% 15% 15% 15%;
+    color: #eeeeee;
 }
 
 @media screen and (min-width: 0px) {
@@ -125,8 +110,7 @@ a {text-decoration: none; }
     }
     .sidemenupanel ul ul {
         display: block;
-        width: 84%;
-
+        width: 90.5%;
     }
     .sidemenupanel > li.hover > ul , .sidemenupanel li li.hover ul {
         position: static;
