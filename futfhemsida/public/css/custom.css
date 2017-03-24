@@ -169,7 +169,7 @@ html, body {
         height: 33px;
         cursor: pointer;
         position: fixed;
-        bottom: calc(100px + 1%);
+        bottom: calc(200px + 1%); /* 200px is footer's height*/
         right: 1%;
         padding: 0;
         border: none;
