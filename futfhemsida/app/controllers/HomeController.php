@@ -22,7 +22,7 @@ class HomeController extends BaseController
         $eventsWithPictures = Event::where('publish', '=', 1)->where('pictureUrl', '!=', '')->orderBy('dateTimeFrom')->get();
         $news = News::orderBy('created_at', 'desc')->get();
         return View::make('start.index')
-            ->with('title', 'FUTF-alumnsida')
+            ->with('title', 'FUTF:s-betasida')
             ->with('events', $onlineEvents)
             ->with('news', $news)
             ->with('eventsWithPictures', $eventsWithPictures)
@@ -35,7 +35,7 @@ class HomeController extends BaseController
         $eventsWithPictures = Event::where('publish', '=', 1)->where('pictureUrl', '!=', '')->orderBy('dateTimeFrom')->get();
         $news = News::orderBy('created_at', 'desc')->get();
         return View::make('start.index')
-            ->with('title', 'FUTF-alumnsida')
+            ->with('title', 'FUTF:s-betasida')
             ->with('events', $onlineEvents)
             ->with('news', $news)
             ->with('eventsWithPictures', $eventsWithPictures)
