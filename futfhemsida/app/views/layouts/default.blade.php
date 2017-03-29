@@ -78,6 +78,8 @@ if (!is_null($subSubPageDB)) {
     <div id="dropdownMenu" style="width: 100%; z-index: 1000">
         <ul>
 
+            <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu dropdownMenu-logo"></a>
+            <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu dropdownMenu-brand">FUTF</a>
             @include('layouts.menulinks.menu_default')
         </ul>
     </div>
