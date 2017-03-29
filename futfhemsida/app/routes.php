@@ -38,18 +38,18 @@ Route::delete('users/delete', array('uses' => 'UserController@destroy'));
 
 Route::get('events', array('as' => 'events', 'uses' => 'EventController@index'));
 
-Route::get('events/new', array('as' => 'new_event', 'uses' => 'EventController@newevent'));
+Route::get('events/new', array('as' => 'new_event', 'uses' => 'EventController@newevent'))->before('auth');
 
 Route::get('event/{id}', array('as' => 'event', 'uses' => 'EventController@view'));
 
-Route::post('events/create', array('uses' => 'EventController@createEvent'));
+Route::post('events/create', array('uses' => 'EventController@createEvent'))->before('auth');
 
-Route::get('events/{id}/edit', array('as' => 'edit_event', 'uses' => 'EventController@edit'));
+Route::get('events/{id}/edit', array('as' => 'edit_event', 'uses' => 'EventController@edit'))->before('auth');
 
 
-Route::put('events/update', array('uses' => 'EventController@update'));
+Route::put('events/update', array('uses' => 'EventController@update'))->before('auth');
 
-Route::delete('events/delete', array('uses' => 'EventController@destroy'));
+Route::delete('events/delete', array('uses' => 'EventController@destroy'))->before('auth');
 
 Route::get('event/{id}/map', array('as' => 'map', 'uses' => 'EventController@map'));
 
@@ -63,9 +63,9 @@ Route::get('event/{id}/registrations/new', array('as' => 'new_registration', 'us
 
 Route::post('events/registrations/create', array('uses' => 'RegistrationController@createRegistration'));
 
-Route::delete('registrations/delete', array('uses' => 'RegistrationController@destroy'));
+Route::delete('registrations/delete', array('uses' => 'RegistrationController@destroy'))->before('auth');
 
-Route::post('registrations/download', array('as' => 'registrations.download', 'uses' => 'RegistrationController@download'));
+Route::post('registrations/download', array('as' => 'registrations.download', 'uses' => 'RegistrationController@download'))->before('auth');
 
 
 //contactPage
@@ -94,24 +94,24 @@ Route::filter('hasAdminLevel', function () {
 Route::get('styrelsen', array('as' => 'admin.viewPublic', 'uses' => 'AdminController@viewAllAdminsPublic'));
 
 //Skapar konto för ny användare
-Route::post('admin/create/reg', array('uses' => 'AdminController@createAdminReg'));
+Route::post('admin/create/reg', array('uses' => 'AdminController@createAdminReg'))->before('auth');
 
 Route::get('admin/{id}', array('as' => 'user_id', 'uses' => 'AdminController@view'));
 
-Route::get('admin/{id}/edit', array('as' => 'edit_admin', 'uses' => 'AdminController@edit'));
+Route::get('admin/{id}/edit', array('as' => 'edit_admin', 'uses' => 'AdminController@edit'))->before('auth');
 
 Route::get('admin/{id}/view', array('as' => 'view_admin', 'uses' => 'AdminController@view'));
 
 
-Route::put('admin/update', array('uses' => 'AdminController@update'));
+Route::put('admin/update', array('uses' => 'AdminController@update'))->before('auth');
 
-Route::delete('admin/delete', array('uses' => 'AdminController@destroy'));
+Route::delete('admin/delete', array('uses' => 'AdminController@destroy'))->before('auth');
 
 //sessions
 
 Route::get('login', array('as' => 'login', 'uses' => 'SessionsController@create'));
 
-Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destroy'));
+Route::get('logout', array('as' => 'logout', 'uses' => 'SessionsController@destroy'))->before('auth');
 
 Route::get('forgot', array('as' => 'forgot', 'uses' => 'SessionsController@forgot'));
 
@@ -126,34 +126,34 @@ Route::post('storeLinkedIn', array('as' => 'storeLinkedIn', 'uses' => 'SessionsC
 //news
 Route::get('news', array('as' => 'news', 'uses' => 'NewsController@index'));
 
-Route::get('news/create', array('as' => 'news.create', 'uses' => 'NewsController@create'));
+Route::get('news/create', array('as' => 'news.create', 'uses' => 'NewsController@create'))->before('auth');
 
 Route::get('news/{id}', array('as' => 'news.show', 'uses' => 'NewsController@show'));
 
-Route::post('news/store', array('uses' => 'NewsController@store'));
+Route::post('news/store', array('uses' => 'NewsController@store'))->before('auth');
 
-Route::get('news/{id}/edit', array('as' => 'news.edit', 'uses' => 'NewsController@edit'));
+Route::get('news/{id}/edit', array('as' => 'news.edit', 'uses' => 'NewsController@edit'))->before('auth');
 
 
-Route::put('news/update', array('uses' => 'NewsController@update'));
+Route::put('news/update', array('uses' => 'NewsController@update'))->before('auth');
 
-Route::delete('news/delete', array('uses' => 'NewsController@destroy'));
+Route::delete('news/delete', array('uses' => 'NewsController@destroy'))->before('auth');
 
 //samarbetspartners
 Route::get('samarbetspartners', array('as' => 'samarbetspartners', 'uses' => 'SamarbetspartnersController@index'));
 
-Route::get('samarbetspartners/create', array('as' => 'samarbetspartners.create', 'uses' => 'SamarbetspartnersController@create'));
+Route::get('samarbetspartners/create', array('as' => 'samarbetspartners.create', 'uses' => 'SamarbetspartnersController@create'))->before('auth');
 
 Route::get('samarbetspartners/{id}', array('as' => 'samarbetspartners.show', 'uses' => 'SamarbetspartnersController@show'));
 
-Route::post('samarbetspartners/store', array('uses' => 'SamarbetspartnersController@store'));
+Route::post('samarbetspartners/store', array('uses' => 'SamarbetspartnersController@store'))->before('auth');
 
-Route::get('samarbetspartners/{id}/edit', array('as' => 'samarbetspartners.edit', 'uses' => 'SamarbetspartnersController@edit'));
+Route::get('samarbetspartners/{id}/edit', array('as' => 'samarbetspartners.edit', 'uses' => 'SamarbetspartnersController@edit'))->before('auth');
 
 
-Route::put('samarbetspartners/update', array('uses' => 'SamarbetspartnersController@update'));
+Route::put('samarbetspartners/update', array('uses' => 'SamarbetspartnersController@update'))->before('auth');
 
-Route::delete('samarbetspartners/delete', array('uses' => 'SamarbetspartnersController@destroy'));
+Route::delete('samarbetspartners/delete', array('uses' => 'SamarbetspartnersController@destroy'))->before('auth');
 
 
 // Files

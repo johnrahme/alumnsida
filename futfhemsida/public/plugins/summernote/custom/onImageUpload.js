@@ -34,6 +34,8 @@ function onImageUpload(folder,url) {
             processData: false,
             success: function (url) {
                 var imgNode = $('<img>').attr('src', url);
+                imgNode.addClass("img-responsive");
+                imgNode.css("height","auto");
                 $('.summernote').summernote('insertNode', imgNode[0]);  // insert native dom
                 //alert(url);
             },

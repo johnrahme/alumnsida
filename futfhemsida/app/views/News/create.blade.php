@@ -29,6 +29,16 @@
              <div class="summernote" id="col">{{Input::old('content')}}</div>
              {{Form::hidden('content')}}
 
+ <div class = "row">
+     <div class = "col-xs-10">
+
+     </div>
+     <div align = "right" class = "col-xs-2">
+         <a href="http://www.layoutit.com/build" target="_blank">Länk till kodsida.</a>
+
+     </div>
+ </div>
+
     <p>
             {{Form::label('author', 'Författare', array('class' => 'required'))}} <br/>
 
@@ -41,6 +51,7 @@
 
         {{Form::select('order', array('1' => '1', '2' => '2', '3' =>'3'), '1')}}
     </p>
+
  <!------------------------IMAGE START-------------------------->
  <p>
      {{Form::label('image', 'Bild')}} <br/>
