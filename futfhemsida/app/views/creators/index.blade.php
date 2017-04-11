@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-        <div class="row" style="position: left 0%">
+        <div class="row" style="left: 0%">
           <div class="col-sm-3">
             <p>
               Place The First One Here
