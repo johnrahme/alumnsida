@@ -54,30 +54,9 @@ if (!is_null($subSubPageDB)) {
 <body>
 <!-- Navbar -->
 <div id="wrapping">
-    @include('layouts.defaultBackground') <!-- The triangular moving background-->
-    <div>
-        <div style="display:none" id="hideAndShow" role="main ">
-            <div class="navbar navbar-inverse navbar-default navbar-static-top">
-            <div onclick="location.href='{{url('/login')}}'" class="navbar-brand" style="width: 20px; height: 5px; top: 0px; left: 99%; position:relative; z-index: 10000;"></div>
-                <a href = "{{url('/')}}" class = "navbar-brand">Föreningen Uppsala Tekniska Fysiker</a>
-                <div id='navigationbar' class="navigationbar">
-                    <ul role="navigation">
-                        <li id="futf"> {{link_to('/','Futf')}}</li>
-                        <li id="alumn"> {{link_to('http://alumn.futf.se/','Alumn')}}</li>
-                        <li id="nyhetsbrev"> {{link_to('http://nyhetsbrev.futf.se/','Nyhetsbrev')}}</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-        {{--Removes the dropdown arrow for the old navigation bar--}}
-    {{--<div class="box">
-        <span class="navigationbarbutton"><a id="toggle1"><img src="img/arrow.png" height="33" width="29" id="bg"/></a></span>
-    </div>--}}
-
+@include('layouts.defaultBackground') <!-- The triangular moving background-->
     <div id="dropdownMenu" style="width: 100%; z-index: 1000">
         <ul>
-
             <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu dropdownMenu-logo"></a>
             <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu dropdownMenu-brand">FUTF</a>
             @include('layouts.menulinks.menu_default')
@@ -85,9 +64,10 @@ if (!is_null($subSubPageDB)) {
     </div>
     <a style="z-index: 10000" href="#" class="scrollToTop"></a>
 
-<!-- Container -->
+    <!-- Container -->
 
-    <div id="main" class="container clear-top conatinerScreen containerCustom" style="background-color: rgba(255, 255, 255, .75);">
+    <div id="main" class="container clear-top conatinerScreen containerCustom"
+         style="background-color: rgba(255, 255, 255, .75);">
         <div class="row">
             <div class="@if(Auth::check()) col-md-9 @else col-md-12 @endif">
                 @if(Session::has('message'))
@@ -133,23 +113,7 @@ if (!is_null($subSubPageDB)) {
 
             <div class="col-sm-3">
                 @include('layouts.menuPanel')
-                <div id="id_företag" style="padding-top: 20px; display:none;">
-                    <div class="panel panel-default">
-                        <h4 style="text-align: center; ">Samarbetspartners</h4>
-                        <div>
-                            <table style="width: 100%">
-                                <?php $samarbetspartners = Samarbetspartners::orderBy('created_at', 'desc')->get(); ?>
-                                @foreach($samarbetspartners as$key => $currSp)
-                                    <tr>
-                                        <th @if($currSp->url != 'empty')style="width: 200px; height: 200px"@endif>@if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif</th>
-                                    </tr>
-                                @endforeach
-                            </table>
-                            <div @if(Auth::check()) id="dynamicCompany" @else @endif>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @include('samarbetspartners.samarbetspartners_start')
             </div>
             <div class="col-sm-9">
                 @yield('content')
@@ -174,8 +138,12 @@ if (!is_null($subSubPageDB)) {
 {{ HTML::script('https://addthisevent.com/libs/1.5.8/ate.min.js')}}
 {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
 {{ HTML::script('js/sammarbetspartners.js')}}
-{{ HTML::script('js/dropdownMenu.js')}} <!-- drag'n drop upload -->
+{{ HTML::script('js/dropdownMenu.js')}}
 {{ HTML::script('jasny-bootstrap/js/jasny-bootstrap.js')}}
+
+
+<!-- Script -->
+@yield('scripts')
 
 <script>
 
@@ -193,28 +161,8 @@ if (!is_null($subSubPageDB)) {
         format: "multitoggle" /*Typ av dropdownmenu vid liten skärm*/
     });
 </script>
-{{--<script>
-    if ($(window).width() <= 750) {
-        $("#testP").html($(window).width());
-        $(".dropdown-toggle").attr({
-            'data-toggle': 'dropdown'
-        });
-    } else {
-        $(".dropdown-toggle").removeAttr('data-toggle');
-    }
-    $(window).on("resize", function () {
-        if ($(window).width() <= 750) {
-            $("#testP").html($(window).width());
-            $(".dropdown-toggle").attr({
-                'data-toggle': 'dropdown'
-            });
-        } else {
-            $(".dropdown-toggle").removeAttr('data-toggle');
-        }
-    });
-</script>--}}
-<!-- Script -->
-@yield('scripts')
+
+@include('cookies.cookie')
 </body>
 
 </html>

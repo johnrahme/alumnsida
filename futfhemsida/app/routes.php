@@ -172,6 +172,9 @@ Route::get('creators', array('as' => 'creators', 'uses' => 'CreatorsController@i
 //Samarbetspartners
 Route::get('samarbetspartners', array('as' => 'samarbetspartners', 'uses' => 'SamarbetspartnersController@index'));
 
+//Cookies
+Route::get('cookiepolicy', array('as' => 'cookie', 'uses' => 'CookieController@index'));
+
 // 404 Errors
 Route::get('404', array('as' => '404', 'uses' => 'ErrorController@missing'));
 
