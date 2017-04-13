@@ -37,16 +37,37 @@ if (!is_null($activeMenu)) {
         <li class ="active">{{$activeSubMenu->name}}</li>
       @endif
     </ol>--}}
-    <div>
-        <div class="toggleMenu contentsidemenupanel sidemenupanel">
-            <div class="" style="margin-top: 5px;margin-bottom: 5px;margin-left: 10px;font-size:17px;">
-                {{$activeMenu->name}}
-            </div>
-            <div class="">
-                <ul class="sidemenupanel">
-                    @include('layouts.menulinks.menu_sidebar')
+    {{--<div>--}}
+    {{--<div class="toggleMenu contentsidemenupanel sidemenupanel">--}}
+    {{--<div class="" style="margin-top: 5px;margin-bottom: 5px;margin-left: 10px;font-size:17px;">--}}
+    {{--{{$activeMenu->name}}--}}
+    {{--</div>--}}
+    {{--<div class="">--}}
+    {{--<ul class="sidemenupanel">--}}
+    {{--@include('layouts.menulinks.menu_sidebar')--}}
+    {{--</ul>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--</div>--}}
+
+
+    <ul class="sidemenu">
+        <li>Start
+            <a href="#"></a></li>
+        <li class="parent">Event
+            <a href="#"></a>
+            <ul class="sub-nav">
+                <li>Event 1</li>
+                <ul class="sub-sub-nav">
+                    <li>Mer info om event 1</li>
+                    <li>Mer info om event 1</li>
+                    <li>Mer info om event 1</li>
                 </ul>
-            </div>
-        </div>
-    </div>
+                <li>Event 2</li>
+                <li>Event 3</li>
+            </ul>
+        </li>
+        <li>Kontakt</li>
+    </ul>
+
 @endif

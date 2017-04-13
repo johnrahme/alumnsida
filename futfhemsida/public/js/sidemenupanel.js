@@ -1,27 +1,9 @@
-var ww = document.body.clientWidth;
-
-$(document).ready(function () {
-    $(".toggleMenu").click(function (e) {
-        $(this).toggleClass("active");
-        $(".sidemenupanel").toggle();
+$(document).ready(function() {
+    $('.parent').click(function() {
+        $('.sub-nav').toggleClass('visible');
     });
-    adjustMenu();
-})
 
-$(window).bind('resize orientationchange', function () {
-    ww = document.body.clientWidth;
-    adjustMenu();
+    $('.sub-nav').click(function() {
+        $('.sub-sub-nav').toggleClass('visible');
+    });
 });
-
-var adjustMenu = function () {
-    if (ww >= 0 ) {
-        $(".toggleMenu").css("display", "none");
-        $(".sidemenupanel").show();
-        $(".sidemenupanel li").removeClass("hover");
-        $(".sidemenupanel li a").unbind('click');
-        $(".sidemenupanel li").unbind('mouseenter mouseleave').bind('mouseenter mouseleave', function () {
-            $(this).toggleClass('hover');
-        });
-    }
-}
-
