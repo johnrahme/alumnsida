@@ -91,6 +91,18 @@
     float: left;
 }
 
+@media screen and (max-width: 768px) { /* Hides the brand on small screen*/
+    .dropdownMenu-brand {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 768px) { /* Hides the logo on small screen*/
+    .dropdownMenu-logo {
+        display: none !important;
+    }
+}
+
 #dropdownMenu > ul > li {
     display: inline-block;
 }
