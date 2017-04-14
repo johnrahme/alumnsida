@@ -33,7 +33,6 @@ if (!is_null($subSubPageDB)) {
     <title> {{$title}} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <!-- CSS are placed here -->
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/bootstrap-theme.css') }}
@@ -46,7 +45,6 @@ if (!is_null($subSubPageDB)) {
     {{ HTML::style('css/dropdownMenu.css') }}
     {{ HTML::style('css/footer.css') }}
     {{ HTML::style('jasny-bootstrap/css/jasny-bootstrap.css') }}
-
     {{--LinkedIn--}}
     @include('sessions.linkedIn.linkedIn')
     @yield('styles')
@@ -57,15 +55,13 @@ if (!is_null($subSubPageDB)) {
 @include('layouts.defaultBackground') <!-- The triangular moving background-->
     <div id="dropdownMenu" style="width: 100%; z-index: 1000">
         <ul>
-            <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu dropdownMenu-logo"></a>
-            <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu dropdownMenu-brand">FUTF</a>
+            <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu-logo"></a>
+            <a onclick="window.location.href='{{url('/')}}'" class="dropdownMenu-brand">FUTF</a>
             @include('layouts.menulinks.menu_default')
         </ul>
     </div>
     <a style="z-index: 10000" href="#" class="scrollToTop"></a>
-
     <!-- Container -->
-
     <div id="main" class="container clear-top conatinerScreen containerCustom"
          style="background-color: rgba(255, 255, 255, .75);">
         <div class="row">
@@ -108,9 +104,7 @@ if (!is_null($subSubPageDB)) {
         </div>
         @include('contact.index')
         @include('sessions.modalLogin')
-
         <div class="row">
-
             <div class="col-sm-3">
                 @include('layouts.menuPanel')
                 @include('samarbetspartners.samarbetspartners_start')
@@ -122,7 +116,6 @@ if (!is_null($subSubPageDB)) {
     </div>
 </div>
 @include('layouts.defaultFooter')
-
 <!-- Scripts are placed here -->
 {{ HTML::script('js/jquery-1.11.1.min.js') }}
 {{--{{ HTML::script('js/jquery-1.8.3.min.js') }}--}}
@@ -140,13 +133,9 @@ if (!is_null($subSubPageDB)) {
 {{ HTML::script('js/sammarbetspartners.js')}}
 {{ HTML::script('js/dropdownMenu.js')}}
 {{ HTML::script('jasny-bootstrap/js/jasny-bootstrap.js')}}
-
-
 <!-- Script -->
 @yield('scripts')
-
 <script>
-
     @if(isset($active))
     $(document).ready(function () {
         var active = '#{{$active}}';
@@ -154,15 +143,12 @@ if (!is_null($subSubPageDB)) {
     });
     @endif
 </script>
-
 <script type="text/javascript">
     $("#dropdownMenu").dropdownMenus({
         title: "", /*Som ska visas ihopdragen meny vid liten skärm*/
         format: "multitoggle" /*Typ av dropdownmenu vid liten skärm*/
     });
 </script>
-
 @include('cookies.cookie')
 </body>
-
 </html>
