@@ -1,17 +1,20 @@
 @if(!is_null($activeMenu))
-    @foreach($currentSubMenus as $currentSubMenu)
-        <?php
-        $currentSubSubMenus = Subsubmenu::where('subMenuId', '=', $currentSubMenu->id)->orderBy('order')->get();
-        ?>
-        <li id="{{$currentSubMenu->url}}2" class> {{link_to($currentSubMenu->url,$currentSubMenu->name)}}
-            <ul>
-            @foreach($currentSubSubMenus as $currentSubSubMenu)
-            <li>
-            {{link_to($currentSubSubMenu->url,$currentSubSubMenu->name)}}
+    <ul>
+        @foreach($currentSubMenus as $currentSubMenu)
+            <?php
+            $currentSubSubMenus = Subsubmenu::where('subMenuId', '=', $currentSubMenu->id)->orderBy('order')->get();
+            ?>
+            <li id="{{$currentSubMenu->url}}2"> {{link_to($currentSubMenu->url,$currentSubMenu->name)}}
+                <ul class="blockSidemenuPanel_ul">
+                    @foreach($currentSubSubMenus as $currentSubSubMenu)
+                        <li class="blockSidemenuPanel_li">
+                            {{link_to($currentSubSubMenu->url,$currentSubSubMenu->name)}}
+                            <ul class="test"></ul>
+                        </li>
+                    @endforeach
+                </ul>
             </li>
-            @endforeach
-            </ul>
-        </li>
 
-    @endforeach
+        @endforeach
+    </ul>
 @endif
