@@ -4,35 +4,20 @@
     text-decoration: none
 }
 
-body {
-    background: #555;
-}
-
-header {
-    position: relative;
-    width: 100%;
-    background: #333;
-}
-
 .logo {
     position: relative;
     z-index: 123;
     padding: 10px;
     font: 18px verdana;
-    color: #6DDB07;
+    color: #f1b424;
     float: left;
     width: 15%
 }
 
 .logo a {
-    color: #6DDB07;
+    color: #f1b424;
 }
 
-nav {
-    position: relative;
-    width: 980px;
-    margin: 0 auto;
-}
 
 #cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a, #cssmenu #head-mobile {
     border: 0;
@@ -59,8 +44,8 @@ nav {
 }
 
 #cssmenu {
-    font-family: sans-serif;
-    background: #333
+    font-family: Circular, Helvetica, Arial, sans-serif;
+    background: rgba(51,51,51,.7);
 }
 
 #cssmenu > ul > li {
@@ -72,8 +57,9 @@ nav {
     font-size: 12px;
     letter-spacing: 1px;
     text-decoration: none;
-    color: #ddd;
-    font-weight: 700;
+    color: #dddddd;
+    font-weight: 300;
+    display: block;
 }
 
 #cssmenu > ul > li:hover > a, #cssmenu ul li.active a {
@@ -81,7 +67,7 @@ nav {
 }
 
 #cssmenu > ul > li:hover, #cssmenu ul li.active:hover, #cssmenu ul li.active, #cssmenu ul li.has-sub.active:hover {
-    background: #448D00 !important;
+    background-color: rgba(241,180,52,.8) !important;
     -webkit-transition: background .3s ease;
     -ms-transition: background .3s ease;
     transition: background .3s ease;
@@ -203,11 +189,11 @@ nav {
 }
 
 #cssmenu ul ul ul li.active a {
-    border-left: 1px solid #333
+    border-left: 1px solid rgba(51,51,51,.9);
 }
 
 #cssmenu > ul > li.has-sub > ul > li.active > a, #cssmenu > ul ul > li.has-sub > ul > li.active > a {
-    border-top: 1px solid #333
+    border-top: 1px solid rgba(51,51,51,.9);
 }
 
 @media screen and (max-width: 9999px) {
@@ -241,7 +227,7 @@ nav {
 
     #cssmenu ul li {
         width: 100%;
-        border-top: 1px solid #444
+        border-top: 1px solid rgba(61,61,61,.9);
     }
 
     #cssmenu ul li:hover {
@@ -266,11 +252,11 @@ nav {
     }
 
     #cssmenu ul ul li {
-        background: #333 !important;
+        background: rgba(51,51,51,1) !important;
     }
 
     #cssmenu ul ul li:hover {
-        background: #363636 !important
+        background: rgba(54,54,54,1) !important
     }
 
     #cssmenu ul ul ul li a {
@@ -376,14 +362,14 @@ nav {
         right: 0;
         top: 0;
         display: block;
-        border-left: 1px solid #444;
+        border-left: 1px solid rgba(68,68,68,.9);;
         height: 46px;
         width: 46px;
         cursor: pointer
     }
 
     #cssmenu .submenu-button.submenu-opened {
-        background: #262626
+        background-color: rgba(38,38,38,0.5);
     }
 
     #cssmenu ul ul .submenu-button {

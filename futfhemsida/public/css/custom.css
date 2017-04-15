@@ -1,15 +1,6 @@
-@media (min-width: 768px) {
-    .containerCustom {
-        top: 148px; /* 98 px from menu, and 50 px padding*/
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .containerCustom {
-        top: 84px; /* 34 px from menu, and 50 px padding*/
-        width: 100%;
-    }
+.containerCustom {
+    top: 50px;
+    width: 100%;
 }
 
 .required:after {

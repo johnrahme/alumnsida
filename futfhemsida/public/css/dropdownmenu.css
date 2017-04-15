@@ -35,12 +35,18 @@
 #dropdownMenu {
     font-family: Circular, Helvetica, Arial, sans-serif;
     background-color: rgba(46, 47, 51, 0.75);
-    position: fixed;
+    position: relative;
     top: 0px;
     margin-bottom: 30px;
     width: 100%;
     z-index: 2;
     line-height: 4;
+}
+
+@media (min-width: 768px) {
+    #dropdownMenu {
+        position: relative;
+    }
 }
 
 .dropdownMenu-brand {
@@ -91,13 +97,15 @@
     float: left;
 }
 
-@media screen and (max-width: 768px) { /* Hides the brand on small screen*/
+@media screen and (max-width: 768px) {
+    /* Hides the brand on small screen*/
     .dropdownMenu-brand {
         display: none !important;
     }
 }
 
-@media screen and (max-width: 768px) { /* Hides the logo on small screen*/
+@media screen and (max-width: 768px) {
+    /* Hides the logo on small screen*/
     .dropdownMenu-logo {
         display: none !important;
     }
@@ -233,8 +241,8 @@
 #dropdownMenu ul ul li:last-child > a,
 #dropdownMenu ul ul li.last-item > a {
     border-bottom: 0;
-/*    border-bottom-left-radius: 30%;
-    border-bottom-right-radius: 30%;*/
+    /*    border-bottom-left-radius: 30%;
+        border-bottom-right-radius: 30%;*/
 }
 
 /*#dropdownMenu ul ul li:first-child > a,
