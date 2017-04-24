@@ -12,8 +12,6 @@
                     <thead>
                     <tr>
                         <th data-sortable="true">Namn</th>
-                        <th data-sortable="true">Startår</th>
-                        <th data-sortable="true">Företag</th>
                         <th data-sortable="true">Email</th>
                         <th data-sortable="true">Profil</th>
                     </tr>
@@ -22,8 +20,6 @@
                     @foreach ($admins as $admin)
                         <tr>
                             <td>{{$admin->name}} {{$admin->surname}}</td>
-                            <td>{{$admin->startYear}}</td>
-                            <td>{{$admin->company}}</td>
                             <th> {{ HTML::mailto($admin->email) }}</th>
                             <th> {{link_to_route('view_admin', 'Visa', array('id' => $admin->id))}}</th>
                         </tr>
