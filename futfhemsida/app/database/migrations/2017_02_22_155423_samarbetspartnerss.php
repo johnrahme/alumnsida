@@ -30,7 +30,7 @@ class Samarbetspartnerss extends Migration {
      */
     public function down()
     {
-        Schema::drop('f_samarbetspartners');
+        Schema::drop('f_samarbetspartner');
     }
 
 }
