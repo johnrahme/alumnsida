@@ -37,17 +37,17 @@
         }
     </style>
 </head>
-<div id="id_företag" style="padding-top: 20px; display:none;">
+<div id="id_företag" style="display:none;">
     <div class="panel panel-default">
         <h4 style="text-align: center; ">Samarbetspartners</h4>
         <div>
-            <table style="width: 100%">
+            <table cellspacing="1" style="width: 100%">
                 <?php $samarbetspartners = Samarbetspartners::orderBy('created_at', 'desc')->get(); ?>
                 @foreach($samarbetspartners as $key => $currSp)
                     <tr class="samarbetspartners_slideshow animate-right">
-
-                            <th @if($currSp->url != 'empty')style="height: 200px"@endif> <a href="samarbetspartners/{{$currSp->id}}"> @if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif </a> </th>
-
+                        <th @if($currSp->url != 'empty')style="height: 200px"@endif>
+                            <a href="samarbetspartners/{{$currSp->id}}"> @if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif</a>
+                        </th>
                     </tr>
                 @endforeach
             </table>
@@ -59,8 +59,7 @@
 
 <script>
     var index = 0;
-    carousel();
-
+    window.addEventListener("resize", carousel);
     function carousel() {
         if (window.innerWidth <= 768) {
             var i;
@@ -74,6 +73,13 @@
             }
             x[index - 1].style.display = "block";
             setTimeout(carousel, 5000); // Change image every 5 seconds
+        }
+        else {
+            var i;
+            var x = document.getElementsByClassName("samarbetspartners_slideshow");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "block";
+            }
         }
     }
 </script>

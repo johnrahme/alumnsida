@@ -118,7 +118,6 @@ if (!is_null($subSubPageDB)) {
 @include('layouts.defaultFooter')
 <!-- Scripts are placed here -->
 {{ HTML::script('js/jquery-1.11.1.min.js') }}
-{{--{{ HTML::script('js/jquery-1.8.3.min.js') }}--}}
 {{ HTML::script('js/bootstrap.min.js') }}
 {{ HTML::script('js/jquery.datetimepicker.js')}}
 {{ HTML::script('js/checkmodal.js')}}
