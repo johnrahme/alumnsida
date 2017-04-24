@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-9">
             <div class="page-header" style="margin-top:0px">
                 <h3>{{$admin->name}} {{$admin->surname}}</h3>
             </div>
@@ -23,6 +23,10 @@
                     <b>Email</b>
                     <br>
                     {{ HTML::mailto($admin->email) }}
+                    <br>
+                    <b>Beskrivning</b>
+                    <br>
+                    {{$admin->description}}
                     <br>
                 </div>
                 <div class="col-sm-6">
