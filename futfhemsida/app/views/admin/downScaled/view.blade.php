@@ -16,14 +16,6 @@
                     <br>
                     {{$admin->surname}}
                     <br>
-                    <b>Startår</b>
-                    <br>
-                    {{$admin->startYear}}
-                    <br>
-                    <b>Nuvarande företag</b>
-                    <br>
-                    {{$admin->company}}
-                    <br>
                     <b>Telefonnummer</b>
                     <br>
                     {{$admin->tel}}
