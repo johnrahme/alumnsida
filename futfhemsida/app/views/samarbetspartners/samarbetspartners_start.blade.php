@@ -45,7 +45,9 @@
                 <?php $samarbetspartners = Samarbetspartners::orderBy('created_at', 'desc')->get(); ?>
                 @foreach($samarbetspartners as $key => $currSp)
                     <tr class="samarbetspartners_slideshow animate-right">
-                        <th @if($currSp->url != 'empty')style="height: 200px"@endif>@if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif</th>
+
+                            <th @if($currSp->url != 'empty')style="height: 200px"@endif> <a href="samarbetspartners/{{$currSp->id}}"> @if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif </a> </th>
+
                     </tr>
                 @endforeach
             </table>
