@@ -21,6 +21,7 @@ class Submenus extends Migration
             $table->string('url');
             $table->longText('content');
             $table->integer('order');
+            $table->boolean('online');
             $table->timestamps();
         });
     }
