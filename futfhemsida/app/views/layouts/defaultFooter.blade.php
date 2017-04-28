@@ -24,7 +24,7 @@
                         </body>
 
                         <h6 style="margin-top: -8px"><br> Skapad från <span class="glyphicon glyphicon-heart"></span>
-                            av {{ link_to('creators','the J-Quad Squad', array('class' => 'colourLink'))}}.</h6>
+                            av {{ link_to('creators','FUTF:s IT-grupp 2015-2017', array('class' => 'colourLink'))}}.</h6>
                         <p><h6>Copyright &copy; {{date("Y")}} FUTF.</h6></p>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                 <div class="col-sm-4">
                     <div style="text-align: center; width:100%">
                         <h6><br> Skapad från <span class="glyphicon glyphicon-heart"></span>
-                            av {{ link_to('creators','the J-Quad Squad', array('class' => 'colourLink'))}}.</h6>
+                            av {{ link_to('creators','FUTF:s IT-grupp 2015-2017', array('class' => 'colourLink'))}}.</h6>
 
                         <p><h6>Copyright &copy; {{date("Y")}} FUTF.</h6></p>
 
