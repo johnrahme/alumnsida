@@ -35,7 +35,7 @@
 #dropdownMenu {
     font-family: Circular, Helvetica, Arial, sans-serif;
     background-color: rgba(46, 47, 51, 0.75);
-    position: relative;
+    position: fixed;
     top: 0px;
     margin-bottom: 30px;
     width: 100%;
@@ -43,7 +43,7 @@
     line-height: 4;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     #dropdownMenu {
         position: relative;
     }

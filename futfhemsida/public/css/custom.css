@@ -1,6 +1,13 @@
 .containerCustom {
-    top: 50px;
+    top: 148px; /*gap is to be 50px, and 98 px is menu height, 50+98=148px*/
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .containerCustom {
+        top: 50px;
+        width: 100%;
+    }
 }
 
 .required:after {
