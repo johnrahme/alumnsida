@@ -19,7 +19,6 @@
         </ul>
     @endif
 @endif
-
 @if(!Auth::check())
     @if(!is_null($activeMenu))
         <ul>
