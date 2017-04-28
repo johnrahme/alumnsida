@@ -180,7 +180,9 @@ Route::get('404', array('as' => '404', 'uses' => 'ErrorController@missing'));
 
 //Dynamic menu, lägg sist!
 
-Route::resource('menu', 'MenuController'); /*Fixa så att denna sida inte är åtkomlig för icke inloggade. Samt fixa fixed menu på stor skärm*/
+Route::resource('menu', 'MenuController');
+
+Route::get('menu', array('as' => 'menu', 'uses' => 'MenuController@index'))->before('auth'); /*För att ../menu inte ska vara åtkomlig för icke-inloggade.*/
 
 Route::get('menu/{type}/{id}/change', array('as' => 'menu.change', 'uses' => 'MenuController@change'))->before('auth');
 
