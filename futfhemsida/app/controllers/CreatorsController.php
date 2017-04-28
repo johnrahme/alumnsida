@@ -19,7 +19,7 @@ class CreatorsController extends BaseController
     public function index()
     {
         return View::make('creators.index')
-            ->with('title', 'Best of the Best')
+            ->with('title', 'Skaparna')
             ->with('active', 'creators');
     }
 
