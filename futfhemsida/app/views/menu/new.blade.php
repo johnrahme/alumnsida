@@ -40,10 +40,19 @@
     </p>
 
     <p>
-            {{Form::label('content', 'Innehåll', array('class' => 'required'))}} <br/>
+        {{Form::label('online', 'Ska menyn vara online?', array('class' => 'required'))}}<br/>
+        {{Form::radio('online', '0', array('class' => 'form-control') )}}
+        <b>Nej.</b>
+        <br/>
+        {{Form::radio('online', '1', array('class' => 'form-control') )}}
+        <b>Ja.</b>
+    </p>
 
-        <div class="summernote" id="col">{{Input::old('content')}}</div>
-        {{Form::hidden('content')}}
+    <p>
+        {{Form::label('content', 'Innehåll', array('class' => 'required'))}} <br/>
+
+    <div class="summernote" id="col">{{Input::old('content')}}</div>
+    {{Form::hidden('content')}}
     </p>
 
 
@@ -52,21 +61,21 @@
 @stop
 @section('scripts')
 
-      {{HTML::script('plugins/summernote/js/summernote.min.js')}}
-      {{HTML::script('plugins/summernote/custom/onImageUpload.js')}}
-      <script>
-       {{--When uploading an image save it in the folder event--}}
+    {{HTML::script('plugins/summernote/js/summernote.min.js')}}
+    {{HTML::script('plugins/summernote/custom/onImageUpload.js')}}
+    <script>
+        {{--When uploading an image save it in the folder event--}}
 
-      onImageUpload("filesOwncloud/styrelsen/files/images/menus","{{url('events/imgstore')}}");
-      </script>
-       <script>
+       onImageUpload("filesOwncloud/styrelsen/files/images/menus", "{{url('events/imgstore')}}");
+    </script>
+    <script>
 
-                    $("#save").click(function () {
-                        $("#content").val($('#col').summernote('code'));
-                        $("#form1").submit();
-                    });
+        $("#save").click(function () {
+            $("#content").val($('#col').summernote('code'));
+            $("#form1").submit();
+        });
 
-        </script>
+    </script>
 
     <script>
         updateGrandparent();
@@ -84,7 +93,7 @@
             var currentTest = "";
             if (currParentId !== "") {
                 @foreach($submenus as $submenu)
-                  currentTest = "{{$submenu->menuId}}";
+                        currentTest = "{{$submenu->menuId}}";
                 if (currentTest == currParentId) {
                     $('#grandparent')
                             .append($("<option></option>")

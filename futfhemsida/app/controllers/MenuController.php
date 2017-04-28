@@ -206,6 +206,7 @@ class MenuController extends \BaseController
             $menu->name = Input::get('name');
             $menu->url = Input::get('url');
             $menu->content = Input::get('content');
+            $menu->online = Input::get('online');
             $menu->order = count($allMenus);
             $menu->save();
         } else if($subMenuId == ""){
@@ -215,6 +216,7 @@ class MenuController extends \BaseController
             $submenu->name = Input::get('name');
             $submenu->url = Input::get('url');
             $submenu->content = Input::get('content');
+            $submenu->online = Input::get('online');
             $submenu->order = count($allSubMenus);
             $submenu->save();
         }
@@ -225,6 +227,7 @@ class MenuController extends \BaseController
             $subsubmenu->name = Input::get('name');
             $subsubmenu->url = Input::get('url');
             $subsubmenu->content = Input::get('content');
+            $subsubmenu->online = Input::get('online');
             $subsubmenu->order = count($allSubSubMenus);
             $subsubmenu->save();
         }
@@ -348,6 +351,7 @@ class MenuController extends \BaseController
             $menu->name = Input::get('name');
             $menu->url = Input::get('url');
             $menu->content = Input::get('content');
+            $menu->online = Input::get('online');
             $menu->order = count($allMenus);
             $menu->save();
         } else if($subMenuId == ""){
@@ -370,6 +374,7 @@ class MenuController extends \BaseController
             $submenu->name = Input::get('name');
             $submenu->url = Input::get('url');
             $submenu->content = Input::get('content');
+            $submenu->online = Input::get('online');
             $submenu->order = count($allSubMenus);
             $submenu->save();
         }
@@ -395,6 +400,7 @@ class MenuController extends \BaseController
             $subsubmenu->name = Input::get('name');
             $subsubmenu->url = Input::get('url');
             $subsubmenu->content = Input::get('content');
+            $subsubmenu->online = Input::get('online');
             $subsubmenu->order = count($allSubSubMenus);
             $subsubmenu->save();
         }

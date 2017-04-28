@@ -182,15 +182,13 @@ Route::get('404', array('as' => '404', 'uses' => 'ErrorController@missing'));
 
 Route::resource('menu', 'MenuController');
 
-Route::get('menu/{type}/{id}/change', array('as' => 'menu.change', 'uses' => 'MenuController@change'));
+Route::get('menu/{type}/{id}/change', array('as' => 'menu.change', 'uses' => 'MenuController@change'))->before('auth');
 
 
 Route::get('{page}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl'));
 Route::get('{page}/{page2}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl2'));
 Route::get('{page}/{page2}/{page3}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl3'));
 
-Route::post('menu/arrange', array('as' => 'menu.arrange', 'uses' => 'MenuController@arrange'));
-Route::delete('menu/{id}/delete', array('as' => 'menu.destroySub', 'uses' => 'MenuController@destroySub'));
-Route::delete('menu/{id}/delete2', array('as' => 'menu.destroySubSub', 'uses' => 'MenuController@destroySubSub'));
-
-
+Route::post('menu/arrange', array('as' => 'menu.arrange', 'uses' => 'MenuController@arrange'))->before('auth');
+Route::delete('menu/{id}/delete', array('as' => 'menu.destroySub', 'uses' => 'MenuController@destroySub'))->before('auth');
+Route::delete('menu/{id}/delete2', array('as' => 'menu.destroySubSub', 'uses' => 'MenuController@destroySubSub'))->before('auth');

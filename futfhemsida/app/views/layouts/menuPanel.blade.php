@@ -38,7 +38,7 @@ if (!is_null($activeMenu)) {
       @endif
     </ol>--}}
 
-    <nav id='cssmenu'>
+    <nav id='sidemenuPanel'>
         @include('layouts.menulinks.menu_sidebar')
     </nav>
 

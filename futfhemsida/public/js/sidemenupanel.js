@@ -1,14 +1,14 @@
 (function ($) {
     $.fn.menumaker = function (options) {
-        var cssmenu = $(this), settings = $.extend({
+        var sidemenuPanel = $(this), settings = $.extend({
             format: "multitoggle",
             sticky: false
         }, options);
         return this.each(function () {
-            cssmenu.find('ul li').has('li').addClass('has-sub');
+            sidemenuPanel.find('ul li').has('li').addClass('has-sub');
             multiTg = function () {
-                cssmenu.find(".has-sub").prepend('<span class="submenu-button"></span>');
-                cssmenu.find('.submenu-button').on('click', function () {
+                sidemenuPanel.find(".has-sub").prepend('<span class="submenu-button"></span>');
+                sidemenuPanel.find('.submenu-button').on('click', function () {
                     $(this).toggleClass('submenu-opened');
                     if ($(this).siblings('ul').hasClass('open')) {
                         $(this).siblings('ul').removeClass('open').slideToggle();
@@ -21,8 +21,8 @@
             if (settings.format === 'multitoggle') multiTg();
 
             resizeFix = function () {
-                cssmenu.find('ul').show();
-                cssmenu.find('li ul').hide().removeClass('open');
+                sidemenuPanel.find('ul').show();
+                sidemenuPanel.find('li ul').hide().removeClass('open');
             };
             resizeFix();
             return $(window).on('resize', resizeFix);
@@ -32,7 +32,7 @@
 
 (function ($) {
     $(document).ready(function () {
-        $("#cssmenu").menumaker({
+        $("#sidemenuPanel").menumaker({
             format: "multitoggle"
         });
     });

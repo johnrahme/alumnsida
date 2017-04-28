@@ -42,6 +42,15 @@
     </p>
 
     <p>
+        {{Form::label('online', 'Ska menyn vara online?', array('class' => 'required'))}}<br/>
+        {{Form::radio('online', '1', array('class' => 'form-control') )}}
+        <b>Ja.</b>
+        <br/>
+        {{Form::radio('online', '0', array('class' => 'form-control') )}}
+        <b>Nej.</b>
+    </p>
+
+    <p>
             {{Form::label('content', 'Innehåll', array('class' => 'required'))}} <br/>
 
         <div class="summernote" id="col"> {{$currMenu->content}}</div>

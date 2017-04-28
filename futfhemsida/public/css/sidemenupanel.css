@@ -19,7 +19,7 @@
 }
 
 
-#cssmenu, #cssmenu ul, #cssmenu ul li, #cssmenu ul li a, #cssmenu #head-mobile {
+#sidemenuPanel, #sidemenuPanel ul, #sidemenuPanel ul li, #sidemenuPanel ul li a, #sidemenuPanel #head-mobile {
     border: 0;
     list-style: none;
     line-height: 1;
@@ -30,7 +30,7 @@
     box-sizing: border-box
 }
 
-#cssmenu:after, #cssmenu > ul:after {
+#sidemenuPanel:after, #sidemenuPanel > ul:after {
     content: ".";
     display: block;
     clear: both;
@@ -39,20 +39,20 @@
     height: 0
 }
 
-#cssmenu #head-mobile {
+#sidemenuPanel #head-mobile {
     display: none
 }
 
-#cssmenu {
+#sidemenuPanel {
     font-family: Circular, Helvetica, Arial, sans-serif;
     background: rgba(51,51,51,.7);
 }
 
-#cssmenu > ul > li {
+#sidemenuPanel > ul > li {
     float: left
 }
 
-#cssmenu > ul > li > a {
+#sidemenuPanel > ul > li > a {
     padding: 17px;
     font-size: 12px;
     letter-spacing: 1px;
@@ -62,22 +62,22 @@
     display: block;
 }
 
-#cssmenu > ul > li:hover > a, #cssmenu ul li.active a {
+#sidemenuPanel > ul > li:hover > a, #sidemenuPanel ul li.active a {
     color: #fff
 }
 
-#cssmenu > ul > li:hover, #cssmenu ul li.active:hover, #cssmenu ul li.active, #cssmenu ul li.has-sub.active:hover {
+#sidemenuPanel > ul > li:hover, #sidemenuPanel ul li.active:hover, #sidemenuPanel ul li.active, #sidemenuPanel ul li.has-sub.active:hover {
     background-color: rgba(241,180,52,.8) !important;
     -webkit-transition: background .3s ease;
     -ms-transition: background .3s ease;
     transition: background .3s ease;
 }
 
-#cssmenu > ul > li.has-sub > a {
+#sidemenuPanel > ul > li.has-sub > a {
     padding-right: 30px
 }
 
-#cssmenu > ul > li.has-sub > a:after {
+#sidemenuPanel > ul > li.has-sub > a:after {
     position: absolute;
     top: 22px;
     right: 11px;
@@ -88,7 +88,7 @@
     content: ''
 }
 
-#cssmenu > ul > li.has-sub > a:before {
+#sidemenuPanel > ul > li.has-sub > a:before {
     position: absolute;
     top: 19px;
     right: 14px;
@@ -102,17 +102,17 @@
     transition: all .25s ease
 }
 
-#cssmenu > ul > li.has-sub:hover > a:before {
+#sidemenuPanel > ul > li.has-sub:hover > a:before {
     top: 23px;
     height: 0
 }
 
-#cssmenu ul ul {
+#sidemenuPanel ul ul {
     position: absolute;
     left: -9999px
 }
 
-#cssmenu ul ul li {
+#sidemenuPanel ul ul li {
     height: 0;
     -webkit-transition: all .25s ease;
     -ms-transition: all .25s ease;
@@ -120,23 +120,23 @@
     transition: all .25s ease
 }
 
-#cssmenu ul ul li:hover {
+#sidemenuPanel ul ul li:hover {
 }
 
-#cssmenu li:hover > ul {
+#sidemenuPanel li:hover > ul {
     left: auto
 }
 
-#cssmenu li:hover > ul > li {
+#sidemenuPanel li:hover > ul > li {
     height: 35px
 }
 
-#cssmenu ul ul ul {
+#sidemenuPanel ul ul ul {
     margin-left: 100%;
     top: 0
 }
 
-#cssmenu ul ul li a {
+#sidemenuPanel ul ul li a {
     border-bottom: 1px solid rgba(150, 150, 150, 0.15);
     padding: 11px 15px;
     width: 170px;
@@ -146,15 +146,15 @@
     font-weight: 400;
 }
 
-#cssmenu ul ul li:last-child > a, #cssmenu ul ul li.last-item > a {
+#sidemenuPanel ul ul li:last-child > a, #sidemenuPanel ul ul li.last-item > a {
     border-bottom: 0
 }
 
-#cssmenu ul ul li:hover > a, #cssmenu ul ul li a:hover {
+#sidemenuPanel ul ul li:hover > a, #sidemenuPanel ul ul li a:hover {
     color: #fff
 }
 
-#cssmenu ul ul li.has-sub > a:after {
+#sidemenuPanel ul ul li.has-sub > a:after {
     position: absolute;
     top: 16px;
     right: 11px;
@@ -165,7 +165,7 @@
     content: ''
 }
 
-#cssmenu ul ul li.has-sub > a:before {
+#sidemenuPanel ul ul li.has-sub > a:before {
     position: absolute;
     top: 13px;
     right: 14px;
@@ -179,20 +179,20 @@
     transition: all .25s ease
 }
 
-#cssmenu ul ul > li.has-sub:hover > a:before {
+#sidemenuPanel ul ul > li.has-sub:hover > a:before {
     top: 17px;
     height: 0
 }
 
-#cssmenu ul ul li.has-sub:hover, #cssmenu ul li.has-sub ul li.has-sub ul li:hover {
+#sidemenuPanel ul ul li.has-sub:hover, #sidemenuPanel ul li.has-sub ul li.has-sub ul li:hover {
     background: #363636;
 }
 
-#cssmenu ul ul ul li.active a {
+#sidemenuPanel ul ul ul li.active a {
     border-left: 1px solid rgba(51,51,51,.9);
 }
 
-#cssmenu > ul > li.has-sub > ul > li.active > a, #cssmenu > ul ul > li.has-sub > ul > li.active > a {
+#sidemenuPanel > ul > li.has-sub > ul > li.active > a, #sidemenuPanel > ul ul > li.has-sub > ul > li.active > a {
     border-top: 1px solid rgba(51,51,51,.9);
 }
 
@@ -216,63 +216,63 @@
         width: 100%;
     }
 
-    #cssmenu {
+    #sidemenuPanel {
         width: 100%
     }
 
-    #cssmenu ul {
+    #sidemenuPanel ul {
         width: 100%;
         display: none
     }
 
-    #cssmenu ul li {
+    #sidemenuPanel ul li {
         width: 100%;
         border-top: 1px solid rgba(61,61,61,.9);
     }
 
-    #cssmenu ul li:hover {
+    #sidemenuPanel ul li:hover {
         background: #363636;
     }
 
-    #cssmenu ul ul li, #cssmenu li:hover > ul > li {
+    #sidemenuPanel ul ul li, #sidemenuPanel li:hover > ul > li {
         height: auto
     }
 
-    #cssmenu ul li a, #cssmenu ul ul li a {
+    #sidemenuPanel ul li a, #sidemenuPanel ul ul li a {
         width: 100%;
         border-bottom: 0
     }
 
-    #cssmenu > ul > li {
+    #sidemenuPanel > ul > li {
         float: none
     }
 
-    #cssmenu ul ul li a {
+    #sidemenuPanel ul ul li a {
         padding-left: 25px
     }
 
-    #cssmenu ul ul li {
+    #sidemenuPanel ul ul li {
         background: rgba(51,51,51,1) !important;
     }
 
-    #cssmenu ul ul li:hover {
+    #sidemenuPanel ul ul li:hover {
         background: rgba(54,54,54,1) !important
     }
 
-    #cssmenu ul ul ul li a {
+    #sidemenuPanel ul ul ul li a {
         padding-left: 35px
     }
 
-    #cssmenu ul ul li a {
+    #sidemenuPanel ul ul li a {
         color: #ddd;
         background: none
     }
 
-    #cssmenu ul ul li:hover > a, #cssmenu ul ul li.active > a {
+    #sidemenuPanel ul ul li:hover > a, #sidemenuPanel ul ul li.active > a {
         color: #fff
     }
 
-    #cssmenu ul ul, #cssmenu ul ul ul {
+    #sidemenuPanel ul ul, #sidemenuPanel ul ul ul {
         position: relative;
         left: 0;
         width: 100%;
@@ -280,11 +280,11 @@
         text-align: left
     }
 
-    #cssmenu > ul > li.has-sub > a:after, #cssmenu > ul > li.has-sub > a:before, #cssmenu ul ul > li.has-sub > a:after, #cssmenu ul ul > li.has-sub > a:before {
+    #sidemenuPanel > ul > li.has-sub > a:after, #sidemenuPanel > ul > li.has-sub > a:before, #sidemenuPanel ul ul > li.has-sub > a:after, #sidemenuPanel ul ul > li.has-sub > a:before {
         display: none
     }
 
-    #cssmenu #head-mobile {
+    #sidemenuPanel #head-mobile {
         display: block;
         padding: 23px;
         color: #ddd;
@@ -356,7 +356,7 @@
         transform: rotate(-45deg)
     }
 
-    #cssmenu .submenu-button {
+    #sidemenuPanel .submenu-button {
         position: absolute;
         z-index: 99;
         right: 0;
@@ -368,16 +368,16 @@
         cursor: pointer
     }
 
-    #cssmenu .submenu-button.submenu-opened {
+    #sidemenuPanel .submenu-button.submenu-opened {
         background-color: rgba(38,38,38,0.5);
     }
 
-    #cssmenu ul ul .submenu-button {
+    #sidemenuPanel ul ul .submenu-button {
         height: 34px;
         width: 34px
     }
 
-    #cssmenu .submenu-button:after {
+    #sidemenuPanel .submenu-button:after {
         position: absolute;
         top: 22px;
         right: 19px;
@@ -388,16 +388,16 @@
         content: ''
     }
 
-    #cssmenu ul ul .submenu-button:after {
+    #sidemenuPanel ul ul .submenu-button:after {
         top: 15px;
         right: 13px
     }
 
-    #cssmenu .submenu-button.submenu-opened:after {
+    #sidemenuPanel .submenu-button.submenu-opened:after {
         background: #fff
     }
 
-    #cssmenu .submenu-button:before {
+    #sidemenuPanel .submenu-button:before {
         position: absolute;
         top: 19px;
         right: 22px;
@@ -408,20 +408,20 @@
         content: ''
     }
 
-    #cssmenu ul ul .submenu-button:before {
+    #sidemenuPanel ul ul .submenu-button:before {
         top: 12px;
         right: 16px
     }
 
-    #cssmenu .submenu-button.submenu-opened:before {
+    #sidemenuPanel .submenu-button.submenu-opened:before {
         display: none
     }
 
-    #cssmenu ul ul ul li.active a {
+    #sidemenuPanel ul ul ul li.active a {
         border-left: none
     }
 
-    #cssmenu > ul > li.has-sub > ul > li.active > a, #cssmenu > ul ul > li.has-sub > ul > li.active > a {
+    #sidemenuPanel > ul > li.has-sub > ul > li.active > a, #sidemenuPanel > ul ul > li.has-sub > ul > li.active > a {
         border-top: none
     }
 }
