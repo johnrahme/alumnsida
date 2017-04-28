@@ -17,8 +17,8 @@
         <?php
         $subMenusView = Submenu::where('menuId', '=', $menu->id)->orderBy('order')->get();
         ?>
-            <li id='{{$menu->url}}'>
-                @if(count($subMenusView)!= 0)
+        <li id='{{$menu->url}}'>
+            @if(count($subMenusView)!= 0)
                 <a href="{{route('menu.dyn',$menu->url)}}" class="testa_mig">{{$menu->name}}</a>
                 <ul class="dropdown-fade">
                     @foreach($subMenusView as $subMenu)
@@ -57,8 +57,10 @@
                     <a href="{{route('menu.dyn',$menu->url)}}" class="testa_mig">{{$menu->name}}</a>
                     <ul class="dropdown-fade">
                         @foreach($subMenusView as $subMenu)
-                            <li id="{{$subMenu->id}}">{{link_to_route('menu.dyn',$subMenu->name, $subMenu->url)}}
-                            </li>
+                            @if($subMenu->online == 1)
+                                <li id="{{$subMenu->id}}">{{link_to_route('menu.dyn',$subMenu->name, $subMenu->url)}}
+                                </li>
+                            @endif
                         @endforeach
                     </ul>
                 @else
