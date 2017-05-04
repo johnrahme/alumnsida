@@ -8,7 +8,7 @@ if (isset($subactive)) {
     $activeSubMenu = Submenu::where('url', '=', $subactive)->first();
 }
 if (!is_null($activeMenu)) {
-    $currentSubMenus = Submenu::where('menuId', '=', $activeMenu->id)->get();
+    $currentSubMenus = Submenu::where('menuId', '=', $activeMenu->id)->orderBy('order')->get();
 }
 
 ?>
