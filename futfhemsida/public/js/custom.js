@@ -3,10 +3,10 @@
  */
 
 var url = document.location.pathname;
-if (url === '/futf/futfhemsida/public/' || '/futf/futfhemsida/public/events') {
+if (url === '/futf/futfhemsida/public/' || url === '/futf/futfhemsida/public/events') {
     // för att den ska fungera lokalt
     $('#id_sidemenuPanel').hide();
-} else if (url === '/' || 'events') {
+} else if (url === '/' || url === 'events') {
     // för att den ska fungera globalt
     $('#id_sidemenuPanel').hide();
 } else {
