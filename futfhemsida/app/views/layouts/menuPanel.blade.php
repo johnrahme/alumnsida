@@ -37,10 +37,11 @@ if (!is_null($activeMenu)) {
         <li class ="active">{{$activeSubMenu->name}}</li>
       @endif
     </ol>--}}
-
-    <nav id='sidemenuPanel'>
-        @include('layouts.menulinks.menu_sidebar')
-    </nav>
+    <div id="id_sidemenuPanel">
+        <nav id='sidemenuPanel'>
+            @include('layouts.menulinks.menu_sidebar')
+        </nav>
+    </div>
 
 
 @endif
