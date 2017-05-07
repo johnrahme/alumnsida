@@ -175,6 +175,11 @@ Route::get('samarbetspartners', array('as' => 'samarbetspartners', 'uses' => 'Sa
 //Cookies
 Route::get('cookiepolicy', array('as' => 'cookie', 'uses' => 'CookieController@index'));
 
+// Hemsidor
+Route::get('futfsgamlahemsida', array('as' => 'cookie', 'uses' => 'HemsidorController@FUTF_Old'));
+Route::get('nyhetsbrev', array('as' => 'cookie', 'uses' => 'HemsidorController@FUTF_nyhetsbrev'));
+Route::get('alumnsidan', array('as' => 'cookie', 'uses' => 'HemsidorController@FUTF_alumn'));
+
 // 404 Errors
 Route::get('404', array('as' => '404', 'uses' => 'ErrorController@missing'));
 
