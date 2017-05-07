@@ -131,7 +131,6 @@ if (!is_null($subSubPageDB)) {
 {{ HTML::script('js/jquery.ui.touch-punch.min.js')}}
 {{ HTML::script('js/sammarbetspartners.js')}}
 {{ HTML::script('js/dropdownMenu.js')}}
-{{ HTML::script('js/custom.js')}}
 {{ HTML::script('jasny-bootstrap/js/jasny-bootstrap.js')}}
 <!-- Script -->
 @yield('scripts')
