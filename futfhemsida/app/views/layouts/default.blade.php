@@ -50,7 +50,7 @@ if (!is_null($subSubPageDB)) {
     @yield('styles')
 </head>
 <body>
-@include('layouts.analyticstracking')
+@include('google_analytics.analyticstracking')
 <!-- Navbar -->
 <div id="wrapping">
 @include('layouts.defaultBackground') <!-- The triangular moving background-->
