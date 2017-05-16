@@ -19,7 +19,18 @@
                                 <h3>{{$admin->name}} {{$admin->surname}}</h3>
                                 <h4>{{$admin->post}}</h4>
                             </div>
-                            <img class="img-responsive" src="{{$admin->pictureUrl}}"/>
+                            <div class="page-header" style="margin-top:0px">
+                                <h4>Kontaktuppgifter</h4>
+                                <br>
+                                <p style="margin-top: -20px">
+                                    <b>Telefonnummer:</b> {{$admin->tel}}
+                                    <br>
+                                    <b>Emailadress:</b> {{$admin->email}}
+                                </p>
+                            </div>
+                            <div class="page-header" style="margin-top:0px">
+                                <img class="img-responsive" src="{{$admin->pictureUrl}}"/>
+                            </div>
                             {{$admin->description}}
                         </div>
                     </div>
