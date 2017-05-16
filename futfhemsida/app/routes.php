@@ -183,6 +183,9 @@ Route::get('alumnsidan', array('as' => 'cookie', 'uses' => 'HemsidorController@F
 // 404 Errors
 Route::get('404', array('as' => '404', 'uses' => 'ErrorController@missing'));
 
+// Kalender
+Route::get('kalender', array('uses' => 'KalenderController@index'));
+
 //Dynamic menu, lägg sist!
 
 Route::resource('menu', 'MenuController');
