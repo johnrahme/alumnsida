@@ -232,8 +232,18 @@ class MenuController extends \BaseController
             $subsubmenu->save();
         }
 
-        return Redirect::route('menu.index')
-            ->with('message', $menuId);
+        if($menuId == "") {
+            return Redirect::route('menu.index')
+                ->with('message', 'Menyn ' . htmlentities($menu->name) . ' skapad!');
+        }
+        else if($subMenuId == "") {
+            return Redirect::route('menu.index')
+                ->with('message', 'Menyn ' . htmlentities($submenu->name) . ' skapad!');
+        }
+        else {
+            return Redirect::route('menu.index')
+                ->with('message', 'Menyn ' . htmlentities($subsubmenu->name) . ' skapad!');
+        }
     }
 
 
@@ -405,8 +415,18 @@ class MenuController extends \BaseController
             $subsubmenu->save();
         }
 
-        return Redirect::route('menu.index')
-            ->with('message', $menuId);
+        if($menuId == "") {
+            return Redirect::route('menu.index')
+                ->with('message', 'Menyn ' . htmlentities($menu->name) . ' uppdaterad!');
+        }
+        else if($subMenuId == "") {
+            return Redirect::route('menu.index')
+                ->with('message', 'Menyn ' . htmlentities($submenu->name) . ' uppdaterad!');
+        }
+        else {
+            return Redirect::route('menu.index')
+                ->with('message', 'Menyn ' . htmlentities($subsubmenu->name) . ' uppdaterad!');
+        }
     }
 
 
@@ -421,7 +441,7 @@ class MenuController extends \BaseController
         $menu = Menu::find($id);
         $menu->delete();
         return Redirect::route('menu.index')
-            ->with('message', 'Sida borttagen');
+            ->with('message', 'Sida ' . htmlentities($menu->name) . ' borttagen');
     }
 
     public function destroySub($id)
@@ -429,13 +449,13 @@ class MenuController extends \BaseController
         $submenu = Submenu::find($id);
         $submenu->delete();
         return Redirect::route('menu.index')
-            ->with('message', 'Sida borttagen');
+            ->with('message', 'Sida ' . htmlentities($submenu->name) . ' borttagen');
     }
     public function destroySubSub($id){
         $subsubmenu = Subsubmenu::find($id);
         $subsubmenu->delete();
         return Redirect::route('menu.index')
-            ->with('message', 'Sida borttagen');
+            ->with('message', 'Sida ' . htmlentities($subsubmenu->name) . ' borttagen');
     }
 
 

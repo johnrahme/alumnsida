@@ -70,7 +70,7 @@ class NewsController extends \BaseController {
         $news->save();
 
         return Redirect::to('news')
-            ->with('message', 'Nyheten har nu skapats!');
+            ->with('message', 'Nyheten ' . htmlentities($news->name) . ' skapad!');
 	}
 
 
@@ -145,7 +145,7 @@ class NewsController extends \BaseController {
         $news->save();
 
         return Redirect::to('news')
-            ->with('message', Input::hasFile('image'));
+            ->with('message', 'Nyheten ' . htmlentities($news->name) . ' redigerad!');
 	}
 
 
@@ -162,7 +162,7 @@ class NewsController extends \BaseController {
         $news->delete();
 
         return Redirect::route('news')
-            ->with('message', 'The news was deleted successfully');
+            ->with('message', 'Nyheten  ' . htmlentities($news->name) . ' borttagen!');
 	}
 
 

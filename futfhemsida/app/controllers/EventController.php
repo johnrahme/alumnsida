@@ -142,7 +142,8 @@ class EventController extends BaseController
 
 
         return Redirect::to('events')
-            ->with('message', $message);
+            ->with('message', $message)
+            ->with('message', 'Eventet ' . htmlentities($event->name) . ' har skapats!');
 
     }
 
@@ -247,7 +248,7 @@ class EventController extends BaseController
             }
 
             return Redirect::route('event', $id)
-                ->with('message', 'Eventet har uppdaterats!');
+                ->with('message', 'Eventet ' . htmlentities($event->name) . '  har uppdaterats!');
         }
 
     }
@@ -293,7 +294,7 @@ class EventController extends BaseController
         $event->delete();
 
         return Redirect::route('events')
-            ->with('message', 'Eventet' . htmlentities($name) . ' har raderats');
+            ->with('message', 'Eventet ' . htmlentities($name) . ' har raderats!');
 
 
     }

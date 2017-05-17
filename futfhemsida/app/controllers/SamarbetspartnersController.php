@@ -69,7 +69,7 @@ class SamarbetspartnersController extends \BaseController {
         $samarbetspartners->save();
 
         return Redirect::to('samarbetspartners')
-            ->with('message', 'Samarbetspartnern har lagts till');
+            ->with('message', 'Samarbetspartners ' . htmlentities($samarbetspartners->name) . ' skapad!');
     }
 
 
@@ -142,7 +142,7 @@ class SamarbetspartnersController extends \BaseController {
         $samarbetspartners->save();
 
         return Redirect::to('samarbetspartners')
-            ->with('message', Input::hasFile('image'));
+            ->with('message', 'Samarbetspartners ' . htmlentities($samarbetspartners->name) . ' redigerad!');
     }
 
 
@@ -159,7 +159,7 @@ class SamarbetspartnersController extends \BaseController {
         $samarbetspartners->delete();
 
         return Redirect::route('samarbetspartners')
-            ->with('message', 'Cooperation partner removed');
+            ->with('message', 'Samarbetspartners ' . htmlentities($samarbetspartners->name) . ' bortagen!');
     }
 
 
