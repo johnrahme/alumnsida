@@ -82,6 +82,7 @@
 
         $("#save").click(function () {
             $("#content").val($('#col').summernote('code'));
+            $("#parent").prop('disabled', false); {{-- enable the select box just before submitting --}}
             $("#form1").submit();
         });
 
