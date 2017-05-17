@@ -12,7 +12,7 @@ if (!is_null($activeMenu)) {
 }
 
 ?>
-<div style="width: auto">
+
 @if(!is_null($activeMenu)&&isset($activeSubMenu)&&isset($activeSubSubMenu))
     {{Breadcrumbs::renderIfExists('menu.dyn3', $activeMenu, $activeSubMenu, $activeSubSubMenu)}}
 
@@ -24,7 +24,7 @@ if (!is_null($activeMenu)) {
 @else
     {{Breadcrumbs::renderIfExists()}}
 @endif
-</div>
+
 
 @if(!is_null($activeMenu))
 
