@@ -194,7 +194,7 @@ Route::get('menu', array('as' => 'menu', 'uses' => 'MenuController@index'))->bef
 
 Route::get('menu/{type}/{id}/change', array('as' => 'menu.change', 'uses' => 'MenuController@change'))->before('auth');
 
-
+/*Lägg till ->before('auth'); på dessa 3, om de har status offline*/
 Route::get('{page}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl'));
 Route::get('{page}/{page2}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl2'));
 Route::get('{page}/{page2}/{page3}', array('as' => 'menu.dyn', 'uses' => 'MenuController@dynUrl3'));

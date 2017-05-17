@@ -9,6 +9,11 @@
 @section('before')
 
     @include('common.events_errors')
+
+    <p>Tips på layouthjälp <a href="http://www.layoutit.com/build">här</a>. Designa hur du vill att menyn ska se ut,
+        välj "Download", sedan "continue non logged". Väl där, kopiera koden, gå tillbaka till denna sida, tryck på
+        "Code View" i texeditorn, och klistra in den kopierade koden.</p>
+
     {{Form::open(array('url'=> 'events/update','files'=>true, 'method' => 'put', 'id' => 'form1'))}}
 @stop
 @section('panelOne')

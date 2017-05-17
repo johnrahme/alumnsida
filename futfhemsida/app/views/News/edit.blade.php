@@ -8,6 +8,11 @@
 @section('content')
 
     @include('common.news_errors')
+
+    <p>Tips på layouthjälp <a href="http://www.layoutit.com/build">här</a>. Designa hur du vill att menyn ska se ut,
+        välj "Download", sedan "continue non logged". Väl där, kopiera koden, gå tillbaka till denna sida, tryck på
+        "Code View" i texeditorn, och klistra in den kopierade koden.</p>
+
     {{Form::open(array('url'=> 'news/update','files'=>true, 'id'=>'form1', 'method'=>'put'))}}
     <p>
         {{Form::label('name', 'Titel', array('class' => 'required'))}} <br/>

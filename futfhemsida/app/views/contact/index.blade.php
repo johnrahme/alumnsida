@@ -12,9 +12,9 @@
                 <div class="form-group">
 
 
-                    <label for="contact-name" class="col-lg-2 required control-label" >Name:</label>
+                    <label style="text-align: left" for="contact-name" class="col-lg-3 required control-label" >Namn:</label>
 
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                         <input type="text" class="form-control" id="contact-name" name="contact-name"
                                placeholder="Namn" value="">
 
@@ -22,9 +22,9 @@
 
                 </div>
                 <div class="form-group">
-                    <label for="contact-email" class="col-lg-2 required control-label" >Email:</label>
+                    <label style="text-align: left" for="contact-email" class="col-lg-3 required control-label" >Email:</label>
 
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                         <input type="email" class="form-control" id="contact-email" name="contact-email"
                                placeholder="futf@example.se">
 
@@ -33,9 +33,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="contact-text" class="col-lg-2 required control-label" >Text:  </label>
+                    <label style="text-align: left" for="contact-text" class="col-lg-3 required control-label" >Meddelande:  </label>
 
-                    <div class="col-lg-10">
+                    <div class="col-lg-9">
                         <textarea class="form-control" rows="7" id="contact-text" name="contact-text"
                                   style="resize:none"></textarea>
 
