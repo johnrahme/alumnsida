@@ -19,7 +19,8 @@ class Samarbetspartners extends Eloquent implements UserInterface, RemindableInt
     public static $rules = array(
         'name' => 'required|min:2|max:50',
         'content' => 'required|min:20',
-        'abstract' => 'required|min:10|max:440'
+        'abstract' => 'required|min:10|max:440',
+        'image' => 'required'
 
     );
     /**

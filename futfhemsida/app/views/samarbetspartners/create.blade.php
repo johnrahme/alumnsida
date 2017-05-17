@@ -42,7 +42,7 @@
     </p>
  <!------------------------IMAGE START-------------------------->
  <p>
-     {{Form::label('image', 'Bild')}} <br/>
+     {{Form::label('image', 'Bild', array('class' => 'required'))}} <br/>
 
  </p>
 
