@@ -110,7 +110,7 @@ if (!is_null($subSubPageDB)) {
                 @include('layouts.menuPanel')
                 @include('samarbetspartners.samarbetspartners_start')
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-9" style="margin-top: 55px">
                 @yield('content')
             </div>
         </div>
