@@ -107,7 +107,7 @@ if (!is_null($subSubPageDB)) {
         @include('contact.index')
         @include('sessions.modalLogin')
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12" style="width: auto">
                 @include('layouts.defaultBreadcrumbs')
             </div>
         </div>
