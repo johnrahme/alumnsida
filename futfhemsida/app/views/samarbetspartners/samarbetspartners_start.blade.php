@@ -17,6 +17,8 @@
         @media (max-width: 768px) {
             .samarbetspartners_slideshow {
                 display: none;
+                margin-top: 30px;
+                margin-bottom: 30px;
             }
 
             .animate-right {
@@ -35,18 +37,28 @@
                 }
             }
         }
+
+        @media (min-width: 768px) {
+            .page-header_samarbetspartners {
+                padding-bottom: 9px;
+                margin: 40px 0 20px;
+                border-bottom: 1px solid #eee
+            }
+        }
     </style>
 </head>
 <div id="id_företag" style="display:none;">
     <div class="panel panel-default">
-        <h4 style="text-align: center; ">Samarbetspartners</h4>
+        <h4 style="text-align: center; margin-bottom: -25px">Samarbetspartners</h4>
         <div>
             <table style="width: 100%">
                 <?php $samarbetspartners = Samarbetspartners::orderBy('created_at', 'desc')->get(); ?>
                 @foreach($samarbetspartners as $key => $currSp)
                     <tr class="samarbetspartners_slideshow animate-right">
-                        <th @if($currSp->url != 'empty')style="padding-top: 5px"@endif>
-                            <a href="samarbetspartners/{{$currSp->id}}"> @if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif</a>
+                        <th @if($currSp->url != 'empty')@endif>
+                            <div class="page-header_samarbetspartners" style="margin-bottom: -30px">
+                                <a href="samarbetspartners/{{$currSp->id}}"> @if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif</a>
+                            </div>
                         </th>
                     </tr>
                 @endforeach

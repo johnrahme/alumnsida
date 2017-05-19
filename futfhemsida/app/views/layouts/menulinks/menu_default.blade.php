@@ -1,4 +1,5 @@
 @if(Auth::check())
+    {{-- These menus are commented because it should not be visible on beta.futf.se--}}
     {{--<li id="start"> {{link_to('/','Start')}}</li>
     <li id="events"> {{link_to_route('events','Event')}}</li>
     <li id="admin"> {{link_to_route('admin','Styrelsemedlemmar')}}</li>
