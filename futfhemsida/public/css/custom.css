@@ -201,4 +201,16 @@ html, body {
     color: #FFFFFF;
 }
 
+@media (min-width: 768px) {
+    #contentWindow {
+        margin-top: -57px;
+    }
+}
+
+@media (max-width: 768px) {
+    #contentWindow {
+        margin-top: 0px;
+    }
+}
+
 /*END Link Color*/
