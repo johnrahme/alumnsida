@@ -223,7 +223,7 @@
                     }
                 });
                 //Extra fält:
-                var max_fields = 5;
+                var max_fields = 10;
 
                 var x = {{$extra->count()}};
                 $('#addEx').click(function (e) {

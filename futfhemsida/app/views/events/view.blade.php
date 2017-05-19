@@ -55,7 +55,7 @@
 
                     @if(Auth::check())
 
-                        @if(Auth::user()->level==2||Auth::user()->id == $currEvent->createdBy)
+                        @if(Auth::user()->level>=1||Auth::user()->id == $currEvent->createdBy)
                             <p>
                                 <span class="glyphicon glyphicon-edit" style="font-size: 1.8em"></span>
                                 {{ link_to_route('edit_event', 'Ändra', array($currEvent->id)) }}
@@ -68,7 +68,7 @@
                                 {{ link_to_route('registrations', 'Se anmälningar', array($currEvent->id)) }}
                             </p>
                         @endif
-                        @if(Auth::user()->level==2||Auth::user()->id == $currEvent->createdBy)
+                        @if(Auth::user()->level>=1||Auth::user()->id == $currEvent->createdBy)
                             <a href="#del" data-toggle="modal" class="btn btn-danger">Ta bort</a>
                         @endif
                         <a href="http://www.google.se" title="Lägg till i kalender" class="addthisevent">
