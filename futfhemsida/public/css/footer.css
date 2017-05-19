@@ -36,6 +36,16 @@
         color: #eee;
         font-size: 11px;
     }
+
+}@media (min-width: 772px) {
+    @media (max-width: 972px) {
+        .footer {
+            margin-top: 150px;
+            width: 100%;
+            color: #eee;
+            font-size: 11px;
+        }
+    }
 }
 
 @media (min-width: 768px) {
