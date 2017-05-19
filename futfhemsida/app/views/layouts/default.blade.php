@@ -67,7 +67,12 @@ if (!is_null($subSubPageDB)) {
     <div id="main" class="container clear-top conatinerScreen containerCustom"
          style="background-color: rgba(255, 255, 255, .75);">
         <div class="row">
-            <div class="@if(Auth::check()) col-md-9 @else col-md-12 @endif">
+            <div class="@if(Auth::check()) col-sm-6 @else col-md-12 @endif">
+                @if(Auth::check())
+                    <div style="width: auto; display:inline-block;">
+                        @include('layouts.defaultBreadcrumbs')
+                    </div>
+                @endif
                 @if(Session::has('message'))
                     <div class="alert alert-success" role="alert">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -83,7 +88,9 @@ if (!is_null($subSubPageDB)) {
                 @endif
             </div>
             @if(Auth::check())
-                <div class="col-md-3" style="padding-bottom: 10px">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-3" style="padding-bottom: 10px">
                     <div class="dropdown" align="right">
                         <button class="btn btn-default" style="margin-bottom: -2px" type="button" id="dropdownMenu1"
                                 data-toggle="dropdown" aria-expanded="true">
@@ -107,9 +114,11 @@ if (!is_null($subSubPageDB)) {
         @include('contact.index')
         @include('sessions.modalLogin')
         <div class="row">
-            <div class="col-sm-12" style="width: auto">
-                @include('layouts.defaultBreadcrumbs')
-            </div>
+            @if(!Auth::check())
+                <div class="col-sm-12" style="width: auto">
+                    @include('layouts.defaultBreadcrumbs')
+                </div>
+            @endif
         </div>
         <div class="row">
             <div class="col-sm-3">
