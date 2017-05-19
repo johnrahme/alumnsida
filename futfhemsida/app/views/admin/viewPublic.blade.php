@@ -20,6 +20,9 @@
                                 <h4>{{$admin->post}}</h4>
                             </div>
                             <div class="page-header" style="margin-top:0px">
+                                <img class="img-responsive" src="{{$admin->pictureUrl}}"/>
+                            </div>
+                            <div class="page-header" style="margin-top:0px">
                                 <h4>Kontaktuppgifter</h4>
                                 <br>
                                 <p style="margin-top: -20px">
@@ -27,9 +30,6 @@
                                     <br>
                                     <b>Emailadress:</b> {{$admin->email}}
                                 </p>
-                            </div>
-                            <div class="page-header" style="margin-top:0px">
-                                <img class="img-responsive" src="{{$admin->pictureUrl}}"/>
                             </div>
                             {{$admin->description}}
                         </div>
