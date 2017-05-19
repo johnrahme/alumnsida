@@ -9,6 +9,15 @@
         width: 100%;
     }
 }
+/*Special for the number of menus on beta.futf.se*/
+@media (min-width: 768px) {
+    @media (max-width: 972px) {
+        .containerCustom {
+            top: 246px; /*gap is to be 50px, and 196 px is menu height, 50+196=246px*/
+            width: 100%;
+        }
+    }
+}
 
 .required:after {
     content: " *";
