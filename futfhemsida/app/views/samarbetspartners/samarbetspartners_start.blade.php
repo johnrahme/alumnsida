@@ -65,6 +65,8 @@
             </table>
             <div @if(Auth::check()) id="dynamicCompany" @else @endif>
             </div>
+            <div style="margin-bottom: 30px">
+            </div>
         </div>
     </div>
 </div>
