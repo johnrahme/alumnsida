@@ -64,7 +64,8 @@ if (!is_null($subSubPageDB)) {
     <a style="z-index: 10000" href="#" class="scrollToTop"></a>
 
     <!-- Container -->
-    <div id="main" class="container clear-top conatinerScreen containerCustom" style="background-color: rgba(255, 255, 255, .75);">
+    <div id="main" class="container clear-top conatinerScreen containerCustom"
+         style="background-color: rgba(255, 255, 255, .75);">
         <div class="row">
             <div class="@if(Auth::check()) col-md-9 @else col-md-12 @endif">
                 @if(Session::has('message'))
@@ -105,6 +106,11 @@ if (!is_null($subSubPageDB)) {
         </div>
         @include('contact.index')
         @include('sessions.modalLogin')
+        <div class="row">
+            <div class="col-sm-12">
+                @include('layouts.defaultBreadcrumbs')
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-3">
                 @include('layouts.menuPanel')

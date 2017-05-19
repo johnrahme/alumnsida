@@ -12,20 +12,6 @@ if (!is_null($activeMenu)) {
 }
 
 ?>
-
-@if(!is_null($activeMenu)&&isset($activeSubMenu)&&isset($activeSubSubMenu))
-    {{Breadcrumbs::renderIfExists('menu.dyn3', $activeMenu, $activeSubMenu, $activeSubSubMenu)}}
-
-@elseif(!is_null($activeMenu)&&isset($activeSubMenu))
-
-    {{Breadcrumbs::renderIfExists('menu.dyn2', $activeMenu, $activeSubMenu)}}
-@elseif(!is_null($activeMenu)&&!isset($activeSubMenu))
-    {{Breadcrumbs::renderIfExists('menu.dyn1', $activeMenu)}}
-@else
-    {{Breadcrumbs::renderIfExists()}}
-@endif
-
-
 @if(!is_null($activeMenu))
 
     {{--Old breadcrumbs!--}}
