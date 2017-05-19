@@ -26,9 +26,9 @@
                                 <h4>Kontaktuppgifter</h4>
                                 <br>
                                 <p style="margin-top: -20px">
-                                    <b>Telefonnummer:</b> {{$admin->tel}}
+                                    <b>Telefonnummer:</b> <a href="tel:{{$admin->tel}}">{{$admin->tel}}</a>
                                     <br>
-                                    <b>Emailadress:</b> {{$admin->email}}
+                                    <b>Emailadress:</b> <a href="mailto:{{$admin->email}}"target="_top">{{$admin->email}}</a>
                                 </p>
                             </div>
                             {{$admin->description}}
