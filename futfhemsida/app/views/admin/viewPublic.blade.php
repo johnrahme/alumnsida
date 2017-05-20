@@ -28,7 +28,8 @@
                                 <p style="margin-top: -20px">
                                     <b>Telefonnummer:</b> <a href="tel:{{$admin->tel}}">{{$admin->tel}}</a>
                                     <br>
-                                    <b>Emailadress:</b> <a href="mailto:{{$admin->email}}"target="_top">{{$admin->email}}</a>
+                                    <b>Emailadress:</b> <a href="mailto:{{$admin->email}}"
+                                                           target="_top">{{$admin->email}}</a>
                                 </p>
                             </div>
                             {{$admin->description}}
@@ -39,3 +40,4 @@
         </div>
     </div>
 @stop
+

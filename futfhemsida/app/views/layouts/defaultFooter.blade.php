@@ -8,11 +8,15 @@
             <div id="largeElement" class="row">
                 <div class="col-sm-4">
                     <div style="text-align: center; width:100%;">
-                        <h6>Navigering</h6>
-                        <ul class="unstyled">
-                            <li>{{link_to('/','Start')}}</li>
-                            <li>{{link_to_route('events', 'Event')}}</li>
-                            <li>{{link_to_route('new_admin', 'Skapa konto')}}</li>
+                        <h4>Postadress</h4>
+                        <ul class="unstyled" style="margin-top: -10px">
+                            <li>FUTF, Uthgård</li>
+                            <li>752 37 Uppsala</li>
+                        </ul>
+                        <h4>Besöksadress</h4>
+                        <ul class="unstyled" style="margin-top: -10px">
+                            <li>Polacksbacken ITC</li>
+                            <li>Hus 1, rum 1153</li>
                         </ul>
                     </div>
                 </div>
