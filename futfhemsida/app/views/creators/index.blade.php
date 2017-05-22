@@ -5,13 +5,15 @@
         #adjust {
             left: -187.5px;
         {{-- -187.5 px to replace the column of width 3 to the left (col-sm-3 =3*750px/12=187.5 px) on big screen--}}
+
         }
     }
-    .mirrorImage{
+
+    .mirrorImage {
         transform: scaleX(-1);
     }
 
-    .rotateImage{
+    .rotateImage {
         -ms-transform: rotate(90deg); /* IE 9 */
         -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
         transform: rotate(90deg);
@@ -52,11 +54,12 @@
         <div class="col-sm-3">
             <div class="panel panel-default">
                 <div class="panel-body" style="padding-top: 0">
-                    {{--<img style="margin-top: 5px;" class="img-responsive" src="img_link_here"/> --}}{{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
+                    <img style="margin-top: 5px;" class="img-responsive" src="http://beta.futf.se/img/creators/Johan.jpg"/> {{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
                     <div class="page-header" style="margin-top:0px">
                         <h4 style="text-align: center">Johan Soodla</h4>
                     </div>
-                    Beskrivning här!
+                    Startade IT-gruppen 2015 för att påbörja arbetet med den nya hemsidan, samt arbetat i gruppen till
+                    release.
                 </div>
             </div>
         </div>
