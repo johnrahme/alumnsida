@@ -10,6 +10,12 @@
     .mirrorImage{
         transform: scaleX(-1);
     }
+
+    .rotateImage{
+        -ms-transform: rotate(90deg); /* IE 9 */
+        -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+        transform: rotate(90deg);
+    }
 </style>
 
 @section('content')
