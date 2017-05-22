@@ -5,13 +5,10 @@
         #adjust {
             left: -187.5px;
         {{-- -187.5 px to replace the column of width 3 to the left (col-sm-3 =3*750px/12=187.5 px) on big screen--}}
-
-
-
-
-
-
         }
+    }
+    .mirrorImage{
+        transform: scaleX(-1);
     }
 </style>
 
@@ -60,7 +57,7 @@
         <div class="col-sm-3">
             <div class="panel panel-default">
                 <div class="panel-body" style="padding-top: 0">
-                    <img style="margin-top: 5px;" class="img-responsive"
+                    <img style="margin-top: 5px;" class="img-responsive mirrorImage"
                          src="http://beta.futf.se/img/creators/Albin.jpg"/> {{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
                     <div class="page-header" style="margin-top:0px">
                         <h4 style="text-align: center">Albin Gideonsson</h4>
