@@ -14,13 +14,13 @@
         <p><i>Författare: {{$news->author}}</i></p>
     </div>
 
-    <td>
-        {{ Form::open(array('url'=>'news/delete', 'method' =>'DELETE')) }}
-        {{ Form::hidden('id', $news->id)}}
-        {{ Form::submit('Radera', array('class'=>'btn btn-danger btn-sm')) }}
-        {{Form::close()}}
-    </td>
     @if(Auth::check())
+        <td>
+            {{ Form::open(array('url'=>'news/delete', 'method' =>'DELETE')) }}
+            {{ Form::hidden('id', $news->id)}}
+            {{ Form::submit('Radera', array('class'=>'btn btn-danger btn-sm')) }}
+            {{Form::close()}}
+        </td>
         <td>{{link_to_route('news.edit','Ändra', $news->id, array('class'=>'btn btn-primary btn-sm'))}}</td>
     @endif
 @stop

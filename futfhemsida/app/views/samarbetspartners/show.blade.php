@@ -13,14 +13,13 @@
         <p>Order: {{$samarbetspartners->order}}</p>
     </div>
 
-    <td>
-        {{ Form::open(array('url'=>'samarbetspartners/delete', 'method' =>'DELETE')) }}
-        {{ Form::hidden('id', $samarbetspartners->id)}}
-        {{ Form::submit('Radera', array('class'=>'btn btn-danger btn-sm')) }}
-        {{Form::close()}}
-    </td>
-
     @if(Auth::check())
+        <td>
+            {{ Form::open(array('url'=>'samarbetspartners/delete', 'method' =>'DELETE')) }}
+            {{ Form::hidden('id', $samarbetspartners->id)}}
+            {{ Form::submit('Radera', array('class'=>'btn btn-danger btn-sm')) }}
+            {{Form::close()}}
+        </td>
         <td>{{link_to_route('samarbetspartners.edit','Ändra', $samarbetspartners->id, array('class'=>'btn btn-primary btn-sm'))}}</td>
     @endif
 @stop
