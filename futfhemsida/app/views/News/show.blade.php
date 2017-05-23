@@ -10,7 +10,9 @@
     <div style="word-wrap: break-word">
         <p><i>{{$news->abstract}}</i></p>
         <p>{{$news->content}}</p>
-        <p>Order: {{$news->order}}</p>
+        @if(Auth::check())
+        <p>Order: {{$news->order}}</p> {{--Onödigt att se om man inte är inloggad--}}
+        @endif
         <p><i>Författare: {{$news->author}}</i></p>
     </div>
 

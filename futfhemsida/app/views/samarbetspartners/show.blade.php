@@ -10,7 +10,9 @@
     <div style="word-wrap: break-word">
         <p><i>{{$samarbetspartners->abstract}}</i></p>
         <p>{{$samarbetspartners->content}}</p>
-        <p>Order: {{$samarbetspartners->order}}</p>
+        @if(Auth::check())
+            <p>Order: {{$samarbetspartners->order}}</p> {{--Onödigt att se om man inte är inloggad--}}
+        @endif
     </div>
 
     @if(Auth::check())
