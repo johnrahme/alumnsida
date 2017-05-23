@@ -6,6 +6,7 @@
             left: -187.5px;
         {{-- -187.5 px to replace the column of width 3 to the left (col-sm-3 =3*750px/12=187.5 px) on big screen--}}
 
+
         }
     }
 
@@ -25,11 +26,15 @@
         <div class="col-sm-3">
             <div class="panel panel-default">
                 <div class="panel-body" style="padding-top: 0">
-                    <img style="margin-top: 5px;" class="img-responsive" src="http://beta.futf.se/img/creators/John.jpg"/>  {{--Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
+                    <img style="margin-top: 5px;" class="img-responsive"
+                         src="http://beta.futf.se/img/creators/John.jpg"/> {{--Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
                     <div class="page-header" style="margin-top:0px">
                         <h4 style="text-align: center">John Rahme</h4>
                     </div>
-                    Beskrivning här!
+                    Jag har varit med sedan hemsidans begynnelse och ansvarat för stor del av all back-end
+                    programmering. Jobbat med bland annat inloggnings-, event- samt nyhetssystem där jag lärt mig en hel
+                    del om databashantering och tekniker inom CRUD (Create, Read, Update, Delete). Jag är oerhört
+                    tacksam att jag kunnat delta i detta projekt då jag har lärt mig mycket och haft väldigt kul.
                 </div>
             </div>
         </div>
@@ -54,7 +59,8 @@
         <div class="col-sm-3">
             <div class="panel panel-default">
                 <div class="panel-body" style="padding-top: 0">
-                    <img style="margin-top: 5px;" class="img-responsive" src="http://beta.futf.se/img/creators/Johan.jpg"/> {{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
+                    <img style="margin-top: 5px;" class="img-responsive"
+                         src="http://beta.futf.se/img/creators/Johan.jpg"/> {{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
                     <div class="page-header" style="margin-top:0px">
                         <h4 style="text-align: center">Johan Soodla</h4>
                     </div>
