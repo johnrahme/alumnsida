@@ -8,10 +8,10 @@
         {{HTML::image($news->url, '', array('class' => 'img-responsive'))}}
     @endif
     <div style="word-wrap: break-word">
-        <p><i>{{$news->abstract}}</i> </p>
+        <p><i>{{$news->abstract}}</i></p>
         <p>{{$news->content}}</p>
         <p>Order: {{$news->order}}</p>
-        <p><i>Författare: {{$news->author}}</i> </p>
+        <p><i>Författare: {{$news->author}}</i></p>
     </div>
 
     <td>
@@ -20,9 +20,9 @@
         {{ Form::submit('Radera', array('class'=>'btn btn-danger btn-sm')) }}
         {{Form::close()}}
     </td>
-
-    <td>{{link_to_route('news.edit','Ändra', $news->id, array('class'=>'btn btn-primary btn-sm'))}}</td>
-
+    @if(Auth::check())
+        <td>{{link_to_route('news.edit','Ändra', $news->id, array('class'=>'btn btn-primary btn-sm'))}}</td>
+    @endif
 @stop
 
 @section('scripts')
