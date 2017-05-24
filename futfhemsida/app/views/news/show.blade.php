@@ -8,7 +8,7 @@
         {{HTML::image($news->url, '', array('class' => 'img-responsive'))}}
     @endif
     <div style="word-wrap: break-word">
-        {{--<p><i>{{$news->abstract}}</i></p>--}}
+        {{--<p><i>{{$news->abstract}}</i></p>--}} {{--Onödigt med repititio om man skriver samma i abstract och content--}}
         <p>{{$news->content}}</p>
         @if(Auth::check())
         <p>Order: {{$news->order}}</p> {{--Onödigt att se om man inte är inloggad--}}
