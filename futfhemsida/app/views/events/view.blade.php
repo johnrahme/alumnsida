@@ -11,7 +11,7 @@
                         <h3>{{$currEvent->name}}
                             <small>{{date('Y-m-d', strtotime($currEvent->dateTimeFrom))}}
                                 Kl. {{date('H:i', strtotime($currEvent->dateTimeFrom))}} Skapad
-                                av: {{link_to_route('view_admin',Admin::find($currEvent->createdBy)->username,array('id'=>$currEvent->createdBy))}}</small>
+                                av: {{link_to_route('view_admin',Admin::find($currEvent->createdBy)->name . ' ' . Admin::find($currEvent->createdBy)->surname ,array('id'=>$currEvent->createdBy))}}</small>
                         </h3>
 
                     </div>
