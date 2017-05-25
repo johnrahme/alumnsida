@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-sm-6">
                     @if($admin->pictureUrl!="")
-                        <img src="{{$admin->pictureUrl}}" class="img-responsive" alt="Profile image">
+                        <img src="../../{{$admin->pictureUrl}}" class="img-responsive" alt="Profile image">
                     @endif
                 </div>
             </div>
