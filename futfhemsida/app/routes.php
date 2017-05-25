@@ -57,7 +57,7 @@ Route::post('events/imgstore', array('as' => 'imgstore', 'uses' => 'EventControl
 
 //registrations
 
-Route::get('event/{id}/registrations', array('as' => 'registrations', 'uses' => 'RegistrationController@index'));
+Route::get('event/{id}/registrations', array('as' => 'registrations', 'uses' => 'RegistrationController@index'))->before('auth');
 
 Route::get('event/{id}/registrations/new', array('as' => 'new_registration', 'uses' => 'RegistrationController@newRegistration'));
 
@@ -78,7 +78,7 @@ Route::get('contact/sent', array('as' => 'sent', 'uses' => 'ContactController@se
 
 //admin
 
-Route::get('admin', array('as' => 'admin', 'uses' => 'AdminController@index'));
+Route::get('admin', array('as' => 'admin', 'uses' => 'AdminController@index'))->before('auth');
 
 Route::group(array('before' => 'auth|hasAdminLevel'), function () {
     Route::get('admin/new', array('as' => 'new_admin', 'uses' => 'AdminController@newadmin'));
