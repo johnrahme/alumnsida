@@ -18,16 +18,16 @@ class Registration extends Eloquent implements UserInterface, RemindableInterfac
      */
 
     public static $rules = array(
-        'name' => 'required',
+       /* 'name' => 'required',
         'surname' => 'required',
-        'email' => 'required|email',
+        'email' => 'required|email',*/
 
     );
 
     public static function getExtraRules(){
-        $rules2 = [ 'name' => 'required',
+        $rules2 = [ /*'name' => 'required',
                     'surname' => 'required',
-                     'email' => 'required|email',];
+                     'email' => 'required|email',*/];
 
 
         foreach (Input::get('extras') as $key => $value){
