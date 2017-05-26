@@ -54,10 +54,10 @@ class RegistrationController extends BaseController
         $regCount = Registration::where('eventId', '=', $eventId)->count();
 
         $registration = new Registration;
-        $registration->name = Input::get('name');
-        $registration->surname = Input::get('surname');
-        $registration->email = Input::get('email');
-        $registration->tel = $event->name;
+//        $registration->name = Input::get('name');
+//        $registration->surname = Input::get('surname');
+//        $registration->email = Input::get('email');
+//        $registration->tel = $event->name;
         $registration->eventId = $eventId;
         if ($regCount < $event->regnr) {
             $registration->res = 0;
