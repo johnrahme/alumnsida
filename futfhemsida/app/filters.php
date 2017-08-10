@@ -77,3 +77,11 @@ Route::filter('csrf', function () {
         throw new Illuminate\Session\TokenMismatchException;
     }
 });
+
+
+/*
+// Handle 404 missing pages
+*/
+App::missing(function($exception) {
+  return Redirect::route('404');
+});
