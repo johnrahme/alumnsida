@@ -129,6 +129,11 @@ class AdminController extends BaseController
                 $URL = 'img/admins/' . $saveName;
                 $admin->pictureUrl = $URL;
             }
+        } else {
+            if (strpos($admin->pictureUrl, 'img') !== false) {
+                File::delete($admin->pictureUrl);
+            }
+            $admin->pictureUrl = 'empty';
         }
 
         if (Input::get('password') != '') {
