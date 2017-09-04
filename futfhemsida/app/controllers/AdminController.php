@@ -88,10 +88,25 @@ class AdminController extends BaseController
     public function viewAllAdminsPublic()
     {
         $admins = Admin::where('accounttype', '=', 'styrelse')->get();
+        $ordf = null;
+        $vordf = null;
+        foreach($admins as $key => $admin)
+        {
+            if($admin->post == 'Ordförande')
+            {
+                $ordf = $admin;
+            }
+            if($admin->post == 'Vice ordförande')
+            {
+                $vordf = $admin;
+            }
+        }
         return View::make('admin.viewPublic')
             ->with('title', 'FUTFs Styrelse')
             ->with('admins', $admins)
-            ->with('active', 'admin');
+            ->with('active', 'admin')
+            ->with('ordf', $ordf)
+            ->with('vordf', $vordf);
     }
 
     public function edit($id)
