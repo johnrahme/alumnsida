@@ -18,7 +18,7 @@ class HemsidorController extends BaseController
 
     public function FUTF_Old()
     {
-        return Redirect::away('http://www.futf.se/');
+        return Redirect::away('http://old.futf.se/');
     }
 
     public function FUTF_nyhetsbrev()

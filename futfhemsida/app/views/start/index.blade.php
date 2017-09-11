@@ -12,7 +12,7 @@
         <h2> Välkommen till betaversionen av FUTF:s nya hemsida!</h2>
 
         <p> Hör gärna av er med idéer till {{HTML::mailto('it@futf.se')}}, vi vill ha all feedback vi kan få. Om du inte känner dig redo
-        för den nya hemsidan klicka <a href="http://www.old.futf.se">här</a> för att komma till den gamla hemsidan.</p>
+        för den nya hemsidan klicka <a href="http://old.futf.se">här</a> för att komma till den gamla hemsidan.</p>
     </div>
 
     <div class="row">

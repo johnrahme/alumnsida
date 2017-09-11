@@ -15,6 +15,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <style>
         @media (max-width: 768px) {
+            .samarbetspartners {
+                height: 250px;
+                background-color: white;
+                text-align: center;
+                font: 0/0 a;
+            }
+            .samarbetspartners:before {
+                content: ' ';
+                display: inline-block;
+                vertical-align: middle;
+                height: 100%;
+            }
+
+            .img-test {
+                vertical-align: middle;
+                display: inline-block;
+            }
+
             .samarbetspartners_slideshow {
                 display: none;
                 margin-top: 30px;
@@ -36,6 +54,7 @@
                     opacity: 1
                 }
             }
+
         }
 
         @media (min-width: 768px) {
@@ -50,22 +69,24 @@
 <div id="id_företag" style="display:none;">
     <div class="panel panel-default">
         <h4 style="text-align: center; margin-bottom: -25px">Samarbetspartners</h4>
-        <div>
-            <table style="width: 100%">
-                <?php $samarbetspartners = Samarbetspartners::orderBy('created_at', 'desc')->get(); ?>
-                @foreach($samarbetspartners as $key => $currSp)
-                    <tr class="samarbetspartners_slideshow animate-right">
-                        <th @if($currSp->url != 'empty')@endif>
-                            <div class="page-header_samarbetspartners" style="margin-bottom: -30px">
-                                <a href="samarbetspartners/{{$currSp->id}}"> @if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif</a>
-                            </div>
-                        </th>
-                    </tr>
-                @endforeach
-            </table>
-            <div @if(Auth::check()) id="dynamicCompany" @else @endif>
-            </div>
-            <div style="margin-bottom: 30px">
+        <div class="samarbetspartners">
+            <div class="img-test">
+                <table style="width: 100%">
+                    <?php $samarbetspartners = Samarbetspartners::orderBy('created_at', 'desc')->get(); ?>
+                    @foreach($samarbetspartners as $key => $currSp)
+                        <tr class="samarbetspartners_slideshow animate-right">
+                            <th @if($currSp->url != 'empty')@endif>
+                                <div class="page-header_samarbetspartners" style="margin-bottom: -30px">
+                                    <a href="samarbetspartners/{{$currSp->id}}"> @if($currSp->url != 'empty'){{HTML::image($currSp->url, '', array('class' => 'img-responsive'))}}@endif</a>
+                                </div>
+                            </th>
+                        </tr>
+                    @endforeach
+                </table>
+                <div @if(Auth::check()) id="dynamicCompany" @else @endif>
+                </div>
+                <div style="margin-bottom: 30px">
+                </div>
             </div>
         </div>
     </div>
