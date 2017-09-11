@@ -73,9 +73,10 @@
 
 <script>
     var index = 0;
-    window.addEventListener("resize", carousel);
+    //window.addEventListener("resize", carousel);
     window.addEventListener("load", carousel);
     function carousel() {
+        console.log("partner change");
         if (window.innerWidth <= 768) {
             var i;
             var x = document.getElementsByClassName("samarbetspartners_slideshow");
