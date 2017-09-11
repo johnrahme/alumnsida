@@ -41,7 +41,7 @@
                                 <a href="https://www.linkedin.com/groups/FUTF-Association-Uppsala-Engineering-Physics-2742358/about">LinkedIn</a>
                             </li>
                             <li><a href="https://www.facebook.com/futf.se?fref=ts">Facebook</a></li>
-                            <li><a href="http://futf.se/">Futf.se</a></li>
+                            <li><a href="http://old.futf.se/">FUTF:s gamla sida</a></li>
                         </ul>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                                 <a href="https://www.linkedin.com/groups/FUTF-Association-Uppsala-Engineering-Physics-2742358/about">LinkedIn</a>
                             </li>
                             <li><a href="https://www.facebook.com/futf.se?fref=ts">Facebook</a></li>
-                            <li><a href="http://futf.se/">Futf.se</a></li>
+                            <li><a href="http://old.futf.se/">FUTF:s gamla sida</a></li>
                         </ul>
                     </div>
                 </div>
