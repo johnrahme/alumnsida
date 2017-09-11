@@ -44,6 +44,7 @@
         {{Form::text('place','', array('class'=>'form-control'))}}
 
     </p>
+
 @stop
 @section('panelTwo')
     {{--Beskrivning--}}
@@ -99,7 +100,11 @@
                         {{Form::label('reserv', 'Kan man anmäla sig som reserv?')}} <br/>
                         {{Form::checkbox('reserv')}} <br/>
                     </p>
-
+                    <p>
+                        {{Form::label('visible','Ska antal registrerade synas?')}}
+                        <br>
+                        {{Form::checkbox('visible', 1, 0, array('class' => 'check-box'))}}
+                    </p>
                     <p>
                         {{Form::label('extra', 'Lägg till extra fält för anmälan')}} <br/>
 

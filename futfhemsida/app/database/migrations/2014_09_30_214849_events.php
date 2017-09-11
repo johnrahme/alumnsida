@@ -27,6 +27,7 @@ class Events extends Migration
             $table->dateTime('regTo');
             $table->integer('regnr');
             $table->boolean('reserv');
+            $table->boolean('visible');
             $table->integer('createdBy')->unsigned();
             $table->timestamps();
         });

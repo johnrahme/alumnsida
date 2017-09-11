@@ -16,19 +16,21 @@
                             Eventet är tyvärr fullt men du kan fortarande anmäla dig som reserv!
                         </p>
                     @else
-                        <p>
-                            Det finns just nu {{$event->regnr-$regCount}} av {{$event->regnr}} platser kvar!
-                        </p>
+                        @if(Auth::check() or $event->visible)
+                            <p>
+                                Det finns just nu {{$event->regnr-$regCount}} av {{$event->regnr}} platser kvar!
+                            </p>
+                        @endif
                     @endif
                     @include('common.users_errors')
                     {{Form::open(array('url'=> 'events/registrations/create'))}}
 
-                   {{-- <p>
-                        {{Form::label('name', 'Förnamn', array('class' => 'required'))}} <br/>
+                    {{-- <p>
+                         {{Form::label('name', 'Förnamn', array('class' => 'required'))}} <br/>
 
-                        {{Form::text('name', '',array('class' => 'form-control','placeholder' => 'Förnamn') )}}
+                         {{Form::text('name', '',array('class' => 'form-control','placeholder' => 'Förnamn') )}}
 
-                    </p>--}}
+                     </p>--}}
 
                     {{--<p>
                         {{Form::label('surname', 'Efternamn', array('class' => 'required'))}} <br/>
@@ -52,7 +54,7 @@
 
                     @foreach($extraFields as $key => $ex)
                         <p>
-                            {{Form::label('extras[]', $ex->title)}}<br/>  {{-- Ska det stå extras[]? --}}
+                            {{Form::label('extras[]', $ex->title)}}<br/> {{-- Ska det stå extras[]? --}}
                             {{Form::text('extras[]', '',array('class' => 'form-control') )}} {{-- Ska det stå extras[]? --}}
                             {{Form::hidden('extrasId[]',$ex->id)}} {{-- Ska det stå extrasId[]? --}}
                         </p>

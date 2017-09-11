@@ -82,6 +82,11 @@ class EventController extends BaseController
 
         $event = new Event;
 
+        if(!Input::get('visible')) {
+            $event->visible = 0;
+        } else {
+            $event->visible = 1;
+        }
         $event->name = Input::get('name');
         $event->dateTimeFrom = Input::get('dateTimeFrom');
         $event->dateTimeTo = Input::get('dateTimeTo');
@@ -175,14 +180,19 @@ class EventController extends BaseController
         if ($validation->fails()) {
             return Redirect::route('edit_event', $id)->withErrors($validation)->withInput();
         } else {
-
             $event = Event::find($id);
 
+            if(!Input::get('visible')) {
+                $event->visible = 0;
+            } else {
+                $event->visible = 1;
+            }
             $event->name = Input::get('name');
             $event->dateTimeFrom = Input::get('dateTimeFrom');
             $event->dateTimeTo = Input::get('dateTimeTo');
             $event->description = Input::get('description');
             $event->place = Input::get('place');
+
             if (Input::has('publish')) {
                 $event->publish = 1;
             } else {
