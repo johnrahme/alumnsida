@@ -27,7 +27,7 @@
             <div class="panel panel-default">
                 <div class="panel-body" style="padding-top: 0">
                     <img style="margin-top: 5px;" class="img-responsive"
-                         src="http://beta.futf.se/img/creators/John.jpg"/> {{--Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
+                         src="http://futf.se/img/creators/John.jpg"/> {{--Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
                     <div class="page-header" style="margin-top:0px">
                         <h4 style="text-align: center">John Rahme</h4>
                     </div>
@@ -42,7 +42,7 @@
             <div class="panel panel-default">
                 <div class="panel-body" style="padding-top: 0">
                     <img style="margin-top: 5px;" class="img-responsive"
-                         src="http://beta.futf.se/img/creators/Jonathan.jpg"/> {{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
+                         src="http://futf.se/img/creators/Jonathan.jpg"/> {{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
                     <div class="page-header" style="margin-top:0px">
                         <h4 style="text-align: center">Jonathan Haraldsson</h4>
                     </div>
@@ -50,7 +50,7 @@
                     och utveckla hemsidan från start. Jag var informationsansvarig mellan juli 2016 och juni 2017,
                     vilket bidrog till en ledarroll inom IT-gruppen. Jag har utvecklat mycket av designen, menyerna,
                     felhantering, samarbetspartners, fillagringssystemet
-                    (<a href="http://beta.futf.se/files" target="_blank">Dokument</a>),
+                    (<a href="http://futf.se/files" target="_blank">Dokument</a>),
                     sidfoten, en del småsaker och en massa annat. Jag är väldigt tacksam för att jag fått varit med i
                     arbetet med denna hemsida. Hoppas Ni tycker om hemsidan lika mycket som jag gör.
                 </div>
@@ -60,7 +60,7 @@
             <div class="panel panel-default">
                 <div class="panel-body" style="padding-top: 0">
                     <img style="margin-top: 5px;" class="img-responsive"
-                         src="http://beta.futf.se/img/creators/Johan.jpg"/> {{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
+                         src="http://futf.se/img/creators/Johan.jpg"/> {{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
                     <div class="page-header" style="margin-top:0px">
                         <h4 style="text-align: center">Johan Soodla</h4>
                     </div>
@@ -73,7 +73,7 @@
             <div class="panel panel-default">
                 <div class="panel-body" style="padding-top: 0">
                     <img style="margin-top: 5px;" class="img-responsive mirrorImage"
-                         src="http://beta.futf.se/img/creators/Albin.jpg"/> {{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
+                         src="http://futf.se/img/creators/Albin.jpg"/> {{-- Fixa så filen kan ligga lokalt, lcykas inte få access till bilden just nu..--}}
                     <div class="page-header" style="margin-top:0px">
                         <h4 style="text-align: center">Albin Gideonsson</h4>
                     </div>
