@@ -35,7 +35,6 @@ class Registration extends Eloquent implements UserInterface, RemindableInterfac
             if(1){ // $extraFieldFromDb->required == true
                 $rules2['extras.'.$key] = 'required';
             }
-
         }
 
     return $rules2;
